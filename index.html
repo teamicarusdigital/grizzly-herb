@@ -72,8 +72,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
-  padding: 5px 69px;
+  height: 24px;
+  padding: 4px 16px;
 }
 
 .gh-banner__inner {
@@ -89,7 +89,7 @@
 
 .gh-banner__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
   color: #ffffff;
   white-space: nowrap;
@@ -115,8 +115,8 @@
 .gh-nav {
   background: #ffffff;
   border-bottom: 1px solid #e8e6e3;
-  height: 44px;
-  padding: 6px 16px;
+  height: 40px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -126,6 +126,7 @@
 .gh-nav__left {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .gh-nav__hamburger {
@@ -145,13 +146,12 @@
 }
 
 .gh-nav__logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  transform: none;
 }
 
 .gh-nav__logo-img {
-  width: 112px;
+  width: 90px;
   height: auto;
   background: none;
 }
@@ -208,7 +208,7 @@
 @media (min-width: 768px) {
   .gh-nav {
     height: 76px;
-    padding: 6px 160px;
+    padding: 0 160px;
   }
 
   .gh-nav__hamburger {
@@ -246,19 +246,20 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right center;
+  background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right top;
   background-size: cover;
   padding: 24px 16px 32px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e8e6e3;
+  min-height: 420px;
 }
 
 .gh-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.97) 60%, rgba(248,246,243,0.85) 80%, rgba(248,246,243,0.6) 100%);
+  background: linear-gradient(to top, rgba(248,246,243,1) 0%, rgba(248,246,243,0.95) 40%, rgba(248,246,243,0.6) 65%, rgba(248,246,243,0.2) 85%, rgba(248,246,243,0) 100%);
   z-index: 0;
 }
 
@@ -268,9 +269,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
   position: relative;
   z-index: 1;
+  justify-content: flex-end;
+  min-height: 360px;
 }
 
 .gh-hero__trust {
@@ -301,24 +304,34 @@
 .gh-hero__avatar--4 { background: #7B6B8E; }
 
 .gh-hero__trust-text {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   color: #1f1f1f;
 }
 
 .gh-hero__headline {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 400;
   color: #2d5016;
   line-height: 1.2;
 }
 
+.gh-hero__headline strong {
+  font-weight: 700;
+}
+
+.gh-hero__headline em {
+  font-family: 'Outfit', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
 .gh-hero__desc {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   color: #3a3a3a;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .gh-hero__cta-group {
@@ -362,7 +375,7 @@
 }
 
 .gh-hero__feature-label {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
   color: #1f1f1f;
   white-space: nowrap;
@@ -374,10 +387,10 @@
   background: #d97835;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 50px;
-  padding: 18px 0;
+  padding: 12px 0;
   border: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
@@ -395,8 +408,8 @@
   align-items: center;
   background: #c9a961;
   border-radius: 100px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 6px 12px;
+  font-size: 11px;
   font-weight: 500;
   color: #3a3a3a;
 }
@@ -447,6 +460,7 @@
   .gh-hero__inner {
     min-height: 470px;
     justify-content: center;
+    gap: 16px;
   }
 
   .gh-hero__trust-text {
@@ -461,6 +475,7 @@
   .gh-hero__desc {
     font-size: 16px;
     max-width: 600px;
+    line-height: 1.6;
   }
 
   .gh-hero__features {
@@ -515,7 +530,7 @@
    ============================================================ */
 
 .gh-explore {
-  padding: 32px 16px;
+  padding: 24px 16px;
   background: linear-gradient(180deg, #f8f6f3 0%, #f0ece5 100%);
 }
 
@@ -526,10 +541,10 @@
 
 .gh-explore__heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #2d5016;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .gh-explore__content {
@@ -540,9 +555,9 @@
 
 .gh-explore__card {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid #c9a961;
-  padding: 28px 16px;
+  padding: 20px 14px;
 }
 
 .gh-explore__row {
@@ -573,16 +588,16 @@
 
 .gh-explore__row-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #1f1f1f;
 }
 
 .gh-explore__row-text {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .gh-explore__divider {
@@ -648,7 +663,7 @@
 
 .gh-products {
   background: #ffffff;
-  padding: 48px 16px;
+  padding: 24px 16px;
 }
 
 .gh-products__inner {
@@ -658,18 +673,18 @@
 
 .gh-products__heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #2d5016;
   margin-bottom: 8px;
 }
 
 .gh-products__desc {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  margin-bottom: 24px;
-  line-height: 1.6;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .gh-products__filters {
@@ -681,13 +696,13 @@
 
 .gh-products__filter {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   color: #3a3a3a;
   background: #e8e6e3;
   border: none;
   border-radius: 100px;
-  padding: 8px 20px;
+  padding: 6px 14px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -715,9 +730,9 @@
 .gh-products__card {
   width: calc(50% - 5px);
   background: #ffffff;
-  border-radius: 12px;
-  border: 2px solid #e8e6e3;
-  padding: 10px 8px;
+  border-radius: 8px;
+  border: 1px solid #e8e6e3;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s, transform 0.2s;
@@ -756,7 +771,7 @@
 
 .gh-products__card-name {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: #1f1f1f;
   margin-bottom: 4px;
@@ -795,11 +810,11 @@
   background: #2d5016;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
   border: none;
   border-radius: 100px;
-  padding: 10px 0;
+  padding: 8px 0;
   text-align: center;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -924,7 +939,7 @@
 
 .gh-reviews {
   background: #e8e6e3;
-  padding: 48px 16px;
+  padding: 24px 16px;
 }
 
 .gh-reviews__inner {
@@ -934,10 +949,10 @@
 
 .gh-reviews__heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
   color: #2d5016;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .gh-reviews__rating {
@@ -982,17 +997,17 @@
 }
 
 .gh-reviews__card {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 220px;
+  max-width: 220px;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid #3a3a3a;
-  padding: 24px 16px;
+  padding: 16px 12px;
   scroll-snap-align: start;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .gh-reviews__card-stars {
@@ -1139,16 +1154,16 @@
 
 .gh-moments {
   background: linear-gradient(180deg, #f8f6f3 0%, #eaf2e0 100%);
-  padding: 32px 16px;
+  padding: 24px 16px;
 }
 
 .gh-moments-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #2d5016;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 20px;
 }
 
 .gh-moments-layout {
@@ -1181,10 +1196,10 @@
 
 .gh-moments-desc {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -1214,7 +1229,7 @@
 
 .gh-moments-feature-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #1f1f1f;
   margin: 0 0 4px;
@@ -1222,7 +1237,7 @@
 
 .gh-moments-feature-desc {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #3a3a3a;
   margin: 0;
@@ -1239,11 +1254,11 @@
   display: inline-block;
   background: #d97835;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: #ffffff;
   border-radius: 6px;
-  padding: 14px 32px;
+  padding: 12px 24px;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
@@ -1346,7 +1361,7 @@
 
 .gh-sample-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -1532,16 +1547,16 @@
 
 .gh-compare {
   background: #ffffff;
-  padding: 32px 16px;
+  padding: 24px 12px;
 }
 
 .gh-compare-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   color: #2d5016;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 20px;
 }
 
 .gh-compare-table {
@@ -1577,7 +1592,7 @@
 }
 
 .gh-compare-logo {
-  max-width: 70px;
+  max-width: 50px;
   height: auto;
   filter: brightness(0) invert(1);
 }
@@ -1654,16 +1669,16 @@
 
 .gh-types {
   background: linear-gradient(180deg, #f8f6f3 0%, #eaf2e0 100%);
-  padding: 32px 16px;
+  padding: 24px 16px;
 }
 
 .gh-types-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #2d5016;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 20px;
 }
 
 .gh-types-grid {
@@ -1697,10 +1712,10 @@
 
 .gh-types-desc {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -1771,27 +1786,27 @@
 
 .gh-why {
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, #c9a961 100%);
-  padding: 32px 16px;
+  padding: 24px 16px;
 }
 
 .gh-why-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   color: #2d5016;
   text-align: center;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .gh-why-desc {
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: center;
   max-width: 960px;
-  margin: 0 auto 32px;
+  margin: 0 auto 24px;
 }
 
 .gh-why-features {
@@ -1873,7 +1888,7 @@
 
 .gh-reviews--2 {
   background: #e8e6e3;
-  padding: 48px 16px;
+  padding: 24px 16px;
   box-sizing: border-box;
 }
 
@@ -1884,10 +1899,10 @@
 
 .gh-reviews-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
   color: #2d5016;
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
 }
 
 .gh-reviews-rating-pill {
@@ -1930,11 +1945,11 @@
 .gh-reviews-track::-webkit-scrollbar { display: none; }
 
 .gh-review-card {
-  flex: 0 0 280px;
+  flex: 0 0 240px;
   scroll-snap-align: start;
   background: #ffffff;
-  border-radius: 16px;
-  padding: 28px 24px;
+  border-radius: 12px;
+  padding: 20px 16px;
   text-align: left;
   box-sizing: border-box;
 }
@@ -2048,7 +2063,7 @@
 
 .gh-faq {
   background: #ffffff;
-  padding: 48px 20px;
+  padding: 24px 16px;
   box-sizing: border-box;
 }
 
@@ -2065,7 +2080,7 @@
 
 .gh-faq-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   color: #2d5016;
   margin: 0;
@@ -2101,16 +2116,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 12px 14px;
   border: none;
   background: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   color: #3a3a3a;
   text-align: left;
-  gap: 16px;
+  gap: 12px;
   transition: font-weight 0.2s, color 0.2s;
 }
 
@@ -2201,7 +2216,7 @@
 
 .gh-footer {
   background: #f8f6f3;
-  padding: 29px 20px;
+  padding: 24px 16px;
   box-sizing: border-box;
 }
 
@@ -2213,10 +2228,14 @@
   margin-bottom: 40px;
 }
 
-.gh-footer-logo svg {
+.gh-footer-logo img {
   display: block;
-  width: 224px;
-  height: 64px;
+  width: 160px;
+  height: auto;
+}
+
+.gh-footer-logo svg {
+  display: none;
 }
 
 .gh-footer-tagline {
@@ -2224,7 +2243,13 @@
   font-size: 13px;
   font-weight: 400;
   color: #1f1f1f;
-  margin: 16px 0 0 0;
+  margin: 12px 0 0 0;
+}
+
+.gh-footer-tagline--sub {
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
 }
 
 .gh-footer-columns {
@@ -2324,6 +2349,7 @@
 
 .gh-footer-bottom {
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .gh-footer-copyright {
@@ -2346,30 +2372,40 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .gh-payment-icon {
-  width: 42px;
-  height: 26px;
-  background: #1f1f1f;
+  width: 48px;
+  height: 30px;
+  background: #ffffff;
   border-radius: 4px;
+  border: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4px;
+}
+
+.gh-payment-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .gh-payment-icon span {
   font-family: 'Poppins', sans-serif;
   font-size: 8px;
   font-weight: 600;
-  color: #ffffff;
+  color: #1f1f1f;
   letter-spacing: 0.5px;
 }
 
 .gh-footer-badges {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gh-footer-badge {
@@ -2391,9 +2427,8 @@
     padding: 64px 160px;
   }
 
-  .gh-footer-logo svg {
-    width: 350px;
-    height: 100px;
+  .gh-footer-logo img {
+    width: 280px;
   }
 
   .gh-footer-tagline {
@@ -2429,15 +2464,12 @@
 
   .gh-footer-payments {
     gap: 12px;
+    justify-content: center;
   }
 
   .gh-payment-icon {
     width: 64px;
     height: 40px;
-  }
-
-  .gh-payment-icon span {
-    font-size: 11px;
   }
 
   .gh-footer-badge {
@@ -2546,10 +2578,9 @@
         <span></span>
         <span></span>
       </button>
-    </div>
-
-    <div class="gh-nav__logo">
-      <img class="gh-nav__logo-img" src="/images/grizzly-herb-logo.png" alt="Grizzly Herb logo" loading="lazy">
+      <div class="gh-nav__logo">
+        <img class="gh-nav__logo-img" src="/images/grizzly-herb-logo.png" alt="Grizzly Herb logo" loading="lazy">
+      </div>
     </div>
 
     <div class="gh-nav__right">
@@ -2588,7 +2619,7 @@
       </div>
 
       <!-- Headline -->
-      <h1 class="gh-hero__headline">Your Search for Perfect Weed Ends Now.</h1>
+      <h1 class="gh-hero__headline">Your Search for Perfect <em>Weed</em> <strong>Ends Now.</strong></h1>
 
       <!-- Description -->
       <p class="gh-hero__desc">Shop the freshest, handpicked cannabis strains that set the bar high. Exclusively for those who know what they're looking for.</p>
@@ -3553,12 +3584,10 @@
     <!-- Logo + tagline -->
     <div class="gh-footer-logo-row">
       <div class="gh-footer-logo" aria-label="Grizzly Herb logo">
-        <svg width="350" height="100" viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="350" height="100" rx="8" fill="#2d5016"/>
-          <text x="175" y="58" text-anchor="middle" fill="#ffffff" font-family="Poppins,sans-serif" font-size="28" font-weight="700">GRIZZLY HERB</text>
-        </svg>
+        <img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb" loading="lazy">
       </div>
-      <p class="gh-footer-tagline">Built by burned buyers</p>
+      <p class="gh-footer-tagline">Premium Cannabis Delivered to Your Door</p>
+      <p class="gh-footer-tagline gh-footer-tagline--sub">Built by burned buyers. Trusted by thousands.</p>
     </div>
 
     <!-- Desktop: two-column layout (accordion + email signup) -->
@@ -3602,10 +3631,18 @@
 
     <!-- Payment method icons -->
     <div class="gh-footer-payments">
-      <div class="gh-payment-icon"><span>Visa</span></div>
-      <div class="gh-payment-icon"><span>Interac</span></div>
-      <div class="gh-payment-icon"><span>MC</span></div>
-      <div class="gh-payment-icon"><span>Visa2</span></div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M19.5 21.5h-3l1.9-11.5h3l-1.9 11.5zm12.7-11.2c-.6-.2-1.5-.5-2.7-.5-3 0-5 1.5-5 3.7 0 1.6 1.5 2.5 2.6 3.1 1.2.6 1.6.9 1.6 1.4 0 .8-.9 1.1-1.8 1.1-1.2 0-1.8-.2-2.8-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.2-3.8 0-1.3-.8-2.3-2.5-3.1-1-.5-1.7-.9-1.7-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.3.4l.3.1.3-2.3zm7.8-.3h-2.3c-.7 0-1.3.2-1.6 1l-4.4 10.5h3.2l.6-1.7h3.8l.4 1.7h2.8l-2.5-11.5zm-3.7 7.4l1.2-3.1.5-1.5.3 1.5.7 3.1h-2.7zM17 10l-2.8 7.8-.3-1.5c-.5-1.7-2.1-3.6-3.9-4.5l2.7 9.7h3.2L20.2 10H17z" fill="#1a1f71"/><path d="M11.7 10H7l-.1.3c3.8.9 6.3 3.2 7.3 5.9l-1-5c-.2-.8-.7-1.1-1.5-1.2z" fill="#f7a600"/></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><circle cx="19" cy="16" r="8" fill="#eb001b"/><circle cx="29" cy="16" r="8" fill="#f79e1b"/><path d="M24 10.3a8 8 0 0 1 0 11.4 8 8 0 0 1 0-11.4z" fill="#ff5f00"/></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M12 10h24v12H12z" fill="#f7b731"/><text x="24" y="18.5" text-anchor="middle" fill="#1f1f1f" font-family="Poppins,sans-serif" font-size="7" font-weight="700">INTERAC</text></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M24 6l2.4 5.5H33l-5 4 2 6-5-3.7-5 3.7 2-6-5-4h6.6z" fill="#016fd0"/><text x="24" y="27" text-anchor="middle" fill="#016fd0" font-family="Poppins,sans-serif" font-size="4" font-weight="700">AMEX</text></svg>
+      </div>
     </div>
 
     <!-- Verified badges -->
