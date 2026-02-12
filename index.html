@@ -293,17 +293,21 @@
 
 .gh-hero__avatars {
   display: flex;
-  padding-right: 18px;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .gh-hero__avatar {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -6px;
+  margin-left: -8px;
   object-fit: cover;
   display: block;
+  flex-shrink: 0;
 }
 
 .gh-hero__avatar:first-child {
