@@ -251,20 +251,19 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat right top;
-  background-size: cover;
-  padding: 20px 16px 28px;
+  background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat center top;
+  background-size: 100% auto;
+  padding: 0 16px 28px;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid #e8e6e3;
-  min-height: 380px;
+  min-height: 520px;
 }
 
 .gh-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(248,246,243,1) 0%, rgba(248,246,243,0.95) 40%, rgba(248,246,243,0.6) 65%, rgba(248,246,243,0.2) 85%, rgba(248,246,243,0) 100%);
+  background: linear-gradient(to bottom, rgba(248,246,243,0) 0%, rgba(248,246,243,0) 30%, rgba(248,246,243,0.6) 42%, rgba(248,246,243,0.95) 52%, rgba(248,246,243,1) 58%);
   z-index: 0;
 }
 
@@ -273,12 +272,12 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   position: relative;
   z-index: 1;
-  justify-content: flex-end;
-  min-height: 320px;
+  padding-top: 250px;
+  text-align: center;
 }
 
 .gh-hero__trust {
@@ -343,6 +342,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  margin-top: 6px;
 }
 
 .gh-hero__features {
@@ -422,7 +423,7 @@
 .gh-hero__badge {
   position: absolute;
   top: 16px;
-  right: 12px;
+  left: 16px;
   width: 66px;
   height: 66px;
   background: #2d5016;
@@ -433,6 +434,7 @@
   justify-content: center;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 2;
 }
 
 .gh-hero__badge-enjoy {
@@ -463,6 +465,9 @@
   }
 
   .gh-hero__inner {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
     min-height: 470px;
     justify-content: center;
     gap: 16px;
@@ -474,13 +479,17 @@
 
   .gh-hero__headline {
     font-size: 48px;
-    max-width: 700px;
+    max-width: 520px;
   }
 
   .gh-hero__desc {
-    font-size: 16px;
-    max-width: 600px;
+    font-size: 14px;
+    max-width: 440px;
     line-height: 1.6;
+  }
+
+  .gh-hero__cta-group {
+    max-width: 440px;
   }
 
   .gh-hero__features {
@@ -515,10 +524,12 @@
   }
 
   .gh-hero__badge {
-    width: 149px;
-    height: 149px;
-    top: 40px;
-    right: 180px;
+    width: 120px;
+    height: 120px;
+    top: auto;
+    left: auto;
+    bottom: 40px;
+    right: 140px;
   }
 
   .gh-hero__badge-enjoy {
@@ -1441,7 +1452,7 @@
   }
 
   .gh-moments-image {
-    flex: 0 0 48%;
+    flex: 0 0 42%;
     order: 1;
   }
 
@@ -1561,11 +1572,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px 8px 0 0;
 }
 
 .gh-compare-logo {
-  max-width: 50px;
+  max-width: 80px;
   height: auto;
+  display: block;
+  margin: 0 auto;
   filter: brightness(0) invert(1);
 }
 
@@ -1973,20 +1987,25 @@
 
 @media (min-width: 768px) {
   .gh-faq {
-    padding: 130px 300px;
+    padding: 80px 80px;
   }
 
   .gh-faq-inner {
     flex-direction: row;
     gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
   }
 
   .gh-faq-heading {
     font-size: 40px;
+    flex-shrink: 0;
   }
 
   .gh-faq-list-col {
     max-width: 686px;
+    flex: 1;
   }
 
   .gh-faq-question {
@@ -2359,6 +2378,14 @@
 /* ============================================================
    UTILITY CLASSES
    ============================================================ */
+
+/* Ensure all green buttons have white text */
+.gh-root a[class*="cta"],
+.gh-root a[class*="btn"],
+.gh-root button[class*="cta"],
+.gh-root button[class*="btn"] {
+  color: #ffffff;
+}
 
 .gh-root .gh-sr-only {
   position: absolute;
