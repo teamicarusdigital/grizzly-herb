@@ -252,7 +252,7 @@
 /* --- Hero Content Area --- */
 .gh-hero {
   background: #ffffff;
-  padding: 0 16px 28px;
+  padding: 0 0 28px;
   position: relative;
   overflow: hidden;
 }
@@ -268,7 +268,8 @@
 .gh-hero__mobile-img {
   display: block;
   width: calc(100% + 32px);
-  margin: 0 -16px;
+  margin-left: -16px;
+  margin-right: -16px;
 }
 
 .gh-hero__inner {
@@ -277,10 +278,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   position: relative;
   z-index: 1;
-  padding-top: 0;
+  padding: 0 16px;
   text-align: center;
 }
 
@@ -325,7 +326,7 @@
   font-weight: 400;
   color: #2d5016;
   line-height: 1.2;
-  margin-top: -50px;
+  margin-top: -450px;
   position: relative;
   z-index: 2;
 }
@@ -449,10 +450,14 @@
   .gh-hero__inner {
     align-items: flex-start;
     text-align: left;
-    padding-top: 0;
+    padding: 0;
     min-height: 470px;
     justify-content: center;
     gap: 16px;
+  }
+
+  .gh-hero__trust {
+    padding: 0;
   }
 
   .gh-hero__trust-text {
@@ -463,6 +468,8 @@
     font-size: 44px;
     max-width: 500px;
     margin-top: 0;
+    position: static;
+    z-index: auto;
   }
 
   .gh-hero__desc {
