@@ -247,7 +247,7 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('images/hero-bg.jpg') no-repeat right center;
+  background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right center;
   background-size: cover;
   padding: 24px 16px 32px;
   position: relative;
@@ -259,7 +259,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.92) 40%, rgba(248,246,243,0.6) 70%, rgba(248,246,243,0.3) 100%);
+  background: linear-gradient(to right, rgba(248,246,243,0.95) 0%, rgba(248,246,243,0.88) 50%, rgba(248,246,243,0.7) 80%, rgba(248,246,243,0.5) 100%);
   z-index: 0;
 }
 
@@ -373,11 +373,13 @@
   padding: 18px 33px;
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
 }
 
 .gh-hero__cta:hover {
   background: #c06a2a;
+  color: #ffffff;
 }
 
 .gh-hero__shipping {
@@ -424,14 +426,19 @@
 
 @media (min-width: 768px) {
   .gh-hero {
-    background: #f8f6f3 url('images/hero-bg.jpg') no-repeat right center;
+    background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right center;
     background-size: cover;
     padding: 64px 160px;
     min-height: 600px;
   }
 
   .gh-hero::before {
-    background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.85) 35%, rgba(248,246,243,0) 65%);
+    background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.97) 30%, rgba(248,246,243,0.8) 48%, rgba(248,246,243,0.15) 62%, rgba(248,246,243,0) 75%);
+  }
+
+  .gh-hero__inner {
+    min-height: 470px;
+    justify-content: center;
   }
 
   .gh-hero__trust-text {
@@ -773,7 +780,9 @@
 }
 
 .gh-products__card-btn {
-  display: block;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   width: 100%;
   background: #2d5016;
   color: #ffffff;
@@ -790,6 +799,7 @@
 
 .gh-products__card-btn:hover {
   background: #3d6b12;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -1056,6 +1066,7 @@
 
 .gh-reviews__arrow:hover {
   background: #3d6b12;
+  color: #ffffff;
 }
 
 .gh-reviews__dots {
@@ -1226,11 +1237,12 @@
   border-radius: 6px;
   padding: 14px 32px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .gh-moments-cta:hover {
   background: #c06a2a;
+  color: #ffffff;
 }
 
 .gh-moments-pill {
@@ -1443,11 +1455,12 @@
   text-decoration: none;
   text-align: center;
   align-self: center;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .gh-sample-cta:hover {
   background: #3d6b12;
+  color: #ffffff;
 }
 
 @media (min-width: 768px) {
@@ -1682,11 +1695,12 @@
   border-radius: 6px;
   padding: 14px 32px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .gh-types-cta:hover {
   background: #3d6b12;
+  color: #ffffff;
 }
 
 .gh-types-pill {
@@ -2442,6 +2456,7 @@
 
 .gh-sticky__btn:hover {
   background: #c06a2a;
+  color: #ffffff;
 }
 
 @media (min-width: 768px) {
@@ -2507,7 +2522,7 @@
     </div>
 
     <div class="gh-nav__logo">
-      <img class="gh-nav__logo-img" src="images/grizzly-herb-logo.png" alt="Grizzly Herb logo" loading="lazy">
+      <img class="gh-nav__logo-img" src="/images/grizzly-herb-logo.png" alt="Grizzly Herb logo" loading="lazy">
     </div>
 
     <div class="gh-nav__right">
@@ -2537,10 +2552,10 @@
       <!-- Trust badge -->
       <div class="gh-hero__trust">
         <div class="gh-hero__avatars">
-          <img class="gh-hero__avatar gh-hero__avatar--1" src="images/customer-avatar-1.png" alt="customer avatar 1" loading="lazy">
-          <img class="gh-hero__avatar gh-hero__avatar--2" src="images/customer-avatar-2.png" alt="customer avatar 2" loading="lazy">
-          <img class="gh-hero__avatar gh-hero__avatar--3" src="images/customer-avatar-3.png" alt="customer avatar 3" loading="lazy">
-          <img class="gh-hero__avatar gh-hero__avatar--4" src="images/customer-avatar-4.png" alt="customer avatar 4" loading="lazy">
+          <img class="gh-hero__avatar gh-hero__avatar--1" src="/images/customer-avatar-1.png" alt="customer avatar 1" loading="lazy">
+          <img class="gh-hero__avatar gh-hero__avatar--2" src="/images/customer-avatar-2.png" alt="customer avatar 2" loading="lazy">
+          <img class="gh-hero__avatar gh-hero__avatar--3" src="/images/customer-avatar-3.png" alt="customer avatar 3" loading="lazy">
+          <img class="gh-hero__avatar gh-hero__avatar--4" src="/images/customer-avatar-4.png" alt="customer avatar 4" loading="lazy">
         </div>
         <span class="gh-hero__trust-text">Trusted By 10,000+ Customers</span>
       </div>
@@ -2568,7 +2583,7 @@
       </div>
 
       <!-- CTA button -->
-      <button class="gh-hero__cta">Explore Our Collection →</button>
+      <a href="#products" class="gh-hero__cta">Explore Our Collection →</a>
 
       <!-- Shipping pill -->
       <div class="gh-hero__shipping">30% Off + Free Shipping over $90</div>
@@ -2595,7 +2610,7 @@
 
           <!-- Row 1: Curated Selection -->
           <div class="gh-explore__row">
-            <img class="gh-explore__row-icon" src="images/curated-selection-icon.png" alt="curated selection icon" loading="lazy">
+            <img class="gh-explore__row-icon" src="/images/curated-selection-icon.png" alt="curated selection icon" loading="lazy">
             <div class="gh-explore__row-body">
               <h3 class="gh-explore__row-title">Curated Selection</h3>
               <p class="gh-explore__row-text">Explore our carefully curated collection, where every strain is chosen for its unique flavour, aroma, and powerful effects.</p>
@@ -2605,7 +2620,7 @@
 
           <!-- Row 2: For Those Who Know -->
           <div class="gh-explore__row">
-            <img class="gh-explore__row-icon" src="images/for-those-who-know-icon.png" alt="for those who know icon" loading="lazy">
+            <img class="gh-explore__row-icon" src="/images/for-those-who-know-icon.png" alt="for those who know icon" loading="lazy">
             <div class="gh-explore__row-body">
               <h3 class="gh-explore__row-title">For Those Who Know</h3>
               <p class="gh-explore__row-text">Whether you're a seasoned pro or someone who just knows good cannabis when they see it, we've got something to take your experience to the next level. From bold, loud genetics to rare, exclusive drops - Grizzly Herb is for those who want more than just a joint. It's about enjoying every moment.</p>
@@ -2616,14 +2631,14 @@
         </div>
 
         <!-- Large image placeholder -->
-        <img class="gh-explore__image" src="images/handpicked-strains-lifestyle-photo.jpg" alt="Handpicked cannabis strains" loading="lazy">
+        <img class="gh-explore__image" src="/images/handpicked-strains-lifestyle-photo.jpg" alt="Handpicked cannabis strains" loading="lazy">
 
       </div>
     </div>
   </section>
 
   <!-- ======== SECTION 2: FIND YOUR PERFECT STRAIN ======== -->
-  <section class="gh-products">
+  <section class="gh-products" id="products">
     <div class="gh-products__inner">
 
       <h2 class="gh-products__heading">Find Your Perfect Strain</h2>
@@ -2644,7 +2659,7 @@
 
         <!-- Product 1: Purple Kush -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/purple-kush-cannabis-flower.jpg" alt="Purple Kush cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/purple-kush-cannabis-flower.jpg" alt="Purple Kush cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2663,7 +2678,7 @@
 
         <!-- Product 2: Peanut Butter Breath -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/peanut-butter-breath-cannabis-flower.jpg" alt="Peanut Butter Breath cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/peanut-butter-breath-cannabis-flower.jpg" alt="Peanut Butter Breath cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2682,7 +2697,7 @@
 
         <!-- Product 3: Vanilla Kush -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/vanilla-kush-cannabis-flower.jpg" alt="Vanilla Kush cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/vanilla-kush-cannabis-flower.jpg" alt="Vanilla Kush cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2701,7 +2716,7 @@
 
         <!-- Product 4: Diamond Edition 50-Pack -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/grizzly-herb-diamond-edition-50-pack-pre-rolls.jpg" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
+          <img class="gh-products__card-img" src="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.jpg" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2720,7 +2735,7 @@
 
         <!-- Product 5: Ghost Breath -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/ghost-breath-cannabis-flower.jpg" alt="Ghost Breath cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/ghost-breath-cannabis-flower.jpg" alt="Ghost Breath cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2739,7 +2754,7 @@
 
         <!-- Product 6: Golden Oreoz -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/golden-oreoz-cannabis-flower.jpg" alt="Golden Oreoz cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/golden-oreoz-cannabis-flower.jpg" alt="Golden Oreoz cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2758,7 +2773,7 @@
 
         <!-- Product 7: Key Lime Haze -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/key-lime-haze-cannabis-flower.jpg" alt="Key Lime Haze cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/key-lime-haze-cannabis-flower.jpg" alt="Key Lime Haze cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2777,7 +2792,7 @@
 
         <!-- Product 8: Grape Diesel -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="images/grape-diesel-cannabis-flower.jpg" alt="Grape Diesel cannabis flower" loading="lazy">
+          <img class="gh-products__card-img" src="/images/grape-diesel-cannabis-flower.jpg" alt="Grape Diesel cannabis flower" loading="lazy">
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -2990,7 +3005,7 @@
   <div class="gh-moments-layout">
     <!-- Left: Large image -->
     <div class="gh-moments-image">
-      <img class="gh-img-placeholder" src="images/cannabis-buds-arranged-artistically.jpg" alt="Cannabis buds arranged artistically on a natural wood surface with warm lighting" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/cannabis-buds-arranged-artistically.jpg" alt="Cannabis buds arranged artistically on a natural wood surface with warm lighting" loading="lazy">
     </div>
 
     <!-- Right: White content card -->
@@ -3001,7 +3016,7 @@
       <div class="gh-moments-features">
         <!-- Feature a -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="images/target-crosshair-icon-representing-strain-matching.png" alt="Target crosshair icon representing strain matching" loading="lazy">
+          <img class="gh-img-placeholder" src="/images/target-crosshair-icon-representing-strain-matching.png" alt="Target crosshair icon representing strain matching" loading="lazy">
           <div>
             <div class="gh-moments-feature-title">Match strain to moment</div>
             <div class="gh-moments-feature-desc">Different times call for different strains. We help you choose what fits.</div>
@@ -3010,7 +3025,7 @@
 
         <!-- Feature b -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="images/hand-picking-icon-representing-handpicked-quality-strains.png" alt="Hand picking icon representing handpicked quality strains" loading="lazy">
+          <img class="gh-img-placeholder" src="/images/hand-picking-icon-representing-handpicked-quality-strains.png" alt="Hand picking icon representing handpicked quality strains" loading="lazy">
           <div>
             <div class="gh-moments-feature-title">Handpicked for effect</div>
             <div class="gh-moments-feature-desc">Every strain is selected because it delivers. No filler, just quality.</div>
@@ -3019,7 +3034,7 @@
 
         <!-- Feature c -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="images/spectrum-range-icon-representing-indica-to-sativa-range.png" alt="Spectrum range icon representing indica to sativa range" loading="lazy">
+          <img class="gh-img-placeholder" src="/images/spectrum-range-icon-representing-indica-to-sativa-range.png" alt="Spectrum range icon representing indica to sativa range" loading="lazy">
           <div>
             <div class="gh-moments-feature-title">Indica to sativa range</div>
             <div class="gh-moments-feature-desc">Relaxation or energy. Whatever you need, we've got you covered.</div>
@@ -3029,7 +3044,7 @@
 
       <!-- CTA + Shipping pill -->
       <div class="gh-moments-actions">
-        <a href="#" class="gh-moments-cta">Shop Strains &rarr;</a>
+        <a href="#products" class="gh-moments-cta">Shop Strains &rarr;</a>
         <span class="gh-moments-pill">30% Off + Free Shipping over $90</span>
       </div>
     </div>
@@ -3067,14 +3082,14 @@
 
       <!-- Product images -->
       <div class="gh-sample-products">
-        <img class="gh-img-placeholder" src="images/cannabis-product-package-sample-bag-1.png" alt="Cannabis product package sample bag 1" loading="lazy">
+        <img class="gh-img-placeholder" src="/images/cannabis-product-package-sample-bag-1.png" alt="Cannabis product package sample bag 1" loading="lazy">
         <span class="gh-sample-products-plus">+</span>
-        <img class="gh-img-placeholder" src="images/cannabis-product-package-sample-bag-2.png" alt="Cannabis product package sample bag 2" loading="lazy">
+        <img class="gh-img-placeholder" src="/images/cannabis-product-package-sample-bag-2.png" alt="Cannabis product package sample bag 2" loading="lazy">
       </div>
 
       <p class="gh-sample-qty">3 strains &times; 3.5g each</p>
 
-      <a href="#" class="gh-sample-cta">Start With Sample Pack &rarr;</a>
+      <a href="#products" class="gh-sample-cta">Start With Sample Pack &rarr;</a>
     </div>
   </div>
 </section>
@@ -3141,28 +3156,28 @@
 
     <!-- Card: Indica -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="images/green-indica-cannabis-leaf-illustration.png" alt="Green indica cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/green-indica-cannabis-leaf-illustration.png" alt="Green indica cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Indica</h3>
       <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep. Dive into our curated collection of Indica strains and discover the tranquility they can bring to your evenings.</p>
     </div>
 
     <!-- Card: Hybrid -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="images/green-hybrid-cannabis-leaf-illustration.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/green-hybrid-cannabis-leaf-illustration.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Hybrid</h3>
       <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered. Explore the symphony of effects that only hybrid strains can offer and find your perfect middle ground.</p>
     </div>
 
     <!-- Card: Sativa -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="images/green-sativa-cannabis-leaf-illustration.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/green-sativa-cannabis-leaf-illustration.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Sativa</h3>
       <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy. They're especially popular among those who want to stay active, socialize, or dive into a creative project. Dive into our Sativa collection and discover strains that can add a touch of brightness and enthusiasm to your day.</p>
     </div>
 
     <!-- Card: Full Spectrum -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="images/full-spectrum-cannabis-extract-leaf-illustration.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/full-spectrum-cannabis-extract-leaf-illustration.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Full Spectrum</h3>
       <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound. At Grizzly Herb, our Full Spectrum offerings are crafted to provide you with a holistic cannabis experience. By preserving the complete profile of the plant, Full Spectrum products offer a depth of effects that isolated compounds can't match.</p>
     </div>
@@ -3170,7 +3185,7 @@
 
   <!-- CTA + Shipping pill -->
   <div class="gh-types-actions">
-    <a href="#" class="gh-types-cta">Shop Your Favorite &rarr;</a>
+    <a href="#products" class="gh-types-cta">Shop Your Favorite &rarr;</a>
     <span class="gh-types-pill">30% Off + Free Shipping over $90</span>
   </div>
 </section>
@@ -3186,7 +3201,7 @@
 
     <!-- Feature a: Free Express Shipping -->
     <div class="gh-why-feature">
-      <img class="gh-img-placeholder" src="images/shipping-truck-icon-for-free-express-delivery.png" alt="Shipping truck icon for free express delivery" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/shipping-truck-icon-for-free-express-delivery.png" alt="Shipping truck icon for free express delivery" loading="lazy">
       <h3 class="gh-why-feature-title">Free Express Shipping</h3>
       <p class="gh-why-feature-desc">Every time your order is $90 or more, your express shipping for the world's best medical marijuana delivered directly to your door is FREE! Time to start buying weed online Canada.</p>
       <div class="gh-why-divider"></div>
@@ -3194,7 +3209,7 @@
 
     <!-- Feature b: Best Price Guarantee -->
     <div class="gh-why-feature">
-      <img class="gh-img-placeholder" src="images/price-tag-icon-representing-best-price-guarantee.png" alt="Price tag icon representing best price guarantee" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="Price tag icon representing best price guarantee" loading="lazy">
       <h3 class="gh-why-feature-title">Best Price Guarantee</h3>
       <p class="gh-why-feature-desc">When you order weed online with us, we guarantee the lowest prices. We're so confident that we have the lowest price that if you find an item of the same strain and grade currently offered for less, we'll match that price!</p>
       <div class="gh-why-divider"></div>
@@ -3202,7 +3217,7 @@
 
     <!-- Feature c: Highest Quality -->
     <div class="gh-why-feature">
-      <img class="gh-img-placeholder" src="images/quality-badge-icon-representing-highest-quality-standards.png" alt="Quality badge icon representing highest quality standards" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="Quality badge icon representing highest quality standards" loading="lazy">
       <h3 class="gh-why-feature-title">Highest Quality</h3>
       <p class="gh-why-feature-desc">All of our growers follow the strictest guidelines. No pesticides, long curing times and all strains are tested in house.</p>
       <div class="gh-why-divider"></div>
