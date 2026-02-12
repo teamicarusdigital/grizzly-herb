@@ -1436,7 +1436,7 @@
 
 @media (min-width: 768px) {
   .gh-moments {
-    padding: 56px 80px 56px;
+    padding: 56px 120px 56px;
   }
 
   .gh-moments-heading {
@@ -1448,17 +1448,19 @@
   .gh-moments-layout {
     flex-direction: row;
     gap: 32px;
-    align-items: stretch;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .gh-moments-image {
-    flex: 0 0 42%;
+    flex: 0 0 38%;
     order: 1;
   }
 
   .gh-moments-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 12px;
   }
@@ -1466,9 +1468,11 @@
   .gh-moments-card {
     flex: 1;
     order: 2;
-    padding: 28px 24px;
+    padding: 0;
     gap: 20px;
     margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
   }
 
   .gh-moments-desc {
@@ -1508,14 +1512,16 @@
   }
 
   .gh-moments-actions {
-    align-items: stretch;
+    align-items: center;
     gap: 14px;
+    margin-top: 24px;
   }
 
   .gh-moments-cta {
     font-size: 16px;
     padding: 14px 32px;
     border-radius: 8px;
+    max-width: 100%;
   }
 
   .gh-moments-pill {
@@ -3095,12 +3101,13 @@
         </div>
       </div>
 
-      <!-- CTA + Shipping pill -->
-      <div class="gh-moments-actions">
-        <a href="#products" class="gh-moments-cta">Shop Strains &uarr;</a>
-        <span class="gh-moments-pill"><span class="gh-moments-pill__icon">&#128722;</span> 30% Off + Free Shipping over $90</span>
-      </div>
     </div>
+  </div>
+
+  <!-- CTA + Shipping pill (below both columns) -->
+  <div class="gh-moments-actions">
+    <a href="#products" class="gh-moments-cta">Shop Strains &uarr;</a>
+    <span class="gh-moments-pill"><span class="gh-moments-pill__icon">&#128722;</span> 30% Off + Free Shipping over $90</span>
   </div>
 </section>
 
