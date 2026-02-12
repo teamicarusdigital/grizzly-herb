@@ -251,20 +251,25 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat center top;
-  background-size: 100% auto;
+  background: #ffffff;
   padding: 0 16px 28px;
   position: relative;
   overflow: hidden;
-  min-height: 520px;
 }
 
 .gh-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(248,246,243,0) 0%, rgba(248,246,243,0) 30%, rgba(248,246,243,0.6) 42%, rgba(248,246,243,0.95) 52%, rgba(248,246,243,1) 58%);
+  background: none;
   z-index: 0;
+}
+
+.gh-hero__mobile-img {
+  display: block;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  margin-top: -20px;
 }
 
 .gh-hero__inner {
@@ -276,14 +281,16 @@
   gap: 10px;
   position: relative;
   z-index: 1;
-  padding-top: 250px;
+  padding-top: 0;
   text-align: center;
 }
 
 .gh-hero__trust {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 14px 0;
 }
 
 .gh-hero__avatars {
@@ -291,11 +298,11 @@
 }
 
 .gh-hero__avatar {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  margin-left: -6px;
+  margin-left: -8px;
 }
 
 .gh-hero__avatar:first-child {
@@ -308,14 +315,14 @@
 .gh-hero__avatar--4 { background: #7B6B8E; }
 
 .gh-hero__trust-text {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   color: #1f1f1f;
 }
 
 .gh-hero__headline {
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 400;
   color: #2d5016;
   line-height: 1.2;
@@ -332,10 +339,10 @@
 }
 
 .gh-hero__desc {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 300;
   color: #3a3a3a;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .gh-hero__cta-group {
@@ -429,7 +436,12 @@
   }
 
   .gh-hero::before {
+    display: block;
     background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,1) 38%, rgba(248,246,243,0.85) 48%, rgba(248,246,243,0.2) 58%, rgba(248,246,243,0) 68%);
+  }
+
+  .gh-hero__mobile-img {
+    display: none;
   }
 
   .gh-hero__inner {
@@ -2549,6 +2561,9 @@
         </div>
         <span class="gh-hero__trust-text">Trusted By 10,000+ Customers</span>
       </div>
+
+      <!-- Mobile hero image (hidden on desktop) -->
+      <img class="gh-hero__mobile-img" src="/images/hero-bg-mobile.png" alt="Cannabis expert examining premium strains">
 
       <!-- Headline -->
       <h1 class="gh-hero__headline">Your Search for Perfect <em>Weed</em> <strong>Ends Now.</strong></h1>
