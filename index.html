@@ -1028,23 +1028,34 @@
 
 .gh-reviews__carousel {
   display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-bottom: 0;
+  overflow: hidden;
   text-align: left;
+  width: 100%;
 }
 
 .gh-reviews__carousel::-webkit-scrollbar {
   display: none;
 }
 
+.gh-reviews__track {
+  display: flex;
+  gap: 12px;
+  animation: gh-reviews-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.gh-reviews__carousel:hover .gh-reviews__track {
+  animation-play-state: paused;
+}
+
+@keyframes gh-reviews-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .gh-reviews__card-wrapper {
   min-width: 240px;
   max-width: 240px;
-  scroll-snap-align: start;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -1146,11 +1157,7 @@
 }
 
 .gh-reviews__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 32px;
+  display: none;
 }
 
 .gh-reviews__arrow {
@@ -2860,6 +2867,7 @@
 
       <!-- Review cards carousel -->
       <div class="gh-reviews__carousel">
+        <div class="gh-reviews__track">
 
         <!-- Review 1 -->
         <div class="gh-reviews__card-wrapper">
@@ -3013,6 +3021,7 @@
           </div>
         </div>
 
+        </div><!-- /.gh-reviews__track -->
       </div>
 
       <!-- Carousel controls -->
@@ -3447,45 +3456,13 @@
   var root = document.querySelector('.gh-root');
   if(!root) return;
 
-  // === Review carousel (Section 3) ===
-  var carousel = root.querySelector('.gh-reviews__carousel');
-  var dots = root.querySelectorAll('.gh-reviews__dot');
-  var arrows = root.querySelectorAll('.gh-reviews__arrow');
-
-  function updateDots(){
-    if(!carousel || !dots.length) return;
-    var cards = carousel.querySelectorAll('.gh-reviews__card');
-    if(!cards.length) return;
-    var cardW = cards[0].offsetWidth + 10;
-    var idx = Math.round(carousel.scrollLeft / cardW);
-    for(var i=0;i<dots.length;i++){
-      dots[i].classList.toggle('gh-reviews__dot--active', i === idx);
+  // === Review carousel infinite auto-scroll (Section 3) ===
+  var track = root.querySelector('.gh-reviews__track');
+  if (track) {
+    var items = track.querySelectorAll('.gh-reviews__card-wrapper');
+    for (var i = 0; i < items.length; i++) {
+      track.appendChild(items[i].cloneNode(true));
     }
-  }
-
-  if(carousel) carousel.addEventListener('scroll', updateDots);
-
-  for(var d=0;d<dots.length;d++){
-    (function(idx){
-      dots[idx].addEventListener('click', function(){
-        var cards = carousel.querySelectorAll('.gh-reviews__card');
-        if(!cards.length) return;
-        var cardW = cards[0].offsetWidth + 10;
-        carousel.scrollTo({left: idx * cardW, behavior: 'smooth'});
-      });
-    })(d);
-  }
-
-  for(var a=0;a<arrows.length;a++){
-    (function(btn, idx){
-      btn.addEventListener('click', function(){
-        var dir = idx === 0 ? -1 : 1;
-        var cards = carousel.querySelectorAll('.gh-reviews__card');
-        if(!cards.length) return;
-        var cardW = cards[0].offsetWidth + 10;
-        carousel.scrollBy({left: dir * cardW, behavior: 'smooth'});
-      });
-    })(arrows[a], a);
   }
 
   // === Product filter tabs ===
