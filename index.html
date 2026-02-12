@@ -357,7 +357,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  background: #f0ede8;
+  background: #ffffff;
   border: 1px solid #e0ddd8;
   border-radius: 8px;
   padding: 14px 8px 12px;
@@ -368,8 +368,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   line-height: 1;
+}
+
+.gh-hero__feature-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(62%) sepia(50%) saturate(400%) hue-rotate(5deg) brightness(0.9);
 }
 
 .gh-hero__feature-label {
@@ -465,8 +471,9 @@
     gap: 8px;
   }
 
-  .gh-hero__feature-icon {
-    font-size: 28px;
+  .gh-hero__feature-icon img {
+    width: 32px;
+    height: 32px;
   }
 
   .gh-hero__feature-label {
@@ -2553,15 +2560,15 @@
       <div class="gh-hero__cta-group">
         <div class="gh-hero__features">
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true">🌿</div>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/curated-selection-icon.png" alt="Direct Sourced"></div>
             <span class="gh-hero__feature-label">Direct Sourced</span>
           </div>
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true">💰</div>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="Zero Markup"></div>
             <span class="gh-hero__feature-label">Zero Markup</span>
           </div>
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true">✅</div>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="Batch Consistent"></div>
             <span class="gh-hero__feature-label">Batch Consistent</span>
           </div>
         </div>
