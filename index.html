@@ -250,26 +250,21 @@
 }
 
 /* --- Hero Content Area --- */
+/* Mobile: uses <img> element for hero banner, trust badge above image */
 .gh-hero {
   background: #ffffff;
-  padding: 0 0 28px;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
 
 .gh-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: none;
-  z-index: 0;
+  display: none;
 }
 
 .gh-hero__mobile-img {
   display: block;
-  width: calc(100% + 32px);
-  margin-left: -16px;
-  margin-right: -16px;
+  width: 100%;
 }
 
 .gh-hero__inner {
@@ -278,10 +273,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 10px;
   position: relative;
   z-index: 1;
-  padding: 0 16px;
+  padding: 0 16px 28px;
   text-align: center;
 }
 
@@ -326,9 +321,7 @@
   font-weight: 400;
   color: #2d5016;
   line-height: 1.2;
-  margin-top: -450px;
-  position: relative;
-  z-index: 2;
+  margin-top: -300px;
 }
 
 .gh-hero__headline strong {
@@ -430,6 +423,7 @@
 }
 
 
+/* Desktop: restore exact working state — CSS background image, gradient overlay */
 @media (min-width: 768px) {
   .gh-hero {
     background: #f8f6f3 url('/images/hero-desktop.png') no-repeat right center;
@@ -440,7 +434,11 @@
 
   .gh-hero::before {
     display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
     background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,1) 38%, rgba(248,246,243,0.85) 48%, rgba(248,246,243,0.2) 58%, rgba(248,246,243,0) 68%);
+    z-index: 0;
   }
 
   .gh-hero__mobile-img {
@@ -457,7 +455,14 @@
   }
 
   .gh-hero__trust {
+    justify-content: flex-start;
     padding: 0;
+  }
+
+  .gh-hero__avatar {
+    width: 20px;
+    height: 20px;
+    margin-left: -6px;
   }
 
   .gh-hero__trust-text {
@@ -468,8 +473,6 @@
     font-size: 44px;
     max-width: 500px;
     margin-top: 0;
-    position: static;
-    z-index: auto;
   }
 
   .gh-hero__desc {
