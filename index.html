@@ -170,6 +170,11 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.gh-nav__icon:hover {
+  opacity: 0.7;
 }
 
 .gh-nav__icon svg {
@@ -242,11 +247,20 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3;
+  background: #f8f6f3 url('images/hero-bg.jpg') no-repeat right center;
+  background-size: cover;
   padding: 24px 16px 32px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e8e6e3;
+}
+
+.gh-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.92) 40%, rgba(248,246,243,0.6) 70%, rgba(248,246,243,0.3) 100%);
+  z-index: 0;
 }
 
 .gh-hero__inner {
@@ -256,6 +270,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .gh-hero__trust {
@@ -320,6 +336,12 @@
   border-radius: 4px;
   padding: 6px;
   text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gh-hero__feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gh-hero__feature-icon {
@@ -351,11 +373,11 @@
   padding: 18px 33px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
 }
 
 .gh-hero__cta:hover {
-  opacity: 0.9;
+  background: #c06a2a;
 }
 
 .gh-hero__shipping {
@@ -402,9 +424,14 @@
 
 @media (min-width: 768px) {
   .gh-hero {
-    background: linear-gradient(135deg, #f0ebe4, #e8dfd3);
+    background: #f8f6f3 url('images/hero-bg.jpg') no-repeat right center;
+    background-size: cover;
     padding: 64px 160px;
     min-height: 600px;
+  }
+
+  .gh-hero::before {
+    background: linear-gradient(to right, rgba(248,246,243,1) 0%, rgba(248,246,243,0.85) 35%, rgba(248,246,243,0) 65%);
   }
 
   .gh-hero__trust-text {
@@ -678,6 +705,12 @@
   padding: 10px 8px;
   display: flex;
   flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.gh-products__card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 .gh-products__card-img {
@@ -752,11 +785,12 @@
   padding: 10px 0;
   text-align: center;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .gh-products__card-btn:hover {
-  opacity: 0.9;
+  background: #3d6b12;
+  transform: translateY(-1px);
 }
 
 .gh-products__card-badge {
@@ -1016,12 +1050,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
   flex-shrink: 0;
 }
 
 .gh-reviews__arrow:hover {
-  opacity: 0.85;
+  background: #3d6b12;
 }
 
 .gh-reviews__dots {
@@ -1192,10 +1226,11 @@
   border-radius: 6px;
   padding: 14px 32px;
   text-decoration: none;
+  transition: background 0.2s;
 }
 
 .gh-moments-cta:hover {
-  opacity: 0.9;
+  background: #c06a2a;
 }
 
 .gh-moments-pill {
@@ -1408,10 +1443,11 @@
   text-decoration: none;
   text-align: center;
   align-self: center;
+  transition: background 0.2s;
 }
 
 .gh-sample-cta:hover {
-  opacity: 0.9;
+  background: #3d6b12;
 }
 
 @media (min-width: 768px) {
@@ -1646,10 +1682,11 @@
   border-radius: 6px;
   padding: 14px 32px;
   text-decoration: none;
+  transition: background 0.2s;
 }
 
 .gh-types-cta:hover {
-  opacity: 0.9;
+  background: #3d6b12;
 }
 
 .gh-types-pill {
@@ -2187,6 +2224,10 @@
   line-height: 1;
 }
 
+.gh-footer-accordion-btn:hover {
+  color: #4a7c2c;
+}
+
 .gh-footer-signup-col {
   flex: 1;
   display: flex;
@@ -2393,14 +2434,14 @@
   border-radius: 100px;
   padding: 14px 40px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
 .gh-sticky__btn:hover {
-  opacity: 0.9;
+  background: #c06a2a;
 }
 
 @media (min-width: 768px) {
@@ -2844,10 +2885,78 @@
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
           </div>
-          <div class="gh-reviews__card-title">Finally, Real AAAA</div>
-          <p class="gh-reviews__card-body">Blue Gelato Rocks The Blue Gelato AAAA is an excellent product. If you want a good buzz, this one doesn't disappoint. Enjoy the ride.</p>
+          <div class="gh-reviews__card-title">Exceeded All Expectations</div>
+          <p class="gh-reviews__card-body">Ordered the Diamond Edition pre-rolls and they blew me away. Perfect burn, smooth draw, and the potency is exactly what I needed.</p>
           <div class="gh-reviews__card-author">
-            <span class="gh-reviews__card-name">Red</span>
+            <span class="gh-reviews__card-name">Marcus T.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="gh-reviews__card">
+          <div class="gh-reviews__card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <div class="gh-reviews__card-title">Fast Delivery, Fire Bud</div>
+          <p class="gh-reviews__card-body">Placed my order Sunday night, had it by Wednesday. The Purple Kush was absolutely stunning &mdash; dense, frosty, and the smell alone is worth it.</p>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Jess K.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="gh-reviews__card">
+          <div class="gh-reviews__card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <div class="gh-reviews__card-title">Best Edibles I've Tried</div>
+          <p class="gh-reviews__card-body">The gummies hit perfectly every time. Consistent dosing, great flavors, and they kick in within 30 minutes. Can't go wrong.</p>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Danny W.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 7 -->
+        <div class="gh-reviews__card">
+          <div class="gh-reviews__card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <div class="gh-reviews__card-title">Top-Tier Customer Service</div>
+          <p class="gh-reviews__card-body">Had a question about my order and got a response within an hour. The product quality matches the service &mdash; both exceptional.</p>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Priya S.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 8 -->
+        <div class="gh-reviews__card">
+          <div class="gh-reviews__card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <div class="gh-reviews__card-title">Connoisseur Approved</div>
+          <p class="gh-reviews__card-body">As someone who's been in the cannabis scene for 15+ years, I can say Grizzly Herb's flower is genuinely top shelf. No cap.</p>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Mike R.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
           </div>
         </div>
@@ -2864,6 +2973,8 @@
           <button class="gh-reviews__dot" aria-label="Page 4"></button>
           <button class="gh-reviews__dot" aria-label="Page 5"></button>
           <button class="gh-reviews__dot" aria-label="Page 6"></button>
+          <button class="gh-reviews__dot" aria-label="Page 7"></button>
+          <button class="gh-reviews__dot" aria-label="Page 8"></button>
         </div>
         <button class="gh-reviews__arrow" aria-label="Next reviews">&#8594;</button>
       </div>
@@ -3177,11 +3288,75 @@
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
           </div>
-          <h3 class="gh-review-card-title">Finally, Real AAAA</h3>
-          <p class="gh-review-card-body">Been burned too many times by other MOMs claiming quad quality. Grizzly Herb actually delivers. Dense nugs, covered in trichomes, and the high hits perfect every time.</p>
+          <h3 class="gh-review-card-title">Game Changer</h3>
+          <p class="gh-review-card-body">Switched from my old dispensary and the difference is night and day. Better quality, better prices, and way faster shipping.</p>
           <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">R</div>
-            <span class="gh-review-card-name">Red</span>
+            <div class="gh-review-card-avatar">S</div>
+            <span class="gh-review-card-name">Sarah M.</span>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="gh-review-card">
+          <div class="gh-review-card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <h3 class="gh-review-card-title">Perfect for Pain Relief</h3>
+          <p class="gh-review-card-body">The indica strains have been a lifesaver for my chronic pain. I've tried dozens of sources and nothing comes close to this quality.</p>
+          <div class="gh-review-card-author">
+            <div class="gh-review-card-avatar">T</div>
+            <span class="gh-review-card-name">Tom H.</span>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="gh-review-card">
+          <div class="gh-review-card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <h3 class="gh-review-card-title">Always Consistent</h3>
+          <p class="gh-review-card-body">What I love most is the consistency. Every order is the same high quality. No surprises, no disappointment. Just premium cannabis every time.</p>
+          <div class="gh-review-card-author">
+            <div class="gh-review-card-avatar">N</div>
+            <span class="gh-review-card-name">Nina C.</span>
+          </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="gh-review-card">
+          <div class="gh-review-card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <h3 class="gh-review-card-title">Great Value</h3>
+          <p class="gh-review-card-body">You won't find this quality at these prices anywhere else. The bulk deals are insane and the free shipping makes it even better.</p>
+          <div class="gh-review-card-author">
+            <div class="gh-review-card-avatar">A</div>
+            <span class="gh-review-card-name">Alex P.</span>
+          </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="gh-review-card">
+          <div class="gh-review-card-stars">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          </div>
+          <h3 class="gh-review-card-title">My Go-To for Years</h3>
+          <p class="gh-review-card-body">Been ordering from Grizzly Herb for over two years now. They keep raising the bar. The new strains they bring in are always fire.</p>
+          <div class="gh-review-card-author">
+            <div class="gh-review-card-avatar">C</div>
+            <span class="gh-review-card-name">Chris B.</span>
           </div>
         </div>
       </div>
@@ -3192,6 +3367,10 @@
 
     <div class="gh-reviews-dots">
       <span class="gh-reviews-dot gh-active"></span>
+      <span class="gh-reviews-dot"></span>
+      <span class="gh-reviews-dot"></span>
+      <span class="gh-reviews-dot"></span>
+      <span class="gh-reviews-dot"></span>
       <span class="gh-reviews-dot"></span>
       <span class="gh-reviews-dot"></span>
       <span class="gh-reviews-dot"></span>
