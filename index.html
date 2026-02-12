@@ -1,7 +1,12 @@
-<!-- Grizzly Herb Dispensary Landing Page — Part 1 (Sections 0-3) -->
-<!-- Google Fonts -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grizzly Herb — Premium Cannabis Delivered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@700&display=swap" rel="stylesheet">
-
 <style>
 /* ============================================================
    GRIZZLY HERB — COMPLETE STYLESHEET (All 12 Sections)
@@ -246,7 +251,7 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right top;
+  background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat right top;
   background-size: cover;
   padding: 20px 16px 28px;
   position: relative;
@@ -447,7 +452,7 @@
 
 @media (min-width: 768px) {
   .gh-hero {
-    background: #f8f6f3 url('/images/hero-bg.jpg') no-repeat right center;
+    background: #f8f6f3 url('/images/hero-bg.png') no-repeat right center;
     background-size: cover;
     padding: 64px 160px;
     min-height: 600px;
@@ -663,7 +668,7 @@
 
 .gh-products {
   background: #ffffff;
-  padding: 24px 16px;
+  padding: 32px 16px 28px;
 }
 
 .gh-products__inner {
@@ -672,63 +677,76 @@
 }
 
 .gh-products__heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
   font-weight: 700;
+  font-style: italic;
   color: #2d5016;
+  text-align: center;
   margin-bottom: 8px;
+  line-height: 1.2;
 }
 
 .gh-products__desc {
-  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
   font-weight: 400;
   color: #3a3a3a;
+  text-align: center;
   margin-bottom: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.gh-products__desc strong {
+  font-weight: 700;
 }
 
 .gh-products__filters {
   display: flex;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 8px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
 .gh-products__filter {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   color: #3a3a3a;
   background: #e8e6e3;
-  border: none;
+  border: 1.5px solid #e8e6e3;
   border-radius: 100px;
-  padding: 6px 14px;
+  padding: 5px 14px;
   cursor: pointer;
   transition: all 0.2s;
+  line-height: 1.4;
 }
 
 .gh-products__filter--active {
   background: transparent;
-  border: 2px solid #4a7c2c;
+  border: 1.5px solid #4a7c2c;
   color: #4a7c2c;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .gh-products__filter--icon {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+}
+
+.gh-products__filter--icon svg {
+  flex-shrink: 0;
 }
 
 .gh-products__grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .gh-products__card {
-  width: calc(50% - 5px);
   background: #ffffff;
   border-radius: 8px;
   border: 1px solid #e8e6e3;
@@ -736,106 +754,41 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
 }
 
 .gh-products__card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transform: translateY(-2px);
+}
+
+.gh-products__card-img-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 6px;
 }
 
 .gh-products__card-img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #e8e6e3;
-  border-radius: 8px;
-  margin-bottom: 6px;
-}
-
-.gh-products__card-stars {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 4px;
-}
-
-.gh-products__card-stars svg {
-  width: 12px;
-  height: 12px;
-}
-
-.gh-products__card-reviews {
-  font-size: 12px;
-  font-weight: 400;
-  color: #3a3a3a;
-}
-
-.gh-products__card-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: #1f1f1f;
-  margin-bottom: 4px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.gh-products__card-price {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #4a7c2c;
-  margin-bottom: 8px;
-}
-
-.gh-products__card-price s {
-  color: #999;
-  font-weight: 400;
-}
-
-.gh-products__card-bottom {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.gh-products__card-btn {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 100%;
-  background: #2d5016;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  border: none;
-  border-radius: 100px;
-  padding: 8px 0;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.gh-products__card-btn:hover {
-  background: #3d6b12;
-  color: #ffffff;
-  transform: translateY(-1px);
+  object-fit: cover;
+  background: #f5f3f0;
+  border-radius: 6px;
+  display: block;
 }
 
 .gh-products__card-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 10px;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 8px;
   border-radius: 100px;
   color: #ffffff;
-  align-self: flex-start;
+  line-height: 1.4;
+  z-index: 1;
 }
 
 .gh-products__card-badge--low {
@@ -846,21 +799,98 @@
   background: #4a7c2c;
 }
 
+.gh-products__card-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.gh-products__card-stars svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.gh-products__card-reviews {
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: #888;
+  margin-left: 2px;
+}
+
+.gh-products__card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 4px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gh-products__card-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1f1f1f;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.gh-products__card-price s {
+  color: #999;
+  font-weight: 400;
+  margin-right: 4px;
+}
+
+.gh-products__card-bottom {
+  margin-top: auto;
+}
+
+.gh-products__card-btn {
+  display: block;
+  width: 100%;
+  background: #2d5016;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  padding: 7px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  line-height: 1.4;
+}
+
+.gh-products__card-btn:hover {
+  background: #3d6b12;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
 .gh-products__more {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .gh-products__more-btn {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #4a7c2c;
   background: transparent;
-  border: 2px solid #4a7c2c;
+  border: 1.5px solid #4a7c2c;
   border-radius: 100px;
-  padding: 10px 24px;
+  padding: 8px 28px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -872,64 +902,76 @@
 
 @media (min-width: 768px) {
   .gh-products {
-    padding: 64px 160px 48px;
+    padding: 48px 80px 40px;
   }
 
   .gh-products__heading {
-    font-size: 40px;
+    font-size: 32px;
+    margin-bottom: 10px;
   }
 
   .gh-products__desc {
-    font-size: 22px;
-    margin-bottom: 32px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .gh-products__filters {
-    margin-bottom: 32px;
+    gap: 10px;
+    margin-bottom: 24px;
   }
 
   .gh-products__filter {
-    font-size: 18px;
-    padding: 10px 24px;
+    font-size: 13px;
+    padding: 7px 18px;
   }
 
   .gh-products__grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   .gh-products__card {
-    width: calc(25% - 12px);
-    padding: 16px;
-  }
-
-  .gh-products__card-stars svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .gh-products__card-name {
-    font-size: 20px;
-  }
-
-  .gh-products__card-price {
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .gh-products__card-btn {
-    font-size: 18px;
-    padding: 12px 0;
+    padding: 12px;
   }
 
   .gh-products__card-badge {
+    font-size: 10px;
+    padding: 3px 10px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .gh-products__card-stars svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .gh-products__card-reviews {
+    font-size: 10px;
+  }
+
+  .gh-products__card-name {
     font-size: 13px;
-    padding: 4px 12px;
+    margin-bottom: 6px;
+  }
+
+  .gh-products__card-price {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .gh-products__card-btn {
+    font-size: 13px;
+    padding: 9px 0;
   }
 
   .gh-products__more-btn {
-    font-size: 20px;
-    padding: 14px 40px;
+    font-size: 15px;
+    padding: 10px 36px;
   }
 }
 
@@ -939,20 +981,27 @@
 
 .gh-reviews {
   background: #e8e6e3;
-  padding: 24px 16px;
+  padding: 40px 16px 36px;
 }
 
 .gh-reviews__inner {
   max-width: 1440px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .gh-reviews__heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 400;
+  font-style: italic;
   color: #2d5016;
-  margin-bottom: 12px;
+  margin: 0 0 16px 0;
+  line-height: 1.25;
+}
+
+.gh-reviews__heading strong {
+  font-weight: 700;
 }
 
 .gh-reviews__rating {
@@ -962,8 +1011,8 @@
   background: #ffffff;
   border-radius: 100px;
   border: 1px solid #3a3a3a;
-  padding: 7px 15px;
-  margin-bottom: 24px;
+  padding: 8px 18px;
+  margin-bottom: 28px;
 }
 
 .gh-reviews__rating-stars {
@@ -977,37 +1026,66 @@
 }
 
 .gh-reviews__rating-text {
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   color: #1f1f1f;
+}
+
+.gh-reviews__rating-text strong {
+  font-weight: 700;
 }
 
 .gh-reviews__carousel {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  padding-bottom: 0;
+  text-align: left;
 }
 
 .gh-reviews__carousel::-webkit-scrollbar {
   display: none;
 }
 
-.gh-reviews__card {
-  min-width: 200px;
-  max-width: 200px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e8e6e3;
-  padding: 14px 10px;
+.gh-reviews__card-wrapper {
+  min-width: 240px;
+  max-width: 240px;
   scroll-snap-align: start;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.gh-reviews__card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d4d2cf;
+  padding: 18px 16px 20px;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gh-reviews__card::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 13px solid #ffffff;
+  filter: drop-shadow(0 1px 0 #d4d2cf);
 }
 
 .gh-reviews__card-stars {
@@ -1016,69 +1094,83 @@
 }
 
 .gh-reviews__card-stars svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .gh-reviews__card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-top: 2px;
+}
+
+.gh-reviews__card-body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #3a3a3a;
+  line-height: 1.55;
+  flex-grow: 1;
+  margin-top: 4px;
+}
+
+.gh-reviews__card-author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.gh-reviews__card-name {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #1f1f1f;
 }
 
-.gh-reviews__card-body {
-  font-size: 12px;
-  font-weight: 400;
-  color: #3a3a3a;
-  line-height: 1.5;
-  flex-grow: 1;
-}
-
-.gh-reviews__card-author {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 8px;
-}
-
-.gh-reviews__card-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #282d3e;
-}
-
 .gh-reviews__card-verified {
   display: flex;
   align-items: center;
   gap: 4px;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   color: #3a3a3a;
 }
 
 .gh-reviews__card-check {
-  color: #4a7c2c;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #4a7c2c;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .gh-reviews__controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 20px;
+  margin-top: 32px;
 }
 
 .gh-reviews__arrow {
-  width: 36px;
+  width: 56px;
   height: 36px;
-  background: #4a7c2c;
+  background: #c8ccbf;
   border: none;
   border-radius: 100px;
-  color: #ffffff;
-  font-size: 16px;
+  color: #2d5016;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1088,13 +1180,12 @@
 }
 
 .gh-reviews__arrow:hover {
-  background: #3d6b12;
-  color: #ffffff;
+  background: #b5baa8;
 }
 
 .gh-reviews__dots {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -1102,7 +1193,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #c8ccbf;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -1117,20 +1208,40 @@
 
 @media (min-width: 768px) {
   .gh-reviews {
-    padding: 64px 160px;
+    padding: 60px 80px 56px;
   }
 
   .gh-reviews__heading {
     font-size: 40px;
+    margin-bottom: 18px;
+  }
+
+  .gh-reviews__rating {
+    padding: 8px 20px;
+    margin-bottom: 36px;
+  }
+
+  .gh-reviews__rating-stars svg {
+    width: 18px;
+    height: 18px;
   }
 
   .gh-reviews__rating-text {
     font-size: 14px;
   }
 
+  .gh-reviews__card-wrapper {
+    min-width: 290px;
+    max-width: 290px;
+  }
+
   .gh-reviews__card {
-    min-width: 300px;
-    max-width: 300px;
+    padding: 22px 20px 24px;
+  }
+
+  .gh-reviews__card-stars svg {
+    width: 16px;
+    height: 16px;
   }
 
   .gh-reviews__card-title {
@@ -1138,13 +1249,18 @@
   }
 
   .gh-reviews__card-body {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .gh-reviews__card-name {
+    font-size: 15px;
   }
 
   .gh-reviews__arrow {
     width: 76px;
-    height: 40px;
-    font-size: 20px;
+    height: 42px;
+    font-size: 22px;
   }
 }
 
@@ -1154,44 +1270,50 @@
 
 .gh-moments {
   background: linear-gradient(180deg, #f8f6f3 0%, #eaf2e0 100%);
-  padding: 24px 16px;
+  padding: 32px 16px 0;
 }
 
 .gh-moments-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
+  font-style: italic;
   color: #2d5016;
   text-align: center;
+  line-height: 1.3;
   margin: 0 0 20px;
 }
 
 .gh-moments-layout {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
   align-items: stretch;
 }
 
 .gh-moments-image {
   width: 100%;
+  order: 2;
 }
 
-.gh-moments-image .gh-img-placeholder {
+.gh-moments-image img {
   width: 100%;
-  aspect-ratio: 539 / 543;
   border-radius: 12px;
-  background: #e8e6e3;
+  display: block;
 }
 
 .gh-moments-card {
   flex: 1;
   background: #ffffff;
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  order: 1;
+  margin-bottom: -20px;
+  position: relative;
+  z-index: 1;
 }
 
 .gh-moments-desc {
@@ -1199,32 +1321,45 @@
   font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+}
+
+.gh-moments-desc strong {
+  font-weight: 700;
+  color: #1f1f1f;
 }
 
 .gh-moments-features {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .gh-moments-feature {
-  background: #f8f6f3;
-  border-radius: 8px;
-  border: 1px solid #e8e6e3;
-  padding: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  text-align: center;
+  gap: 6px;
 }
 
-.gh-moments-feature .gh-img-placeholder {
+.gh-moments-feature__icon {
   width: 40px;
   height: 40px;
   min-width: 40px;
-  border-radius: 6px;
-  background: #e8e6e3;
+}
+
+.gh-moments-feature__icon img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.gh-moments-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .gh-moments-feature-title {
@@ -1232,7 +1367,7 @@
   font-size: 14px;
   font-weight: 700;
   color: #1f1f1f;
-  margin: 0 0 4px;
+  margin: 0;
 }
 
 .gh-moments-feature-desc {
@@ -1240,27 +1375,30 @@
   font-size: 12px;
   font-weight: 400;
   color: #3a3a3a;
+  line-height: 1.5;
   margin: 0;
 }
 
 .gh-moments-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 }
 
 .gh-moments-cta {
-  display: inline-block;
+  display: block;
+  width: 100%;
   background: #d97835;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #ffffff;
-  border-radius: 6px;
-  padding: 12px 24px;
+  border-radius: 8px;
+  padding: 14px 24px;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  transition: background 0.2s;
 }
 
 .gh-moments-cta:hover {
@@ -1269,276 +1407,109 @@
 }
 
 .gh-moments-pill {
-  display: inline-block;
-  background: #c9a961;
-  border-radius: 100px;
-  padding: 8px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  padding: 6px 0;
   font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3a3a3a;
+}
+
+.gh-moments-pill__icon {
   font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
   .gh-moments {
-    padding: 64px 160px;
+    padding: 56px 80px 56px;
   }
 
   .gh-moments-heading {
-    font-size: 40px;
-    margin: 0 0 48px;
+    font-size: 32px;
+    margin: 0 0 36px;
+    line-height: 1.25;
   }
 
   .gh-moments-layout {
     flex-direction: row;
     gap: 32px;
+    align-items: stretch;
   }
 
   .gh-moments-image {
-    flex: 0 0 539px;
+    flex: 0 0 48%;
+    order: 1;
+  }
+
+  .gh-moments-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
   }
 
   .gh-moments-card {
-    padding: 24px;
-    gap: 24px;
+    flex: 1;
+    order: 2;
+    padding: 28px 24px;
+    gap: 20px;
+    margin-bottom: 0;
   }
 
   .gh-moments-desc {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .gh-moments-features {
+    gap: 12px;
+  }
+
+  .gh-moments-feature {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .gh-moments-feature__icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .gh-moments-feature__icon img {
+    width: 44px;
+    height: 44px;
   }
 
   .gh-moments-feature-title {
-    font-size: 18px;
+    font-size: 15px;
+    margin: 0 0 2px;
   }
 
   .gh-moments-feature-desc {
-    font-size: 16px;
+    font-size: 13px;
+  }
+
+  .gh-moments-actions {
+    align-items: stretch;
+    gap: 14px;
   }
 
   .gh-moments-cta {
-    font-size: 22px;
-  }
-}
-
-/* ============================================================
-   SECTION 5: SAMPLE PACK
-   ============================================================ */
-
-.gh-sample {
-  background: #1f1f1f;
-  position: relative;
-  overflow: hidden;
-}
-
-.gh-sample-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(31,31,31,0.95) 0%, rgba(31,31,31,0.85) 100%);
-  z-index: 0;
-}
-
-.gh-sample-layout {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 24px 16px;
-  gap: 0;
-}
-
-.gh-sample-left {
-  background: #2d5016;
-  border-radius: 16px;
-  padding: 16px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  z-index: 2;
-}
-
-.gh-sample-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.gh-sample-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.gh-sample-rating-number {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.gh-sample-stars {
-  display: inline-flex;
-  gap: 2px;
-}
-
-.gh-sample-review-count {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.gh-sample-discount {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-}
-
-.gh-sample-discount-desktop {
-  display: none;
-}
-
-.gh-sample-discount-mobile {
-  display: inline;
-}
-
-.gh-sample-right {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 1;
-}
-
-.gh-sample-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1f1f1f;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.gh-sample-subdesc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #3a3a3a;
-  margin: 0;
-}
-
-.gh-sample-products {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  justify-content: center;
-}
-
-.gh-sample-products .gh-img-placeholder {
-  width: 100px;
-  height: 70px;
-  background: #1f1f1f;
-  border-radius: 6px;
-}
-
-.gh-sample-products-plus {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #3a3a3a;
-}
-
-.gh-sample-qty {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #3a3a3a;
-  margin: 0;
-  text-align: center;
-}
-
-.gh-sample-cta {
-  display: inline-block;
-  background: #2d5016;
-  border-radius: 100px;
-  padding: 14px 32px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  align-self: center;
-  transition: background 0.2s, color 0.2s;
-}
-
-.gh-sample-cta:hover {
-  background: #3d6b12;
-  color: #ffffff;
-}
-
-@media (min-width: 768px) {
-  .gh-sample-layout {
-    flex-direction: row;
-    padding: 64px 0;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 8px;
   }
 
-  .gh-sample-left {
-    flex: 1;
-    padding: 16px 32px;
-  }
-
-  .gh-sample-heading {
-    font-size: 40px;
-  }
-
-  .gh-sample-rating-number {
-    font-size: 32px;
-  }
-
-  .gh-sample-right {
-    flex: 1;
-    padding: 32px 36px;
-    margin-left: -16px;
-  }
-
-  .gh-sample-subtitle {
-    font-size: 24px;
-  }
-
-  .gh-sample-subdesc {
-    font-size: 18px;
-  }
-
-  .gh-sample-products .gh-img-placeholder {
-    width: 150px;
-    height: 100px;
-  }
-
-  .gh-sample-qty {
-    font-size: 24px;
-  }
-
-  .gh-sample-cta {
-    font-size: 18px;
-  }
-
-  .gh-sample-discount-desktop {
-    display: inline;
-  }
-
-  .gh-sample-discount-mobile {
-    display: none;
+  .gh-moments-pill {
+    font-size: 13px;
+    justify-content: center;
   }
 }
 
@@ -1884,181 +1855,6 @@
 }
 
 /* ============================================================
-   SECTION 9: REVIEWS #2
-   ============================================================ */
-
-.gh-reviews--2 {
-  background: #e8e6e3;
-  padding: 24px 16px;
-  box-sizing: border-box;
-}
-
-.gh-reviews-inner {
-  max-width: 100%;
-  text-align: center;
-}
-
-.gh-reviews-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #2d5016;
-  margin: 0 0 16px 0;
-}
-
-.gh-reviews-rating-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-
-.gh-reviews-stars {
-  display: inline-flex;
-  gap: 2px;
-}
-
-.gh-reviews-rating-text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #3a3a3a;
-}
-
-.gh-reviews-carousel {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.gh-reviews-track {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-  padding: 8px 0;
-}
-
-.gh-reviews-track::-webkit-scrollbar { display: none; }
-
-.gh-review-card {
-  flex: 0 0 220px;
-  scroll-snap-align: start;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 18px 14px;
-  text-align: left;
-  box-sizing: border-box;
-}
-
-.gh-review-card-stars {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 16px;
-}
-
-.gh-review-card-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1f1f1f;
-  margin: 0 0 10px 0;
-}
-
-.gh-review-card-body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: #3a3a3a;
-  line-height: 1.6;
-  margin: 0 0 20px 0;
-}
-
-.gh-review-card-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.gh-review-card-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #2d5016;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gh-review-card-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #282d3e;
-}
-
-.gh-carousel-arrow {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: #4a7c2c;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  transition: background 0.2s;
-}
-
-.gh-carousel-arrow:hover {
-  background: #3d6b12;
-}
-
-.gh-reviews-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 24px;
-}
-
-.gh-reviews-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #c9c9c9;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.gh-reviews-dot.gh-active {
-  background: #2d5016;
-}
-
-@media (min-width: 768px) {
-  .gh-reviews--2 {
-    padding: 64px 160px;
-  }
-
-  .gh-reviews-heading {
-    font-size: 40px;
-  }
-
-  .gh-review-card {
-    flex: 0 0 300px;
-  }
-}
-
-/* ============================================================
    SECTION 10: FAQ
    ============================================================ */
 
@@ -2217,21 +2013,29 @@
 
 .gh-footer {
   background: #f8f6f3;
-  padding: 24px 16px;
+  padding: 40px 16px 120px 16px;
   box-sizing: border-box;
 }
 
 .gh-footer-inner {
-  max-width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
+/* --- Logo Row --- */
 .gh-footer-logo-row {
-  margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.gh-footer-logo {
+  display: flex;
+  justify-content: center;
 }
 
 .gh-footer-logo img {
   display: block;
-  width: 140px;
+  width: 120px;
   height: auto;
 }
 
@@ -2241,32 +2045,46 @@
 
 .gh-footer-tagline {
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
   color: #1f1f1f;
-  margin: 12px 0 0 0;
+  margin: 8px 0 0 0;
+  display: none;
 }
 
 .gh-footer-tagline--sub {
-  font-size: 11px;
-  color: #666;
-  margin-top: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+  color: #1f1f1f;
+  margin-top: 6px;
+  display: block;
 }
 
+/* --- Columns: mobile = stacked (signup first, then accordions) --- */
 .gh-footer-columns {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
-  margin-bottom: 48px;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 36px;
+}
+
+/* Mobile: signup col appears first via order */
+.gh-footer-signup-col {
+  order: -1;
+  width: 100%;
 }
 
 .gh-footer-links-col {
-  flex: 1;
+  order: 0;
+  width: 100%;
 }
 
+/* --- Accordion --- */
 .gh-footer-accordion-item {
-  border-bottom: 1px solid #e8e6e3;
+  border-bottom: 1px solid #d9d7d4;
 }
 
 .gh-footer-accordion-btn {
@@ -2274,54 +2092,49 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 44px;
+  height: 52px;
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: #1f1f1f;
 }
 
 .gh-footer-accordion-icon {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 300;
   line-height: 1;
+  color: #1f1f1f;
 }
 
 .gh-footer-accordion-btn:hover {
   color: #4a7c2c;
 }
 
-.gh-footer-signup-col {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
+/* --- Email Signup --- */
 .gh-footer-signup {
   display: flex;
   align-items: center;
   background: #ffffff;
   border-radius: 60px;
   border: 1px solid #e8e6e3;
-  padding: 5px 6px;
+  padding: 5px 5px 5px 6px;
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
 }
 
 .gh-footer-email-input {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: none;
-  padding: 12px 20px;
+  padding: 10px 16px;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #1f1f1f;
 }
@@ -2336,57 +2149,60 @@
   color: #ffffff;
   border: none;
   border-radius: 42px;
-  padding: 12px 24px;
+  padding: 12px 28px;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .gh-footer-signup-btn:hover {
-  background: #4a7c2c;
+  background: #3d6b12;
 }
 
+/* --- Bottom / Copyright --- */
 .gh-footer-bottom {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   text-align: center;
 }
 
 .gh-footer-copyright {
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   color: #1f1f1f;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
 }
 
 .gh-footer-email {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   color: #3a3a3a;
   margin: 0;
 }
 
+/* --- Payment Icons --- */
 .gh-footer-payments {
   display: flex;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .gh-payment-icon {
-  width: 40px;
-  height: 26px;
+  width: 48px;
+  height: 32px;
   background: #ffffff;
   border-radius: 4px;
   border: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 3px;
+  overflow: hidden;
 }
 
 .gh-payment-icon svg {
@@ -2402,16 +2218,17 @@
   letter-spacing: 0.5px;
 }
 
+/* --- Verified Badges --- */
 .gh-footer-badges {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .gh-footer-badge {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   color: #4a7c2c;
   display: inline-flex;
@@ -2420,114 +2237,122 @@
 }
 
 .gh-badge-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #4a7c2c;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 11px;
   font-weight: 700;
+  line-height: 1;
 }
 
+/* --- Footer Desktop --- */
 @media (min-width: 768px) {
   .gh-footer {
-    padding: 64px 160px;
+    padding: 56px 80px 100px 80px;
+  }
+
+  .gh-footer-inner {
+    max-width: 1120px;
+  }
+
+  .gh-footer-logo-row {
+    margin-bottom: 40px;
   }
 
   .gh-footer-logo img {
-    width: 280px;
+    width: 160px;
   }
 
-  .gh-footer-tagline {
-    font-size: 20px;
+  .gh-footer-tagline--sub {
+    font-size: 18px;
+    margin-top: 8px;
   }
 
   .gh-footer-columns {
     flex-direction: row;
-    gap: 60px;
+    gap: 48px;
+    align-items: flex-start;
+    margin-bottom: 56px;
+  }
+
+  .gh-footer-signup-col {
+    order: 0;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .gh-footer-links-col {
+    order: 0;
+    flex: 1;
   }
 
   .gh-footer-accordion-btn {
-    font-size: 24px;
+    font-size: 22px;
     height: 64px;
   }
 
+  .gh-footer-accordion-icon {
+    font-size: 28px;
+  }
+
   .gh-footer-signup {
-    max-width: 460px;
+    max-width: 420px;
+    padding: 5px 6px;
+  }
+
+  .gh-footer-email-input {
+    font-size: 15px;
+    padding: 12px 20px;
   }
 
   .gh-footer-signup-btn {
-    font-size: 18px;
+    font-size: 16px;
     padding: 14px 32px;
   }
 
   .gh-footer-copyright {
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 8px;
   }
 
   .gh-footer-email {
-    font-size: 16px;
+    font-size: 15px;
+  }
+
+  .gh-footer-bottom {
+    margin-bottom: 32px;
   }
 
   .gh-footer-payments {
     gap: 12px;
-    justify-content: center;
+    margin-bottom: 24px;
   }
 
   .gh-payment-icon {
-    width: 64px;
-    height: 40px;
+    width: 56px;
+    height: 36px;
+    padding: 4px;
+  }
+
+  .gh-footer-badges {
+    gap: 24px;
   }
 
   .gh-footer-badge {
-    font-size: 16px;
-  }
-}
-
-/* ============================================================
-   STICKY CTA BAR
-   ============================================================ */
-
-.gh-sticky {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  border-top: 1px solid #e8e6e3;
-  padding: 10px 16px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
-}
-
-.gh-sticky__btn {
-  display: inline-block;
-  background: #d97835;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 100px;
-  padding: 12px 40px;
-  cursor: pointer;
-  transition: background 0.2s;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-
-.gh-sticky__btn:hover {
-  background: #c06a2a;
-  color: #ffffff;
-}
-
-@media (min-width: 768px) {
-  .gh-sticky {
-    padding: 14px 160px;
+    font-size: 15px;
   }
 
-  .gh-sticky__btn {
-    font-size: 18px;
-    width: auto;
-    padding: 16px 48px;
+  .gh-badge-check {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
   }
 }
 
@@ -2553,11 +2378,120 @@
 .gh-root .gh-star-filled {
   fill: #f8b300;
 }
-</style>
 
-<!-- ============================================================
-     GRIZZLY HERB — HTML (Sections 0–3)
-     ============================================================ -->
+/* ============================================================
+   STICKY CTA BAR
+   ============================================================ */
+
+.gh-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #f8f6f3;
+  border-top: 1px solid #e8e6e3;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+}
+
+.gh-sticky-cta__info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.gh-sticky-cta__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.gh-sticky-cta__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+
+.gh-sticky-cta__rating strong {
+  font-weight: 700;
+}
+
+.gh-sticky-cta__rating svg {
+  width: 14px;
+  height: 14px;
+}
+
+.gh-sticky-cta__offer {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d5016;
+}
+
+.gh-sticky-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2d5016;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.gh-sticky-cta__btn:hover {
+  background: #3d6b12;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .gh-sticky-cta {
+    padding: 16px 160px;
+    justify-content: space-between;
+  }
+
+  .gh-sticky-cta__info {
+    display: flex;
+  }
+
+  .gh-sticky-cta__title {
+    font-size: 18px;
+  }
+
+  .gh-sticky-cta__rating {
+    font-size: 14px;
+  }
+
+  .gh-sticky-cta__offer {
+    font-size: 14px;
+  }
+
+  .gh-sticky-cta__btn {
+    font-size: 18px;
+    padding: 16px 40px;
+  }
+}
+</style>
+</head>
+<body>
 <div class="gh-root">
 
   <!-- ======== SECTION 0: HERO ======== -->
@@ -2690,7 +2624,7 @@
         </div>
 
         <!-- Large image placeholder -->
-        <img class="gh-explore__image" src="/images/handpicked-strains-lifestyle-photo.jpg" alt="Handpicked cannabis strains" loading="lazy">
+        <img class="gh-explore__image" src="/images/handpicked-strains-lifestyle-photo.png" alt="Handpicked cannabis strains" loading="lazy">
 
       </div>
     </div>
@@ -2701,15 +2635,15 @@
     <div class="gh-products__inner">
 
       <h2 class="gh-products__heading">Find Your Perfect Strain</h2>
-      <p class="gh-products__desc">Shop the freshest, handpicked cannabis strains that set the bar high. Exclusively for those who know what they're looking for.</p>
+      <p class="gh-products__desc">Shop the <strong>freshest, handpicked cannabis strains that set the bar high.</strong> Exclusively for those who know what they're looking for.</p>
 
       <!-- Filter tabs -->
       <div class="gh-products__filters">
         <button class="gh-products__filter gh-products__filter--active">All</button>
         <button class="gh-products__filter">In Stock</button>
         <button class="gh-products__filter gh-products__filter--icon">
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="4" x2="14" y2="4"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="6" y1="12" x2="10" y2="12"/></svg>
-          Popular ▼
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="4" x2="14" y2="4"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="6" y1="12" x2="10" y2="12"/></svg>
+          Popular &#9660;
         </button>
       </div>
 
@@ -2718,153 +2652,169 @@
 
         <!-- Product 1: Purple Kush -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/purple-kush-cannabis-flower.jpg" alt="Purple Kush cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
+            <img class="gh-products__card-img" src="/images/purple-kush-cannabis-flower.png" alt="Purple Kush cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(0 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Purple Kush | Indica | Mediums | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
           </div>
         </div>
 
         <!-- Product 2: Peanut Butter Breath -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/peanut-butter-breath-cannabis-flower.jpg" alt="Peanut Butter Breath cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
+            <img class="gh-products__card-img" src="/images/peanut-butter-breath-cannabis-flower.png" alt="Peanut Butter Breath cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(0 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Peanut Butter Breath | Indica Hybrid | Mediums | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
           </div>
         </div>
 
         <!-- Product 3: Vanilla Kush -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/vanilla-kush-cannabis-flower.jpg" alt="Vanilla Kush cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
+            <img class="gh-products__card-img" src="/images/vanilla-kush-cannabis-flower.png" alt="Vanilla Kush cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(0 reviews)</span>
           </div>
           <div class="gh-products__card-name">Vanilla Kush | Indica Hybrid | Mediums | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
           </div>
         </div>
 
         <!-- Product 4: Diamond Edition 50-Pack -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.jpg" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(5 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Grizzly Herb Diamond Edition&trade; 50-Pack | 10 &times; 5 Pre-Rolls | Mixed Strains</div>
           <div class="gh-products__card-price"><s>$500.00</s> $350.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
           </div>
         </div>
 
         <!-- Product 5: Ghost Breath -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/ghost-breath-cannabis-flower.jpg" alt="Ghost Breath cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="/images/ghost-breath-cannabis-flower.png" alt="Ghost Breath cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(9 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Ghost Breath | Sativa | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
           </div>
         </div>
 
         <!-- Product 6: Golden Oreoz -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/golden-oreoz-cannabis-flower.jpg" alt="Golden Oreoz cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="/images/golden-oreoz-cannabis-flower.png" alt="Golden Oreoz cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(15 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Golden Oreoz | Indica | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
           </div>
         </div>
 
         <!-- Product 7: Key Lime Haze -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/key-lime-haze-cannabis-flower.jpg" alt="Key Lime Haze cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="/images/key-lime-haze-cannabis-flower.png" alt="Key Lime Haze cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(10 Reviews)</span>
           </div>
-          <div class="gh-products__card-name">Key Lime Haze – Sativa AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-name">Key Lime Haze &#8211; Sativa AAAA</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
           </div>
         </div>
 
         <!-- Product 8: Grape Diesel -->
         <div class="gh-products__card">
-          <img class="gh-products__card-img" src="/images/grape-diesel-cannabis-flower.jpg" alt="Grape Diesel cannabis flower" loading="lazy">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="/images/grape-diesel-cannabis-flower.png" alt="Grape Diesel cannabis flower" loading="lazy">
+          </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <span class="gh-products__card-reviews">(12 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Grape Diesel | Sativa | Cannabis | AAAA</div>
-          <div class="gh-products__card-price">$90.00 – $1,200.00</div>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
           </div>
         </div>
 
@@ -2882,7 +2832,7 @@
   <section class="gh-reviews">
     <div class="gh-reviews__inner">
 
-      <h2 class="gh-reviews__heading">From Buyers Who Know</h2>
+      <h2 class="gh-reviews__heading">From <strong>Buyers</strong> Who Know</h2>
 
       <!-- Rating pill -->
       <div class="gh-reviews__rating">
@@ -2893,23 +2843,25 @@
           <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
           <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
         </div>
-        <span class="gh-reviews__rating-text">Rated 4.9/5 by 3,256+ reviews</span>
+        <span class="gh-reviews__rating-text">Rated <strong>4.9/5</strong> by <strong>3,256+</strong> reviews</span>
       </div>
 
       <!-- Review cards carousel -->
       <div class="gh-reviews__carousel">
 
         <!-- Review 1 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Worth Every Drop</div>
+            <p class="gh-reviews__card-body">Super Lemon Haze Lemony excellence, good to the last drop!</p>
           </div>
-          <div class="gh-reviews__card-title">Worth Every Drop</div>
-          <p class="gh-reviews__card-body">Super Lemon Haze Lemony excellence, good to the last drop!</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Ron J.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -2917,16 +2869,18 @@
         </div>
 
         <!-- Review 2 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">My Only Source Now</div>
+            <p class="gh-reviews__card-body">Your items are all quality I will never take my business elsewhere your stuff is quality and quantity all in a package deal</p>
           </div>
-          <div class="gh-reviews__card-title">My Only Source Now</div>
-          <p class="gh-reviews__card-body">Your items are all quality I will never take my business elsewhere your stuff is quality and quantity all in a package deal</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Lenny L.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -2934,16 +2888,18 @@
         </div>
 
         <!-- Review 3 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Finally, Real AAAA</div>
+            <p class="gh-reviews__card-body">Blue Gelato Rocks The Blue Gelato AAAA is an excellent product. If you want a good buzz, this one doesn&#8217;t disappoint. Enjoy the ride.</p>
           </div>
-          <div class="gh-reviews__card-title">Finally, Real AAAA</div>
-          <p class="gh-reviews__card-body">Blue Gelato Rocks The Blue Gelato AAAA is an excellent product. If you want a good buzz, this one doesn't disappoint. Enjoy the ride.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Red</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -2951,16 +2907,18 @@
         </div>
 
         <!-- Review 4 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Exceeded All Expectations</div>
+            <p class="gh-reviews__card-body">Ordered the Diamond Edition pre-rolls and they blew me away. Perfect burn, smooth draw, and the potency is exactly what I needed.</p>
           </div>
-          <div class="gh-reviews__card-title">Exceeded All Expectations</div>
-          <p class="gh-reviews__card-body">Ordered the Diamond Edition pre-rolls and they blew me away. Perfect burn, smooth draw, and the potency is exactly what I needed.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Marcus T.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -2968,16 +2926,18 @@
         </div>
 
         <!-- Review 5 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Fast Delivery, Fire Bud</div>
+            <p class="gh-reviews__card-body">Placed my order Sunday night, had it by Wednesday. The Purple Kush was absolutely stunning &mdash; dense, frosty, and the smell alone is worth it.</p>
           </div>
-          <div class="gh-reviews__card-title">Fast Delivery, Fire Bud</div>
-          <p class="gh-reviews__card-body">Placed my order Sunday night, had it by Wednesday. The Purple Kush was absolutely stunning &mdash; dense, frosty, and the smell alone is worth it.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Jess K.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -2985,16 +2945,18 @@
         </div>
 
         <!-- Review 6 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Best Edibles I&#8217;ve Tried</div>
+            <p class="gh-reviews__card-body">The gummies hit perfectly every time. Consistent dosing, great flavors, and they kick in within 30 minutes. Can&#8217;t go wrong.</p>
           </div>
-          <div class="gh-reviews__card-title">Best Edibles I've Tried</div>
-          <p class="gh-reviews__card-body">The gummies hit perfectly every time. Consistent dosing, great flavors, and they kick in within 30 minutes. Can't go wrong.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Danny W.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -3002,16 +2964,18 @@
         </div>
 
         <!-- Review 7 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Top-Tier Customer Service</div>
+            <p class="gh-reviews__card-body">Had a question about my order and got a response within an hour. The product quality matches the service &mdash; both exceptional.</p>
           </div>
-          <div class="gh-reviews__card-title">Top-Tier Customer Service</div>
-          <p class="gh-reviews__card-body">Had a question about my order and got a response within an hour. The product quality matches the service &mdash; both exceptional.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Priya S.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -3019,16 +2983,18 @@
         </div>
 
         <!-- Review 8 -->
-        <div class="gh-reviews__card">
-          <div class="gh-reviews__card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Connoisseur Approved</div>
+            <p class="gh-reviews__card-body">As someone who&#8217;s been in the cannabis scene for 15+ years, I can say Grizzly Herb&#8217;s flower is genuinely top shelf. No cap.</p>
           </div>
-          <div class="gh-reviews__card-title">Connoisseur Approved</div>
-          <p class="gh-reviews__card-body">As someone who's been in the cannabis scene for 15+ years, I can say Grizzly Herb's flower is genuinely top shelf. No cap.</p>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Mike R.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
@@ -3047,8 +3013,6 @@
           <button class="gh-reviews__dot" aria-label="Page 4"></button>
           <button class="gh-reviews__dot" aria-label="Page 5"></button>
           <button class="gh-reviews__dot" aria-label="Page 6"></button>
-          <button class="gh-reviews__dot" aria-label="Page 7"></button>
-          <button class="gh-reviews__dot" aria-label="Page 8"></button>
         </div>
         <button class="gh-reviews__arrow" aria-label="Next reviews">&#8594;</button>
       </div>
@@ -3059,42 +3023,45 @@
 
 <!-- SECTION 4: Find Your Perfect Strain for Every Moment -->
 <section class="gh-moments">
-  <h2 class="gh-moments-heading">Find Your Perfect Strain for Every Moment</h2>
+  <h2 class="gh-moments-heading">Find Your Perfect Strain<br>for Every Moment</h2>
 
   <div class="gh-moments-layout">
-    <!-- Left: Large image -->
+    <!-- Image (left on desktop, bottom on mobile) -->
     <div class="gh-moments-image">
-      <img class="gh-img-placeholder" src="/images/cannabis-buds-arranged-artistically.jpg" alt="Cannabis buds arranged artistically on a natural wood surface with warm lighting" loading="lazy">
+      <img src="/images/cannabis-buds-arranged-artistically.png" alt="Cannabis buds arranged artistically with Grizzly Herb packaging" loading="lazy">
     </div>
 
-    <!-- Right: White content card -->
+    <!-- White content card (right on desktop, top on mobile) -->
     <div class="gh-moments-card">
-      <p class="gh-moments-desc">Whether you're winding down after a busy day or looking to enhance your creativity, we have the perfect strain for you. At Grizzly Herb, our collection is carefully chosen to suit every occasion. From relaxing, full-bodied indicas to energizing sativas, each strain is handpicked to deliver the exact experience you're craving.</p>
+      <p class="gh-moments-desc">Whether you're winding down after a busy day or looking to enhance your creativity, <strong>we have the perfect strain for you.</strong> At Grizzly Herb, our collection is carefully chosen to suit every occasion. From relaxing, full-bodied indicas to energizing sativas, <strong>each strain is handpicked to deliver the exact experience you're craving.</strong></p>
 
       <!-- Feature rows -->
       <div class="gh-moments-features">
-        <!-- Feature a -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="/images/target-crosshair-icon-representing-strain-matching.png" alt="Target crosshair icon representing strain matching" loading="lazy">
-          <div>
+          <div class="gh-moments-feature__icon">
+            <img src="/images/moment-icon1.png" alt="Match strain to moment icon" loading="lazy">
+          </div>
+          <div class="gh-moments-feature-text">
             <div class="gh-moments-feature-title">Match strain to moment</div>
             <div class="gh-moments-feature-desc">Different times call for different strains. We help you choose what fits.</div>
           </div>
         </div>
 
-        <!-- Feature b -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="/images/hand-picking-icon-representing-handpicked-quality-strains.png" alt="Hand picking icon representing handpicked quality strains" loading="lazy">
-          <div>
+          <div class="gh-moments-feature__icon">
+            <img src="/images/moment-icon2.png" alt="Handpicked for effect icon" loading="lazy">
+          </div>
+          <div class="gh-moments-feature-text">
             <div class="gh-moments-feature-title">Handpicked for effect</div>
             <div class="gh-moments-feature-desc">Every strain is selected because it delivers. No filler, just quality.</div>
           </div>
         </div>
 
-        <!-- Feature c -->
         <div class="gh-moments-feature">
-          <img class="gh-img-placeholder" src="/images/spectrum-range-icon-representing-indica-to-sativa-range.png" alt="Spectrum range icon representing indica to sativa range" loading="lazy">
-          <div>
+          <div class="gh-moments-feature__icon">
+            <img src="/images/moment-icon3.png" alt="Indica to sativa range icon" loading="lazy">
+          </div>
+          <div class="gh-moments-feature-text">
             <div class="gh-moments-feature-title">Indica to sativa range</div>
             <div class="gh-moments-feature-desc">Relaxation or energy. Whatever you need, we've got you covered.</div>
           </div>
@@ -3103,52 +3070,9 @@
 
       <!-- CTA + Shipping pill -->
       <div class="gh-moments-actions">
-        <a href="#products" class="gh-moments-cta">Shop Strains &rarr;</a>
-        <span class="gh-moments-pill">30% Off + Free Shipping over $90</span>
+        <a href="#products" class="gh-moments-cta">Shop Strains &uarr;</a>
+        <span class="gh-moments-pill"><span class="gh-moments-pill__icon">&#128722;</span> 30% Off + Free Shipping over $90</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 5: Try It Once / Sample Pack -->
-<section class="gh-sample">
-  <div class="gh-sample-bg-overlay"></div>
-
-  <div class="gh-sample-layout">
-    <!-- Left card -->
-    <div class="gh-sample-left">
-      <h2 class="gh-sample-heading">Try It Once.<br>Decide After.</h2>
-
-      <div class="gh-sample-rating">
-        <span class="gh-sample-rating-number">4.8</span>
-        <span class="gh-sample-stars">
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fbc355"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fbc355"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fbc355"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fbc355"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fbc355"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-        </span>
-        <span class="gh-sample-review-count">57 Reviews</span>
-      </div>
-
-      <p class="gh-sample-discount">Take <span class="gh-sample-discount-desktop">30%</span><span class="gh-sample-discount-mobile">15%</span> off your first order!</p>
-    </div>
-
-    <!-- Right card (overlapping left by 16px) -->
-    <div class="gh-sample-right">
-      <h3 class="gh-sample-subtitle">Your first order is a test, not a commitment.</h3>
-      <p class="gh-sample-subdesc">We'd rather earn your second order than force your first.</p>
-
-      <!-- Product images -->
-      <div class="gh-sample-products">
-        <img class="gh-img-placeholder" src="/images/cannabis-product-package-sample-bag-1.png" alt="Cannabis product package sample bag 1" loading="lazy">
-        <span class="gh-sample-products-plus">+</span>
-        <img class="gh-img-placeholder" src="/images/cannabis-product-package-sample-bag-2.png" alt="Cannabis product package sample bag 2" loading="lazy">
-      </div>
-
-      <p class="gh-sample-qty">3 strains &times; 3.5g each</p>
-
-      <a href="#products" class="gh-sample-cta">Start With Sample Pack &rarr;</a>
     </div>
   </div>
 </section>
@@ -3215,28 +3139,28 @@
 
     <!-- Card: Indica -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/green-indica-cannabis-leaf-illustration.png" alt="Green indica cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green indica cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Indica</h3>
       <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep. Dive into our curated collection of Indica strains and discover the tranquility they can bring to your evenings.</p>
     </div>
 
     <!-- Card: Hybrid -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/green-hybrid-cannabis-leaf-illustration.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Hybrid</h3>
       <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered. Explore the symphony of effects that only hybrid strains can offer and find your perfect middle ground.</p>
     </div>
 
     <!-- Card: Sativa -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/green-sativa-cannabis-leaf-illustration.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Sativa</h3>
       <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy. They're especially popular among those who want to stay active, socialize, or dive into a creative project. Dive into our Sativa collection and discover strains that can add a touch of brightness and enthusiasm to your day.</p>
     </div>
 
     <!-- Card: Full Spectrum -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/full-spectrum-cannabis-extract-leaf-illustration.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
+      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
       <h3 class="gh-types-name">Full Spectrum</h3>
       <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound. At Grizzly Herb, our Full Spectrum offerings are crafted to provide you with a holistic cannabis experience. By preserving the complete profile of the plant, Full Spectrum products offer a depth of effects that isolated compounds can't match.</p>
     </div>
@@ -3280,174 +3204,6 @@
       <h3 class="gh-why-feature-title">Highest Quality</h3>
       <p class="gh-why-feature-desc">All of our growers follow the strictest guidelines. No pesticides, long curing times and all strains are tested in house.</p>
       <div class="gh-why-divider"></div>
-    </div>
-  </div>
-</section>
-<!-- ============================================================
-     SECTION 9: From Buyers Who Know (Reviews #2)
-     ============================================================ -->
-<section class="gh-reviews gh-reviews--2">
-  <div class="gh-reviews-inner">
-    <h2 class="gh-reviews-heading">From Buyers Who Know</h2>
-    <div class="gh-reviews-rating-pill">
-      <span class="gh-reviews-stars">
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-        <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      </span>
-      <span class="gh-reviews-rating-text">Rated 4.9/5 by 3,256+ reviews</span>
-    </div>
-
-    <div class="gh-reviews-carousel">
-      <button class="gh-carousel-arrow gh-carousel-arrow--left" data-dir="left" aria-label="Scroll left">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="gh-reviews-track">
-        <!-- Card 1 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Worth Every Drop</h3>
-          <p class="gh-review-card-body">The concentrates are next level. Smooth, potent, and the flavour is unreal. I've tried a lot of brands and nothing compares to what Grizzly Herb puts out.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">R</div>
-            <span class="gh-review-card-name">Ron J.</span>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">My Only Source Now</h3>
-          <p class="gh-review-card-body">I was skeptical at first but after my first order I was hooked. Fast shipping, discreet packaging, and the bud is always fresh and sticky. 10/10 every time.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">L</div>
-            <span class="gh-review-card-name">Lenny L.</span>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Finally, Real AAAA</h3>
-          <p class="gh-review-card-body">Been burned too many times by other MOMs claiming quad quality. Grizzly Herb actually delivers. Dense nugs, covered in trichomes, and the high hits perfect every time.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">R</div>
-            <span class="gh-review-card-name">Red</span>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Game Changer</h3>
-          <p class="gh-review-card-body">Switched from my old dispensary and the difference is night and day. Better quality, better prices, and way faster shipping.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">S</div>
-            <span class="gh-review-card-name">Sarah M.</span>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Perfect for Pain Relief</h3>
-          <p class="gh-review-card-body">The indica strains have been a lifesaver for my chronic pain. I've tried dozens of sources and nothing comes close to this quality.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">T</div>
-            <span class="gh-review-card-name">Tom H.</span>
-          </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Always Consistent</h3>
-          <p class="gh-review-card-body">What I love most is the consistency. Every order is the same high quality. No surprises, no disappointment. Just premium cannabis every time.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">N</div>
-            <span class="gh-review-card-name">Nina C.</span>
-          </div>
-        </div>
-        <!-- Card 7 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">Great Value</h3>
-          <p class="gh-review-card-body">You won't find this quality at these prices anywhere else. The bulk deals are insane and the free shipping makes it even better.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">A</div>
-            <span class="gh-review-card-name">Alex P.</span>
-          </div>
-        </div>
-        <!-- Card 8 -->
-        <div class="gh-review-card">
-          <div class="gh-review-card-stars">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-          </div>
-          <h3 class="gh-review-card-title">My Go-To for Years</h3>
-          <p class="gh-review-card-body">Been ordering from Grizzly Herb for over two years now. They keep raising the bar. The new strains they bring in are always fire.</p>
-          <div class="gh-review-card-author">
-            <div class="gh-review-card-avatar">C</div>
-            <span class="gh-review-card-name">Chris B.</span>
-          </div>
-        </div>
-      </div>
-      <button class="gh-carousel-arrow gh-carousel-arrow--right" data-dir="right" aria-label="Scroll right">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
-
-    <div class="gh-reviews-dots">
-      <span class="gh-reviews-dot gh-active"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
-      <span class="gh-reviews-dot"></span>
     </div>
   </div>
 </section>
@@ -3654,117 +3410,90 @@
   </div>
 </footer>
 
-<!-- Close root div -->
+<!-- Sticky CTA Bar -->
+<div class="gh-sticky-cta">
+  <div class="gh-sticky-cta__info">
+    <span class="gh-sticky-cta__title">Try It Once. Decide After.</span>
+    <span class="gh-sticky-cta__rating">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <strong>4.8</strong> rating from <strong>10,728+</strong> happy Buyers
+    </span>
+    <span class="gh-sticky-cta__offer">30% Off &middot; Free Shipping over $90</span>
+  </div>
+  <a href="#products" class="gh-sticky-cta__btn">Start With Sample Pack &rarr;</a>
 </div>
 
-<!-- ============================================================
-     JAVASCRIPT (IIFE)
-     ============================================================ -->
+</div>
+
 <script>
 (function(){
   var root = document.querySelector('.gh-root');
   if(!root) return;
 
-  // === Section 3 review carousel (dots + arrows) ===
-  var s3carousel = root.querySelector('.gh-reviews__carousel');
-  var s3dots = root.querySelectorAll('.gh-reviews__dot');
-  var s3arrows = root.querySelectorAll('.gh-reviews__arrow');
+  // === Review carousel (Section 3) ===
+  var carousel = root.querySelector('.gh-reviews__carousel');
+  var dots = root.querySelectorAll('.gh-reviews__dot');
+  var arrows = root.querySelectorAll('.gh-reviews__arrow');
 
-  function s3updateDots(){
-    if(!s3carousel || !s3dots.length) return;
-    var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+  function updateDots(){
+    if(!carousel || !dots.length) return;
+    var cards = carousel.querySelectorAll('.gh-reviews__card');
     if(!cards.length) return;
-    var scrollLeft = s3carousel.scrollLeft;
     var cardW = cards[0].offsetWidth + 10;
-    var idx = Math.round(scrollLeft / cardW);
-    for(var i=0;i<s3dots.length;i++){
-      s3dots[i].classList.toggle('gh-reviews__dot--active', i === idx);
+    var idx = Math.round(carousel.scrollLeft / cardW);
+    for(var i=0;i<dots.length;i++){
+      dots[i].classList.toggle('gh-reviews__dot--active', i === idx);
     }
   }
 
-  if(s3carousel){
-    s3carousel.addEventListener('scroll', s3updateDots);
-  }
+  if(carousel) carousel.addEventListener('scroll', updateDots);
 
-  for(var d=0;d<s3dots.length;d++){
+  for(var d=0;d<dots.length;d++){
     (function(idx){
-      s3dots[idx].addEventListener('click', function(){
-        var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+      dots[idx].addEventListener('click', function(){
+        var cards = carousel.querySelectorAll('.gh-reviews__card');
         if(!cards.length) return;
         var cardW = cards[0].offsetWidth + 10;
-        s3carousel.scrollTo({left: idx * cardW, behavior: 'smooth'});
+        carousel.scrollTo({left: idx * cardW, behavior: 'smooth'});
       });
     })(d);
   }
 
-  for(var a=0;a<s3arrows.length;a++){
+  for(var a=0;a<arrows.length;a++){
     (function(btn, idx){
       btn.addEventListener('click', function(){
         var dir = idx === 0 ? -1 : 1;
-        var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+        var cards = carousel.querySelectorAll('.gh-reviews__card');
         if(!cards.length) return;
         var cardW = cards[0].offsetWidth + 10;
-        s3carousel.scrollBy({left: dir * cardW, behavior: 'smooth'});
+        carousel.scrollBy({left: dir * cardW, behavior: 'smooth'});
       });
-    })(s3arrows[a], a);
+    })(arrows[a], a);
   }
 
-  // === Section 9 review carousel (dots + arrows) ===
-  var s9section = root.querySelector('.gh-reviews--2');
-  var s9track = s9section ? s9section.querySelector('.gh-reviews-track') : null;
-  var s9dots = s9section ? s9section.querySelectorAll('.gh-reviews-dot') : [];
-  var s9arrows = s9section ? s9section.querySelectorAll('.gh-carousel-arrow') : [];
-
-  function s9updateDots(){
-    if(!s9track || !s9dots.length) return;
-    var cards = s9track.querySelectorAll('.gh-review-card');
-    if(!cards.length) return;
-    var scrollLeft = s9track.scrollLeft;
-    var cardW = cards[0].offsetWidth + 24;
-    var idx = Math.round(scrollLeft / cardW);
-    for(var i=0;i<s9dots.length;i++){
-      s9dots[i].classList.toggle('gh-active', i === idx);
-    }
+  // === Product filter tabs ===
+  var filters = root.querySelectorAll('.gh-products__filter');
+  for(var f=0;f<filters.length;f++){
+    filters[f].addEventListener('click', function(){
+      for(var j=0;j<filters.length;j++) filters[j].classList.remove('gh-products__filter--active');
+      this.classList.add('gh-products__filter--active');
+    });
   }
 
-  if(s9track){
-    s9track.addEventListener('scroll', s9updateDots);
-  }
-
-  for(var d2=0;d2<s9dots.length;d2++){
-    (function(idx){
-      s9dots[idx].addEventListener('click', function(){
-        var cards = s9track.querySelectorAll('.gh-review-card');
-        if(!cards.length) return;
-        var cardW = cards[0].offsetWidth + 24;
-        s9track.scrollTo({left: idx * cardW, behavior: 'smooth'});
-      });
-    })(d2);
-  }
-
-  for(var a2=0;a2<s9arrows.length;a2++){
-    (function(btn){
-      btn.addEventListener('click', function(){
-        var dir = btn.dataset.dir === 'left' ? -1 : 1;
-        var cards = s9track.querySelectorAll('.gh-review-card');
-        if(!cards.length) return;
-        var cardW = cards[0].offsetWidth + 24;
-        s9track.scrollBy({left: dir * cardW, behavior: 'smooth'});
-      });
-    })(s9arrows[a2]);
-  }
-
-  // === General click delegation ===
+  // === Click delegation ===
   root.addEventListener('click', function(e){
-    // Mobile hamburger toggle
-    var hamburger = e.target.closest('[data-action="toggle-menu"]');
+    // Hamburger menu toggle
+    var hamburger = e.target.closest('.gh-nav__hamburger');
     if(hamburger){
-      var menu = root.querySelector('.gh-mobile-menu');
-      if(menu) menu.classList.toggle('gh-open');
+      hamburger.classList.toggle('gh-open');
       return;
     }
 
-    // FAQ accordion
+    // FAQ accordion (one-at-a-time, first open by default)
     var faqBtn = e.target.closest('.gh-faq-question');
     if(faqBtn){
       var item = faqBtn.closest('.gh-faq-item');
@@ -3775,7 +3504,7 @@
       return;
     }
 
-    // Footer accordion
+    // Footer accordion toggle
     var footerBtn = e.target.closest('.gh-footer-accordion-btn');
     if(footerBtn){
       var section = footerBtn.closest('.gh-footer-accordion-item');
@@ -3785,3 +3514,5 @@
   });
 })();
 </script>
+</body>
+</html>
