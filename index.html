@@ -284,6 +284,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .gh-hero__avatars {
@@ -319,7 +324,7 @@
   font-weight: 400;
   color: #2d5016;
   line-height: 1.2;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .gh-hero__headline strong {
@@ -440,6 +445,12 @@
     min-height: 470px;
     justify-content: center;
     gap: 16px;
+  }
+
+  .gh-hero__trust {
+    position: static;
+    transform: none;
+    white-space: normal;
   }
 
   .gh-hero__trust-text {
