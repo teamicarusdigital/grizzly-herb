@@ -356,35 +356,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  background: #c9a961;
-  border-radius: 6px;
-  padding: 6px;
+  gap: 6px;
+  background: #f0ede8;
+  border: 1px solid #e0ddd8;
+  border-radius: 8px;
+  padding: 14px 8px 12px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.gh-hero__feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gh-hero__feature-icon {
-  width: 26px;
-  height: 26px;
-  background: #ffffff;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 24px;
+  line-height: 1;
 }
 
 .gh-hero__feature-label {
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   color: #1f1f1f;
-  white-space: nowrap;
 }
 
 .gh-hero__cta {
@@ -393,10 +384,10 @@
   background: #d97835;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  border-radius: 8px;
-  padding: 12px 0;
+  border-radius: 12px;
+  padding: 16px 0;
   border: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
@@ -412,10 +403,12 @@
 .gh-hero__shipping {
   display: inline-flex;
   align-items: center;
-  background: #c9a961;
+  gap: 6px;
+  background: #f0ede8;
+  border: 1px solid #e0ddd8;
   border-radius: 100px;
-  padding: 6px 12px;
-  font-size: 11px;
+  padding: 8px 16px;
+  font-size: 13px;
   font-weight: 500;
   color: #3a3a3a;
 }
@@ -463,42 +456,39 @@
   }
 
   .gh-hero__features {
-    gap: 8px;
+    gap: 10px;
   }
 
   .gh-hero__feature {
     border-radius: 8px;
-    padding: 8px 10px;
-    gap: 5px;
-    flex-direction: row;
+    padding: 16px 12px 14px;
+    gap: 8px;
   }
 
   .gh-hero__feature-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
+    font-size: 28px;
   }
 
   .gh-hero__feature-label {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
   }
 
   .gh-hero__cta {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
-    border-radius: 8px;
-    padding: 14px 0;
-    background: #2d5016;
+    border-radius: 10px;
+    padding: 16px 0;
+    background: #d97835;
   }
 
   .gh-hero__cta:hover {
-    background: #3d6b12;
+    background: #c06a2a;
   }
 
   .gh-hero__shipping {
-    font-size: 13px;
-    padding: 7px 16px;
+    font-size: 14px;
+    padding: 8px 18px;
   }
 
 }
