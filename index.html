@@ -152,9 +152,8 @@
 
 .gh-nav__logo-img {
   width: 112px;
-  height: 32px;
-  background: #d9d4cb;
-  border-radius: 4px;
+  height: auto;
+  background: none;
 }
 
 .gh-nav__right {
@@ -223,7 +222,7 @@
 
   .gh-nav__logo-img {
     width: 224px;
-    height: 64px;
+    height: auto;
   }
 
   .gh-nav__icon {
@@ -322,12 +321,19 @@
   line-height: 1.6;
 }
 
+.gh-hero__cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .gh-hero__features {
   display: flex;
   gap: 8px;
 }
 
 .gh-hero__feature {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -363,18 +369,20 @@
 }
 
 .gh-hero__cta {
-  display: inline-block;
+  display: block;
+  width: 100%;
   background: #d97835;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 600;
   border-radius: 50px;
-  padding: 18px 33px;
+  padding: 18px 0;
   border: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   text-decoration: none;
+  text-align: center;
 }
 
 .gh-hero__cta:hover {
@@ -478,7 +486,7 @@
   .gh-hero__cta {
     font-size: 22px;
     border-radius: 6px;
-    padding: 18px 33px;
+    padding: 18px 0;
   }
 
   .gh-hero__shipping {
@@ -1545,17 +1553,17 @@
 .gh-compare-tabs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
+  gap: 4px;
   margin-bottom: 0;
 }
 
 .gh-compare-tab {
   background: #e8e6e3;
   border-radius: 8px 8px 0 0;
-  padding: 12px;
+  padding: 8px 6px;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: #1f1f1f;
 }
@@ -1563,6 +1571,15 @@
 .gh-compare-tab-brand {
   background: #2d5016;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gh-compare-logo {
+  max-width: 70px;
+  height: auto;
+  filter: brightness(0) invert(1);
 }
 
 .gh-compare-body {
@@ -1582,10 +1599,11 @@
 }
 
 .gh-compare-cell {
-  padding: 12px;
+  padding: 8px 6px;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   color: #1f1f1f;
+  line-height: 1.4;
 }
 
 .gh-compare-feature {
@@ -1611,9 +1629,17 @@
     margin: 0 0 48px;
   }
 
+  .gh-compare-tabs {
+    gap: 8px;
+  }
+
   .gh-compare-tab {
     padding: 16px;
     font-size: 18px;
+  }
+
+  .gh-compare-logo {
+    max-width: 140px;
   }
 
   .gh-compare-cell {
@@ -1994,6 +2020,7 @@
   height: 10px;
   border-radius: 50%;
   background: #c9c9c9;
+  cursor: pointer;
   transition: background 0.2s;
 }
 
@@ -2566,24 +2593,24 @@
       <!-- Description -->
       <p class="gh-hero__desc">Shop the freshest, handpicked cannabis strains that set the bar high. Exclusively for those who know what they're looking for.</p>
 
-      <!-- Feature pills -->
-      <div class="gh-hero__features">
-        <div class="gh-hero__feature">
-          <div class="gh-hero__feature-icon" aria-hidden="true">🌿</div>
-          <span class="gh-hero__feature-label">Direct Sourced</span>
+      <!-- Feature pills + CTA group -->
+      <div class="gh-hero__cta-group">
+        <div class="gh-hero__features">
+          <div class="gh-hero__feature">
+            <div class="gh-hero__feature-icon" aria-hidden="true">🌿</div>
+            <span class="gh-hero__feature-label">Direct Sourced</span>
+          </div>
+          <div class="gh-hero__feature">
+            <div class="gh-hero__feature-icon" aria-hidden="true">💰</div>
+            <span class="gh-hero__feature-label">Zero Markup</span>
+          </div>
+          <div class="gh-hero__feature">
+            <div class="gh-hero__feature-icon" aria-hidden="true">✅</div>
+            <span class="gh-hero__feature-label">Batch Consistent</span>
+          </div>
         </div>
-        <div class="gh-hero__feature">
-          <div class="gh-hero__feature-icon" aria-hidden="true">💰</div>
-          <span class="gh-hero__feature-label">Zero Markup</span>
-        </div>
-        <div class="gh-hero__feature">
-          <div class="gh-hero__feature-icon" aria-hidden="true">✅</div>
-          <span class="gh-hero__feature-label">Batch Consistent</span>
-        </div>
+        <a href="#products" class="gh-hero__cta">Explore Our Collection →</a>
       </div>
-
-      <!-- CTA button -->
-      <a href="#products" class="gh-hero__cta">Explore Our Collection →</a>
 
       <!-- Shipping pill -->
       <div class="gh-hero__shipping">30% Off + Free Shipping over $90</div>
@@ -3103,7 +3130,7 @@
     <!-- Table header tabs -->
     <div class="gh-compare-tabs">
       <div class="gh-compare-tab">Feature</div>
-      <div class="gh-compare-tab gh-compare-tab-brand">Grizzly Herb</div>
+      <div class="gh-compare-tab gh-compare-tab-brand"><img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb" class="gh-compare-logo"></div>
       <div class="gh-compare-tab">Other Brands</div>
     </div>
 
@@ -3600,8 +3627,98 @@
   var root = document.querySelector('.gh-root');
   if(!root) return;
 
-  // 1. Mobile hamburger toggle
+  // === Section 3 review carousel (dots + arrows) ===
+  var s3carousel = root.querySelector('.gh-reviews__carousel');
+  var s3dots = root.querySelectorAll('.gh-reviews__dot');
+  var s3arrows = root.querySelectorAll('.gh-reviews__arrow');
+
+  function s3updateDots(){
+    if(!s3carousel || !s3dots.length) return;
+    var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+    if(!cards.length) return;
+    var scrollLeft = s3carousel.scrollLeft;
+    var cardW = cards[0].offsetWidth + 10;
+    var idx = Math.round(scrollLeft / cardW);
+    for(var i=0;i<s3dots.length;i++){
+      s3dots[i].classList.toggle('gh-reviews__dot--active', i === idx);
+    }
+  }
+
+  if(s3carousel){
+    s3carousel.addEventListener('scroll', s3updateDots);
+  }
+
+  for(var d=0;d<s3dots.length;d++){
+    (function(idx){
+      s3dots[idx].addEventListener('click', function(){
+        var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+        if(!cards.length) return;
+        var cardW = cards[0].offsetWidth + 10;
+        s3carousel.scrollTo({left: idx * cardW, behavior: 'smooth'});
+      });
+    })(d);
+  }
+
+  for(var a=0;a<s3arrows.length;a++){
+    (function(btn, idx){
+      btn.addEventListener('click', function(){
+        var dir = idx === 0 ? -1 : 1;
+        var cards = s3carousel.querySelectorAll('.gh-reviews__card');
+        if(!cards.length) return;
+        var cardW = cards[0].offsetWidth + 10;
+        s3carousel.scrollBy({left: dir * cardW, behavior: 'smooth'});
+      });
+    })(s3arrows[a], a);
+  }
+
+  // === Section 9 review carousel (dots + arrows) ===
+  var s9section = root.querySelector('.gh-reviews--2');
+  var s9track = s9section ? s9section.querySelector('.gh-reviews-track') : null;
+  var s9dots = s9section ? s9section.querySelectorAll('.gh-reviews-dot') : [];
+  var s9arrows = s9section ? s9section.querySelectorAll('.gh-carousel-arrow') : [];
+
+  function s9updateDots(){
+    if(!s9track || !s9dots.length) return;
+    var cards = s9track.querySelectorAll('.gh-review-card');
+    if(!cards.length) return;
+    var scrollLeft = s9track.scrollLeft;
+    var cardW = cards[0].offsetWidth + 24;
+    var idx = Math.round(scrollLeft / cardW);
+    for(var i=0;i<s9dots.length;i++){
+      s9dots[i].classList.toggle('gh-active', i === idx);
+    }
+  }
+
+  if(s9track){
+    s9track.addEventListener('scroll', s9updateDots);
+  }
+
+  for(var d2=0;d2<s9dots.length;d2++){
+    (function(idx){
+      s9dots[idx].addEventListener('click', function(){
+        var cards = s9track.querySelectorAll('.gh-review-card');
+        if(!cards.length) return;
+        var cardW = cards[0].offsetWidth + 24;
+        s9track.scrollTo({left: idx * cardW, behavior: 'smooth'});
+      });
+    })(d2);
+  }
+
+  for(var a2=0;a2<s9arrows.length;a2++){
+    (function(btn){
+      btn.addEventListener('click', function(){
+        var dir = btn.dataset.dir === 'left' ? -1 : 1;
+        var cards = s9track.querySelectorAll('.gh-review-card');
+        if(!cards.length) return;
+        var cardW = cards[0].offsetWidth + 24;
+        s9track.scrollBy({left: dir * cardW, behavior: 'smooth'});
+      });
+    })(s9arrows[a2]);
+  }
+
+  // === General click delegation ===
   root.addEventListener('click', function(e){
+    // Mobile hamburger toggle
     var hamburger = e.target.closest('[data-action="toggle-menu"]');
     if(hamburger){
       var menu = root.querySelector('.gh-mobile-menu');
@@ -3609,30 +3726,18 @@
       return;
     }
 
-    // 2. FAQ accordion
+    // FAQ accordion
     var faqBtn = e.target.closest('.gh-faq-question');
     if(faqBtn){
       var item = faqBtn.closest('.gh-faq-item');
       var wasOpen = item.classList.contains('gh-open');
-      // Close all
       var items = root.querySelectorAll('.gh-faq-item');
       for(var i=0;i<items.length;i++) items[i].classList.remove('gh-open');
-      // Toggle
       if(!wasOpen) item.classList.add('gh-open');
       return;
     }
 
-    // 3. Review carousel scroll
-    var arrowBtn = e.target.closest('.gh-carousel-arrow');
-    if(arrowBtn){
-      var track = arrowBtn.closest('.gh-reviews').querySelector('.gh-reviews-track');
-      if(!track) return;
-      var dir = arrowBtn.dataset.dir === 'left' ? -1 : 1;
-      track.scrollBy({left: dir * 320, behavior: 'smooth'});
-      return;
-    }
-
-    // 4. Footer accordion
+    // Footer accordion
     var footerBtn = e.target.closest('.gh-footer-accordion-btn');
     if(footerBtn){
       var section = footerBtn.closest('.gh-footer-accordion-item');
