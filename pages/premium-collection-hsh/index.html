@@ -2746,6 +2746,38 @@
 .gh-products__card-btn-qty.gh-qty--visible {
   display: flex;
 }
+
+/* --- Variant Selector Pills --- */
+.gh-products__card-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+  justify-content: center;
+}
+.gh-root .gh-products__card-variant {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1.5px solid #ddd;
+  background: #ffffff;
+  color: #3a3a3a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  line-height: 1.2;
+}
+.gh-root .gh-products__card-variant:hover {
+  border-color: #4a7c2c;
+}
+.gh-root .gh-products__card-variant--active {
+  border-color: #2d5016;
+  background: #2d5016;
+  color: #ffffff;
+}
 </style>
 </head>
 <body>
@@ -2903,7 +2935,7 @@
       <div class="gh-products__grid">
 
         <!-- Product 1: Purple Kush -->
-        <div class="gh-products__card" data-product-id="1001" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="/images/purple-kush-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="/images/purple-kush-cannabis-flower.png" data-variants='[{"vid":357187,"label":"Oz","price":90},{"vid":357188,"label":"QP","price":340},{"vid":418758,"label":"Lb","price":1200}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/purple-kush-cannabis-flower.png" alt="Purple Kush cannabis flower" loading="lazy">
@@ -2925,7 +2957,7 @@
         </div>
 
         <!-- Product 2: Peanut Butter Breath -->
-        <div class="gh-products__card" data-product-id="1002" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="/images/peanut-butter-breath-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="/images/peanut-butter-breath-cannabis-flower.png" data-variants='[{"vid":357045,"label":"Oz","price":90},{"vid":357046,"label":"QP","price":340},{"vid":418833,"label":"Lb","price":950}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/peanut-butter-breath-cannabis-flower.png" alt="Peanut Butter Breath cannabis flower" loading="lazy">
@@ -2947,7 +2979,7 @@
         </div>
 
         <!-- Product 3: Vanilla Kush -->
-        <div class="gh-products__card" data-product-id="1003" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="/images/vanilla-kush-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="/images/vanilla-kush-cannabis-flower.png" data-variants='[{"vid":356981,"label":"Oz","price":90},{"vid":356982,"label":"QP","price":340},{"vid":418834,"label":"Lb","price":950}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/vanilla-kush-cannabis-flower.png" alt="Vanilla Kush cannabis flower" loading="lazy">
@@ -2969,7 +3001,7 @@
         </div>
 
         <!-- Product 4: Diamond Edition 50-Pack -->
-        <div class="gh-products__card" data-product-id="1004" data-product-name="Diamond Edition 50-Pack" data-product-price="350.00" data-product-image="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png">
+        <div class="gh-products__card" data-product-id="244853" data-product-name="Diamond Edition 50-Pack" data-product-price="350.00" data-product-image="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" data-variants='[{"vid":244853,"label":"50-Pack","price":350}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
@@ -2991,7 +3023,7 @@
         </div>
 
         <!-- Product 5: Ghost Breath -->
-        <div class="gh-products__card" data-product-id="1005" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="/images/ghost-breath-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="/images/ghost-breath-cannabis-flower.png" data-variants='[{"vid":183886,"label":"Oz","price":90},{"vid":183887,"label":"QP","price":340},{"vid":418835,"label":"Lb","price":950}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/ghost-breath-cannabis-flower.png" alt="Ghost Breath cannabis flower" loading="lazy">
@@ -3013,7 +3045,7 @@
         </div>
 
         <!-- Product 6: Golden Oreoz -->
-        <div class="gh-products__card" data-product-id="1006" data-product-name="Golden Oreoz" data-product-price="90.00" data-product-image="/images/golden-oreoz-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="183859" data-product-name="Golden Oreoz" data-product-price="80.00" data-product-image="/images/golden-oreoz-cannabis-flower.png" data-variants='[{"vid":183864,"label":"Oz","price":80},{"vid":183865,"label":"QP","price":300},{"vid":418836,"label":"Lb","price":900}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/golden-oreoz-cannabis-flower.png" alt="Golden Oreoz cannabis flower" loading="lazy">
@@ -3035,7 +3067,7 @@
         </div>
 
         <!-- Product 7: Key Lime Haze -->
-        <div class="gh-products__card" data-product-id="1007" data-product-name="Key Lime Haze" data-product-price="90.00" data-product-image="/images/key-lime-haze-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-product-price="80.00" data-product-image="/images/key-lime-haze-cannabis-flower.png" data-variants='[{"vid":168143,"label":"Oz","price":80},{"vid":168144,"label":"QP","price":300},{"vid":418838,"label":"Lb","price":900}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/key-lime-haze-cannabis-flower.png" alt="Key Lime Haze cannabis flower" loading="lazy">
@@ -3057,7 +3089,7 @@
         </div>
 
         <!-- Product 8: Grape Diesel -->
-        <div class="gh-products__card" data-product-id="1008" data-product-name="Grape Diesel" data-product-price="90.00" data-product-image="/images/grape-diesel-cannabis-flower.png">
+        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-product-price="80.00" data-product-image="/images/grape-diesel-cannabis-flower.png" data-variants='[{"vid":168136,"label":"Oz","price":80},{"vid":168137,"label":"QP","price":300},{"vid":418747,"label":"Lb","price":875}]'>
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/grape-diesel-cannabis-flower.png" alt="Grape Diesel cannabis flower" loading="lazy">
@@ -3755,6 +3787,30 @@
   var totalPriceEl = root.querySelector('.gh-cart-panel__total-price');
   var navBadge = root.querySelector('.gh-nav__cart-badge');
 
+  // === Generate variant selector pills for each product card ===
+  var variantCards = root.querySelectorAll('.gh-products__card[data-variants]');
+  for (var vc = 0; vc < variantCards.length; vc++) {
+    var vCard = variantCards[vc];
+    var variants = JSON.parse(vCard.getAttribute('data-variants'));
+    var pillRow = document.createElement('div');
+    pillRow.className = 'gh-products__card-variants';
+    for (var vi = 0; vi < variants.length; vi++) {
+      var pill = document.createElement('button');
+      pill.className = 'gh-products__card-variant' + (vi === 0 ? ' gh-products__card-variant--active' : '');
+      pill.setAttribute('data-vid', variants[vi].vid);
+      pill.setAttribute('data-vprice', variants[vi].price);
+      pill.setAttribute('data-vlabel', variants[vi].label);
+      pill.textContent = variants[vi].label;
+      pillRow.appendChild(pill);
+    }
+    var cardBottom = vCard.querySelector('.gh-products__card-bottom');
+    vCard.insertBefore(pillRow, cardBottom);
+    // Set initial price from first variant
+    vCard.setAttribute('data-product-price', variants[0].price);
+    var priceEl = vCard.querySelector('.gh-products__card-price');
+    if (priceEl) priceEl.textContent = '$' + parseFloat(variants[0].price).toFixed(2);
+  }
+
   function openCart() {
     overlay.classList.add('gh-cart--open');
     panel.classList.add('gh-cart--open');
@@ -3797,7 +3853,7 @@
       if (!badge) continue;
       var qty = 0;
       for (var j = 0; j < cart.length; j++) {
-        if (cart[j].id === id) { qty = cart[j].qty; break; }
+        if (cart[j].id === id) qty += cart[j].qty;
       }
       if (qty > 0) {
         badge.textContent = qty;
@@ -3816,7 +3872,7 @@
       var html = '';
       for (var i = 0; i < cart.length; i++) {
         var item = cart[i];
-        html += '<div class="gh-cart-panel__item" data-product-id="' + item.id + '">'
+        html += '<div class="gh-cart-panel__item" data-product-id="' + item.vid + '">'
           + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
           + '<div class="gh-cart-panel__item-info">'
           + '<div class="gh-cart-panel__item-name">' + item.name + '</div>'
@@ -3837,23 +3893,24 @@
     updateCardBadges();
   }
 
-  function addToCart(id, name, price, image) {
+  function addToCart(id, vid, name, label, price, image) {
     for (var i = 0; i < cart.length; i++) {
-      if (cart[i].id === id) {
+      if (cart[i].vid === vid) {
         cart[i].qty++;
         renderCart();
         openCart();
         return;
       }
     }
-    cart.push({ id: id, name: name, price: parseFloat(price), image: image, qty: 1 });
+    var displayName = label ? name + ' (' + label + ')' : name;
+    cart.push({ id: id, vid: vid, name: displayName, price: parseFloat(price), image: image, qty: 1 });
     renderCart();
     openCart();
   }
 
-  function removeFromCart(id) {
+  function removeFromCart(vid) {
     for (var i = 0; i < cart.length; i++) {
-      if (cart[i].id === id) {
+      if (cart[i].vid === vid) {
         cart.splice(i, 1);
         break;
       }
@@ -3861,9 +3918,9 @@
     renderCart();
   }
 
-  function changeQty(id, delta) {
+  function changeQty(vid, delta) {
     for (var i = 0; i < cart.length; i++) {
-      if (cart[i].id === id) {
+      if (cart[i].vid === vid) {
         cart[i].qty += delta;
         if (cart[i].qty < 1) {
           cart.splice(i, 1);
@@ -3875,19 +3932,22 @@
   }
 
   function buildCheckoutUrl() {
-    var base = 'https://grizzlyherb.co/cart/?';
-    var params = [];
-    for (var i = 0; i < cart.length; i++) {
+    if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
+    // First item uses native WooCommerce add-to-cart param
+    var base = 'https://grizzlyherb.co/?add-to-cart=' + encodeURIComponent(cart[0].vid)
+      + '&quantity=' + encodeURIComponent(cart[0].qty);
+    // Additional items encoded for future handler
+    var extra = [];
+    for (var i = 1; i < cart.length; i++) {
       var idx = i + 1;
-      params.push('product_' + idx + '=' + encodeURIComponent(cart[i].id));
-      params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
+      extra.push('vid_' + idx + '=' + encodeURIComponent(cart[i].vid));
+      extra.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
     }
+    if (extra.length) base += '&' + extra.join('&');
     // Merge all original URL params (UTM, coupon, any others)
     var saved = getSavedParams();
-    if (saved) {
-      params.push(saved);
-    }
-    return base + params.join('&');
+    if (saved) base += '&' + saved;
+    return base;
   }
 
   // Close cart on Escape key
@@ -3926,14 +3986,33 @@
       return;
     }
 
+    // Variant pill click
+    var variantBtn = e.target.closest('.gh-products__card-variant');
+    if(variantBtn){
+      var card = variantBtn.closest('.gh-products__card');
+      var siblings = card.querySelectorAll('.gh-products__card-variant');
+      for(var si=0;si<siblings.length;si++) siblings[si].classList.remove('gh-products__card-variant--active');
+      variantBtn.classList.add('gh-products__card-variant--active');
+      var newPrice = variantBtn.getAttribute('data-vprice');
+      card.setAttribute('data-product-price', newPrice);
+      var priceEl = card.querySelector('.gh-products__card-price');
+      if(priceEl) priceEl.textContent = '$' + parseFloat(newPrice).toFixed(2);
+      return;
+    }
+
     // "Add to Stash" button click
     var atcBtn = e.target.closest('.gh-products__card-btn');
     if(atcBtn){
       var card = atcBtn.closest('.gh-products__card');
       if(card){
+        var activeVariant = card.querySelector('.gh-products__card-variant--active');
+        var vid = activeVariant ? activeVariant.getAttribute('data-vid') : card.getAttribute('data-product-id');
+        var label = activeVariant ? activeVariant.getAttribute('data-vlabel') : '';
         addToCart(
           card.getAttribute('data-product-id'),
+          vid,
           card.getAttribute('data-product-name'),
+          label,
           card.getAttribute('data-product-price'),
           card.getAttribute('data-product-image')
         );
