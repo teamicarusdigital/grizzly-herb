@@ -3736,7 +3736,15 @@
 
   // === Side Cart: State & UTM Capture ===
   var cart = [];
-  var searchParams = new URLSearchParams(window.location.search);
+  // Capture all URL parameters (UTM, coupon, etc.) as raw key=value pairs
+  var incomingParams = [];
+  var qs = window.location.search.replace(/^\?/, '');
+  if (qs) {
+    var pairs = qs.split('&');
+    for (var p = 0; p < pairs.length; p++) {
+      if (pairs[p]) incomingParams.push(pairs[p]);
+    }
+  }
   var overlay = root.querySelector('.gh-cart-overlay');
   var panel = root.querySelector('.gh-cart-panel');
   var cartItemsEl = root.querySelector('.gh-cart-panel__items');
@@ -3870,10 +3878,10 @@
       params.push('product_' + idx + '=' + encodeURIComponent(cart[i].id));
       params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
     }
-    // Preserve all original URL params (UTM, coupon, etc.)
-    searchParams.forEach(function(value, key) {
-      params.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
-    });
+    // Merge all original URL params (UTM, coupon, any others)
+    for (var p = 0; p < incomingParams.length; p++) {
+      params.push(incomingParams[p]);
+    }
     return base + params.join('&');
   }
 
