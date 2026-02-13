@@ -69,7 +69,7 @@ Each agent must output a **complete code block** containing:
 ### Fonts
 - Primary: `'Poppins', sans-serif` (weights: 300, 400, 500, 600, 700, 800)
 - Accent/Cursive: `'Outfit', sans-serif` (weight: 700) — used for italic accent text
-- Google Fonts link: `https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@700&display=swap`
+- Google Fonts link: `https://fonts.googleapis.com/css2?family=Poppins:wght@300``;400;500;600;700;800&family=Outfit:wght@700&display=swap`
 
 ### Color Palette (extract exact hex from screenshots, but these are the known brand colors)
 - Primary Green: `#2d5016`
@@ -91,13 +91,13 @@ Each agent must output a **complete code block** containing:
 - All image paths use absolute URLs: `/images/filename.ext`
 - Use `loading="lazy"` on all images below the fold
 - Use descriptive `alt` text
-- For placeholder images not yet provided, use: `<div class="gh-img-placeholder" style="width:Wpx;height:Hpx;background:#e8e6e3;border-radius:Rpx;"></div>`
+- For placeholder images not yet provided, use: `<div class="gh-img-placeholder" style="width:Wpx;height:Hpx;background:``#e8e6e3``;border-radius:Rpx;"></div>`
 - When an image is needed but not available, the agent MUST list it in the output as: `<!-- NEEDS IMAGE: description, approximate dimensions WxH -->`
 
 ### HTML Structure
 - Single root: `<div class="gh-root">`
 - Semantic elements: `<section>`, `<nav>`, `<footer>`, `<header>`, `<button>`, `<a>`
-- All CTA buttons/links should use `href="#products"` as default target
+- All CTA buttons/links should use `href="``#products``"` as default target
 - Buttons use `<button>` for actions, `<a>` for navigation/links
 
 ### Responsive Behavior
@@ -109,7 +109,7 @@ Each agent must output a **complete code block** containing:
 
 ## Section Index
 | # | Section Name | Description |
-|---|---|---|
+| --- | --- | --- |
 | 0 | Hero | Top banner + Navigation + Hero content with background image |
 | 1 | Explore | "Explore Our Handpicked Strains" — info card + image |
 | 2 | Products | "Find Your Perfect Strain" — filter tabs + product grid |
@@ -156,7 +156,7 @@ Each agent must output a **complete code block** containing:
 - Repo: `github.com/teamicarusdigital/grizzly-herb`
 - Deploy: `vercel --prod --yes` from `C:\Users\Srrok\Documents\grizzly-herb-deploy`
 - URL: `https://app.grizzlyherb.us`
-- Custom route: `/pages/perfect` (via vercel.json rewrite)
+- Custom routes: `/pages/perfect` and `/pages/premium-collection-hsh` (via vercel.json rewrites)
 
 ## Quality Checklist (every agent must verify)
 - [ ] Mobile screenshot matched 1:1
