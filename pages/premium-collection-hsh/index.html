@@ -3838,6 +3838,16 @@
     if (priceEl) priceEl.textContent = '$' + parseFloat(variants[0].price).toFixed(2);
   }
 
+  // === Append UTM params to product page links ===
+  var savedParams = getSavedParams();
+  if (savedParams) {
+    var productLinks = root.querySelectorAll('.gh-products__card-link');
+    for (var pl = 0; pl < productLinks.length; pl++) {
+      var href = productLinks[pl].getAttribute('href');
+      productLinks[pl].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + savedParams);
+    }
+  }
+
   function openCart() {
     overlay.classList.add('gh-cart--open');
     panel.classList.add('gh-cart--open');
