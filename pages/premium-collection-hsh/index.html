@@ -3970,11 +3970,8 @@
 
   function buildCheckoutUrl() {
     if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
-    // First item uses native WooCommerce add-to-cart on /cart/ page
-    var params = ['add-to-cart=' + encodeURIComponent(cart[0].vid),
-      'quantity=' + encodeURIComponent(cart[0].qty)];
-    // Additional items encoded for future handler
-    for (var i = 1; i < cart.length; i++) {
+    var params = ['gh_multi=1'];
+    for (var i = 0; i < cart.length; i++) {
       var idx = i + 1;
       params.push('vid_' + idx + '=' + encodeURIComponent(cart[i].vid));
       params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
@@ -3982,7 +3979,7 @@
     // Merge all original URL params (UTM, coupon, any others)
     var saved = getSavedParams();
     if (saved) params.push(saved);
-    return 'https://grizzlyherb.co/cart/?' + params.join('&');
+    return 'https://grizzlyherb.co/?' + params.join('&');
   }
 
   // Close cart on Escape key
