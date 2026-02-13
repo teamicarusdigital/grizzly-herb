@@ -2747,6 +2747,17 @@
   display: flex;
 }
 
+/* --- Product card link wrapper --- */
+.gh-products__card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.gh-products__card-link:hover .gh-products__card-img {
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
 /* --- Variant Selector Pills --- */
 .gh-products__card-variants {
   display: flex;
@@ -2935,7 +2946,8 @@
       <div class="gh-products__grid">
 
         <!-- Product 1: Purple Kush -->
-        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="/images/purple-kush-cannabis-flower.png" data-variants='[{"vid":357187,"label":"Oz","price":90},{"vid":357188,"label":"QP","price":340},{"vid":418758,"label":"Lb","price":1200}]'>
+        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="/images/purple-kush-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" data-variants='[{"vid":357187,"label":"Oz (28g)","price":90},{"vid":357188,"label":"QP (4 Oz)","price":340},{"vid":418758,"label":"Lb (16 Oz)","price":1200}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/purple-kush-cannabis-flower.png" alt="Purple Kush cannabis flower" loading="lazy">
@@ -2949,6 +2961,7 @@
             <span class="gh-products__card-reviews">(0 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Purple Kush | Indica | Mediums | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -2957,7 +2970,8 @@
         </div>
 
         <!-- Product 2: Peanut Butter Breath -->
-        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="/images/peanut-butter-breath-cannabis-flower.png" data-variants='[{"vid":357045,"label":"Oz","price":90},{"vid":357046,"label":"QP","price":340},{"vid":418833,"label":"Lb","price":950}]'>
+        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="/images/peanut-butter-breath-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":357045,"label":"Oz (28g)","price":90},{"vid":357046,"label":"QP (4 Oz)","price":340},{"vid":418833,"label":"Lb (16 Oz)","price":950}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/peanut-butter-breath-cannabis-flower.png" alt="Peanut Butter Breath cannabis flower" loading="lazy">
@@ -2971,6 +2985,7 @@
             <span class="gh-products__card-reviews">(0 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Peanut Butter Breath | Indica Hybrid | Mediums | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -2979,7 +2994,8 @@
         </div>
 
         <!-- Product 3: Vanilla Kush -->
-        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="/images/vanilla-kush-cannabis-flower.png" data-variants='[{"vid":356981,"label":"Oz","price":90},{"vid":356982,"label":"QP","price":340},{"vid":418834,"label":"Lb","price":950}]'>
+        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="/images/vanilla-kush-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":356981,"label":"Oz (28g)","price":90},{"vid":356982,"label":"QP (4 Oz)","price":340},{"vid":418834,"label":"Lb (16 Oz)","price":950}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">8 left</span>
             <img class="gh-products__card-img" src="/images/vanilla-kush-cannabis-flower.png" alt="Vanilla Kush cannabis flower" loading="lazy">
@@ -2993,6 +3009,7 @@
             <span class="gh-products__card-reviews">(0 reviews)</span>
           </div>
           <div class="gh-products__card-name">Vanilla Kush | Indica Hybrid | Mediums | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3001,7 +3018,8 @@
         </div>
 
         <!-- Product 4: Diamond Edition 50-Pack -->
-        <div class="gh-products__card" data-product-id="244853" data-product-name="Diamond Edition 50-Pack" data-product-price="350.00" data-product-image="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" data-variants='[{"vid":244853,"label":"50-Pack","price":350}]'>
+        <div class="gh-products__card" data-product-id="244853" data-product-name="Diamond Edition 50-Pack" data-product-price="350.00" data-product-image="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" data-product-url="https://grizzlyherb.co/product/grizzly-herb-diamond-edition-50-pack-10-x-5-pre-rolls-mixed-strains/" data-variants='[{"vid":244853,"label":"50-Pack","price":350}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/grizzly-herb-diamond-edition-50-pack-10-x-5-pre-rolls-mixed-strains/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/grizzly-herb-diamond-edition-50-pack-pre-rolls.png" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
@@ -3015,6 +3033,7 @@
             <span class="gh-products__card-reviews">(5 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Grizzly Herb Diamond Edition&trade; 50-Pack | 10 &times; 5 Pre-Rolls | Mixed Strains</div>
+          </a>
           <div class="gh-products__card-price"><s>$500.00</s> $350.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3023,7 +3042,8 @@
         </div>
 
         <!-- Product 5: Ghost Breath -->
-        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="/images/ghost-breath-cannabis-flower.png" data-variants='[{"vid":183886,"label":"Oz","price":90},{"vid":183887,"label":"QP","price":340},{"vid":418835,"label":"Lb","price":950}]'>
+        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="/images/ghost-breath-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" data-variants='[{"vid":183886,"label":"Oz (28g)","price":90},{"vid":183887,"label":"QP (4 Oz)","price":340},{"vid":418835,"label":"Lb (16 Oz)","price":950}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/ghost-breath-cannabis-flower.png" alt="Ghost Breath cannabis flower" loading="lazy">
@@ -3037,6 +3057,7 @@
             <span class="gh-products__card-reviews">(9 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Ghost Breath | Sativa | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3045,7 +3066,8 @@
         </div>
 
         <!-- Product 6: Golden Oreoz -->
-        <div class="gh-products__card" data-product-id="183859" data-product-name="Golden Oreoz" data-product-price="80.00" data-product-image="/images/golden-oreoz-cannabis-flower.png" data-variants='[{"vid":183864,"label":"Oz","price":80},{"vid":183865,"label":"QP","price":300},{"vid":418836,"label":"Lb","price":900}]'>
+        <div class="gh-products__card" data-product-id="183859" data-product-name="Golden Oreoz" data-product-price="80.00" data-product-image="/images/golden-oreoz-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80},{"vid":183865,"label":"QP (4 Oz)","price":300},{"vid":418836,"label":"Lb (16 Oz)","price":900}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/golden-oreoz-cannabis-flower.png" alt="Golden Oreoz cannabis flower" loading="lazy">
@@ -3059,6 +3081,7 @@
             <span class="gh-products__card-reviews">(15 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Golden Oreoz | Indica | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3067,7 +3090,8 @@
         </div>
 
         <!-- Product 7: Key Lime Haze -->
-        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-product-price="80.00" data-product-image="/images/key-lime-haze-cannabis-flower.png" data-variants='[{"vid":168143,"label":"Oz","price":80},{"vid":168144,"label":"QP","price":300},{"vid":418838,"label":"Lb","price":900}]'>
+        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-product-price="80.00" data-product-image="/images/key-lime-haze-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" data-variants='[{"vid":168143,"label":"Oz (28g)","price":80},{"vid":168144,"label":"QP (4 Oz)","price":300},{"vid":418838,"label":"Lb (16 Oz)","price":900}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/key-lime-haze-cannabis-flower.png" alt="Key Lime Haze cannabis flower" loading="lazy">
@@ -3081,6 +3105,7 @@
             <span class="gh-products__card-reviews">(10 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Key Lime Haze &#8211; Sativa AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3089,7 +3114,8 @@
         </div>
 
         <!-- Product 8: Grape Diesel -->
-        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-product-price="80.00" data-product-image="/images/grape-diesel-cannabis-flower.png" data-variants='[{"vid":168136,"label":"Oz","price":80},{"vid":168137,"label":"QP","price":300},{"vid":418747,"label":"Lb","price":875}]'>
+        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-product-price="80.00" data-product-image="/images/grape-diesel-cannabis-flower.png" data-product-url="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" data-variants='[{"vid":168136,"label":"Oz (28g)","price":80},{"vid":168137,"label":"QP (4 Oz)","price":300},{"vid":418747,"label":"Lb (16 Oz)","price":875}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="/images/grape-diesel-cannabis-flower.png" alt="Grape Diesel cannabis flower" loading="lazy">
@@ -3103,6 +3129,7 @@
             <span class="gh-products__card-reviews">(12 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Grape Diesel | Sativa | Cannabis | AAAA</div>
+          </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
