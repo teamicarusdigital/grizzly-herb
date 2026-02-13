@@ -3736,14 +3736,18 @@
 
   // === Side Cart: State & UTM Capture ===
   var cart = [];
-  // Capture all URL parameters (UTM, coupon, etc.) as raw key=value pairs
-  var incomingParams = [];
+  // Capture all URL parameters (UTM, coupon, etc.)
+  // Store in sessionStorage so they survive trailing-slash redirects
+  var PARAM_KEY = 'gh_incoming_params';
   var qs = window.location.search.replace(/^\?/, '');
   if (qs) {
-    var pairs = qs.split('&');
-    for (var p = 0; p < pairs.length; p++) {
-      if (pairs[p]) incomingParams.push(pairs[p]);
-    }
+    try { sessionStorage.setItem(PARAM_KEY, qs); } catch(e) {}
+  }
+  function getSavedParams() {
+    // Prefer live URL params, fall back to sessionStorage
+    var live = window.location.search.replace(/^\?/, '');
+    if (live) return live;
+    try { return sessionStorage.getItem(PARAM_KEY) || ''; } catch(e) { return ''; }
   }
   var overlay = root.querySelector('.gh-cart-overlay');
   var panel = root.querySelector('.gh-cart-panel');
@@ -3879,8 +3883,9 @@
       params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
     }
     // Merge all original URL params (UTM, coupon, any others)
-    for (var p = 0; p < incomingParams.length; p++) {
-      params.push(incomingParams[p]);
+    var saved = getSavedParams();
+    if (saved) {
+      params.push(saved);
     }
     return base + params.join('&');
   }
