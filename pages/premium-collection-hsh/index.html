@@ -1677,12 +1677,20 @@
   padding: 20px;
 }
 
+.gh-types-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
 .gh-types-card .gh-img-placeholder {
   width: 94px;
   height: 100px;
   background: transparent;
   border-radius: 0;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .gh-types-name {
@@ -1690,7 +1698,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #1f1f1f;
-  margin: 0 0 12px;
+  margin: 0;
 }
 
 .gh-types-desc {
@@ -3461,29 +3469,37 @@
 
     <!-- Card: Indica -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green indica cannabis leaf illustration" loading="lazy">
-      <h3 class="gh-types-name">Indica</h3>
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green indica cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Indica</h3>
+      </div>
       <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep. Dive into our curated collection of Indica strains and discover the tranquility they can bring to your evenings.</p>
     </div>
 
     <!-- Card: Hybrid -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
-      <h3 class="gh-types-name">Hybrid</h3>
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Hybrid</h3>
+      </div>
       <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered. Explore the symphony of effects that only hybrid strains can offer and find your perfect middle ground.</p>
     </div>
 
     <!-- Card: Sativa -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
-      <h3 class="gh-types-name">Sativa</h3>
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Sativa</h3>
+      </div>
       <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy. They're especially popular among those who want to stay active, socialize, or dive into a creative project. Dive into our Sativa collection and discover strains that can add a touch of brightness and enthusiasm to your day.</p>
     </div>
 
     <!-- Card: Full Spectrum -->
     <div class="gh-types-card">
-      <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
-      <h3 class="gh-types-name">Full Spectrum</h3>
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Full Spectrum</h3>
+      </div>
       <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound. At Grizzly Herb, our Full Spectrum offerings are crafted to provide you with a holistic cannabis experience. By preserving the complete profile of the plant, Full Spectrum products offer a depth of effects that isolated compounds can't match.</p>
     </div>
   </div>
