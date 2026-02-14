@@ -605,7 +605,7 @@
 
 .gh-explore__image {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 361 / 364;
   object-fit: cover;
   background: #d9d4cb;
   border-radius: 12px;
@@ -631,7 +631,6 @@
   .gh-explore__card {
     flex: 1;
     padding: 48px 28px;
-    min-width: 0;
   }
 
   .gh-explore__row-icon {
@@ -648,12 +647,11 @@
   }
 
   .gh-explore__image {
-    flex: 0 1 50%;
-    max-width: 503px;
-    aspect-ratio: 1 / 1;
+    width: 503px;
+    min-width: 503px;
+    aspect-ratio: 503 / 507;
     object-fit: cover;
     border-radius: 16px;
-    align-self: center;
   }
 }
 
@@ -661,14 +659,11 @@
   .gh-explore {
     padding: 48px 40px;
   }
-  .gh-explore__content {
-    gap: 24px;
-  }
-  .gh-explore__row-title {
-    font-size: 18px;
-  }
-  .gh-explore__row-text {
-    font-size: 14px;
+  .gh-explore__image {
+    width: auto;
+    min-width: 0;
+    flex: 0 0 40%;
+    aspect-ratio: 1 / 1;
   }
 }
 
