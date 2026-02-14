@@ -690,12 +690,9 @@
 .gh-products__sticker {
   position: relative;
   flex-shrink: 0;
-  margin-left: 8px;
-  transform: rotate(-12deg);
+  margin-left: 10px;
   width: 64px;
   height: 64px;
-  background: #e85d35;
-  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -704,26 +701,45 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   line-height: 1;
-  box-shadow: 0 3px 12px rgba(232, 93, 53, 0.4);
-  animation: gh-sticker-pulse 2s ease-in-out infinite;
   z-index: 3;
+  animation: gh-sticker-spin 6s linear infinite;
+}
+.gh-products__sticker::before,
+.gh-products__sticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e85d35;
+  z-index: -1;
+}
+.gh-products__sticker::before {
+  clip-path: polygon(50% 0%, 61% 12%, 75% 3%, 79% 18%, 97% 19%, 91% 33%, 100% 46%, 88% 53%, 93% 69%, 78% 68%, 75% 84%, 62% 76%, 50% 87%, 38% 76%, 25% 84%, 22% 68%, 7% 69%, 12% 53%, 0% 46%, 9% 33%, 3% 19%, 21% 18%, 25% 3%, 39% 12%);
+}
+.gh-products__sticker::after {
+  clip-path: polygon(50% 0%, 61% 12%, 75% 3%, 79% 18%, 97% 19%, 91% 33%, 100% 46%, 88% 53%, 93% 69%, 78% 68%, 75% 84%, 62% 76%, 50% 87%, 38% 76%, 25% 84%, 22% 68%, 7% 69%, 12% 53%, 0% 46%, 9% 33%, 3% 19%, 21% 18%, 25% 3%, 39% 12%);
+  transform: rotate(22deg);
 }
 .gh-products__sticker-pct {
   font-size: 18px;
   letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
 }
 .gh-products__sticker-off {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes gh-sticker-pulse {
-  0%, 100% { transform: rotate(-12deg) scale(1); }
-  25% { transform: rotate(-6deg) scale(1.1); }
-  50% { transform: rotate(-15deg) scale(1.05); }
-  75% { transform: rotate(-9deg) scale(1.12); }
+@keyframes gh-sticker-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .gh-products__desc {
