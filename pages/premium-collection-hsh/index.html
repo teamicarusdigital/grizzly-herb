@@ -667,6 +667,15 @@
   margin: 0 auto;
 }
 
+.gh-products__heading-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
 .gh-products__heading {
   font-family: 'Outfit', sans-serif;
   font-size: 22px;
@@ -674,8 +683,47 @@
   font-style: italic;
   color: #2d5016;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   line-height: 1.2;
+}
+
+.gh-products__sticker {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-12deg);
+  width: 64px;
+  height: 64px;
+  background: #e85d35;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 3px 12px rgba(232, 93, 53, 0.4);
+  animation: gh-sticker-pulse 2s ease-in-out infinite;
+  z-index: 3;
+}
+.gh-products__sticker-pct {
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+.gh-products__sticker-off {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes gh-sticker-pulse {
+  0%, 100% { transform: translateY(-50%) rotate(-12deg) scale(1); }
+  25% { transform: translateY(-50%) rotate(-6deg) scale(1.1); }
+  50% { transform: translateY(-50%) rotate(-15deg) scale(1.05); }
+  75% { transform: translateY(-50%) rotate(-9deg) scale(1.12); }
 }
 
 .gh-products__desc {
@@ -896,9 +944,22 @@
     padding: 48px 80px 40px;
   }
 
+  .gh-products__heading-wrap {
+    margin-bottom: 10px;
+  }
   .gh-products__heading {
     font-size: 32px;
-    margin-bottom: 10px;
+  }
+  .gh-products__sticker {
+    width: 80px;
+    height: 80px;
+    right: 60px;
+  }
+  .gh-products__sticker-pct {
+    font-size: 22px;
+  }
+  .gh-products__sticker-off {
+    font-size: 12px;
   }
 
   .gh-products__desc {
@@ -2937,7 +2998,13 @@
   <section class="gh-products" id="products">
     <div class="gh-products__inner">
 
-      <h2 class="gh-products__heading">Find Your Perfect Strain</h2>
+      <div class="gh-products__heading-wrap">
+        <h2 class="gh-products__heading">Find Your Perfect Strain</h2>
+        <div class="gh-products__sticker">
+          <span class="gh-products__sticker-pct">30%</span>
+          <span class="gh-products__sticker-off">OFF</span>
+        </div>
+      </div>
       <p class="gh-products__desc">Shop the <strong>freshest, handpicked cannabis strains that set the bar high.</strong> Exclusively for those who know what they're looking for.</p>
 
       <!-- Filter tabs -->
