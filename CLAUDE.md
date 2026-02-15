@@ -158,6 +158,45 @@ Each agent must output a **complete code block** containing:
 - URL: `https://app.grizzlyherb.us`
 - Custom routes: `/pages/perfect` and `/pages/premium-collection-hsh` (via vercel.json rewrites)
 
+## UTM Parameter Forwarding (REQUIRED on ALL pages)
+
+Every page MUST capture incoming URL parameters and forward them to all outbound links and checkout URLs. This ensures attribution tracking (UTM, gclid, fbclid, coupon codes, etc.) is preserved through the entire funnel.
+
+**SessionStorage key for this project:** `gh_incoming_params`
+
+### Implementation:
+1. Capture & persist params on load (early in `<script>`):
+```js
+var PARAM_KEY = 'gh_incoming_params';
+var qs = window.location.search.replace(/^\?/, '');
+if (qs) { try { sessionStorage.setItem(PARAM_KEY, qs); } catch(e) {} }
+function getSavedParams() {
+  var live = window.location.search.replace(/^\?/, '');
+  if (live) return live;
+  try { return sessionStorage.getItem(PARAM_KEY) || ''; } catch(e) { return ''; }
+}
+```
+
+2. Append to all outbound `<a>` links after DOM ready:
+```js
+var saved = getSavedParams();
+if (saved) {
+  var links = root.querySelectorAll('a[href^="http"]');
+  for (var i = 0; i < links.length; i++) {
+    var href = links[i].getAttribute('href');
+    links[i].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + saved);
+  }
+}
+```
+
+3. Append to any JS-built URLs (checkout, cart redirects):
+```js
+var saved = getSavedParams();
+if (saved) params.push(saved);
+```
+
+See `/tracklution-pixel` skill for full reference.
+
 ## Tracklution Pixel (REQUIRED on ALL pages)
 
 Every page in this project MUST include the Tracklution tracking pixel in `<head>` before `</head>`:
