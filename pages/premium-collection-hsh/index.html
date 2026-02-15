@@ -4245,6 +4245,13 @@
     var checkoutBtn = e.target.closest('.gh-cart-panel__checkout-btn');
     if(checkoutBtn){
       if(cart.length > 0){
+        if (typeof tlq === 'function') {
+          tlq('track', 'InitiateCheckout', {
+            value: getCartTotal(),
+            currency: 'CAD',
+            num_items: getCartCount()
+          });
+        }
         window.location.href = buildCheckoutUrl();
       }
       return;
