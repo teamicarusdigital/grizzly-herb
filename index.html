@@ -4,22 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grizzly Herb — Premium Cannabis Delivered</title>
-<!-- Tracklution Pixel -->
-<script>
-!function(t,l,r,o,c,k,s)
-{if(t.tlq)return;c=t.tlq=function(){c.callMethod?
-    c.callMethod(arguments):c.queue.push(arguments)};
-    if(!t._tlq)t._tlq=c;c.push=c;c.loaded=!0;c.version='1.0';c.src=o;
-    c.queue=[];k=l.createElement(r);k.async=!0;c.pd = false;c.tools = null;
-    k.src=o;s=l.getElementsByTagName(r)[0];
-    s.parentNode.insertBefore(k,s);k.onerror=function(){
-    o='https://main-47660.trlution.com/js/script-dynamic.js?version=1771121839100';
-    t._tlq.src=o;k=l.createElement(r);k.async=!0;k.src=o;
-    s.parentNode.insertBefore(k, s)
-    }}(window,document,'script',
-    'https://tralut.grizzlyherb.com/js/script-dynamic.js?version=1771121839100')
-tlq('init', 'LS-25654158-0');
-</script>
 <link rel="icon" type="image/png" href="/images/grizzly-herb-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3518,18 +3502,6 @@ tlq('init', 'LS-25654158-0');
       var section = footerBtn.closest('.gh-footer-accordion-item');
       section.classList.toggle('gh-open');
       return;
-    }
-
-    // "Add to Stash" button — Tracklution AddToCart event
-    var atcBtn = e.target.closest('.gh-products__card-btn');
-    if(atcBtn && typeof tlq === 'function'){
-      var card = atcBtn.closest('.gh-products__card');
-      if(card){
-        tlq('track', 'AddToCart', {
-          content_name: card.querySelector('.gh-products__card-name') ? card.querySelector('.gh-products__card-name').textContent : '',
-          currency: 'CAD'
-        });
-      }
     }
   });
 })();
