@@ -158,6 +158,47 @@ Each agent must output a **complete code block** containing:
 - URL: `https://app.grizzlyherb.us`
 - Custom routes: `/pages/perfect` and `/pages/premium-collection-hsh` (via vercel.json rewrites)
 
+## Tracklution Pixel (REQUIRED on ALL pages)
+
+Every page in this project MUST include the Tracklution tracking pixel in `<head>` before `</head>`:
+
+```html
+<!-- Tracklution Pixel -->
+<script>
+    !function(t,l,r,o,c,k,s)
+    {if(t.tlq)return;c=t.tlq=function(){c.callMethod?
+        c.callMethod(arguments):c.queue.push(arguments)};
+        if(!t._tlq)t._tlq=c;c.push=c;c.loaded=!0;c.version='1.0';c.src=o;
+        c.queue=[];k=l.createElement(r);k.async=!0;c.pd = false;c.tools = null;
+        k.src=o;s=l.getElementsByTagName(r)[0];
+        s.parentNode.insertBefore(k,s);k.onerror=function(){
+        o='https://main-47660.trlution.com/js/script-dynamic.js?version=1771121839100';
+        t._tlq.src=o;k=l.createElement(r);k.async=!0;k.src=o;
+        s.parentNode.insertBefore(k, s)
+        }}(window,document,'script',
+        'https://tralut.grizzlyherb.com/js/script-dynamic.js?version=1771121839100')
+
+    tlq('init', 'LS-25654158-0');
+    tlq('track', 'PageView');
+    tlq('track', 'ViewContent', {content_name: 'PAGE_NAME_HERE'});
+</script>
+```
+
+### Required Events
+- **PageView** — fires on every page load (included in pixel snippet above)
+- **ViewContent** — fires on every page load with `content_name` set to the page name
+- **AddToCart** — fires on every "Add to Stash" / add-to-cart action:
+  ```js
+  if (typeof tlq === 'function') {
+    tlq('track', 'AddToCart', {
+      content_name: 'Product Name (Variant)',
+      content_ids: [variationId],
+      value: price,
+      currency: 'CAD'
+    });
+  }
+  ```
+
 ## Quality Checklist (every agent must verify)
 - [ ] Mobile screenshot matched 1:1
 - [ ] Desktop screenshot matched 1:1
