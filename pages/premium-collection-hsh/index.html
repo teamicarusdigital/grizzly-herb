@@ -4138,19 +4138,28 @@
   // Initialize empty cart display
   renderCart();
 
-  // === Desktop: Show sticky bar only after scrolling past product section ===
+  // === Desktop: Hide sticky bar during hero & product sections, show between/after ===
   var stickyBar = root.querySelector('.gh-sticky-cta');
+  var heroSection = root.querySelector('.gh-hero');
   var productsSection = root.querySelector('#products');
-  if (stickyBar && productsSection && window.matchMedia('(min-width: 768px)').matches) {
-    var stickyObserver = new IntersectionObserver(function(entries) {
-      var entry = entries[0];
-      // Show only when section has been scrolled past (bottom edge above viewport)
-      if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
-        stickyBar.classList.add('gh-sticky--visible');
-      } else {
+  if (stickyBar && heroSection && productsSection && window.matchMedia('(min-width: 768px)').matches) {
+    var heroVisible = true;
+    var productsVisible = false;
+    function updateStickyBar() {
+      if (heroVisible || productsVisible) {
         stickyBar.classList.remove('gh-sticky--visible');
+      } else {
+        stickyBar.classList.add('gh-sticky--visible');
       }
+    }
+    var stickyObserver = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].target === heroSection) heroVisible = entries[i].isIntersecting;
+        if (entries[i].target === productsSection) productsVisible = entries[i].isIntersecting;
+      }
+      updateStickyBar();
     }, { threshold: 0 });
+    stickyObserver.observe(heroSection);
     stickyObserver.observe(productsSection);
   }
 
