@@ -2,8 +2,9 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "rewrites": [
-    { "source": "/pages/perfect", "destination": "/index.html" },
+    { "source": "/pages/perfect", "destination": "/index-old-lp.html" },
     { "source": "/pages/premium-collection-hsh", "destination": "/pages/premium-collection-hsh/index.html" },
-    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" }
+    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" },
+    { "source": "/", "destination": "https://grizzlyherb.co/" }
   ]
 }
