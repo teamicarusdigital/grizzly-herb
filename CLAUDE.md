@@ -5,6 +5,13 @@ Recreate the Grizzly Herb cannabis dispensary landing page as a **pixel-perfect 
 
 ## Critical Rules — READ BEFORE WRITING ANY CODE
 
+### 0. EVERY Outbound Link Gets UTM Parameters
+- **Any time you add or change an `<a href="https://...">` link, it MUST be covered by the UTM forwarder JS.**
+- The JS selector `a[href^="http"]` already handles this automatically for links present at page load.
+- If you add links dynamically via JS after page load, you MUST manually append `getSavedParams()` to the href.
+- This applies to: logo links, product links, footer links, CTA links — ANY link pointing to an external URL.
+- **No exceptions. No "I'll do it later." Check every outbound link.**
+
 ### 1. Pixel-Perfect Means Pixel-Perfect
 - Match EXACT font sizes, weights, line-heights, letter-spacing from the screenshots
 - Match EXACT spacing (padding, margin, gap) — measure relative to surrounding elements
