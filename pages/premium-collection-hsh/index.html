@@ -4143,8 +4143,9 @@
   var productsSection = root.querySelector('#products');
   if (stickyBar && productsSection && window.matchMedia('(min-width: 768px)').matches) {
     var stickyObserver = new IntersectionObserver(function(entries) {
-      // When the product section's bottom edge leaves the viewport, show the bar
-      if (!entries[0].isIntersecting) {
+      var entry = entries[0];
+      // Show only when section has been scrolled past (bottom edge above viewport)
+      if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
         stickyBar.classList.add('gh-sticky--visible');
       } else {
         stickyBar.classList.remove('gh-sticky--visible');
