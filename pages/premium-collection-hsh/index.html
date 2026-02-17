@@ -4138,27 +4138,20 @@
   // Initialize empty cart display
   renderCart();
 
-  // === Desktop: Show sticky after hero, hide during products, show after products ===
+  // === Desktop: Show sticky bar only after scrolling past product section ===
   var stickyBar = root.querySelector('.gh-sticky-cta');
-  var heroSection = root.querySelector('.gh-hero');
   var productsSection = root.querySelector('#products');
-  if (stickyBar && heroSection && productsSection && window.matchMedia('(min-width: 768px)').matches) {
-    var stickyTick = false;
-    window.addEventListener('scroll', function() {
-      if (stickyTick) return;
-      stickyTick = true;
-      requestAnimationFrame(function() {
-        var pastHero = heroSection.getBoundingClientRect().bottom < 0;
-        var prodRect = productsSection.getBoundingClientRect();
-        var inProducts = prodRect.top < window.innerHeight && prodRect.bottom > 0;
-        if (pastHero && !inProducts) {
-          stickyBar.classList.add('gh-sticky--visible');
-        } else {
-          stickyBar.classList.remove('gh-sticky--visible');
-        }
-        stickyTick = false;
-      });
-    });
+  if (stickyBar && productsSection && window.matchMedia('(min-width: 768px)').matches) {
+    var stickyObserver = new IntersectionObserver(function(entries) {
+      var entry = entries[0];
+      // Show only when section has been scrolled past (bottom edge above viewport)
+      if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+        stickyBar.classList.add('gh-sticky--visible');
+      } else {
+        stickyBar.classList.remove('gh-sticky--visible');
+      }
+    }, { threshold: 0 });
+    stickyObserver.observe(productsSection);
   }
 
   // === Click delegation ===
