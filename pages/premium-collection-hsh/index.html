@@ -3977,13 +3977,13 @@
     if (priceEl) priceEl.textContent = '$' + parseFloat(variants[0].price).toFixed(2);
   }
 
-  // === Append UTM params to product page links ===
+  // === Append UTM params to ALL outbound links ===
   var savedParams = getSavedParams();
   if (savedParams) {
-    var productLinks = root.querySelectorAll('.gh-products__card-link');
-    for (var pl = 0; pl < productLinks.length; pl++) {
-      var href = productLinks[pl].getAttribute('href');
-      productLinks[pl].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + savedParams);
+    var allLinks = root.querySelectorAll('a[href^="http"]');
+    for (var pl = 0; pl < allLinks.length; pl++) {
+      var href = allLinks[pl].getAttribute('href');
+      allLinks[pl].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + savedParams);
     }
   }
 
