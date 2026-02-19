@@ -2821,6 +2821,29 @@
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
+.gh-root .gh-cart-panel__checkout-btn {
+  position: relative;
+}
+.gh-root .gh-cart-panel__checkout-btn.gh-checkout--loading {
+  pointer-events: none;
+  color: transparent;
+}
+.gh-root .gh-cart-panel__checkout-btn.gh-checkout--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: gh-spin 0.6s linear infinite;
+}
+@keyframes gh-spin {
+  to { transform: rotate(360deg); }
+}
 .gh-root .gh-cart-panel__checkout-btn:hover {
   background: #3d6b20;
   transform: translateY(-1px);
@@ -4268,7 +4291,9 @@
     var checkoutBtn = e.target.closest('.gh-cart-panel__checkout-btn');
     if(checkoutBtn){
       if(cart.length > 0){
-        window.location.href = buildCheckoutUrl();
+        checkoutBtn.classList.add('gh-checkout--loading');
+        var url = buildCheckoutUrl();
+        setTimeout(function(){ window.location.href = url; }, 50);
       }
       return;
     }
