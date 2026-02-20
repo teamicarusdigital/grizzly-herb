@@ -3,6 +3,24 @@
 ## Mission
 Recreate the Grizzly Herb cannabis dispensary landing page as a **pixel-perfect 1:1 copy** of the provided Figma section screenshots. Every agent working on this project MUST treat the screenshot PNGs as the **single source of truth**. No guessing, no "close enough."
 
+## Deployment Standards (MANDATORY)
+
+This project blocks all bots and crawlers on every page. These must be present at all times — do NOT remove them:
+
+- **`robots.txt`** at project root:
+  ```
+  User-agent: *
+  Disallow: /
+  ```
+- **`X-Robots-Tag`** header in `vercel.json` applied to `source: "/(.*)"`:
+  ```
+  noindex, nofollow, nosnippet, noarchive
+  ```
+
+If adding new routes or pages, verify both still apply to all paths.
+
+---
+
 ## Critical Rules — READ BEFORE WRITING ANY CODE
 
 ### 0. EVERY Outbound Link Gets UTM Parameters
