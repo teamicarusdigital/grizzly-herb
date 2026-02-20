@@ -3,7 +3,6 @@
   "outputDirectory": ".",
   "rewrites": [
 { "source": "/pages/premium-collection-hsh", "destination": "/pages/premium-collection-hsh/index.html" },
-    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" },
-    { "source": "/", "destination": "https://grizzlyherb.co/" }
+    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" }
   ]
 }
