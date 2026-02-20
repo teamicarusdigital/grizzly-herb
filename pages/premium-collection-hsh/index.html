@@ -4158,6 +4158,14 @@
     if (e.key === 'Escape') closeCart();
   });
 
+  // Reset checkout button if page is restored from bfcache (user pressed back)
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      var btn = root.querySelector('.gh-cart-panel__checkout-btn');
+      if (btn) btn.classList.remove('gh-checkout--loading');
+    }
+  });
+
   // Initialize empty cart display
   renderCart();
 
