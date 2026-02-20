@@ -1,6 +1,14 @@
 {
   "buildCommand": "",
   "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, nosnippet, noarchive" }
+      ]
+    }
+  ],
   "rewrites": [
 { "source": "/pages/premium-collection-hsh", "destination": "/pages/premium-collection-hsh/index.html" },
     { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" }
