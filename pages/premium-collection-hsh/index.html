@@ -2230,6 +2230,30 @@
   color: #4a7c2c;
 }
 
+.gh-footer-accordion-content {
+  display: none;
+  padding-bottom: 12px;
+}
+
+.gh-footer-accordion-item.gh-open .gh-footer-accordion-content {
+  display: block;
+}
+
+.gh-footer-accordion-content a {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.gh-footer-accordion-content a:hover {
+  color: #2d5016;
+}
+
 /* --- Email Signup --- */
 .gh-footer-signup {
   display: flex;
@@ -2416,6 +2440,15 @@
 
   .gh-footer-accordion-icon {
     font-size: 28px;
+  }
+
+  .gh-footer-accordion-content {
+    display: block;
+  }
+
+  .gh-footer-accordion-content a {
+    font-size: 15px;
+    padding: 5px 0;
   }
 
   .gh-footer-signup {
@@ -3840,18 +3873,38 @@
             <span>Shop</span>
             <span class="gh-footer-accordion-icon">+</span>
           </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/shop/">Shop All</a>
+            <a href="https://grizzlyherb.co/strains/">Flower</a>
+            <a href="https://grizzlyherb.co/strains/aaaa/">AAAA Strains</a>
+            <a href="https://grizzlyherb.co/edibles/">Edibles</a>
+            <a href="https://grizzlyherb.co/concentrates/">Concentrates</a>
+            <a href="https://grizzlyherb.co/vape-pens/">Vapes</a>
+            <a href="https://grizzlyherb.co/deals/">Deals</a>
+          </div>
         </div>
         <div class="gh-footer-accordion-item">
           <button class="gh-footer-accordion-btn">
             <span>FAQ</span>
             <span class="gh-footer-accordion-icon">+</span>
           </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/faq/">FAQ</a>
+            <a href="https://grizzlyherb.co/shipping-policy/">Shipping Policy</a>
+            <a href="https://grizzlyherb.co/privacy-policy/">Privacy Policy</a>
+            <a href="https://grizzlyherb.co/terms-of-use/">Terms of Use</a>
+          </div>
         </div>
         <div class="gh-footer-accordion-item">
           <button class="gh-footer-accordion-btn">
             <span>Contact</span>
             <span class="gh-footer-accordion-icon">+</span>
           </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/contact-us/">Contact Us</a>
+            <a href="https://grizzlyherb.co/my-account/">My Account</a>
+            <a href="https://grizzlyherb.co/about/">About Us</a>
+          </div>
         </div>
       </div>
 
