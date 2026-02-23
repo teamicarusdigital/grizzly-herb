@@ -10,7 +10,11 @@
     }
   ],
   "rewrites": [
-{ "source": "/pages/premium-collection-hsh", "destination": "/pages/premium-collection-hsh/index.html" },
-    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" }
+    { "source": "/pages/premium-collection-hsh", "destination": "/pages/premium-collection-hsh/index.html" },
+    { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" },
+    { "source": "/pages/premium-collection-BC", "destination": "/pages/premium-collection-BC/index.html" },
+    { "source": "/pages/premium-collection-BC/", "destination": "/pages/premium-collection-BC/index.html" },
+    { "source": "/pages/premium-collection-BB", "destination": "/pages/premium-collection-BB/index.html" },
+    { "source": "/pages/premium-collection-BB/", "destination": "/pages/premium-collection-BB/index.html" }
   ]
 }
