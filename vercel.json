@@ -14,7 +14,7 @@
     { "source": "/pages/premium-collection-hsh/", "destination": "/pages/premium-collection-hsh/index.html" },
     { "source": "/pages/premium-collection-bc", "destination": "/pages/premium-collection-bc/index.html" },
     { "source": "/pages/premium-collection-bc/", "destination": "/pages/premium-collection-bc/index.html" },
-    { "source": "/pages/premium-collection-BB", "destination": "/pages/premium-collection-BB/index.html" },
-    { "source": "/pages/premium-collection-BB/", "destination": "/pages/premium-collection-BB/index.html" }
+    { "source": "/pages/premium-collection-bb", "destination": "/pages/premium-collection-bb/index.html" },
+    { "source": "/pages/premium-collection-bb/", "destination": "/pages/premium-collection-bb/index.html" }
   ]
 }
