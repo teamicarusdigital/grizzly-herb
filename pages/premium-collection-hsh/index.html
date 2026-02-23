@@ -250,6 +250,91 @@
   }
 }
 
+/* --- Mobile Menu Drawer --- */
+.gh-mobile-menu__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 999;
+}
+
+.gh-mobile-menu__drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+}
+
+.gh-mobile-menu--open .gh-mobile-menu__overlay {
+  display: block;
+}
+
+.gh-mobile-menu--open .gh-mobile-menu__drawer {
+  transform: translateX(0);
+}
+
+.gh-mobile-menu__close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #1f1f1f;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.gh-mobile-menu__logo {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.gh-mobile-menu__logo img {
+  width: 120px;
+  height: auto;
+}
+
+.gh-mobile-menu__nav a {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f1f1f;
+  text-decoration: none;
+  padding: 13px 0;
+  border-bottom: 1px solid #e8e6e3;
+  transition: color 0.2s;
+}
+
+.gh-mobile-menu__nav a:hover {
+  color: #2d5016;
+}
+
+.gh-mobile-menu__nav-divider {
+  height: 1px;
+  background: #e8e6e3;
+  margin: 8px 0;
+}
+
+@media (min-width: 768px) {
+  .gh-mobile-menu__overlay,
+  .gh-mobile-menu__drawer {
+    display: none !important;
+  }
+}
+
 /* --- Hero Content Area --- */
 .gh-hero {
   background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat center top;
@@ -3015,6 +3100,31 @@
     </div>
   </nav>
 
+  <!-- Mobile Menu Drawer -->
+  <div class="gh-mobile-menu">
+    <div class="gh-mobile-menu__overlay"></div>
+    <div class="gh-mobile-menu__drawer">
+      <button class="gh-mobile-menu__close" aria-label="Close menu">&times;</button>
+      <a href="https://grizzlyherb.co" class="gh-mobile-menu__logo">
+        <img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb">
+      </a>
+      <nav class="gh-mobile-menu__nav">
+        <a href="https://grizzlyherb.co/shop/">Shop All</a>
+        <a href="https://grizzlyherb.co/strains/">Flower</a>
+        <a href="https://grizzlyherb.co/strains/aaaa/">AAAA Strains</a>
+        <a href="https://grizzlyherb.co/edibles/">Edibles</a>
+        <a href="https://grizzlyherb.co/concentrates/">Concentrates</a>
+        <a href="https://grizzlyherb.co/vape-pens/">Vapes</a>
+        <a href="https://grizzlyherb.co/deals/">Deals</a>
+        <div class="gh-mobile-menu__nav-divider"></div>
+        <a href="https://grizzlyherb.co/faq/">FAQ</a>
+        <a href="https://grizzlyherb.co/shipping-policy/">Shipping Policy</a>
+        <a href="https://grizzlyherb.co/contact-us/">Contact Us</a>
+        <a href="https://grizzlyherb.co/about/">About Us</a>
+      </nav>
+    </div>
+  </div>
+
   <!-- Hero Content Area -->
   <section class="gh-hero">
     <div class="gh-hero__inner">
@@ -4204,7 +4314,11 @@
 
   // Close cart on Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeCart();
+    if (e.key === 'Escape') {
+      closeCart();
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.remove('gh-mobile-menu--open');
+    }
   });
 
   // Reset checkout button if page is restored from bfcache (user pressed back)
@@ -4239,7 +4353,15 @@
     // Hamburger menu toggle
     var hamburger = e.target.closest('.gh-nav__hamburger');
     if(hamburger){
-      hamburger.classList.toggle('gh-open');
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.add('gh-mobile-menu--open');
+      return;
+    }
+
+    // Mobile menu close (overlay or X button)
+    if(e.target.closest('.gh-mobile-menu__close') || e.target.classList.contains('gh-mobile-menu__overlay')){
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.remove('gh-mobile-menu--open');
       return;
     }
 
