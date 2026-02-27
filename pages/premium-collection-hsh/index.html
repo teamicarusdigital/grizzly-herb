@@ -4416,7 +4416,7 @@
           + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
           + '<div class="gh-cart-panel__item-info">'
           + '<div class="gh-cart-panel__item-name">' + item.name + '</div>'
-          + '<div class="gh-cart-panel__item-price">$' + item.price.toFixed(2) + '</div>'
+          + '<div class="gh-cart-panel__item-price"><span class="gh-products__card-price-old">$' + item.price.toFixed(2) + '</span> <span class="gh-products__card-price-new">$' + (item.price * 0.7).toFixed(2) + '</span></div>'
           + '<div class="gh-cart-panel__item-qty">'
           + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-minus">&minus;</button>'
           + '<span class="gh-cart-panel__qty-val">' + item.qty + '</span>'
@@ -4428,7 +4428,8 @@
       }
       cartItemsEl.innerHTML = html;
     }
-    totalPriceEl.textContent = '$' + getCartTotal().toFixed(2);
+    var origTotal = getCartTotal();
+    totalPriceEl.innerHTML = '<span class="gh-products__card-price-old" style="font-size:12px;">$' + origTotal.toFixed(2) + '</span> <span style="color:#2d5016;font-weight:700;">$' + (origTotal * 0.7).toFixed(2) + '</span>';
     updateNavBadge();
     updateCardBadges();
   }
