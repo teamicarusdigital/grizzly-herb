@@ -1054,6 +1054,69 @@
   color: #ffffff;
 }
 
+.gh-root .gh-products__more-btn {
+  color: #2d5016;
+  background: #ffffff;
+  border: 2px solid #2d5016;
+  font-weight: 600;
+}
+.gh-root .gh-products__more-btn:hover {
+  background: #2d5016;
+  color: #ffffff;
+}
+.gh-products__card--hidden {
+  display: none !important;
+}
+.gh-products__card--out-of-stock {
+  opacity: 0.65;
+}
+.gh-products__card--out-of-stock .gh-products__card-img-wrap {
+  position: relative;
+}
+.gh-products__card--out-of-stock .gh-products__card-img-wrap::after {
+  content: 'Out of Stock';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+.gh-root .gh-products__card--out-of-stock .gh-products__card-btn {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.gh-products__card-thc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #2d5016;
+  background: #edf7e5;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin: 4px 0;
+  display: inline-block;
+}
+.gh-products__card-price-old {
+  font-size: 10px;
+  color: #aaa;
+  text-decoration: line-through;
+  margin-right: 3px;
+  font-weight: 400;
+}
+.gh-products__card-price-new {
+  color: #2d5016;
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
   .gh-products {
     padding: 48px 80px 40px;
@@ -3239,7 +3302,7 @@
       <div class="gh-products__grid">
 
         <!-- Product 1: Purple Kush -->
-        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" data-product-url="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" data-variants='[{"vid":357187,"label":"Oz (28g)","price":90},{"vid":357188,"label":"QP (4 Oz)","price":340},{"vid":418758,"label":"Lb (16 Oz)","price":1200}]'>
+        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-thc="22%" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" data-product-url="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" data-variants='[{"vid":357187,"label":"Oz (28g)","price":90},{"vid":357188,"label":"QP (4 Oz)","price":340},{"vid":418758,"label":"Lb (16 Oz)","price":1200}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">Limited amount left</span>
@@ -3263,7 +3326,7 @@
         </div>
 
         <!-- Product 2: Peanut Butter Breath -->
-        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" data-product-url="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":357045,"label":"Oz (28g)","price":90},{"vid":357046,"label":"QP (4 Oz)","price":340},{"vid":418833,"label":"Lb (16 Oz)","price":950}]'>
+        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-thc="28%" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" data-product-url="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":357045,"label":"Oz (28g)","price":90},{"vid":357046,"label":"QP (4 Oz)","price":340},{"vid":418833,"label":"Lb (16 Oz)","price":950}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">Limited amount left</span>
@@ -3287,7 +3350,7 @@
         </div>
 
         <!-- Product 3: Vanilla Kush -->
-        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" data-product-url="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":356981,"label":"Oz (28g)","price":90},{"vid":356982,"label":"QP (4 Oz)","price":340},{"vid":418834,"label":"Lb (16 Oz)","price":950}]'>
+        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-thc="20%" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" data-product-url="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":356981,"label":"Oz (28g)","price":90},{"vid":356982,"label":"QP (4 Oz)","price":340},{"vid":418834,"label":"Lb (16 Oz)","price":950}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--low">Limited amount left</span>
@@ -3335,7 +3398,7 @@
         </div>
 
         <!-- Product 5: Ghost Breath -->
-        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" data-product-url="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" data-variants='[{"vid":183886,"label":"Oz (28g)","price":90},{"vid":183887,"label":"QP (4 Oz)","price":340},{"vid":418835,"label":"Lb (16 Oz)","price":950}]'>
+        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-thc="26%" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" data-product-url="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" data-variants='[{"vid":183886,"label":"Oz (28g)","price":90},{"vid":183887,"label":"QP (4 Oz)","price":340},{"vid":418835,"label":"Lb (16 Oz)","price":950}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
@@ -3359,10 +3422,10 @@
         </div>
 
         <!-- Product 6: Golden Oreoz -->
-        <div class="gh-products__card" data-product-id="183859" data-product-name="Golden Oreoz" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80},{"vid":183865,"label":"QP (4 Oz)","price":300},{"vid":418836,"label":"Lb (16 Oz)","price":900}]'>
+        <div class="gh-products__card gh-products__card--out-of-stock" data-product-id="183859" data-product-name="Golden Oreoz" data-thc="29%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80},{"vid":183865,"label":"QP (4 Oz)","price":300},{"vid":418836,"label":"Lb (16 Oz)","price":900}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <span class="gh-products__card-badge gh-products__card-badge--oos" style="background:#e74c3c;color:#fff;">Out of Stock</span>
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" alt="Golden Oreoz cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
@@ -3383,7 +3446,7 @@
         </div>
 
         <!-- Product 7: Key Lime Haze -->
-        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-–-Sativa.webp" data-product-url="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" data-variants='[{"vid":168143,"label":"Oz (28g)","price":80},{"vid":168144,"label":"QP (4 Oz)","price":300},{"vid":418838,"label":"Lb (16 Oz)","price":900}]'>
+        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-thc="18%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-–-Sativa.webp" data-product-url="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" data-variants='[{"vid":168143,"label":"Oz (28g)","price":80},{"vid":168144,"label":"QP (4 Oz)","price":300},{"vid":418838,"label":"Lb (16 Oz)","price":900}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
@@ -3407,7 +3470,7 @@
         </div>
 
         <!-- Product 8: Grape Diesel -->
-        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" data-product-url="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" data-variants='[{"vid":168136,"label":"Oz (28g)","price":80},{"vid":168137,"label":"QP (4 Oz)","price":300},{"vid":418747,"label":"Lb (16 Oz)","price":875}]'>
+        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-thc="20%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" data-product-url="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" data-variants='[{"vid":168136,"label":"Oz (28g)","price":80},{"vid":168137,"label":"QP (4 Oz)","price":300},{"vid":418747,"label":"Lb (16 Oz)","price":875}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
@@ -3424,6 +3487,102 @@
           <div class="gh-products__card-name">Grape Diesel | Sativa | Cannabis | AAAA</div>
           </a>
           <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
+        <!-- Product 9: Mike Tyson -->
+        <div class="gh-products__card gh-products__card--hidden" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100},{"vid":134417,"label":"QP (4 Oz)","price":320},{"vid":148689,"label":"Lb (16 Oz)","price":900}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(8 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Mike Tyson | Indica | Smalls | Cannabis | AAAA+</div>
+          </a>
+          <div class="gh-products__card-price">$100.00 &#8211; $900.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
+        <!-- Product 10: Super Lemon Haze -->
+        <div class="gh-products__card gh-products__card--hidden" data-product-id="144022" data-product-name="Super Lemon Haze" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" data-product-url="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" data-thc="25%" data-variants='[{"vid":144027,"label":"Oz (28g)","price":90},{"vid":144028,"label":"QP (4 Oz)","price":340},{"vid":418840,"label":"Lb (16 Oz)","price":1200}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(6 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Super Lemon Haze | Sativa | Cannabis | AAAA</div>
+          </a>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
+        <!-- Product 11: Gouda Berry -->
+        <div class="gh-products__card gh-products__card--hidden" data-product-id="134438" data-product-name="Gouda Berry" data-product-price="110.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" data-product-url="https://grizzlyherb.co/product/gouda-berry-aaaa/" data-thc="25%" data-variants='[{"vid":134443,"label":"Oz (28g)","price":110},{"vid":134444,"label":"QP (4 Oz)","price":360},{"vid":418841,"label":"Lb (16 Oz)","price":1350}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/gouda-berry-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(4 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Gouda Berry | Indica | Cannabis | AAAA</div>
+          </a>
+          <div class="gh-products__card-price">$110.00 &#8211; $1,350.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
+        <!-- Product 12: Cali Z.Z. -->
+        <div class="gh-products__card gh-products__card--hidden" data-product-id="144038" data-product-name="Cali Z.Z." data-product-price="110.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" data-product-url="https://grizzlyherb.co/product/cali-zkittlez-aaaa/" data-thc="22%" data-variants='[{"vid":144043,"label":"Oz (28g)","price":110},{"vid":144044,"label":"QP (4 Oz)","price":440}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/cali-zkittlez-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" alt="Cali Z.Z. cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(3 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Cali Z.Z. | Indica | Cannabis | AAAA+</div>
+          </a>
+          <div class="gh-products__card-price">$110.00 &#8211; $440.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
             <span class="gh-products__card-btn-qty">0</span>
@@ -4153,10 +4312,33 @@
     }
     var cardBottom = vCard.querySelector('.gh-products__card-bottom');
     vCard.insertBefore(pillRow, cardBottom);
-    // Set initial price from first variant
+    // Add THC badge if available
+    var thc = vCard.getAttribute('data-thc');
+    if (thc) {
+      var thcEl = document.createElement('div');
+      thcEl.className = 'gh-products__card-thc';
+      thcEl.textContent = 'THC ' + thc;
+      vCard.insertBefore(thcEl, pillRow);
+    }
+    // Set initial price from first variant (show old crossed-out + discounted)
     vCard.setAttribute('data-product-price', variants[0].price);
     var priceEl = vCard.querySelector('.gh-products__card-price');
-    if (priceEl) priceEl.textContent = '$' + parseFloat(variants[0].price).toFixed(2);
+    if (priceEl) {
+      var origP = parseFloat(variants[0].price);
+      var discP = (origP * 0.7).toFixed(2);
+      priceEl.innerHTML = '<span class="gh-products__card-price-old">$' + origP.toFixed(2) + '</span> <span class="gh-products__card-price-new">$' + discP + '</span>';
+    }
+  }
+  // Show More button handler
+  var moreBtn = root.querySelector('.gh-products__more-btn');
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function() {
+      var hidden = root.querySelectorAll('.gh-products__card--hidden');
+      for (var i = 0; i < hidden.length; i++) {
+        hidden[i].classList.remove('gh-products__card--hidden');
+      }
+      root.querySelector('.gh-products__more').style.display = 'none';
+    });
   }
 
   // === Append UTM params to ALL outbound links ===
@@ -4395,7 +4577,11 @@
       var newPrice = variantBtn.getAttribute('data-vprice');
       card.setAttribute('data-product-price', newPrice);
       var priceEl = card.querySelector('.gh-products__card-price');
-      if(priceEl) priceEl.textContent = '$' + parseFloat(newPrice).toFixed(2);
+      if(priceEl) {
+        var origP = parseFloat(newPrice);
+        var discP = (origP * 0.7).toFixed(2);
+        priceEl.innerHTML = '<span class="gh-products__card-price-old">$' + origP.toFixed(2) + '</span> <span class="gh-products__card-price-new">$' + discP + '</span>';
+      }
       return;
     }
 
@@ -4403,7 +4589,7 @@
     var atcBtn = e.target.closest('.gh-products__card-btn');
     if(atcBtn){
       var card = atcBtn.closest('.gh-products__card');
-      if(card){
+      if(card && !card.classList.contains('gh-products__card--out-of-stock')){
         var activeVariant = card.querySelector('.gh-products__card-variant--active');
         var vid = activeVariant ? activeVariant.getAttribute('data-vid') : card.getAttribute('data-product-id');
         var label = activeVariant ? activeVariant.getAttribute('data-vlabel') : '';
