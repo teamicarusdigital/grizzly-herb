@@ -1732,6 +1732,13 @@
   flex-shrink: 0;
 }
 
+.gh-stats-ribbon__value {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1px;
+}
+
 .gh-stats-ribbon__num {
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
@@ -4015,27 +4022,27 @@
   <div class="gh-stats-ribbon__track">
     <div class="gh-stats-ribbon__inner">
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num" data-target="8">8</span><span class="gh-stats-ribbon__suffix">+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="8">8</span><span class="gh-stats-ribbon__suffix">+</span></span>
         <span class="gh-stats-ribbon__label">Years in Operation</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num" data-target="50">50,000</span><span class="gh-stats-ribbon__suffix">+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="50">50,000</span><span class="gh-stats-ribbon__suffix">+</span></span>
         <span class="gh-stats-ribbon__label">Orders Shipped</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num" data-target="70">70</span><span class="gh-stats-ribbon__suffix">%+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="70">70</span><span class="gh-stats-ribbon__suffix">%+</span></span>
         <span class="gh-stats-ribbon__label">Repeat Customers</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num" data-target="4.7">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="4.7">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span></span>
         <span class="gh-stats-ribbon__label">Average Rating</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">Every Batch</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">Every Batch</span></span>
         <span class="gh-stats-ribbon__label">Lab Tested</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
@@ -4043,27 +4050,27 @@
     <!-- Duplicate for seamless loop -->
     <div class="gh-stats-ribbon__inner" aria-hidden="true">
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">8</span><span class="gh-stats-ribbon__suffix">+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">8</span><span class="gh-stats-ribbon__suffix">+</span></span>
         <span class="gh-stats-ribbon__label">Years in Operation</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">50,000</span><span class="gh-stats-ribbon__suffix">+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">50,000</span><span class="gh-stats-ribbon__suffix">+</span></span>
         <span class="gh-stats-ribbon__label">Orders Shipped</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">70</span><span class="gh-stats-ribbon__suffix">%+</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">70</span><span class="gh-stats-ribbon__suffix">%+</span></span>
         <span class="gh-stats-ribbon__label">Repeat Customers</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span></span>
         <span class="gh-stats-ribbon__label">Average Rating</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
       <div class="gh-stats-ribbon__item">
-        <span class="gh-stats-ribbon__num">Every Batch</span>
+        <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">Every Batch</span></span>
         <span class="gh-stats-ribbon__label">Lab Tested</span>
       </div>
       <div class="gh-stats-ribbon__sep">✦</div>
