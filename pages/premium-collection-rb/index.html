@@ -4683,7 +4683,8 @@
   }
 
   function buildCheckoutUrl() {
-    if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
+    var couponBase = 'https://grizzlyherb.co/coupon/30off/?redirect_to=';
+    if (cart.length === 0) return couponBase + encodeURIComponent('/cart/');
     var params = ['gh_multi=1'];
     for (var i = 0; i < cart.length; i++) {
       var idx = i + 1;
@@ -4693,7 +4694,8 @@
     // Merge all original URL params (UTM, coupon, any others)
     var saved = getSavedParams();
     if (saved) params.push(saved);
-    return 'https://grizzlyherb.co/cart/?' + params.join('&');
+    var cartUrl = '/cart/?' + params.join('&');
+    return couponBase + encodeURIComponent(cartUrl);
   }
 
   // Close cart on Escape key
