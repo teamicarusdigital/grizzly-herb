@@ -75,46 +75,44 @@
 /* --- Top Banner --- */
 .gh-banner {
   background: #e85d35;
+  overflow: hidden;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 24px;
-  padding: 4px 16px;
+}
+
+.gh-banner__track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: gh-banner-scroll 28s linear infinite;
 }
 
 .gh-banner__inner {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 32px;
+  padding-right: 64px;
+  flex-shrink: 0;
 }
 
 .gh-banner__icon {
-  font-size: 12px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .gh-banner__text {
   font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 500;
   color: #ffffff;
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
-  .gh-banner {
-    height: 48px;
-    padding: 8px 160px;
-  }
-
-  .gh-banner__icon {
-    font-size: 18px;
-  }
-
-  .gh-banner__text {
-    font-size: 20px;
-    font-weight: 600;
-  }
+@keyframes gh-banner-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* --- Navigation Bar --- */
@@ -337,7 +335,7 @@
 
 /* --- Hero Content Area --- */
 .gh-hero {
-  background: #f8f6f3 url('/images/bc/BC Mobile.png') no-repeat center top;
+  background: #f8f6f3 url('/images/hero-bg-mobile.png') no-repeat center top;
   background-size: 100% auto;
   padding: 0 16px 28px;
   position: relative;
@@ -521,7 +519,7 @@
 
 @media (min-width: 768px) {
   .gh-hero {
-    background: #f8f6f3 url('/images/bc/BC desktop.png') no-repeat right center;
+    background: #f8f6f3 url('/images/hero-desktop.png') no-repeat right center;
     background-size: cover;
     padding: 64px 160px;
     min-height: 600px;
@@ -732,8 +730,8 @@
   }
 
   .gh-explore__image {
-    width: 503px;
-    min-width: 503px;
+    width: 604px;
+    min-width: 604px;
     aspect-ratio: 503 / 507;
     object-fit: cover;
     border-radius: 16px;
@@ -747,7 +745,7 @@
   .gh-explore__image {
     width: auto;
     min-width: 0;
-    flex: 0 0 40%;
+    flex: 0 0 48%;
     aspect-ratio: 1 / 1;
   }
 }
@@ -1763,6 +1761,95 @@
    SECTION 6: COMPARE
    ============================================================ */
 
+/* --- Stats Ribbon --- */
+.gh-stats-ribbon {
+  background: #2d5016;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.gh-stats-ribbon__track {
+  display: flex;
+  align-items: center;
+  animation: gh-ribbon-scroll 30s linear infinite;
+}
+
+@keyframes gh-ribbon-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gh-stats-ribbon__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-right: 32px;
+  flex-shrink: 0;
+}
+
+.gh-stats-ribbon__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.gh-stats-ribbon__value {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 1px;
+}
+
+.gh-stats-ribbon__num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.gh-stats-ribbon__suffix {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #c9a961;
+  line-height: 1;
+}
+
+.gh-stats-ribbon__label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+}
+
+.gh-stats-ribbon__sep {
+  font-size: 16px;
+  color: #c9a961;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .gh-stats-ribbon {
+    padding: 28px 0;
+  }
+  .gh-stats-ribbon__num,
+  .gh-stats-ribbon__suffix {
+    font-size: 36px;
+  }
+  .gh-stats-ribbon__label {
+    font-size: 14px;
+  }
+  .gh-stats-ribbon__inner {
+    gap: 48px;
+    padding-right: 48px;
+  }
+}
+
 .gh-compare {
   background: #ffffff;
   padding: 24px 12px;
@@ -1887,6 +1974,133 @@
 /* ============================================================
    SECTION 7: TYPES
    ============================================================ */
+
+/* --- Safer First Order Section --- */
+.gh-safer {
+  background: #f8f6f3;
+  padding: 40px 16px;
+}
+
+.gh-safer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gh-safer__heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d5016;
+  margin: 0 0 12px;
+}
+
+.gh-safer__sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #3a3a3a;
+  margin: 0 0 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gh-safer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.gh-safer__card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  border: 1px solid #e8e6e3;
+}
+
+.gh-safer__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gh-safer__card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin: 0;
+}
+
+.gh-safer__card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #3a3a3a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.gh-safer__cta-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.gh-safer__cta {
+  display: inline-block;
+  background: #2d5016;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 14px 32px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.gh-safer__cta:hover {
+  background: #3d6b12;
+}
+
+@media (min-width: 768px) {
+  .gh-safer {
+    padding: 64px 160px;
+  }
+  .gh-safer__heading {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  .gh-safer__sub {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+  .gh-safer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .gh-safer__card {
+    padding: 32px 20px;
+  }
+  .gh-safer__card-title {
+    font-size: 18px;
+  }
+  .gh-safer__card-desc {
+    font-size: 15px;
+  }
+  .gh-safer__cta {
+    font-size: 20px;
+    padding: 16px 48px;
+  }
+}
 
 .gh-types {
   background: linear-gradient(180deg, #f8f6f3 0%, #eaf2e0 100%);
@@ -2139,7 +2353,6 @@
   font-weight: 700;
   color: #2d5016;
   margin: 0;
-  white-space: nowrap;
 }
 
 .gh-faq-list-col {
@@ -2245,6 +2458,7 @@
   .gh-faq-heading {
     font-size: 40px;
     flex-shrink: 0;
+    max-width: 240px;
   }
 
   .gh-faq-list-col {
@@ -3122,10 +3336,46 @@
   <!-- ======== SECTION 0: HERO ======== -->
 
   <!-- Top Banner -->
-  <div class="gh-banner">
-    <div class="gh-banner__inner">
-      <span class="gh-banner__icon" aria-hidden="true">📦</span>
-      <span class="gh-banner__text">30% Off + Free Shipping over $90</span>
+  <div class="gh-banner" aria-label="Promotions">
+    <div class="gh-banner__track">
+      <!-- First copy -->
+      <div class="gh-banner__inner">
+        <span class="gh-banner__icon">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="3" width="14" height="9" rx="1.5" fill="white" opacity="0.9"/>
+            <path d="M14 5H17.5L21 9V12H14V5Z" fill="white" opacity="0.9"/>
+            <circle cx="4.5" cy="13" r="2" fill="#e85d35" stroke="white" stroke-width="1.2"/>
+            <circle cx="17.5" cy="13" r="2" fill="#e85d35" stroke="white" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <span class="gh-banner__text">Free shipping over $90</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">Fast Canada wide delivery</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">8+ years serving Canadian buyers</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">30% Off your first order</span>
+        <span class="gh-banner__text">|</span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="gh-banner__inner" aria-hidden="true">
+        <span class="gh-banner__icon">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="3" width="14" height="9" rx="1.5" fill="white" opacity="0.9"/>
+            <path d="M14 5H17.5L21 9V12H14V5Z" fill="white" opacity="0.9"/>
+            <circle cx="4.5" cy="13" r="2" fill="#e85d35" stroke="white" stroke-width="1.2"/>
+            <circle cx="17.5" cy="13" r="2" fill="#e85d35" stroke="white" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <span class="gh-banner__text">Free shipping over $90</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">Fast Canada wide delivery</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">8+ years serving Canadian buyers</span>
+        <span class="gh-banner__text">|</span>
+        <span class="gh-banner__text">30% Off your first order</span>
+        <span class="gh-banner__text">|</span>
+      </div>
     </div>
   </div>
 
@@ -3200,77 +3450,98 @@
           <img class="gh-hero__avatar gh-hero__avatar--3" src="/images/customer-avatar-3.png" alt="customer avatar 3">
           <img class="gh-hero__avatar gh-hero__avatar--4" src="/images/customer-avatar-4.png" alt="customer avatar 4">
         </div>
-        <span class="gh-hero__trust-text">Trusted By 10,000+ Customers</span>
+        <span class="gh-hero__trust-text">4.7★ from 2,000+ verified Canadian customers</span>
       </div>
 
       <!-- Headline -->
-      <h1 class="gh-hero__headline">No More Guessing. Just <em>Premium</em> <strong>Cannabis Flower.</strong></h1>
+      <h1 class="gh-hero__headline">No More Guessing. Just <em>Premium</em><br><strong>Cannabis Flower.</strong></h1>
 
       <!-- Description -->
-      <p class="gh-hero__desc">Tired of getting burned by empty promises? With Grizzly Herb, what you see is what you get.</p>
+      <p class="gh-hero__desc">Tired of getting burned by empty promises?<br>With Grizzly Herb, what you see is what you get — every single order.</p>
 
       <!-- Feature pills + CTA group -->
       <div class="gh-hero__cta-group">
         <div class="gh-hero__features">
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/curated-selection-icon.png" alt="Every Batch Perfected"></div>
-            <span class="gh-hero__feature-label">Every Batch, Perfected</span>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/curated-selection-icon.png" alt="Direct Sourced"></div>
+            <span class="gh-hero__feature-label">Lab Tested Every Batch</span>
           </div>
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="Fresh Drops Every Time"></div>
-            <span class="gh-hero__feature-label">Fresh Drops, Every Time</span>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="70%+ Repeat Customers"></div>
+            <span class="gh-hero__feature-label">70%+ Repeat Customers</span>
           </div>
           <div class="gh-hero__feature">
-            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="Quality You Can Count On"></div>
-            <span class="gh-hero__feature-label">Quality You Can Count On</span>
+            <div class="gh-hero__feature-icon" aria-hidden="true"><img src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="8+ Years Operating"></div>
+            <span class="gh-hero__feature-label">8+ Years Operating</span>
           </div>
         </div>
-        <a href="#products" class="gh-hero__cta">Try Grizzly Herb ↓</a>
+        <a href="#products" class="gh-hero__cta">Browse Strains ↓</a>
       </div>
 
       <!-- Shipping pill -->
-      <div class="gh-hero__shipping">30% Off + Free Shipping over $90</div>
+      <a href="#products" class="gh-hero__shipping">New here? Start with our popular sampler →</a>
 
     </div>
 
   </section>
 
-  <!-- ======== SECTION 1: EXPLORE OUR HANDPICKED STRAINS ======== -->
-  <section class="gh-explore">
-    <div class="gh-explore__inner">
-
-      <h2 class="gh-explore__heading">Explore Our Handpicked Strains</h2>
-
-      <div class="gh-explore__content">
-
-        <!-- White info card -->
-        <div class="gh-explore__card">
-
-          <!-- Row 1: Curated Selection -->
-          <div class="gh-explore__row">
-            <img class="gh-explore__row-icon" src="/images/curated-selection-icon.png" alt="curated selection icon" loading="lazy">
-            <div class="gh-explore__row-body">
-              <h3 class="gh-explore__row-title">Curated Selection</h3>
-              <p class="gh-explore__row-text">Explore our carefully curated collection, where every strain is chosen for its unique flavour, aroma, and powerful effects.</p>
-              <div class="gh-explore__divider"></div>
-            </div>
-          </div>
-
-          <!-- Row 2: For Those Who Know -->
-          <div class="gh-explore__row">
-            <img class="gh-explore__row-icon" src="/images/for-those-who-know-icon.png" alt="for those who know icon" loading="lazy">
-            <div class="gh-explore__row-body">
-              <h3 class="gh-explore__row-title">For Those Who Know</h3>
-              <p class="gh-explore__row-text">Whether you're a seasoned pro or someone who just knows good cannabis when they see it, we've got something to take your experience to the next level. From bold, loud genetics to rare, exclusive drops - Grizzly Herb is for those who want more than just a joint. It's about enjoying every moment.</p>
-              <div class="gh-explore__divider"></div>
-            </div>
-          </div>
-
+  <!-- Social Proof Ribbon -->
+  <section class="gh-stats-ribbon">
+    <div class="gh-stats-ribbon__track">
+      <div class="gh-stats-ribbon__inner">
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="8">8</span><span class="gh-stats-ribbon__suffix">+</span></span>
+          <span class="gh-stats-ribbon__label">Years in Operation</span>
         </div>
-
-        <!-- Large image placeholder -->
-        <img class="gh-explore__image" src="/images/bc/sec 1.png" alt="Connoisseur inspecting premium cannabis flower" loading="lazy">
-
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="50">50,000</span><span class="gh-stats-ribbon__suffix">+</span></span>
+          <span class="gh-stats-ribbon__label">Orders Shipped</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="70">70</span><span class="gh-stats-ribbon__suffix">%+</span></span>
+          <span class="gh-stats-ribbon__label">Repeat Customers</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num" data-target="4.7">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span></span>
+          <span class="gh-stats-ribbon__label">Average Rating</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">Every Batch</span></span>
+          <span class="gh-stats-ribbon__label">Lab Tested</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="gh-stats-ribbon__inner" aria-hidden="true">
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">8</span><span class="gh-stats-ribbon__suffix">+</span></span>
+          <span class="gh-stats-ribbon__label">Years in Operation</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">50,000</span><span class="gh-stats-ribbon__suffix">+</span></span>
+          <span class="gh-stats-ribbon__label">Orders Shipped</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">70</span><span class="gh-stats-ribbon__suffix">%+</span></span>
+          <span class="gh-stats-ribbon__label">Repeat Customers</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">4.7</span><span class="gh-stats-ribbon__suffix"> / 5</span></span>
+          <span class="gh-stats-ribbon__label">Average Rating</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
+        <div class="gh-stats-ribbon__item">
+          <span class="gh-stats-ribbon__value"><span class="gh-stats-ribbon__num">Every Batch</span></span>
+          <span class="gh-stats-ribbon__label">Lab Tested</span>
+        </div>
+        <div class="gh-stats-ribbon__sep">✦</div>
       </div>
     </div>
   </section>
@@ -3280,13 +3551,13 @@
     <div class="gh-products__inner">
 
       <div class="gh-products__heading-wrap">
-        <h2 class="gh-products__heading">Find Your Perfect Strain</h2>
+        <h2 class="gh-products__heading">Proven Strains. No Surprises.</h2>
         <div class="gh-products__sticker">
           <span class="gh-products__sticker-pct">30%</span>
           <span class="gh-products__sticker-off">OFF</span>
         </div>
       </div>
-      <p class="gh-products__desc">Shop the <strong>freshest, handpicked cannabis strains that set the bar high.</strong> Exclusively for those who know what they're looking for.</p>
+      <p class="gh-products__desc"><strong>Every strain below ships exactly as described.</strong> Lab-tested, batch-consistent, honestly priced. No inflated hype, no bait-and-switch.</p>
 
       <!-- Filter tabs -->
       <div class="gh-products__filters">
@@ -3373,12 +3644,12 @@
           </div>
         </div>
 
-        <!-- Product 4: Diamond Edition 50-Pack -->
-        <div class="gh-products__card" data-product-id="244853" data-product-name="Diamond Edition 50-Pack" data-product-price="350.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/11/50-diamond-infused-pre-rolls.png" data-product-url="https://grizzlyherb.co/product/grizzly-herb-diamond-edition-50-pack-10-x-5-pre-rolls-mixed-strains/" data-variants='[{"vid":244853,"label":"50-Pack","price":350}]'>
-          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/grizzly-herb-diamond-edition-50-pack-10-x-5-pre-rolls-mixed-strains/" target="_blank" rel="noopener">
+        <!-- Product 4: MKU -->
+        <div class="gh-products__card" data-product-id="148701" data-product-name="MKU" data-thc="22%" data-product-price="85.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" data-product-url="https://grizzlyherb.co/product/snow-white-aaa/" data-variants='[{"vid":148706,"label":"Oz (28g)","price":85},{"vid":148707,"label":"QP (4 Oz)","price":260},{"vid":148709,"label":"Lb (16 Oz)","price":820}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/snow-white-aaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
-            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/11/50-diamond-infused-pre-rolls.png" alt="Grizzly Herb Diamond Edition 50-Pack Pre-Rolls" loading="lazy">
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
             <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
@@ -3386,11 +3657,11 @@
             <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <span class="gh-products__card-reviews">(5 Reviews)</span>
+            <span class="gh-products__card-reviews">(20 Reviews)</span>
           </div>
-          <div class="gh-products__card-name">Grizzly Herb Diamond Edition&trade; 50-Pack | 10 &times; 5 Pre-Rolls | Mixed Strains</div>
+          <div class="gh-products__card-name">MKU | Indica | Smalls | Cannabis | AAA+</div>
           </a>
-          <div class="gh-products__card-price"><s>$500.00</s> $350.00</div>
+          <div class="gh-products__card-price">$85.00 &#8211; $820.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
             <span class="gh-products__card-btn-qty">0</span>
@@ -3421,31 +3692,7 @@
           </div>
         </div>
 
-        <!-- Product 6: Golden Oreoz -->
-        <div class="gh-products__card gh-products__card--out-of-stock" data-product-id="183859" data-product-name="Golden Oreoz" data-thc="29%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80},{"vid":183865,"label":"QP (4 Oz)","price":300},{"vid":418836,"label":"Lb (16 Oz)","price":900}]'>
-          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" target="_blank" rel="noopener">
-          <div class="gh-products__card-img-wrap">
-            <span class="gh-products__card-badge gh-products__card-badge--oos" style="background:#e74c3c;color:#fff;">Out of Stock</span>
-            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" alt="Golden Oreoz cannabis flower" loading="lazy">
-          </div>
-          <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <span class="gh-products__card-reviews">(15 Reviews)</span>
-          </div>
-          <div class="gh-products__card-name">Golden Oreoz | Indica | Cannabis | AAAA</div>
-          </a>
-          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
-          <div class="gh-products__card-bottom">
-            <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-btn-qty">0</span>
-          </div>
-        </div>
-
-        <!-- Product 7: Key Lime Haze -->
+        <!-- Product 6: Key Lime Haze -->
         <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-thc="18%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-–-Sativa.webp" data-product-url="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" data-variants='[{"vid":168143,"label":"Oz (28g)","price":80},{"vid":168144,"label":"QP (4 Oz)","price":300},{"vid":418838,"label":"Lb (16 Oz)","price":900}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
@@ -3493,6 +3740,30 @@
           </div>
         </div>
 
+        <!-- Product 8: Super Lemon Haze -->
+        <div class="gh-products__card" data-product-id="144022" data-product-name="Super Lemon Haze" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" data-product-url="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" data-thc="25%" data-variants='[{"vid":144027,"label":"Oz (28g)","price":90},{"vid":144028,"label":"QP (4 Oz)","price":340},{"vid":418840,"label":"Lb (16 Oz)","price":1200}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(6 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Super Lemon Haze | Sativa | Cannabis | AAAA</div>
+          </a>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
         <!-- Product 9: Mike Tyson -->
         <div class="gh-products__card gh-products__card--hidden" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100},{"vid":134417,"label":"QP (4 Oz)","price":320},{"vid":148689,"label":"Lb (16 Oz)","price":900}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
@@ -3511,30 +3782,6 @@
           <div class="gh-products__card-name">Mike Tyson | Indica | Smalls | Cannabis | AAAA+</div>
           </a>
           <div class="gh-products__card-price">$100.00 &#8211; $900.00</div>
-          <div class="gh-products__card-bottom">
-            <button class="gh-products__card-btn">Add to Stash</button>
-            <span class="gh-products__card-btn-qty">0</span>
-          </div>
-        </div>
-
-        <!-- Product 10: Super Lemon Haze -->
-        <div class="gh-products__card gh-products__card--hidden" data-product-id="144022" data-product-name="Super Lemon Haze" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" data-product-url="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" data-thc="25%" data-variants='[{"vid":144027,"label":"Oz (28g)","price":90},{"vid":144028,"label":"QP (4 Oz)","price":340},{"vid":418840,"label":"Lb (16 Oz)","price":1200}]'>
-          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" target="_blank" rel="noopener">
-          <div class="gh-products__card-img-wrap">
-            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
-            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze cannabis flower" loading="lazy">
-          </div>
-          <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-            <span class="gh-products__card-reviews">(6 Reviews)</span>
-          </div>
-          <div class="gh-products__card-name">Super Lemon Haze | Sativa | Cannabis | AAAA</div>
-          </a>
-          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
             <span class="gh-products__card-btn-qty">0</span>
@@ -3589,6 +3836,30 @@
           </div>
         </div>
 
+        <!-- Product 13: Golden Oreoz -->
+        <div class="gh-products__card gh-products__card--hidden gh-products__card--out-of-stock" data-product-id="183859" data-product-name="Golden Oreoz" data-thc="29%" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80},{"vid":183865,"label":"QP (4 Oz)","price":300},{"vid":418836,"label":"Lb (16 Oz)","price":900}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa-copy/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--oos" style="background:#e74c3c;color:#fff;">Out of Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" alt="Golden Oreoz cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            <span class="gh-products__card-reviews">(15 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Golden Oreoz | Indica | Cannabis | AAAA</div>
+          </a>
+          <div class="gh-products__card-price">$90.00 &#8211; $1,200.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Show More button -->
@@ -3614,14 +3885,14 @@
           <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
           <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
         </div>
-        <span class="gh-reviews__rating-text">Rated <strong>4.9/5</strong> by <strong>3,256+</strong> reviews</span>
+        <span class="gh-reviews__rating-text">Rated <strong>4.7/5</strong> by <strong>2,000+</strong> reviews</span>
       </div>
 
       <!-- Review cards carousel -->
       <div class="gh-reviews__carousel">
         <div class="gh-reviews__track">
 
-        <!-- Review 1 — BC: Burned Connoisseur -->
+        <!-- Review 1 -->
         <div class="gh-reviews__card-wrapper">
           <div class="gh-reviews__card">
             <div class="gh-reviews__card-stars">
@@ -3631,11 +3902,11 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">Finally — No More Disappointment</div>
-            <p class="gh-reviews__card-body">I&#8217;ve been burned so many times by overhyped bud. Grizzly Herb is the first place where the product actually matches what they advertise. Consistent every single order.</p>
+            <div class="gh-reviews__card-title">Worth Every Drop</div>
+            <p class="gh-reviews__card-body">Super Lemon Haze Lemony excellence, good to the last drop!</p>
           </div>
           <div class="gh-reviews__card-author">
-            <span class="gh-reviews__card-name">Derek M.</span>
+            <span class="gh-reviews__card-name">Ron J.</span>
             <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
           </div>
         </div>
@@ -3650,8 +3921,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">What You See Is What You Get</div>
-            <p class="gh-reviews__card-body">Other places post gorgeous photos and send you something completely different. Grizzly Herb is the real deal &mdash; every batch looks and hits exactly as described.</p>
+            <div class="gh-reviews__card-title">My Only Source Now</div>
+            <p class="gh-reviews__card-body">Your items are all quality I will never take my business elsewhere your stuff is quality and quantity all in a package deal</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Lenny L.</span>
@@ -3669,8 +3940,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">Real AAAA — Not Just a Label</div>
-            <p class="gh-reviews__card-body">Blue Gelato AAAA actually earned the grade. Dense, frosty, perfect terps. If you&#8217;re tired of places slapping AAAA on mediocre bud, try this.</p>
+            <div class="gh-reviews__card-title">Finally, Real AAAA</div>
+            <p class="gh-reviews__card-body">Blue Gelato Rocks The Blue Gelato AAAA is an excellent product. If you want a good buzz, this one doesn&#8217;t disappoint. Enjoy the ride.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Red</span>
@@ -3688,8 +3959,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">I Know Good Flower. This Is It.</div>
-            <p class="gh-reviews__card-body">Been smoking for 12 years and I can tell quality instantly. Grizzly Herb&#8217;s Purple Kush is as good as anything I&#8217;ve had from a dispensary &mdash; at a fraction of the price.</p>
+            <div class="gh-reviews__card-title">Exceeded All Expectations</div>
+            <p class="gh-reviews__card-body">Ordered the Diamond Edition pre-rolls and they blew me away. Perfect burn, smooth draw, and the potency is exactly what I needed.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Marcus T.</span>
@@ -3707,8 +3978,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">Fresh, Not Stale Leftovers</div>
-            <p class="gh-reviews__card-body">The Vanilla Kush arrived smelling incredible &mdash; clearly a fresh drop, not sitting in a warehouse for months. You can actually taste the difference.</p>
+            <div class="gh-reviews__card-title">Fast Delivery, Fire Bud</div>
+            <p class="gh-reviews__card-body">Placed my order Sunday night, had it by Wednesday. The Purple Kush was absolutely stunning &mdash; dense, frosty, and the smell alone is worth it.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Jess K.</span>
@@ -3726,8 +3997,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">Stopped Wasting Money on Mid</div>
-            <p class="gh-reviews__card-body">Used to settle for whatever was available. Since switching to Grizzly Herb, I won&#8217;t go back. Quality you can actually count on, not just hope for.</p>
+            <div class="gh-reviews__card-title">Best Edibles I&#8217;ve Tried</div>
+            <p class="gh-reviews__card-body">The gummies hit perfectly every time. Consistent dosing, great flavors, and they kick in within 30 minutes. Can&#8217;t go wrong.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Danny W.</span>
@@ -3745,8 +4016,8 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
-            <div class="gh-reviews__card-title">Honest. Reliable. Premium.</div>
-            <p class="gh-reviews__card-body">No gimmicks, no bait and switch. They describe the product accurately and deliver exactly that. Rare to find in this space. My trust is earned here.</p>
+            <div class="gh-reviews__card-title">Top-Tier Customer Service</div>
+            <p class="gh-reviews__card-body">Had a question about my order and got a response within an hour. The product quality matches the service &mdash; both exceptional.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Priya S.</span>
@@ -3765,7 +4036,7 @@
               <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
             </div>
             <div class="gh-reviews__card-title">Connoisseur Approved</div>
-            <p class="gh-reviews__card-body">15+ years in the cannabis scene. Grizzly Herb&#8217;s flower is the first online purchase I&#8217;ve made where I wasn&#8217;t even slightly let down. That&#8217;s saying something.</p>
+            <p class="gh-reviews__card-body">As someone who&#8217;s been in the cannabis scene for 15+ years, I can say Grizzly Herb&#8217;s flower is genuinely top shelf. No cap.</p>
           </div>
           <div class="gh-reviews__card-author">
             <span class="gh-reviews__card-name">Mike R.</span>
@@ -3796,7 +4067,7 @@
 
 <!-- SECTION 4: Find Your Perfect Strain for Every Moment -->
 <section class="gh-moments">
-  <h2 class="gh-moments-heading">Find Your Perfect Strain<br>for Every Moment</h2>
+  <h2 class="gh-moments-heading">We Operate Like a Long-Term Supplier</h2>
 
   <div class="gh-moments-layout">
     <!-- Image (left on desktop, bottom on mobile) -->
@@ -3812,31 +4083,46 @@
       <div class="gh-moments-features">
         <div class="gh-moments-feature">
           <div class="gh-moments-feature__icon">
-            <img src="/images/moment-icon1.png" alt="Match strain to moment icon" loading="lazy">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <rect x="2" y="10" width="22" height="16" rx="2.5" fill="#4a7c2c" opacity="0.15"/>
+              <rect x="2" y="10" width="22" height="16" rx="2.5" stroke="#4a7c2c" stroke-width="2"/>
+              <path d="M24 15H33L38 22V26H24V15Z" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="9" cy="28" r="3" fill="#4a7c2c"/>
+              <circle cx="31" cy="28" r="3" fill="#4a7c2c"/>
+              <line x1="24" y1="10" x2="24" y2="26" stroke="#4a7c2c" stroke-width="2"/>
+            </svg>
           </div>
           <div class="gh-moments-feature-text">
-            <div class="gh-moments-feature-title">Match strain to moment</div>
-            <div class="gh-moments-feature-desc">Different times call for different strains. We help you choose what fits.</div>
+            <div class="gh-moments-feature-title">Delivery Assurance</div>
+            <div class="gh-moments-feature-desc">If a shipment is delayed or lost, we step in and resolve it.</div>
           </div>
         </div>
 
         <div class="gh-moments-feature">
           <div class="gh-moments-feature__icon">
-            <img src="/images/moment-icon2.png" alt="Handpicked for effect icon" loading="lazy">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <path d="M20 3L5 9V20C5 28.5 11.5 36 20 38C28.5 36 35 28.5 35 20V9L20 3Z" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="14" y="19" width="12" height="9" rx="2" fill="#4a7c2c"/>
+              <path d="M16 19V16C16 13.8 17.8 12 20 12C22.2 12 24 13.8 24 16V19" stroke="#4a7c2c" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="23.5" r="1.5" fill="white"/>
+            </svg>
           </div>
           <div class="gh-moments-feature-text">
-            <div class="gh-moments-feature-title">Handpicked for effect</div>
-            <div class="gh-moments-feature-desc">Every strain is selected because it delivers. No filler, just quality.</div>
+            <div class="gh-moments-feature-title">Payment Protection</div>
+            <div class="gh-moments-feature-desc">If an Interac payment fails or glitches, we handle it promptly.</div>
           </div>
         </div>
 
         <div class="gh-moments-feature">
           <div class="gh-moments-feature__icon">
-            <img src="/images/moment-icon3.png" alt="Indica to sativa range icon" loading="lazy">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <circle cx="20" cy="20" r="17" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2"/>
+              <path d="M11 21L17 27L29 14" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <div class="gh-moments-feature-text">
-            <div class="gh-moments-feature-title">Indica to sativa range</div>
-            <div class="gh-moments-feature-desc">Relaxation or energy. Whatever you need, we've got you covered.</div>
+            <div class="gh-moments-feature-title">Satisfaction Guarantee</div>
+            <div class="gh-moments-feature-desc">If something isn't right, we address legitimate concerns quickly.</div>
           </div>
         </div>
       </div>
@@ -3846,8 +4132,74 @@
 
   <!-- CTA + Shipping pill (below both columns) -->
   <div class="gh-moments-actions">
-    <a href="#products" class="gh-moments-cta">Shop Strains &uarr;</a>
-    <span class="gh-moments-pill"><span class="gh-moments-pill__icon">&#128722;</span> 30% Off + Free Shipping over $90</span>
+    <a href="#products" class="gh-moments-cta">Browse Strains ↑</a>
+    <span class="gh-moments-pill">Not a short-term seller. A long-term supplier.</span>
+  </div>
+</section>
+
+<!-- ======== HOW WE'VE GOT YOU COVERED ======== -->
+<section class="gh-explore">
+  <div class="gh-explore__inner">
+
+    <h2 class="gh-explore__heading">How We've Got You Covered</h2>
+
+    <div class="gh-explore__content">
+
+      <!-- White info card -->
+      <div class="gh-explore__card">
+
+        <!-- Row 1: Delivery Assurance -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <rect x="7" y="22" width="30" height="22" rx="2" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M37 30h8l6 8v6H37V30z" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="17" cy="46" r="4" fill="#2d5016"/>
+            <circle cx="46" cy="46" r="4" fill="#2d5016"/>
+            <line x1="7" y1="38" x2="37" y2="38" stroke="#2d5016" stroke-width="2.5"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Delivery Assurance</h3>
+            <p class="gh-explore__row-text">If a shipment is delayed or lost, we step in immediately to resolve the issue. Our customers are never left without support.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Payment Protection -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <path d="M32 10l18 7v12c0 10-8 18-18 21C22 47 14 39 14 29V17l18-7z" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="25" y="30" width="14" height="10" rx="2" fill="none" stroke="#2d5016" stroke-width="2.5"/>
+            <path d="M27 30v-3a5 5 0 0110 0v3" stroke="#2d5016" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Payment Protection</h3>
+            <p class="gh-explore__row-text">If an Interac payment fails or encounters a technical issue, we handle it promptly. We're here to assist with any payment-related concerns.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+        <!-- Row 3: Satisfaction & Quality Guarantee -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <circle cx="32" cy="32" r="18" fill="none" stroke="#2d5016" stroke-width="2.5"/>
+            <path d="M22 32l8 8 12-14" stroke="#2d5016" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Satisfaction &amp; Quality Guarantee</h3>
+            <p class="gh-explore__row-text">We address all legitimate concerns quickly and efficiently to ensure a smooth customer experience.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Image -->
+      <img class="gh-explore__image" src="/images/handpicked-strains-lifestyle-photo.png" alt="Grizzly Herb customer guarantee" loading="lazy">
+
+    </div>
   </div>
 </section>
 
@@ -3866,35 +4218,26 @@
 
     <!-- Table body -->
     <div class="gh-compare-body">
-      <!-- Row 1: Quality Assurance -->
       <div class="gh-compare-row">
         <div class="gh-compare-cell gh-compare-feature">Quality Assurance</div>
         <div class="gh-compare-cell gh-compare-gh">Every strain is handpicked for consistent potency, flavour, and effects.</div>
         <div class="gh-compare-cell gh-compare-other">Varies from batch to batch. Inconsistent quality can lead to disappointment.</div>
       </div>
-
-      <!-- Row 2: Freshness -->
       <div class="gh-compare-row">
         <div class="gh-compare-cell gh-compare-feature">Freshness</div>
         <div class="gh-compare-cell gh-compare-gh">Fresh drops and exclusive genetics</div>
         <div class="gh-compare-cell gh-compare-other">Often stale or older stock. No guarantee of freshness.</div>
       </div>
-
-      <!-- Row 3: Customer Care -->
       <div class="gh-compare-row">
         <div class="gh-compare-cell gh-compare-feature">Customer Care</div>
         <div class="gh-compare-cell gh-compare-gh">Real people who care about your experience. Fast and responsive support.</div>
         <div class="gh-compare-cell gh-compare-other">Poor or nonexistent customer support; long response times.</div>
       </div>
-
-      <!-- Row 4: Consistency -->
       <div class="gh-compare-row">
         <div class="gh-compare-cell gh-compare-feature">Consistency</div>
         <div class="gh-compare-cell gh-compare-gh">Trust that every order is as good as the last, with zero surprises.</div>
         <div class="gh-compare-cell gh-compare-other">Quality can change with every order, leading to buyer's remorse.</div>
       </div>
-
-      <!-- Row 5: Pricing -->
       <div class="gh-compare-row">
         <div class="gh-compare-cell gh-compare-feature">Pricing</div>
         <div class="gh-compare-cell gh-compare-gh">Fair, honest pricing for the quality you deserve.</div>
@@ -3904,62 +4247,116 @@
   </div>
 </section>
 
+
 <!-- SECTION 7: Buy Weed According to Cannabis Type -->
 <section class="gh-types">
   <h2 class="gh-types-heading">Buy Weed According to Your Favorite Cannabis Type</h2>
 
-  <!-- 2x2 Grid -->
   <div class="gh-types-grid">
-
-    <!-- Card: Indica -->
     <div class="gh-types-card">
       <div class="gh-types-card-header">
         <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green indica cannabis leaf illustration" loading="lazy">
         <h3 class="gh-types-name">Indica</h3>
       </div>
-      <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep. Dive into our curated collection of Indica strains and discover the tranquility they can bring to your evenings.</p>
+      <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep.</p>
     </div>
-
-    <!-- Card: Hybrid -->
     <div class="gh-types-card">
       <div class="gh-types-card-header">
         <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
         <h3 class="gh-types-name">Hybrid</h3>
       </div>
-      <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered. Explore the symphony of effects that only hybrid strains can offer and find your perfect middle ground.</p>
+      <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered.</p>
     </div>
-
-    <!-- Card: Sativa -->
     <div class="gh-types-card">
       <div class="gh-types-card-header">
         <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
         <h3 class="gh-types-name">Sativa</h3>
       </div>
-      <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy. They're especially popular among those who want to stay active, socialize, or dive into a creative project. Dive into our Sativa collection and discover strains that can add a touch of brightness and enthusiasm to your day.</p>
+      <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy.</p>
     </div>
-
-    <!-- Card: Full Spectrum -->
     <div class="gh-types-card">
       <div class="gh-types-card-header">
         <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
         <h3 class="gh-types-name">Full Spectrum</h3>
       </div>
-      <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound. At Grizzly Herb, our Full Spectrum offerings are crafted to provide you with a holistic cannabis experience. By preserving the complete profile of the plant, Full Spectrum products offer a depth of effects that isolated compounds can't match.</p>
+      <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound.</p>
     </div>
   </div>
 
-  <!-- CTA + Shipping pill -->
   <div class="gh-types-actions">
     <a href="#products" class="gh-types-cta">Shop Your Favorite ↑</a>
     <span class="gh-types-pill">30% Off + Free Shipping over $90</span>
   </div>
 </section>
 
+<!-- Safer First Order Section -->
+<section class="gh-safer">
+  <div class="gh-safer__inner">
+    <h2 class="gh-safer__heading">A Safer First Order</h2>
+    <p class="gh-safer__sub">This isn't about urgency. It's about giving experienced buyers a smarter way to test us properly.</p>
+    <div class="gh-safer__grid">
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M15 24H33M24 15L33 24L24 33" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 18l-3-3m0 0l3-3m-3 3h4" stroke="#c9a961" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(2, 8) scale(0.9)"/>
+            <text x="24" y="29" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9" font-weight="700" fill="#4a7c2c">30%</text>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">30% Off First Order</h3>
+        <p class="gh-safer__card-desc">Your first order arrives at a discount. No commitment required to test us properly.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <rect x="10" y="17" width="20" height="13" rx="2" fill="none" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M30 21H36L40 27V30H30V21Z" fill="none" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="16" cy="32" r="2.5" fill="#4a7c2c"/>
+            <circle cx="34" cy="32" r="2.5" fill="#4a7c2c"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">Free Shipping Over $90</h3>
+        <p class="gh-safer__card-desc">Orders over $90 ship free Canada wide. No hidden fees at checkout.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M14 25L20 31L34 17" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">Try Once. Decide After.</h3>
+        <p class="gh-safer__card-desc">If you've been burned before, you shouldn't have to overcommit to test us. One order is enough to know.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M24 10L26.8 18.6H36L28.6 23.8L31.4 32.4L24 27.2L16.6 32.4L19.4 23.8L12 18.6H21.2L24 10Z" fill="none" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">No Inflated Claims</h3>
+        <p class="gh-safer__card-desc">We grade honestly. What you order is what you receive. No "AAAA" exaggerations.</p>
+      </div>
+
+    </div>
+    <div class="gh-safer__cta-wrap">
+      <a href="#products" class="gh-safer__cta">Browse the Collection ↑</a>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 8: Why Choose Grizzly Herb -->
 <section class="gh-why">
-  <h2 class="gh-why-heading">Why Choose Grizzly Herb to Buy Weed Online?</h2>
+  <h2 class="gh-why-heading">Why Experienced Buyers Stay</h2>
 
-  <p class="gh-why-desc">At Grizzly Herb, we understand the importance of quality. When you order marijuana online from us, you're not just getting any weed online &ndash; you're getting the best Weed Canada has to offer. Our selection is vast. From the classic strains to the latest hybrids, our weeds online shop is always stocked with the best. That's why you should buy weed online from Grizzly Herb!</p>
+  <p class="gh-why-desc">When flower is predictable, everything else becomes easier.</p>
 
   <!-- Three feature columns -->
   <div class="gh-why-features">
@@ -3967,24 +4364,24 @@
     <!-- Feature a: Free Express Shipping -->
     <div class="gh-why-feature">
       <img class="gh-img-placeholder" src="/images/shipping-truck-icon-for-free-express-delivery.png" alt="Shipping truck icon for free express delivery" loading="lazy">
-      <h3 class="gh-why-feature-title">Free Express Shipping</h3>
-      <p class="gh-why-feature-desc">Every time your order is $90 or more, your express shipping for the world's best medical marijuana delivered directly to your door is FREE! Time to start buying weed online Canada.</p>
+      <h3 class="gh-why-feature-title">Fair Pricing</h3>
+      <p class="gh-why-feature-desc">No inflated hype strains. Honest grades across the board.</p>
       <div class="gh-why-divider"></div>
     </div>
 
     <!-- Feature b: Best Price Guarantee -->
     <div class="gh-why-feature">
       <img class="gh-img-placeholder" src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="Price tag icon representing best price guarantee" loading="lazy">
-      <h3 class="gh-why-feature-title">Best Price Guarantee</h3>
-      <p class="gh-why-feature-desc">When you order weed online with us, we guarantee the lowest prices. We're so confident that we have the lowest price that if you find an item of the same strain and grade currently offered for less, we'll match that price!</p>
+      <h3 class="gh-why-feature-title">Consistent Quality</h3>
+      <p class="gh-why-feature-desc">What you buy today is what you'll get next month.</p>
       <div class="gh-why-divider"></div>
     </div>
 
     <!-- Feature c: Highest Quality -->
     <div class="gh-why-feature">
       <img class="gh-img-placeholder" src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="Quality badge icon representing highest quality standards" loading="lazy">
-      <h3 class="gh-why-feature-title">Highest Quality</h3>
-      <p class="gh-why-feature-desc">All of our growers follow the strictest guidelines. No pesticides, long curing times and all strains are tested in house.</p>
+      <h3 class="gh-why-feature-title">Responsive Support</h3>
+      <p class="gh-why-feature-desc">Real humans. Fast replies. No runaround.</p>
       <div class="gh-why-divider"></div>
     </div>
   </div>
@@ -3996,117 +4393,115 @@
 <section class="gh-faq">
   <div class="gh-faq-inner">
     <div class="gh-faq-heading-col">
-      <h2 class="gh-faq-heading">FAQs</h2>
+      <h2 class="gh-faq-heading">Straight Answers.<br>No Runaround.</h2>
     </div>
     <div class="gh-faq-list-col">
       <div class="gh-faq-list">
         <!-- FAQ 1 (expanded by default) -->
         <div class="gh-faq-item gh-open">
           <button class="gh-faq-question" aria-expanded="true">
-            <span class="gh-faq-question-text">How can I order?</span>
+            <span class="gh-faq-question-text">How long does delivery take?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p><strong>STEP 1 - Browse</strong><br>Browse freely through our premium range of marijuana strains, concentrates, and accessories. Just click on the items you like to add them to your cart.</p>
-              <p><strong>STEP 2 - Create an Account</strong><br>Registering with Grizzly Herb is quick and easy. Once you've registered, you can easily check out, pay with a single click, and manage and track your orders.</p>
-              <p><strong>STEP 3 - Pay Securely</strong><br>All you need to do next is follow the simple instructions for Credit Card or Interac E-transfer. Once payment is complete, you can sit back &amp; relax. Your order is on its way! You can track your order through your account on our website.</p>
+              <p>Orders ship quickly and arrive Canada wide within standard timelines. Most customers receive within 2–4 business days after processing.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 2 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">Who is eligible to purchase on your site?</span>
+            <span class="gh-faq-question-text">Is shipping discreet?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>You must be of legal age in your province or territory to purchase cannabis products from our site. We require age verification during the registration process to ensure compliance with all applicable laws.</p>
+              <p>Yes. Plain packaging. No identifying markings. Nothing that draws attention.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 3 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">How do I become a member?</span>
+            <span class="gh-faq-question-text">What if my package doesn't arrive?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>Simply click the "Register" button on our website, fill out the required information including age verification, and you'll have instant access to our full product catalogue and member-exclusive deals.</p>
+              <p>Covered by our Delivery Assurance. If a shipment is delayed or lost, we step in and resolve it.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 4 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">What payment method do you accept?</span>
+            <span class="gh-faq-question-text">What if I'm not happy with the quality?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>We accept Interac E-Transfer and all major credit cards including Visa and Mastercard. All transactions are processed securely and discreetly.</p>
+              <p>Covered by our Satisfaction Guarantee. If something isn't right, contact us and we address it quickly.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 5 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">Refunds or exchanges</span>
+            <span class="gh-faq-question-text">Is it lab tested?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>If you receive a damaged or incorrect product, please contact our support team within 48 hours of delivery with photos. We'll work with you to resolve the issue promptly through a replacement or store credit.</p>
+              <p>Yes. Every batch is tested. We don't sell flower we haven't verified.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 6 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">How long will I have to wait for medical marijuana to be delivered?</span>
+            <span class="gh-faq-question-text">Who is this for?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>Orders are typically processed within 24 hours. Delivery takes 2-4 business days via Canada Post Xpresspost depending on your location. British Columbia and Alberta customers usually receive orders in 2 business days.</p>
+              <p>Experienced buyers who want a reliable supplier — not a hype-driven drop shop. If consistency matters to you, you're in the right place.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 7 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">Shipping outside of Canada?</span>
+            <span class="gh-faq-question-text">What payment methods do you accept?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>At this time, we only ship within Canada. Due to international cannabis regulations, we are unable to process or ship orders to destinations outside of Canada.</p>
+              <p>We accept Interac E-Transfer and credit cards. Payments are secure and processed quickly.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 8 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">My package hasn't arrived yet, what can I do?</span>
+            <span class="gh-faq-question-text">Do you ship outside Canada?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>Please check your tracking number first via Canada Post's website. If it's been more than 5 business days since shipment, contact our support team at support@grizzlyherb.com and we'll investigate and resolve the issue.</p>
+              <p>No. We only ship within Canada.</p>
             </div>
           </div>
         </div>
         <!-- FAQ 9 -->
         <div class="gh-faq-item">
           <button class="gh-faq-question" aria-expanded="false">
-            <span class="gh-faq-question-text">My tracking number isn't working, Help!</span>
+            <span class="gh-faq-question-text">How do I start?</span>
             <span class="gh-faq-icon"></span>
           </button>
           <div class="gh-faq-answer">
             <div class="gh-faq-answer-inner">
-              <p>Tracking numbers can take up to 24 hours to become active in the Canada Post system after your order has shipped. If it's been longer than that, please reach out to us and we'll provide an updated tracking number or investigate further.</p>
+              <p>Browse the collection, choose your strains, create an account, and complete your order. Your first order comes with 30% off and free shipping over $90.</p>
             </div>
           </div>
         </div>
@@ -4126,7 +4521,7 @@
         <img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb" loading="lazy">
       </a>
       <p class="gh-footer-tagline">Premium Cannabis Delivered to Your Door</p>
-      <p class="gh-footer-tagline gh-footer-tagline--sub">Built by burned buyers. Trusted by thousands.</p>
+      <p class="gh-footer-tagline gh-footer-tagline--sub">8+ years. 50,000+ orders. Built for repeat buyers.</p>
     </div>
 
     <!-- Desktop: two-column layout (accordion + email signup) -->
