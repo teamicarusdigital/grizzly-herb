@@ -3328,6 +3328,8 @@
     tlq('init', 'LS-25654158-0');
     tlq('track', 'PageView');
     tlq('track', 'ViewContent', {content_name: 'Premium Collection HSH'});
+    tlq('track', 'PageView', {target: 'LS-74255460-6'});
+    tlq('track', 'ViewContent', {content_name: 'Premium Collection HSH', target: 'LS-74255460-6'});
 </script>
 </head>
 <body>
@@ -4847,6 +4849,15 @@
         content_ids: [vid],
         value: parseFloat(price),
         currency: 'CAD'
+      });
+    }
+    if (typeof tlq === 'function') {
+      tlq('track', 'AddToCart', {
+        content_name: displayName,
+        content_ids: [vid],
+        value: parseFloat(price),
+        currency: 'CAD',
+        target: 'LS-74255460-6'
       });
     }
     renderCart();
