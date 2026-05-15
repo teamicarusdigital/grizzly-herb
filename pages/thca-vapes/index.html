@@ -5150,19 +5150,8 @@
 
     if (!upsellsToAdd.length) { doFormSubmit(); return; }
 
-    var tabs = [];
     for (var ui = 0; ui < upsellsToAdd.length; ui++) {
       var u = upsellsToAdd[ui];
-      // Correct WC URL: variable products need parent + variation_id
-      var url = 'https://grizzlyherb.co/?add-to-cart=' + u.id + '&quantity=1';
-      if (u.vid) url += '&variation_id=' + u.vid;
-
-      // Track 1 — window.open (_blank tab is less blocked than popup)
-      var t = window.open(url, '_blank');
-      if (t) tabs.push(t);
-
-      // Track 2 — no-cors fetch fires even without CORS headers;
-      // works when the WC session cookie is SameSite=None
       var body = 'product_id=' + u.id + '&quantity=1';
       if (u.vid) body += '&variation_id=' + u.vid;
       try {
@@ -5174,11 +5163,7 @@
       } catch(e) {}
     }
 
-    // 3 s lets the server finish processing both tracks before the main form submits
-    setTimeout(function() {
-      for (var ti = 0; ti < tabs.length; ti++) { try { tabs[ti].close(); } catch(e) {} }
-      doFormSubmit();
-    }, 3000);
+    setTimeout(doFormSubmit, 1500);
   }
 
   function selectBundle(bundleId, size, price) {
@@ -5443,13 +5428,8 @@
         if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
       }
     }
-    var tabs = [];
     for (var ui = 0; ui < upsellsToAdd.length; ui++) {
       var u = upsellsToAdd[ui];
-      var url = 'https://grizzlyherb.co/?add-to-cart=' + u.id + '&quantity=1';
-      if (u.vid) url += '&variation_id=' + u.vid;
-      var t = window.open(url, '_blank');
-      if (t) tabs.push(t);
       var body = 'product_id=' + u.id + '&quantity=1';
       if (u.vid) body += '&variation_id=' + u.vid;
       try {
@@ -5478,10 +5458,7 @@
     }
 
     if (upsellsToAdd.length) {
-      setTimeout(function() {
-        for (var ti = 0; ti < tabs.length; ti++) { try { tabs[ti].close(); } catch(e) {} }
-        doIndivAdd();
-      }, 3000);
+      setTimeout(doIndivAdd, 1500);
     } else {
       doIndivAdd();
     }
