@@ -5141,32 +5141,44 @@
       form.submit();
     }
 
-    var upsellUrls = [];
+    var upsellsToAdd = [];
     for (var uid in upsellCart) {
       for (var uk = 0; uk < UPSELLS.length; uk++) {
-        if (UPSELLS[uk].id === uid) {
-          var itemId = UPSELLS[uk].vid || UPSELLS[uk].id;
-          upsellUrls.push('https://grizzlyherb.co/?add-to-cart=' + encodeURIComponent(itemId) + '&quantity=1');
-          break;
-        }
+        if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
       }
     }
 
-    if (!upsellUrls.length) { doFormSubmit(); return; }
+    if (!upsellsToAdd.length) { doFormSubmit(); return; }
 
-    // window.open triggers a top-level navigation on grizzlyherb.co, so
-    // SameSite=Lax cookies are sent and WooCommerce processes the add-to-cart.
-    // AJAX fetch from a different origin cannot send those cookies.
-    var popups = [];
-    for (var pi = 0; pi < upsellUrls.length; pi++) {
-      var p = window.open(upsellUrls[pi], 'gh_upsell_' + pi, 'width=1,height=1,top=0,left=0');
-      if (p) popups.push(p);
+    var tabs = [];
+    for (var ui = 0; ui < upsellsToAdd.length; ui++) {
+      var u = upsellsToAdd[ui];
+      // Correct WC URL: variable products need parent + variation_id
+      var url = 'https://grizzlyherb.co/?add-to-cart=' + u.id + '&quantity=1';
+      if (u.vid) url += '&variation_id=' + u.vid;
+
+      // Track 1 — window.open (_blank tab is less blocked than popup)
+      var t = window.open(url, '_blank');
+      if (t) tabs.push(t);
+
+      // Track 2 — no-cors fetch fires even without CORS headers;
+      // works when the WC session cookie is SameSite=None
+      var body = 'product_id=' + u.id + '&quantity=1';
+      if (u.vid) body += '&variation_id=' + u.vid;
+      try {
+        fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+          method: 'POST', mode: 'no-cors', credentials: 'include',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: body
+        });
+      } catch(e) {}
     }
-    // Give the server ~1.5 s to process the adds, then close popups and submit
+
+    // 3 s lets the server finish processing both tracks before the main form submits
     setTimeout(function() {
-      for (var ci = 0; ci < popups.length; ci++) { try { popups[ci].close(); } catch(e) {} }
+      for (var ti = 0; ti < tabs.length; ti++) { try { tabs[ti].close(); } catch(e) {} }
       doFormSubmit();
-    }, 1500);
+    }, 3000);
   }
 
   function selectBundle(bundleId, size, price) {
@@ -5425,20 +5437,28 @@
     if (!cartItems.length) return;
     if (checkoutBtn) { checkoutBtn.innerHTML = 'Adding&#8230;'; checkoutBtn.disabled = true; }
 
-    var upsellUrls = [];
+    var upsellsToAdd = [];
     for (var uid in upsellCart) {
       for (var uk = 0; uk < UPSELLS.length; uk++) {
-        if (UPSELLS[uk].id === uid) {
-          var itemId = UPSELLS[uk].vid || UPSELLS[uk].id;
-          upsellUrls.push('https://grizzlyherb.co/?add-to-cart=' + encodeURIComponent(itemId) + '&quantity=1');
-          break;
-        }
+        if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
       }
     }
-    var popups = [];
-    for (var pi = 0; pi < upsellUrls.length; pi++) {
-      var p = window.open(upsellUrls[pi], 'gh_upsell_' + pi, 'width=1,height=1,top=0,left=0');
-      if (p) popups.push(p);
+    var tabs = [];
+    for (var ui = 0; ui < upsellsToAdd.length; ui++) {
+      var u = upsellsToAdd[ui];
+      var url = 'https://grizzlyherb.co/?add-to-cart=' + u.id + '&quantity=1';
+      if (u.vid) url += '&variation_id=' + u.vid;
+      var t = window.open(url, '_blank');
+      if (t) tabs.push(t);
+      var body = 'product_id=' + u.id + '&quantity=1';
+      if (u.vid) body += '&variation_id=' + u.vid;
+      try {
+        fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+          method: 'POST', mode: 'no-cors', credentials: 'include',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: body
+        });
+      } catch(e) {}
     }
 
     function doIndivAdd() {
@@ -5457,11 +5477,11 @@
       addNext();
     }
 
-    if (upsellUrls.length) {
+    if (upsellsToAdd.length) {
       setTimeout(function() {
-        for (var ci = 0; ci < popups.length; ci++) { try { popups[ci].close(); } catch(e) {} }
+        for (var ti = 0; ti < tabs.length; ti++) { try { tabs[ti].close(); } catch(e) {} }
         doIndivAdd();
-      }, 1500);
+      }, 3000);
     } else {
       doIndivAdd();
     }
@@ -5641,7 +5661,9 @@
           tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD'});
           tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD',target:'LS-74255460-6'});
         }
+        var hasUpsells = Object.keys(upsellCart).length > 0;
         chkBtn.classList.add('gh-checkout--loading');
+        if (hasUpsells) { chkBtn.innerHTML = 'Preparing cart&#8230;'; chkBtn.disabled = true; }
         submitBundleToCart();
         return;
       }
