@@ -5245,14 +5245,25 @@
       footerBtn.closest('.gh-footer-accordion-item').classList.toggle('gh-open');
       return;
     }
-    // Bundle size selection
+    // Bundle size selection (toggle: click selected bundle to deselect)
     var bundleOpt = e.target.closest('.gh-bundle-option');
     if (bundleOpt) {
-      selectBundle(
-        bundleOpt.getAttribute('data-bundle-id'),
-        parseInt(bundleOpt.getAttribute('data-bundle-size')),
-        parseFloat(bundleOpt.getAttribute('data-bundle-price'))
-      );
+      var bid = bundleOpt.getAttribute('data-bundle-id');
+      if (selectedBundle && selectedBundle.id === bid) {
+        // Deselect
+        selectedBundle = null;
+        cartridgeQtys = {};
+        var allOpts = root.querySelectorAll('.gh-bundle-option');
+        for (var oi = 0; oi < allOpts.length; oi++) allOpts[oi].classList.remove('gh-bundle-option--selected');
+        if (pickerEl) pickerEl.style.display = 'none';
+        renderCart();
+      } else {
+        selectBundle(
+          bid,
+          parseInt(bundleOpt.getAttribute('data-bundle-size')),
+          parseFloat(bundleOpt.getAttribute('data-bundle-price'))
+        );
+      }
       return;
     }
     // Cartridge + button
