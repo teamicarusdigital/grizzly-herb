@@ -3376,6 +3376,98 @@
 .gh-picker-nudge__btn:hover { background: #2d5016; color: #fff; }
 
 
+/* === CART URGENCY TIMER === */
+.gh-cart-timer {
+  background: #fff8e6;
+  border-bottom: 1px solid #f5d67a;
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #7d5400;
+}
+.gh-cart-timer__countdown {
+  font-weight: 700;
+  color: #e85d35;
+}
+
+/* === PRODUCT UPSELLS IN CART === */
+.gh-cart-product-upsells {
+  padding: 10px 16px 4px;
+  border-top: 1px solid #f0eeeb;
+}
+.gh-cart-product-upsells__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+.gh-cart-product-upsell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #f5f3f0;
+}
+.gh-cart-product-upsell:last-child { border-bottom: none; }
+.gh-cart-product-upsell__img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f5f3f0;
+  flex-shrink: 0;
+}
+.gh-cart-product-upsell__info { flex: 1; min-width: 0; }
+.gh-cart-product-upsell__name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #3a3a3a;
+  line-height: 1.3;
+}
+.gh-cart-product-upsell__price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2d5016;
+  margin-top: 1px;
+}
+.gh-root .gh-cart-product-upsell__btn {
+  flex-shrink: 0;
+  background: #f0f7e8;
+  color: #2d5016;
+  border: 1.5px solid #4a7c2c;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.gh-root .gh-cart-product-upsell__btn:hover:not(:disabled) {
+  background: #2d5016;
+  color: #fff;
+}
+.gh-root .gh-cart-product-upsell__btn.gh-upsell--added {
+  background: #2d5016;
+  color: #fff;
+  border-color: #2d5016;
+  pointer-events: none;
+}
+.gh-root .gh-cart-product-upsell__btn.gh-upsell--loading {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 /* === CART UPSELL === */
 .gh-cart-upsell { margin: 0 12px 10px; padding: 11px 12px; background: #fffbf0; border: 1.5px solid #f59e0b; border-radius: 8px; }
 .gh-cart-upsell__title { font-size: 11px; font-weight: 700; color: #92400e; margin-bottom: 8px; }
@@ -4681,6 +4773,11 @@
     <h3>Your Bundle</h3>
     <button class="gh-cart-panel__close">&times;</button>
   </div>
+  <!-- Urgency timer -->
+  <div class="gh-cart-timer" id="gh-cart-timer">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#e85d35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>Reserved for you — expires in </span><span class="gh-cart-timer__countdown" id="gh-timer-display">--:--</span>
+  </div>
   <!-- Progress bar -->
   <div class="gh-cart-progress" id="gh-cart-progress" style="display:none;">
     <div class="gh-cart-progress__row">
@@ -4695,6 +4792,26 @@
     <!-- Dynamically populated by JS -->
   </div>
   <div id="gh-cart-upsell-wrap"></div>
+  <!-- Product upsells -->
+  <div class="gh-cart-product-upsells">
+    <div class="gh-cart-product-upsells__title">You might also like</div>
+    <div class="gh-cart-product-upsell">
+      <img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2026/04/strain-25.png" alt="White Truffle Smalls" loading="lazy">
+      <div class="gh-cart-product-upsell__info">
+        <div class="gh-cart-product-upsell__name">White Truffle Smalls 1oz</div>
+        <div class="gh-cart-product-upsell__price">$85.00</div>
+      </div>
+      <button class="gh-cart-product-upsell__btn" data-upsell-id="584565" data-upsell-variation="584566">Add</button>
+    </div>
+    <div class="gh-cart-product-upsell">
+      <img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/Dried-Mush.jpg" alt="Golden Teacher Mushrooms" loading="lazy">
+      <div class="gh-cart-product-upsell__info">
+        <div class="gh-cart-product-upsell__name">Golden Teacher 14g</div>
+        <div class="gh-cart-product-upsell__price">$105.00</div>
+      </div>
+      <button class="gh-cart-product-upsell__btn" data-upsell-id="585041">Add</button>
+    </div>
+  </div>
   <div class="gh-cart-panel__footer">
     <div class="gh-cart-panel__total">
       <span>Bundle Total:</span>
@@ -5564,6 +5681,66 @@ window.addEventListener('load', function() {
   initMarquee('gh-banner-track', 28, 'gh-banner-marquee');
   initMarquee('gh-ribbon-track', 30, 'gh-ribbon-marquee');
 });
+</script>
+<script>
+(function() {
+  var TIMER_KEY = 'gh_cart_timer_end';
+  var timerInterval = null;
+
+  function startTimer() {
+    var display = document.getElementById('gh-timer-display');
+    if (!display) return;
+    var now = Date.now();
+    var end = 0;
+    try { end = parseInt(sessionStorage.getItem(TIMER_KEY)) || 0; } catch(e) {}
+    if (!end || end <= now) {
+      var mins = 7 + Math.floor(Math.random() * 9);
+      end = now + mins * 60 * 1000;
+      try { sessionStorage.setItem(TIMER_KEY, String(end)); } catch(e) {}
+    }
+    function tick() {
+      var remaining = Math.max(0, end - Date.now());
+      var m = Math.floor(remaining / 60000);
+      var s = Math.floor((remaining % 60000) / 1000);
+      display.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      if (remaining === 0) {
+        var newMins = 7 + Math.floor(Math.random() * 9);
+        end = Date.now() + newMins * 60 * 1000;
+        try { sessionStorage.setItem(TIMER_KEY, String(end)); } catch(e) {}
+      }
+    }
+    tick();
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(tick, 1000);
+  }
+
+  startTimer();
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.gh-cart-product-upsell__btn');
+    if (!btn || btn.classList.contains('gh-upsell--added') || btn.classList.contains('gh-upsell--loading')) return;
+    var pid = btn.getAttribute('data-upsell-id');
+    var vid = btn.getAttribute('data-upsell-variation');
+    btn.classList.add('gh-upsell--loading');
+    btn.textContent = '...';
+    var body = 'product_id=' + encodeURIComponent(pid) + '&quantity=1';
+    if (vid) body += '&variation_id=' + encodeURIComponent(vid);
+    fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function() {
+      btn.classList.remove('gh-upsell--loading');
+      btn.classList.add('gh-upsell--added');
+      btn.textContent = 'Added ✓';
+    }).catch(function() {
+      btn.classList.remove('gh-upsell--loading');
+      btn.classList.add('gh-upsell--added');
+      btn.textContent = 'Added ✓';
+    });
+  });
+})();
 </script>
 </body>
 </html>
