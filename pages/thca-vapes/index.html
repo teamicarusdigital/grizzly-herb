@@ -5141,29 +5141,32 @@
       form.submit();
     }
 
-    var upsellItems = [];
+    var upsellUrls = [];
     for (var uid in upsellCart) {
       for (var uk = 0; uk < UPSELLS.length; uk++) {
         if (UPSELLS[uk].id === uid) {
-          upsellItems.push({id: parseInt(UPSELLS[uk].vid || UPSELLS[uk].id), quantity: 1});
+          var itemId = UPSELLS[uk].vid || UPSELLS[uk].id;
+          upsellUrls.push('https://grizzlyherb.co/?add-to-cart=' + encodeURIComponent(itemId) + '&quantity=1');
           break;
         }
       }
     }
 
-    if (!upsellItems.length) { doFormSubmit(); return; }
+    if (!upsellUrls.length) { doFormSubmit(); return; }
 
-    var done = 0;
-    function addNextUpsell() {
-      if (done >= upsellItems.length) { doFormSubmit(); return; }
-      var item = upsellItems[done++];
-      fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item', {
-        method: 'POST', credentials: 'include',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(item)
-      }).then(addNextUpsell).catch(addNextUpsell);
+    // window.open triggers a top-level navigation on grizzlyherb.co, so
+    // SameSite=Lax cookies are sent and WooCommerce processes the add-to-cart.
+    // AJAX fetch from a different origin cannot send those cookies.
+    var popups = [];
+    for (var pi = 0; pi < upsellUrls.length; pi++) {
+      var p = window.open(upsellUrls[pi], 'gh_upsell_' + pi, 'width=1,height=1,top=0,left=0');
+      if (p) popups.push(p);
     }
-    addNextUpsell();
+    // Give the server ~1.5 s to process the adds, then close popups and submit
+    setTimeout(function() {
+      for (var ci = 0; ci < popups.length; ci++) { try { popups[ci].close(); } catch(e) {} }
+      doFormSubmit();
+    }, 1500);
   }
 
   function selectBundle(bundleId, size, price) {
@@ -5414,31 +5417,54 @@
   }
 
   function submitIndivToCart() {
-    var items = [];
+    var cartItems = [];
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var qty = indivQtys[CARTRIDGES[i].pid] || 0;
-      if (qty > 0 && CARTRIDGES[i].inStock) items.push({id: parseInt(CARTRIDGES[i].pid), quantity: qty});
+      if (qty > 0 && CARTRIDGES[i].inStock) cartItems.push({id: parseInt(CARTRIDGES[i].pid), quantity: qty});
     }
+    if (!cartItems.length) return;
+    if (checkoutBtn) { checkoutBtn.innerHTML = 'Adding&#8230;'; checkoutBtn.disabled = true; }
+
+    var upsellUrls = [];
     for (var uid in upsellCart) {
       for (var uk = 0; uk < UPSELLS.length; uk++) {
-        if (UPSELLS[uk].id === uid) { items.push({id: parseInt(UPSELLS[uk].vid || UPSELLS[uk].id), quantity: 1}); break; }
+        if (UPSELLS[uk].id === uid) {
+          var itemId = UPSELLS[uk].vid || UPSELLS[uk].id;
+          upsellUrls.push('https://grizzlyherb.co/?add-to-cart=' + encodeURIComponent(itemId) + '&quantity=1');
+          break;
+        }
       }
     }
-    if (!items.length) return;
-    if (checkoutBtn) { checkoutBtn.innerHTML = 'Adding&#8230;'; checkoutBtn.disabled = true; }
-    var done = 0;
-    function addNext() {
-      if (done >= items.length) { window.location.href = 'https://grizzlyherb.co/cart/'; return; }
-      var item = items[done++];
-      fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item',{
-        method:'POST',credentials:'include',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(item)
-      }).then(addNext).catch(function(){
-        window.location.href='https://grizzlyherb.co/cart/?add-to-cart='+item.id+'&quantity='+item.quantity;
-      });
+    var popups = [];
+    for (var pi = 0; pi < upsellUrls.length; pi++) {
+      var p = window.open(upsellUrls[pi], 'gh_upsell_' + pi, 'width=1,height=1,top=0,left=0');
+      if (p) popups.push(p);
     }
-    addNext();
+
+    function doIndivAdd() {
+      var done = 0;
+      function addNext() {
+        if (done >= cartItems.length) { window.location.href = 'https://grizzlyherb.co/cart/'; return; }
+        var item = cartItems[done++];
+        fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item',{
+          method:'POST',credentials:'include',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(item)
+        }).then(addNext).catch(function(){
+          window.location.href='https://grizzlyherb.co/cart/?add-to-cart='+item.id+'&quantity='+item.quantity;
+        });
+      }
+      addNext();
+    }
+
+    if (upsellUrls.length) {
+      setTimeout(function() {
+        for (var ci = 0; ci < popups.length; ci++) { try { popups[ci].close(); } catch(e) {} }
+        doIndivAdd();
+      }, 1500);
+    } else {
+      doIndivAdd();
+    }
   }
 
   function showUpgradeToast(msg) {
