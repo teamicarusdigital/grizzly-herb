@@ -4886,7 +4886,7 @@
   function renderUpsell() {
     var wrap = root.querySelector('#gh-cart-upsell-wrap');
     if (!wrap) return;
-    if (!selectedBundle) { wrap.innerHTML = ''; return; }
+    if (!selectedBundle || !isBundleComplete()) { wrap.innerHTML = ''; return; }
     var bid = selectedBundle.id;
     var html = '';
     if (bid === '209612') {
