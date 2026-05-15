@@ -4659,18 +4659,20 @@
     renderCart();
   }
 
+  // Pack sizes: WooCommerce requires exact qty per product (5, 10, or 20 units)
+  var VAPE_PACK_QTY = {209612: 5, 127106: 10, 127104: 20};
+
   function buildCheckoutUrl() {
-    if (cart.length === 0) return 'https://grizzlyherb.co/cart/?coupon_code=30off';
+    if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
     var params = ['gh_multi=1'];
     for (var i = 0; i < cart.length; i++) {
       var idx = i + 1;
+      var packSize = VAPE_PACK_QTY[cart[i].vid] || 1;
       params.push('vid_' + idx + '=' + encodeURIComponent(cart[i].vid));
-      params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
+      params.push('qty_' + idx + '=' + encodeURIComponent(packSize * cart[i].qty));
     }
-    // Merge all original URL params (UTM, coupon, any others)
     var saved = getSavedParams();
     if (saved) params.push(saved);
-    params.push('coupon_code=30off');
     return 'https://grizzlyherb.co/cart/?' + params.join('&');
   }
 
