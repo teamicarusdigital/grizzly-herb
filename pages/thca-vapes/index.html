@@ -4917,11 +4917,15 @@
         btn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
+          var savedQtys = {};
+          for (var p in cartridgeQtys) { if ((cartridgeQtys[p]||0) > 0) savedQtys[p] = cartridgeQtys[p]; }
           selectBundle(
             btn.getAttribute('data-upgrade-id'),
             parseInt(btn.getAttribute('data-upgrade-size'), 10),
             parseFloat(btn.getAttribute('data-upgrade-price'))
           );
+          for (var sp in savedQtys) cartridgeQtys[sp] = savedQtys[sp];
+          renderCart();
         });
       })(upgBtns[ui]);
     }
@@ -5373,7 +5377,11 @@
       var newId = upgradeBtn.getAttribute('data-upgrade-id');
       var newSize = parseInt(upgradeBtn.getAttribute('data-upgrade-size'));
       var newPrice = parseFloat(upgradeBtn.getAttribute('data-upgrade-price'));
+      var savedUpgradeQtys = {};
+      for (var p in cartridgeQtys) { if ((cartridgeQtys[p]||0) > 0) savedUpgradeQtys[p] = cartridgeQtys[p]; }
       selectBundle(newId, newSize, newPrice);
+      for (var sp in savedUpgradeQtys) cartridgeQtys[sp] = savedUpgradeQtys[sp];
+      renderCart();
       return;
     }
   });
