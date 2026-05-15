@@ -3364,6 +3364,16 @@
 .gh-picker-nudge__btn { background: #4a7c2c; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
 .gh-picker-nudge__btn:hover { background: #2d5016; color: #fff; }
 
+
+/* === CART UPSELL === */
+.gh-cart-upsell { margin: 0 12px 10px; padding: 11px 12px; background: #fffbf0; border: 1.5px solid #f59e0b; border-radius: 8px; }
+.gh-cart-upsell__title { font-size: 11px; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+.gh-cart-upsell__row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.gh-cart-upsell__row:last-child { margin-bottom: 0; }
+.gh-cart-upsell__text { font-size: 10px; color: #1f1f1f; line-height: 1.4; }
+.gh-cart-upsell__save { color: #2d5016; font-weight: 700; }
+.gh-cart-upsell__btn { flex-shrink: 0; background: #4a7c2c; color: #fff; border: none; border-radius: 5px; padding: 6px 10px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.15s; white-space: nowrap; }
+.gh-cart-upsell__btn:hover { background: #2d5016; }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -4599,6 +4609,7 @@
   <div class="gh-cart-panel__items">
     <!-- Dynamically populated by JS -->
   </div>
+  <div id="gh-cart-upsell-wrap"></div>
   <div class="gh-cart-panel__footer">
     <div class="gh-cart-panel__total">
       <span>Bundle Total:</span>
@@ -4804,18 +4815,43 @@
         checkoutBtn.textContent = 'Fill Your Bundle (' + remaining + ' left)';
       }
     }
-    updateNavBadge(); updateProgress(); updateCartridgeCards(); updatePickerCounter();
+    updateNavBadge(); updateProgress(); updateCartridgeCards(); updatePickerCounter(); renderUpsell();
   }
 
-  var BUNDLE_URLS = {
-    '209612': 'https://grizzlyherb.co/product/5-pack-thc-vape-cartridges-starter-bundle/',
-    '127106': 'https://grizzlyherb.co/product/big-bundle-pack/',
-    '127104': 'https://grizzlyherb.co/product/ultra-bundle-pack/'
-  };
+  function renderUpsell() {
+    var wrap = root.querySelector('#gh-cart-upsell-wrap');
+    if (!wrap) return;
+    if (!selectedBundle) { wrap.innerHTML = ''; return; }
+    var bid = selectedBundle.id;
+    var html = '';
+    if (bid === '209612') {
+      html = '<div class="gh-cart-upsell">'
+        + '<div class="gh-cart-upsell__title">&#128293; Save more &mdash; upgrade your bundle</div>'
+        + '<div class="gh-cart-upsell__row">'
+        + '<div class="gh-cart-upsell__text"><strong>10-Pack</strong> &mdash; $15/cart<br><span class="gh-cart-upsell__save">Save an extra $50 vs 5-Pack</span></div>'
+        + '<button class="gh-cart-upsell__btn" data-upgrade-id="127106" data-upgrade-size="10" data-upgrade-price="150">Upgrade</button>'
+        + '</div>'
+        + '<div class="gh-cart-upsell__row">'
+        + '<div class="gh-cart-upsell__text"><strong>20-Pack</strong> &mdash; $10/cart<br><span class="gh-cart-upsell__save">Save an extra $100 vs 5-Pack</span></div>'
+        + '<button class="gh-cart-upsell__btn" data-upgrade-id="127104" data-upgrade-size="20" data-upgrade-price="200">Upgrade</button>'
+        + '</div>'
+        + '</div>';
+    } else if (bid === '127106') {
+      html = '<div class="gh-cart-upsell">'
+        + '<div class="gh-cart-upsell__title">&#128293; Save even more</div>'
+        + '<div class="gh-cart-upsell__row">'
+        + '<div class="gh-cart-upsell__text"><strong>20-Pack</strong> &mdash; $10/cart<br><span class="gh-cart-upsell__save">Save an extra $100 vs 10-Pack</span></div>'
+        + '<button class="gh-cart-upsell__btn" data-upgrade-id="127104" data-upgrade-size="20" data-upgrade-price="200">Upgrade</button>'
+        + '</div>'
+        + '</div>';
+    }
+    wrap.innerHTML = html;
+  }
+
   function submitBundleToCart() {
     if (!selectedBundle || !isBundleComplete()) return;
     var bid = selectedBundle.id;
-    var actionUrl = BUNDLE_URLS[bid];
+    var actionUrl = 'https://grizzlyherb.co/cart/';
     var sp = getSavedParams();
     if (sp) actionUrl += (actionUrl.indexOf('?') === -1 ? '?' : '&') + sp;
     var form = document.createElement('form');
@@ -5010,6 +5046,15 @@
     // "Review & Checkout" nudge link
     var openCartBtn = e.target.closest('#gh-open-cart-btn');
     if (openCartBtn) { e.preventDefault(); openCart(); return; }
+    // Upsell upgrade button
+    var upgradeBtn = e.target.closest('[data-upgrade-id]');
+    if (upgradeBtn) {
+      var newId = upgradeBtn.getAttribute('data-upgrade-id');
+      var newSize = parseInt(upgradeBtn.getAttribute('data-upgrade-size'));
+      var newPrice = parseFloat(upgradeBtn.getAttribute('data-upgrade-price'));
+      selectBundle(newId, newSize, newPrice);
+      return;
+    }
   });
 })();
 </script>
