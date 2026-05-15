@@ -3347,7 +3347,7 @@
 .gh-cartridge-card__oos-label { font-size: 9px; color: #aaa; font-style: italic; margin-top: 6px; }
 .gh-cartridge-card__qty { display: flex; align-items: center; justify-content: center; gap: 6px; }
 .gh-cartridge-card__img { width: 64px; height: 64px; object-fit: contain; margin: 0 auto 8px; display: block; }
-.gh-bundle-option__img { width: 100%; max-width: 160px; height: 120px; object-fit: contain; margin: 0 auto 10px; display: block; }
+.gh-bundle-option__img { width: 100%; max-width: 220px; height: 180px; object-fit: contain; margin: 0 auto 12px; display: block; }
 .gh-cartridge-card__qty-btn { width: 34px; height: 34px; border: none; border-radius: 50%; background: #4a7c2c; font-size: 20px; font-weight: 900; line-height: 1; cursor: pointer; color: #ffffff; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; transition: background 0.15s; padding: 0; }
 .gh-cartridge-card__qty-btn:hover:not(:disabled) { background: #2d5016; }
 .gh-cartridge-card__qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
@@ -3377,10 +3377,30 @@
 .gh-cart-upsell__btn { flex-shrink: 0; background: #4a7c2c; color: #fff; border: none; border-radius: 5px; padding: 6px 10px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.15s; white-space: nowrap; }
 .gh-cart-upsell__btn:hover { background: #2d5016; }
 
-/* === SPINNING SALE BADGE === */
-.gh-spin-badge { width: 74px; height: 74px; background: #e53e3e; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: gh-spin-badge 9s linear infinite; flex-shrink: 0; box-shadow: 0 3px 12px rgba(229,62,62,0.45); color: #fff; text-align: center; font-family: 'Poppins', sans-serif; line-height: 1.25; text-transform: uppercase; font-weight: 800; font-size: 8.5px; letter-spacing: 0.4px; cursor: default; margin-left: 14px; }
-.gh-spin-badge__pct { font-size: 22px; font-weight: 900; line-height: 1; letter-spacing: -1px; }
+/* === SPINNING SALE BADGE — starburst === */
+.gh-spin-badge { width: 86px; height: 86px; background: #e53e3e; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: gh-spin-badge 10s linear infinite; flex-shrink: 0; color: #fff; text-align: center; font-family: 'Poppins', sans-serif; line-height: 1.25; text-transform: uppercase; font-weight: 800; font-size: 9px; letter-spacing: 0.4px; cursor: default; margin-left: 12px; clip-path: polygon(50% 0%,58% 18%,79% 9%,72% 29%,98% 35%,80% 50%,98% 65%,72% 71%,79% 91%,58% 82%,50% 100%,42% 82%,21% 91%,28% 71%,2% 65%,20% 50%,2% 35%,28% 29%,21% 9%,42% 18%); }
+.gh-spin-badge__pct { font-size: 24px; font-weight: 900; line-height: 1; letter-spacing: -1.5px; }
 @keyframes gh-spin-badge { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.gh-root .gh-cartridge-card__qty-btn { background: #4a7c2c !important; color: #ffffff !important; border: none !important; }
+.gh-root .gh-cartridge-card__qty-btn:hover:not(:disabled) { background: #2d5016 !important; }
+.gh-root .gh-cartridge-card__qty-btn:disabled { background: #c8d9bf !important; opacity: 0.6 !important; }
+
+/* === INDIVIDUAL CARTRIDGES SECTION === */
+.gh-indiv { background: #f5f3ef; padding: 64px 0; }
+.gh-indiv__inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.gh-indiv__head { text-align: center; margin-bottom: 32px; }
+.gh-indiv__title { font-size: 28px; font-weight: 800; color: #1f1f1f; margin-bottom: 8px; }
+@media (max-width: 767px) { .gh-indiv__title { font-size: 22px; } }
+.gh-indiv__desc { font-size: 15px; color: #5a5a5a; max-width: 540px; margin: 0 auto 20px; line-height: 1.6; }
+.gh-indiv__tracker { max-width: 480px; margin: 0 auto; }
+.gh-indiv__tracker-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; }
+.gh-indiv__count { font-weight: 700; color: #2d5016; }
+.gh-indiv__target { color: #5a5a5a; }
+.gh-indiv__bar { height: 6px; background: #e0ddd8; border-radius: 3px; overflow: hidden; }
+.gh-indiv__bar-fill { height: 100%; background: #4a7c2c; border-radius: 3px; transition: width 0.3s ease; width: 0%; }
+/* Upgrade toast */
+.gh-upgrade-toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #2d5016; color: #fff; padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 700; z-index: 10000; transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275); pointer-events: none; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.gh-upgrade-toast.gh-toast--visible { transform: translateX(-50%) translateY(0); }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -3848,6 +3868,34 @@
 
     </div>
   </section>
+
+  <!-- ======== INDIVIDUAL CARTRIDGES SECTION ======== -->
+  <section class="gh-indiv" id="individual-carts">
+    <div class="gh-indiv__inner">
+      <div class="gh-indiv__head">
+        <h2 class="gh-indiv__title">Or Order Individual Cartridges</h2>
+        <p class="gh-indiv__desc">Pick any flavours in any quantity. When you reach 5, 10, or 20 we'll automatically unlock bundle pricing and save you money.</p>
+        <div class="gh-indiv__tracker" id="gh-indiv-tracker" style="display:none">
+          <div class="gh-indiv__tracker-top">
+            <span class="gh-indiv__count" id="gh-indiv-count">0 selected</span>
+            <span class="gh-indiv__target" id="gh-indiv-target">Add 5 for 5-Pack bundle</span>
+          </div>
+          <div class="gh-indiv__bar"><div class="gh-indiv__bar-fill" id="gh-indiv-bar-fill"></div></div>
+        </div>
+      </div>
+      <div class="gh-products__filters" id="gh-indiv-filters">
+        <button class="gh-products__filter gh-products__filter--active" data-ifilter="all">All</button>
+        <button class="gh-products__filter" data-ifilter="sativa">Sativa</button>
+        <button class="gh-products__filter" data-ifilter="hybrid">Hybrid</button>
+        <button class="gh-products__filter" data-ifilter="indica">Indica</button>
+        <button class="gh-products__filter" data-ifilter="live-resin">Live Resin</button>
+      </div>
+      <div class="gh-products__grid gh-cartridge-grid" id="gh-indiv-grid"></div>
+    </div>
+  </section>
+
+  <!-- Upgrade toast -->
+  <div class="gh-upgrade-toast" id="gh-upgrade-toast" aria-live="assertive"><span class="gh-upgrade-toast__text"></span></div>
 
     <!-- ======== SECTION 3: FROM BUYERS WHO KNOW ======== -->
   <section class="gh-reviews">
@@ -4774,12 +4822,21 @@
 
   function renderCart() {
     if (!selectedBundle) {
-      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Select a bundle size above to get started.</div>';
+      if (getIndivTotal() > 0) {
+        renderIndivCartPanel();
+        updateNavBadge();
+        return;
+      }
+      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Choose a bundle above or add individual cartridges below.</div>';
       totalPriceEl.textContent = '$0.00';
+      var totalLbl = panel.querySelector('.gh-cart-panel__total span:first-child');
+      if (totalLbl) totalLbl.textContent = 'Bundle Total:';
       if (checkoutBtn) { checkoutBtn.disabled = true; checkoutBtn.textContent = 'Select a Bundle First'; }
       updateNavBadge(); updateProgress();
       return;
     }
+    var totalLbl2 = panel.querySelector('.gh-cart-panel__total span:first-child');
+    if (totalLbl2) totalLbl2.textContent = 'Bundle Total:';
     var selectedItems = [];
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var qty = cartridgeQtys[CARTRIDGES[i].pid] || 0;
@@ -4957,7 +5014,207 @@
     if (e.persisted && checkoutBtn) checkoutBtn.classList.remove('gh-checkout--loading');
   });
 
+  // ===== INDIVIDUAL CARTRIDGES STATE =====
+  var indivQtys = {};
+  function getIndivTotal() {
+    var t = 0; for (var p in indivQtys) t += (indivQtys[p] || 0); return t;
+  }
+
+  function updateIndivTracker() {
+    var total = getIndivTotal();
+    var tracker = root.querySelector('#gh-indiv-tracker');
+    var countEl = root.querySelector('#gh-indiv-count');
+    var targetEl = root.querySelector('#gh-indiv-target');
+    var barFill = root.querySelector('#gh-indiv-bar-fill');
+    if (tracker) tracker.style.display = total > 0 ? '' : 'none';
+    if (!countEl) return;
+    countEl.textContent = total + ' cartridge' + (total !== 1 ? 's' : '') + ' selected';
+    var thresholds = [5, 10, 20];
+    var nextT = 20, fillPct = 100;
+    for (var ti = 0; ti < thresholds.length; ti++) {
+      if (total < thresholds[ti]) { nextT = thresholds[ti]; fillPct = Math.round(total / nextT * 100); break; }
+    }
+    var savings = {5:'$100',10:'$250',20:'$600'};
+    var names = {5:'5-Pack',10:'10-Pack',20:'20-Pack'};
+    if (total >= 20) { if (targetEl) targetEl.textContent = '20-Pack unlocked — upgrading!'; if (barFill) barFill.style.width = '100%'; }
+    else { var need = nextT - total; if (targetEl) targetEl.textContent = 'Add ' + need + ' more to unlock ' + names[nextT] + ' (save ' + savings[nextT] + ')'; if (barFill) barFill.style.width = fillPct + '%'; }
+  }
+
+  function updateIndivCards() {
+    var total = getIndivTotal();
+    var isFull = total >= 20;
+    var cards = root.querySelectorAll('#gh-indiv-grid .gh-cartridge-card');
+    for (var i = 0; i < cards.length; i++) {
+      var pid = cards[i].getAttribute('data-ipid');
+      if (!pid) continue;
+      var qty = indivQtys[pid] || 0;
+      var val = root.querySelector('#gh-iqv-' + pid);
+      if (val) val.textContent = qty;
+      if (qty > 0) cards[i].classList.add('gh-cartridge-card--selected');
+      else cards[i].classList.remove('gh-cartridge-card--selected');
+      var plus = cards[i].querySelector('.gh-indiv-plus');
+      if (plus) plus.disabled = isFull && qty === 0;
+    }
+    updateIndivTracker();
+  }
+
+  function renderIndivCartPanel() {
+    var items = [];
+    for (var i = 0; i < CARTRIDGES.length; i++) {
+      var qty = indivQtys[CARTRIDGES[i].pid] || 0;
+      if (qty > 0) items.push({c: CARTRIDGES[i], qty: qty});
+    }
+    if (items.length === 0) {
+      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Add cartridges from the picker below.</div>';
+    } else {
+      var html = '';
+      for (var j = 0; j < items.length; j++) {
+        var it = items[j];
+        var sub = it.c.lr ? 'Live Resin' : (it.c.type.charAt(0).toUpperCase() + it.c.type.slice(1));
+        html += '<div class="gh-cart-panel__item" data-icpid="' + it.c.pid + '">'
+          + '<div class="gh-cart-panel__item-info" style="flex:1;">'
+          + '<div class="gh-cart-panel__item-name">' + it.c.name + '</div>'
+          + '<div style="font-size:10px;color:#888;">' + sub + ' &middot; 1.1g</div>'
+          + '</div>'
+          + '<div class="gh-cart-panel__item-qty">'
+          + '<button class="gh-cart-panel__qty-btn gh-indiv-cart-minus" data-icpid="' + it.c.pid + '">&#8722;</button>'
+          + '<span class="gh-cart-panel__qty-num">' + it.qty + '</span>'
+          + '<button class="gh-cart-panel__qty-btn gh-indiv-cart-plus" data-icpid="' + it.c.pid + '">+</button>'
+          + '</div></div>';
+      }
+      cartItemsEl.innerHTML = html;
+    }
+    var total = getIndivTotal();
+    totalPriceEl.textContent = total + ' cartridge' + (total !== 1 ? 's' : '');
+    var totalLbl = panel.querySelector('.gh-cart-panel__total span:first-child');
+    if (totalLbl) totalLbl.textContent = 'Cart Items:';
+    var wrap = root.querySelector('#gh-cart-upsell-wrap');
+    if (wrap) wrap.innerHTML = '';
+    // Progress bar — show path to next bundle
+    var prog = root.querySelector('#gh-cart-progress');
+    var label = root.querySelector('#gh-progress-label');
+    var fill = root.querySelector('#gh-progress-fill');
+    var thresholds = [5,10,20], nextT = 20, fillPct = 100;
+    for (var ti = 0; ti < thresholds.length; ti++) {
+      if (total < thresholds[ti]) { nextT = thresholds[ti]; fillPct = Math.round(total/nextT*100); break; }
+    }
+    var savings = {5:'$100',10:'$250',20:'$600'};
+    var names = {5:'5-Pack',10:'10-Pack',20:'20-Pack'};
+    if (prog) prog.style.display = '';
+    if (fill) fill.style.width = (total >= 20 ? 100 : fillPct) + '%';
+    if (label) label.textContent = total >= 20 ? '20 selected — upgrading to bundle!'
+      : total + ' of ' + nextT + ' — add ' + (nextT-total) + ' more to save ' + savings[nextT];
+    // Checkout button
+    if (checkoutBtn) {
+      checkoutBtn.disabled = total === 0;
+      checkoutBtn.textContent = total > 0 ? 'Add ' + total + ' to Cart &rarr;' : 'Add Cartridges First';
+      checkoutBtn.innerHTML = total > 0 ? 'Add ' + total + ' to Cart &rarr;' : 'Add Cartridges First';
+    }
+  }
+
+  function changeIndivQty(pid, delta) {
+    if (!pid) return;
+    var current = indivQtys[pid] || 0;
+    var total = getIndivTotal();
+    if (delta > 0 && total >= 20) return;
+    var next = Math.max(0, current + delta);
+    if (next === current) return;
+    indivQtys[pid] = next;
+    var newTotal = getIndivTotal();
+    if (newTotal === 5 || newTotal === 10 || newTotal === 20) {
+      var bundleMap = {5:{id:'209612',price:100},10:{id:'127106',price:150},20:{id:'127104',price:200}};
+      var b = bundleMap[newTotal];
+      cartridgeQtys = {};
+      for (var p in indivQtys) { if ((indivQtys[p]||0) > 0) cartridgeQtys[p] = indivQtys[p]; }
+      indivQtys = {};
+      updateIndivCards();
+      var msgs = {5:'Upgraded to 5-Pack Bundle — you save $100!',10:'Upgraded to 10-Pack Bundle — you save $250!',20:'Upgraded to 20-Pack Bundle — you save $600!'};
+      showUpgradeToast(msgs[newTotal]);
+      selectBundle(b.id, newTotal, b.price);
+      openCart();
+    } else {
+      updateIndivCards();
+      renderCart();
+      if (newTotal > 0) openCart();
+    }
+  }
+
+  function submitIndivToCart() {
+    var items = [];
+    for (var i = 0; i < CARTRIDGES.length; i++) {
+      var qty = indivQtys[CARTRIDGES[i].pid] || 0;
+      if (qty > 0 && CARTRIDGES[i].inStock) items.push({id: parseInt(CARTRIDGES[i].pid), quantity: qty});
+    }
+    if (!items.length) return;
+    if (checkoutBtn) { checkoutBtn.innerHTML = 'Adding&#8230;'; checkoutBtn.disabled = true; }
+    var done = 0;
+    function addNext() {
+      if (done >= items.length) { window.location.href = 'https://grizzlyherb.co/cart/'; return; }
+      var item = items[done++];
+      fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item',{
+        method:'POST',credentials:'include',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(item)
+      }).then(addNext).catch(function(){
+        window.location.href='https://grizzlyherb.co/?add-to-cart='+item.id+'&quantity='+item.quantity;
+      });
+    }
+    addNext();
+  }
+
+  function showUpgradeToast(msg) {
+    var toast = root.querySelector('#gh-upgrade-toast');
+    if (!toast) return;
+    toast.querySelector('.gh-upgrade-toast__text').textContent = msg;
+    toast.classList.add('gh-toast--visible');
+    setTimeout(function() { toast.classList.remove('gh-toast--visible'); }, 3500);
+  }
+
+  function buildIndivGrid() {
+    var grid = root.querySelector('#gh-indiv-grid');
+    if (!grid) return;
+    var IMGS = {
+      '125872':'https://grizzlyherb.co/wp-content/uploads/2024/06/Peach-Rings.png',
+      '130321':'https://grizzlyherb.co/wp-content/uploads/2025/02/Strawberry-Cough-1.png',
+      '3966':'https://grizzlyherb.co/wp-content/uploads/2020/06/Trainwreck.png',
+      '130319':'https://grizzlyherb.co/wp-content/uploads/2025/02/Golden-Pineapple-1.png',
+      '125281':'https://grizzlyherb.co/wp-content/uploads/2023/11/Watermelon-Mojito-1.png',
+      '130334':'https://grizzlyherb.co/wp-content/uploads/2025/02/Twisted-Citrus-1.png',
+      '125284':'https://grizzlyherb.co/wp-content/uploads/2023/11/Pineapple-Diesel.png',
+      '125283':'https://grizzlyherb.co/wp-content/uploads/2023/11/Marionberry-Kush.png',
+      '124723':'https://grizzlyherb.co/wp-content/uploads/2023/10/Sherbert.png',
+      '128288':'https://grizzlyherb.co/wp-content/uploads/2024/11/Galactic-Gas-2.png',
+      '128295':'https://grizzlyherb.co/wp-content/uploads/2024/11/Blue-Z.png',
+      '126824':'https://grizzlyherb.co/wp-content/uploads/2024/06/Groovy-Grape.png',
+      '3968':'https://grizzlyherb.co/wp-content/uploads/2020/06/Granddaddy-Purple.png',
+      '3971':'https://grizzlyherb.co/wp-content/uploads/2020/06/Pineapple-Express.png',
+      '128297':'https://grizzlyherb.co/wp-content/uploads/2024/11/Berry-Gelato-1.png'
+    };
+    var html = '';
+    for (var i = 0; i < CARTRIDGES.length; i++) {
+      var c = CARTRIDGES[i];
+      var img = IMGS[c.pid] || '';
+      var sub = c.lr ? 'Live Resin' : (c.type.charAt(0).toUpperCase() + c.type.slice(1));
+      html += '<div class="gh-cartridge-card' + (!c.inStock ? ' gh-cartridge-card--oos' : '') + '" data-ipid="' + c.pid + '" data-type="' + c.type + '" data-live-resin="' + (c.lr?'1':'0') + '">'
+        + (img ? '<img class="gh-cartridge-card__img" src="' + img + '" alt="" loading="lazy">' : '')
+        + '<div class="gh-cartridge-card__name">' + c.name + '</div>'
+        + '<div class="gh-cartridge-card__sub">' + sub + ' &middot; 1.1g</div>';
+      if (c.inStock) {
+        html += '<div class="gh-cartridge-card__qty">'
+          + '<button class="gh-cartridge-card__qty-btn gh-indiv-minus" data-ipid="' + c.pid + '">&#8722;</button>'
+          + '<span class="gh-cartridge-card__qty-val" id="gh-iqv-' + c.pid + '">0</span>'
+          + '<button class="gh-cartridge-card__qty-btn gh-indiv-plus" data-ipid="' + c.pid + '">+</button>'
+          + '</div>';
+      } else {
+        html += '<div class="gh-cartridge-card__oos">Out of Stock</div>';
+      }
+      html += '</div>';
+    }
+    grid.innerHTML = html;
+  }
+
   renderCart();
+  buildIndivGrid();
 
   // === Click delegation ===
   root.addEventListener('click', function(e) {
@@ -5038,14 +5295,20 @@
     }
     // Checkout button
     var chkBtn = e.target.closest('.gh-cart-panel__checkout-btn');
-    if (chkBtn && isBundleComplete()) {
-      if (typeof tlq === 'function') {
-        tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD'});
-        tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD',target:'LS-74255460-6'});
+    if (chkBtn) {
+      if (selectedBundle && isBundleComplete()) {
+        if (typeof tlq === 'function') {
+          tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD'});
+          tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD',target:'LS-74255460-6'});
+        }
+        chkBtn.classList.add('gh-checkout--loading');
+        submitBundleToCart();
+        return;
       }
-      chkBtn.classList.add('gh-checkout--loading');
-      submitBundleToCart();
-      return;
+      if (!selectedBundle && getIndivTotal() > 0) {
+        submitIndivToCart();
+        return;
+      }
     }
     // Filter tabs
     var filterBtn = e.target.closest('.gh-products__filter');
@@ -5068,6 +5331,29 @@
     // "Review & Checkout" nudge link
     var openCartBtn = e.target.closest('#gh-open-cart-btn');
     if (openCartBtn) { e.preventDefault(); openCart(); return; }
+    // Individual section +/-
+    var indivPlus = e.target.closest('.gh-indiv-plus');
+    if (indivPlus) { changeIndivQty(indivPlus.getAttribute('data-ipid'), 1); return; }
+    var indivMinus = e.target.closest('.gh-indiv-minus');
+    if (indivMinus) { changeIndivQty(indivMinus.getAttribute('data-ipid'), -1); return; }
+    // Individual cart panel +/-
+    var iCartPlus = e.target.closest('.gh-indiv-cart-plus');
+    if (iCartPlus) { changeIndivQty(iCartPlus.getAttribute('data-icpid'), 1); return; }
+    var iCartMinus = e.target.closest('.gh-indiv-cart-minus');
+    if (iCartMinus) { changeIndivQty(iCartMinus.getAttribute('data-icpid'), -1); return; }
+    // Individual filter tabs
+    var iFilterBtn = e.target.closest('[data-ifilter]');
+    if (iFilterBtn) {
+      var iFilter = iFilterBtn.getAttribute('data-ifilter');
+      var iCards = root.querySelectorAll('#gh-indiv-grid .gh-cartridge-card');
+      for (var ici = 0; ici < iCards.length; ici++) {
+        var show = iFilter === 'all' || iCards[ici].getAttribute('data-type') === iFilter || (iFilter === 'live-resin' && iCards[ici].getAttribute('data-live-resin') === '1');
+        iCards[ici].style.display = show ? '' : 'none';
+      }
+      var iFilterBtns = root.querySelectorAll('[data-ifilter]');
+      for (var ifb = 0; ifb < iFilterBtns.length; ifb++) iFilterBtns[ifb].classList.toggle('gh-products__filter--active', iFilterBtns[ifb] === iFilterBtn);
+      return;
+    }
     // Upsell upgrade button
     var upgradeBtn = e.target.closest('[data-upgrade-id]');
     if (upgradeBtn) {
