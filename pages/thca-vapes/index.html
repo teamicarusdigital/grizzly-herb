@@ -2869,7 +2869,7 @@
 .gh-root a[class*="cta"],
 .gh-root a[class*="btn"],
 .gh-root button[class*="cta"],
-.gh-root button[class*="btn"]:not(.gh-footer-accordion-btn):not(.gh-cart-panel__qty-btn):not(.gh-products__card-variant):not(.gh-cart-panel__remove-btn):not(.gh-sticky-cta__dismiss) {
+.gh-root button[class*="btn"]:not(.gh-footer-accordion-btn):not(.gh-cart-panel__qty-btn):not(.gh-products__card-variant):not(.gh-cart-panel__remove-btn):not(.gh-sticky-cta__dismiss):not(.gh-cart-product-upsell__btn) {
   color: #ffffff;
 }
 
@@ -4875,9 +4875,15 @@
     {pid:'128297',name:'Berry Gelato',type:'hybrid',lr:false,inStock:true,bids:{'209612':637,'127106':640,'127104':629}}
   ];
 
+  var UPSELLS = [
+    {id: '584565', vid: '584566', price: 85},
+    {id: '585041', vid: null,     price: 105}
+  ];
+
   // === State ===
   var selectedBundle = null; // {id, size, price}
   var cartridgeQtys = {};    // pid -> qty
+  var upsellCart = {};       // upsell product id -> true
 
   // === DOM refs ===
   var overlay = root.querySelector('.gh-cart-overlay');
@@ -5023,7 +5029,11 @@
       }
       cartItemsEl.innerHTML = html;
     }
-    totalPriceEl.textContent = '$' + selectedBundle.price.toFixed(2);
+    var upsellSubtotal = 0;
+    for (var uid in upsellCart) {
+      for (var uk = 0; uk < UPSELLS.length; uk++) { if (UPSELLS[uk].id === uid) { upsellSubtotal += UPSELLS[uk].price; break; } }
+    }
+    totalPriceEl.textContent = '$' + (selectedBundle.price + upsellSubtotal).toFixed(2);
     if (checkoutBtn) {
       if (isBundleComplete()) {
         checkoutBtn.disabled = false;
@@ -5087,28 +5097,55 @@
   function submitBundleToCart() {
     if (!selectedBundle || !isBundleComplete()) return;
     var bid = selectedBundle.id;
-    var actionUrl = 'https://grizzlyherb.co/cart/';
     var sp = getSavedParams();
-    if (sp) actionUrl += (actionUrl.indexOf('?') === -1 ? '?' : '&') + sp;
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = actionUrl;
-    function addField(name, value) {
-      var inp = document.createElement('input');
-      inp.type = 'hidden';
-      inp.name = name;
-      inp.value = value;
-      form.appendChild(inp);
+
+    function doFormSubmit() {
+      var actionUrl = 'https://grizzlyherb.co/cart/';
+      if (sp) actionUrl += (actionUrl.indexOf('?') === -1 ? '?' : '&') + sp;
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = actionUrl;
+      function addField(name, value) {
+        var inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = name;
+        inp.value = value;
+        form.appendChild(inp);
+      }
+      addField('add-to-cart', bid);
+      addField('quantity', '1');
+      for (var i = 0; i < CARTRIDGES.length; i++) {
+        var c = CARTRIDGES[i];
+        var bundledItemId = c.bids[bid];
+        if (bundledItemId) addField('bundle_quantity_' + bundledItemId, cartridgeQtys[c.pid] || 0);
+      }
+      document.body.appendChild(form);
+      form.submit();
     }
-    addField('add-to-cart', bid);
-    addField('quantity', '1');
-    for (var i = 0; i < CARTRIDGES.length; i++) {
-      var c = CARTRIDGES[i];
-      var bundledItemId = c.bids[bid];
-      if (bundledItemId) addField('bundle_quantity_' + bundledItemId, cartridgeQtys[c.pid] || 0);
+
+    var upsellItems = [];
+    for (var uid in upsellCart) {
+      for (var uk = 0; uk < UPSELLS.length; uk++) {
+        if (UPSELLS[uk].id === uid) {
+          upsellItems.push({id: parseInt(UPSELLS[uk].vid || UPSELLS[uk].id), quantity: 1});
+          break;
+        }
+      }
     }
-    document.body.appendChild(form);
-    form.submit();
+
+    if (!upsellItems.length) { doFormSubmit(); return; }
+
+    var done = 0;
+    function addNextUpsell() {
+      if (done >= upsellItems.length) { doFormSubmit(); return; }
+      var item = upsellItems[done++];
+      fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item', {
+        method: 'POST', credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(item)
+      }).then(addNextUpsell).catch(addNextUpsell);
+    }
+    addNextUpsell();
   }
 
   function selectBundle(bundleId, size, price) {
@@ -5288,7 +5325,11 @@
       cartItemsEl.innerHTML = html;
     }
     var total = getIndivTotal();
-    totalPriceEl.textContent = '$' + (total * INDIV_CART_PRICE).toFixed(2);
+    var upsellSub = 0;
+    for (var uid2 in upsellCart) {
+      for (var uk2 = 0; uk2 < UPSELLS.length; uk2++) { if (UPSELLS[uk2].id === uid2) { upsellSub += UPSELLS[uk2].price; break; } }
+    }
+    totalPriceEl.textContent = '$' + (total * INDIV_CART_PRICE + upsellSub).toFixed(2);
     var totalLbl = panel.querySelector('.gh-cart-panel__total span:first-child');
     if (totalLbl) totalLbl.textContent = 'Cart Items:';
     var wrap = root.querySelector('#gh-cart-upsell-wrap');
@@ -5359,6 +5400,11 @@
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var qty = indivQtys[CARTRIDGES[i].pid] || 0;
       if (qty > 0 && CARTRIDGES[i].inStock) items.push({id: parseInt(CARTRIDGES[i].pid), quantity: qty});
+    }
+    for (var uid in upsellCart) {
+      for (var uk = 0; uk < UPSELLS.length; uk++) {
+        if (UPSELLS[uk].id === uid) { items.push({id: parseInt(UPSELLS[uk].vid || UPSELLS[uk].id), quantity: 1}); break; }
+      }
     }
     if (!items.length) return;
     if (checkoutBtn) { checkoutBtn.innerHTML = 'Adding&#8230;'; checkoutBtn.disabled = true; }
@@ -5574,6 +5620,16 @@
     // "Review & Checkout" nudge link
     var openCartBtn = e.target.closest('#gh-open-cart-btn');
     if (openCartBtn) { e.preventDefault(); openCart(); return; }
+    // Product upsell add buttons
+    var upsellBtn = e.target.closest('.gh-cart-product-upsell__btn');
+    if (upsellBtn && !upsellBtn.classList.contains('gh-upsell--added')) {
+      var upid = upsellBtn.getAttribute('data-upsell-id');
+      upsellCart[upid] = true;
+      upsellBtn.classList.add('gh-upsell--added');
+      upsellBtn.textContent = 'Added ✓';
+      renderCart();
+      return;
+    }
     // Individual section Add-to-Cart + +/-
     var indivAdd = e.target.closest('.gh-indiv-add');
     if (indivAdd) { changeIndivQty(indivAdd.getAttribute('data-ipid'), 1); return; }
@@ -5715,31 +5771,6 @@ window.addEventListener('load', function() {
   }
 
   startTimer();
-
-  document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.gh-cart-product-upsell__btn');
-    if (!btn || btn.classList.contains('gh-upsell--added') || btn.classList.contains('gh-upsell--loading')) return;
-    var pid = btn.getAttribute('data-upsell-id');
-    var vid = btn.getAttribute('data-upsell-variation');
-    btn.classList.add('gh-upsell--loading');
-    btn.textContent = '...';
-    var body = 'product_id=' + encodeURIComponent(pid) + '&quantity=1';
-    if (vid) body += '&variation_id=' + encodeURIComponent(vid);
-    fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
-      method: 'POST',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    }).then(function() {
-      btn.classList.remove('gh-upsell--loading');
-      btn.classList.add('gh-upsell--added');
-      btn.textContent = 'Added ✓';
-    }).catch(function() {
-      btn.classList.remove('gh-upsell--loading');
-      btn.classList.add('gh-upsell--added');
-      btn.textContent = 'Added ✓';
-    });
-  });
 })();
 </script>
 </body>
