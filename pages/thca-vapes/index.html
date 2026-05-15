@@ -2869,7 +2869,7 @@
 .gh-root a[class*="cta"],
 .gh-root a[class*="btn"],
 .gh-root button[class*="cta"],
-.gh-root button[class*="btn"]:not(.gh-footer-accordion-btn):not(.gh-cart-panel__qty-btn):not(.gh-products__card-variant) {
+.gh-root button[class*="btn"]:not(.gh-footer-accordion-btn):not(.gh-cart-panel__qty-btn):not(.gh-products__card-variant):not(.gh-cart-panel__remove-btn):not(.gh-sticky-cta__dismiss) {
   color: #ffffff;
 }
 
@@ -4996,6 +4996,7 @@
 
   function selectBundle(bundleId, size, price) {
     stickyDismissed = false;
+    indivQtys = {};
     selectedBundle = {id: bundleId, size: size, price: price};
     cartridgeQtys = {};
     var bundleOptions = root.querySelectorAll('.gh-bundle-option');
@@ -5201,6 +5202,14 @@
   function changeIndivQty(pid, delta) {
     if (!pid) return;
     stickyDismissed = false;
+    // If a bundle was active, silently deselect it — user has switched to individual mode
+    if (selectedBundle) {
+      selectedBundle = null;
+      cartridgeQtys = {};
+      var allBundleOpts = root.querySelectorAll('.gh-bundle-option');
+      for (var bi = 0; bi < allBundleOpts.length; bi++) allBundleOpts[bi].classList.remove('gh-bundle-option--selected');
+      if (pickerEl) pickerEl.style.display = 'none';
+    }
     var current = indivQtys[pid] || 0;
     var total = getIndivTotal();
     if (delta > 0 && total >= 20) return;
