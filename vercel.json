@@ -17,6 +17,8 @@
     { "source": "/pages/premium-collection-bb", "destination": "/pages/premium-collection-bb/index.html" },
     { "source": "/pages/premium-collection-bb/", "destination": "/pages/premium-collection-bb/index.html" },
     { "source": "/pages/premium-collection-rb", "destination": "/pages/premium-collection-rb/index.html" },
-    { "source": "/pages/premium-collection-rb/", "destination": "/pages/premium-collection-rb/index.html" }
+    { "source": "/pages/premium-collection-rb/", "destination": "/pages/premium-collection-rb/index.html" },
+    { "source": "/pages/thca-vapes", "destination": "/pages/thca-vapes/index.html" },
+    { "source": "/pages/thca-vapes/", "destination": "/pages/thca-vapes/index.html" }
   ]
 }
