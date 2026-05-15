@@ -5124,13 +5124,15 @@
     if (newTotal === 5 || newTotal === 10 || newTotal === 20) {
       var bundleMap = {5:{id:'209612',price:100},10:{id:'127106',price:150},20:{id:'127104',price:200}};
       var b = bundleMap[newTotal];
-      cartridgeQtys = {};
-      for (var p in indivQtys) { if ((indivQtys[p]||0) > 0) cartridgeQtys[p] = indivQtys[p]; }
+      var savedQtys = {};
+      for (var p in indivQtys) { if ((indivQtys[p]||0) > 0) savedQtys[p] = indivQtys[p]; }
       indivQtys = {};
       updateIndivCards();
       var msgs = {5:'Upgraded to 5-Pack Bundle — you save $100!',10:'Upgraded to 10-Pack Bundle — you save $250!',20:'Upgraded to 20-Pack Bundle — you save $600!'};
       showUpgradeToast(msgs[newTotal]);
-      selectBundle(b.id, newTotal, b.price);
+      selectBundle(b.id, newTotal, b.price); // resets cartridgeQtys internally
+      for (var sp in savedQtys) cartridgeQtys[sp] = savedQtys[sp]; // restore selections
+      renderCart();
       openCart();
     } else {
       updateIndivCards();
