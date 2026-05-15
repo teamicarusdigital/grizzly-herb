@@ -2902,54 +2902,67 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #f8f6f3;
-  border-top: 1px solid #e8e6e3;
+  background: #ffffff;
+  border-top: 2px solid #e8e6e3;
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.gh-sticky-cta__info {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+.gh-sticky-cta.gh-sticky--visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.gh-sticky-cta__title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #1f1f1f;
-}
-
-.gh-sticky-cta__rating {
+.gh-sticky-cta__dismiss {
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  color: #3a3a3a;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  color: #aaa;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+  padding: 0;
+}
+.gh-sticky-cta__dismiss:hover { background: #f0eeeb; color: #3a3a3a; }
+
+.gh-sticky-cta__summary {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 1px;
 }
 
-.gh-sticky-cta__rating strong {
+.gh-sticky-cta__count {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gh-sticky-cta__price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
   font-weight: 700;
-}
-
-.gh-sticky-cta__rating svg {
-  width: 14px;
-  height: 14px;
-}
-
-.gh-sticky-cta__offer {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
   color: #2d5016;
+  line-height: 1.2;
 }
 
 .gh-sticky-cta__btn {
@@ -2963,11 +2976,12 @@
   font-weight: 600;
   border: none;
   border-radius: 100px;
-  padding: 12px 24px;
+  padding: 12px 22px;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   transition: background 0.2s;
+  flex-shrink: 0;
 }
 
 .gh-sticky-cta__btn:hover {
@@ -2977,36 +2991,17 @@
 
 @media (min-width: 768px) {
   .gh-sticky-cta {
-    padding: 16px 160px;
-    justify-content: space-between;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: transform 0.35s ease, opacity 0.35s ease;
+    padding: 14px 160px;
   }
-  .gh-sticky-cta.gh-sticky--visible {
-    transform: translateY(0);
-    opacity: 1;
+  .gh-sticky-cta__price {
+    font-size: 22px;
   }
-
-  .gh-sticky-cta__info {
-    display: flex;
+  .gh-sticky-cta__count {
+    font-size: 13px;
   }
-
-  .gh-sticky-cta__title {
-    font-size: 18px;
-  }
-
-  .gh-sticky-cta__rating {
-    font-size: 14px;
-  }
-
-  .gh-sticky-cta__offer {
-    font-size: 14px;
-  }
-
   .gh-sticky-cta__btn {
-    font-size: 18px;
-    padding: 16px 40px;
+    font-size: 16px;
+    padding: 14px 36px;
   }
 }
 
@@ -4669,21 +4664,14 @@
   </div>
 </footer>
 
-<!-- Sticky CTA Bar -->
-<div class="gh-sticky-cta">
-  <div class="gh-sticky-cta__info">
-    <span class="gh-sticky-cta__title">Try It Once. Decide After.</span>
-    <span class="gh-sticky-cta__rating">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
-      <strong>4.7</strong> rating from <strong>2,000+</strong> happy Buyers
-    </span>
-    <span class="gh-sticky-cta__offer">Free Shipping over $90</span>
+<!-- Sticky Cart Bar — appears when cart has items -->
+<div class="gh-sticky-cta" id="gh-sticky-cart-bar">
+  <button class="gh-sticky-cta__dismiss" id="gh-sticky-dismiss" aria-label="Dismiss">&#215;</button>
+  <div class="gh-sticky-cta__summary">
+    <span class="gh-sticky-cta__count" id="gh-sticky-count">Your cart</span>
+    <span class="gh-sticky-cta__price" id="gh-sticky-price">$0.00</span>
   </div>
-  <a href="#products" class="gh-sticky-cta__btn">Explore Our Options &rarr;</a>
+  <button class="gh-sticky-cta__btn" id="gh-sticky-checkout-btn">View Cart &rarr;</button>
 </div>
 
 <!-- Side Cart Overlay + Panel -->
@@ -4803,12 +4791,15 @@
     overlay.classList.add('gh-cart--open');
     panel.classList.add('gh-cart--open');
     document.body.style.overflow = 'hidden';
+    var sb = root.querySelector('#gh-sticky-cart-bar');
+    if (sb) sb.classList.remove('gh-sticky--visible');
   }
 
   function closeCart() {
     overlay.classList.remove('gh-cart--open');
     panel.classList.remove('gh-cart--open');
     document.body.style.overflow = '';
+    updateStickyBar();
   }
 
   function updateProgress() {
@@ -4874,7 +4865,7 @@
       var totalLbl = panel.querySelector('.gh-cart-panel__total span:first-child');
       if (totalLbl) totalLbl.textContent = 'Bundle Total:';
       if (checkoutBtn) { checkoutBtn.disabled = true; checkoutBtn.textContent = 'Select a Bundle First'; }
-      updateNavBadge(); updateProgress();
+      updateNavBadge(); updateProgress(); updateStickyBar();
       return;
     }
     var totalLbl2 = panel.querySelector('.gh-cart-panel__total span:first-child');
@@ -4925,7 +4916,7 @@
         checkoutBtn.textContent = 'Fill Your Bundle (' + remaining + ' left)';
       }
     }
-    updateNavBadge(); updateProgress(); updateCartridgeCards(); updatePickerCounter(); renderUpsell();
+    updateNavBadge(); updateProgress(); updateCartridgeCards(); updatePickerCounter(); renderUpsell(); updateStickyBar();
   }
 
   function renderUpsell() {
@@ -5004,6 +4995,7 @@
   }
 
   function selectBundle(bundleId, size, price) {
+    stickyDismissed = false;
     selectedBundle = {id: bundleId, size: size, price: price};
     cartridgeQtys = {};
     var bundleOptions = root.querySelectorAll('.gh-bundle-option');
@@ -5022,6 +5014,7 @@
 
   function changeCartridgeQty(pid, delta) {
     if (!selectedBundle) return;
+    stickyDismissed = false;
     var current = cartridgeQtys[pid] || 0;
     var newQty = current + delta;
     if (newQty < 0) newQty = 0;
@@ -5039,17 +5032,53 @@
     renderCart();
   }
 
-  // === Sticky bar after products scroll ===
-  var stickyBar = root.querySelector('.gh-sticky-cta');
-  var productsSection = root.querySelector('#products');
-  if (stickyBar && productsSection && window.matchMedia('(min-width: 768px)').matches) {
-    var stickyObserver = new IntersectionObserver(function(entries) {
-      var entry = entries[0];
-      if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) stickyBar.classList.add('gh-sticky--visible');
-      else stickyBar.classList.remove('gh-sticky--visible');
-    }, {threshold: 0});
-    stickyObserver.observe(productsSection);
+  // === Cart-aware sticky bar ===
+  var stickyDismissed = false;
+
+  function updateStickyBar() {
+    var sb = root.querySelector('#gh-sticky-cart-bar');
+    var sc = root.querySelector('#gh-sticky-count');
+    var sp = root.querySelector('#gh-sticky-price');
+    if (!sb) return;
+    var totalItems = 0, totalPrice = 0, label = '';
+    if (selectedBundle) {
+      totalItems = getFilledSlots();
+      totalPrice = selectedBundle.price;
+      var bName = selectedBundle.size + '-Pack Bundle';
+      label = totalItems < selectedBundle.size
+        ? bName + ' — ' + totalItems + '/' + selectedBundle.size + ' picked'
+        : bName + ' — ready to checkout';
+    } else {
+      totalItems = getIndivTotal();
+      totalPrice = totalItems * INDIV_CART_PRICE;
+      label = totalItems + ' cartridge' + (totalItems !== 1 ? 's' : '') + ' in cart';
+    }
+    if (totalItems === 0 && !selectedBundle) {
+      sb.classList.remove('gh-sticky--visible');
+      stickyDismissed = false;
+      return;
+    }
+    if (sc) sc.textContent = label;
+    if (sp) sp.textContent = '$' + totalPrice.toFixed(2);
+    if (!stickyDismissed && !panel.classList.contains('gh-cart--open')) {
+      sb.classList.add('gh-sticky--visible');
+    }
   }
+
+  // Dismiss + checkout btn on the sticky bar
+  root.addEventListener('click', function(e) {
+    if (e.target.closest('#gh-sticky-dismiss')) {
+      stickyDismissed = true;
+      var sb = root.querySelector('#gh-sticky-cart-bar');
+      if (sb) sb.classList.remove('gh-sticky--visible');
+      return;
+    }
+    if (e.target.closest('#gh-sticky-checkout-btn')) {
+      stickyDismissed = false;
+      openCart();
+      return;
+    }
+  }, true);
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -5166,10 +5195,12 @@
       checkoutBtn.textContent = total > 0 ? 'Add ' + total + ' to Cart &rarr;' : 'Add Cartridges First';
       checkoutBtn.innerHTML = total > 0 ? 'Add ' + total + ' to Cart &rarr;' : 'Add Cartridges First';
     }
+    updateStickyBar();
   }
 
   function changeIndivQty(pid, delta) {
     if (!pid) return;
+    stickyDismissed = false;
     var current = indivQtys[pid] || 0;
     var total = getIndivTotal();
     if (delta > 0 && total >= 20) return;
