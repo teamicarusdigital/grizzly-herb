@@ -3316,17 +3316,18 @@
 .gh-bundle-step__label { font-size: 13px; font-weight: 700; color: #2d5016; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .gh-bundle-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
 @media (min-width: 768px) { .gh-bundle-options { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-.gh-bundle-option { position: relative; border: 2px solid #e8e6e3; border-radius: 14px; padding: 22px 16px 18px; background: #fff; cursor: pointer; text-align: center; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; font-family: 'Poppins', sans-serif; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-.gh-bundle-option:hover { border-color: #4a7c2c; box-shadow: 0 6px 20px rgba(74,124,44,0.12); transform: translateY(-2px); }
-.gh-bundle-option--selected { border-color: #4a7c2c !important; box-shadow: 0 0 0 3px rgba(74,124,44,0.2), 0 6px 20px rgba(74,124,44,0.12) !important; background: #f8fbf5 !important; }
-.gh-bundle-option--selected::after { content: '\2713'; position: absolute; top: 10px; right: 10px; background: #4a7c2c; color: #fff; width: 22px; height: 22px; border-radius: 50%; font-size: 13px; font-weight: 900; line-height: 22px; text-align: center; }
-.gh-bundle-option__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #e85d35; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 20px; white-space: nowrap; letter-spacing: 0.2px; box-shadow: 0 2px 8px rgba(232,93,53,0.35); }
-.gh-bundle-option__size { font-size: 24px; font-weight: 900; color: #1f1f1f; margin-bottom: 4px; letter-spacing: -0.5px; }
-.gh-bundle-option__price { margin-bottom: 8px; }
-.gh-bundle-option__price-new { font-size: 22px; font-weight: 800; color: #2d5016; }
-.gh-bundle-option__price-old { font-size: 13px; color: #bbb; text-decoration: line-through; margin-left: 5px; }
-.gh-bundle-option__savings { display: inline-block; background: #4a7c2c; color: #fff; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.2px; }
-.gh-bundle-option__per { font-size: 11px; color: #888; margin-top: 6px; font-weight: 500; }
+.gh-bundle-option { position: relative; border: 1px solid #e8e6e3; border-radius: 8px; background: #fff; cursor: pointer; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; font-family: 'Poppins', sans-serif; display: flex; flex-direction: column; overflow: hidden; padding: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.gh-bundle-option:hover { border-color: #4a7c2c; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.gh-bundle-option--selected { border-color: #4a7c2c !important; box-shadow: 0 0 0 2px rgba(74,124,44,0.2) !important; background: #f8fbf5 !important; }
+.gh-bundle-option--selected::after { display: none; }
+.gh-bundle-option__img-wrap { position: relative; width: 100%; aspect-ratio: 1; background: #f5f3f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.gh-bundle-option__badge { position: absolute; top: 8px; left: 8px; font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 100px; color: #fff; z-index: 1; white-space: nowrap; }
+.gh-bundle-option__size { font-size: 14px; font-weight: 800; color: #1f1f1f; margin-bottom: 3px; }
+.gh-bundle-option__price { margin-bottom: 4px; }
+.gh-bundle-option__price-new { font-size: 18px; font-weight: 800; color: #2d5016; }
+.gh-bundle-option__price-old { font-size: 11px; color: #bbb; text-decoration: line-through; margin-left: 4px; }
+.gh-bundle-option__savings { display: inline-block; background: #edf7e5; color: #2d5016; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; margin-bottom: 4px; }
+.gh-bundle-option__per { font-size: 10px; color: #888; margin-bottom: 10px; }
 .gh-picker__counter { font-size: 11px; font-weight: 600; color: #4a7c2c; background: #edf7e5; padding: 3px 10px; border-radius: 20px; }
 .gh-picker__counter--full { background: #4a7c2c; color: #fff; }
 /* Cartridge grid */
@@ -3349,13 +3350,20 @@
 .gh-cartridge-card__price { font-size: 13px; font-weight: 700; color: #2d5016; margin-bottom: 3px; }
 .gh-cartridge-card__price-note { font-size: 10px; font-weight: 400; color: #888; }
 .gh-cartridge-card__sub { font-size: 9px; color: #888; margin-bottom: 7px; }
-.gh-cart-panel__remove-btn { flex-shrink: 0; width: 22px; height: 22px; border: none; background: none; color: #ccc; font-size: 18px; line-height: 1; cursor: pointer; padding: 0; margin-left: 4px; display: flex; align-items: center; justify-content: center; transition: color 0.15s; }
+.gh-cartridge-card__qty-wrap { padding: 0 2px; }
+.gh-root .gh-cartridge-card .gh-products__card-btn { display: block; width: 100%; background: #d97835; color: #fff; font-size: 12px; font-weight: 700; border-radius: 100px; padding: 9px 0; text-align: center; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.15s; }
+.gh-root .gh-cartridge-card .gh-products__card-btn:hover:not(:disabled) { background: #c0622a; }
+.gh-root .gh-cartridge-card .gh-products__card-btn:disabled { background: #ccc; cursor: default; }
+.gh-cart-panel__remove-btn { flex-shrink: 0; width: 22px; height: 22px; border: none; background: none; color: #999; font-size: 18px; line-height: 1; cursor: pointer; padding: 0; margin-left: 4px; display: flex; align-items: center; justify-content: center; transition: color 0.15s; }
 .gh-cart-panel__remove-btn:hover { color: #e53e3e; }
 .gh-cartridge-card__desc { font-size: 9px; color: #888; margin-bottom: 10px; }
 .gh-cartridge-card__oos-label { font-size: 9px; color: #aaa; font-style: italic; margin-top: 6px; }
 .gh-cartridge-card__oos { font-size: 9px; color: #aaa; font-style: italic; margin-top: 6px; }
 .gh-cartridge-card__qty { display: flex; align-items: center; justify-content: center; gap: 6px; }
-.gh-bundle-option__img { width: 100%; max-width: 220px; height: 180px; object-fit: contain; margin: 0 auto 12px; display: block; }
+.gh-bundle-option__img { width: 80%; height: 80%; object-fit: contain; }
+.gh-bundle-option__body { padding: 10px 10px 12px; display: flex; flex-direction: column; flex: 1; text-align: left; }
+.gh-bundle-option__cta { display: block; width: 100%; background: #d97835; color: #fff; font-size: 12px; font-weight: 700; border-radius: 100px; padding: 10px 0; text-align: center; font-family: 'Poppins', sans-serif; margin-top: auto; border: none; cursor: pointer; transition: background 0.15s; }
+.gh-bundle-option--selected .gh-bundle-option__cta { background: #4a7c2c; }
 .gh-cartridge-card__qty-btn { width: 34px; height: 34px; border: none; border-radius: 50%; background: #4a7c2c; font-size: 20px; font-weight: 900; line-height: 1; cursor: pointer; color: #ffffff; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; transition: background 0.15s; padding: 0; }
 .gh-cartridge-card__qty-btn:hover:not(:disabled) { background: #2d5016; }
 .gh-cartridge-card__qty-btn:disabled { opacity: 0.3; cursor: not-allowed; }
@@ -3668,27 +3676,42 @@
         <div class="gh-bundle-step__label">Step 1 &mdash; Choose Your Bundle Size</div>
         <div class="gh-bundle-options">
           <button class="gh-bundle-option" data-bundle-id="209612" data-bundle-size="5" data-bundle-price="100">
-            <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2025/09/5-Pack-THC-Vape-Cartridges-%E2%80%93-Starter-Bundle.png" alt="5-Pack THCA Vape Bundle" loading="lazy">
-            <div class="gh-bundle-option__size">5-Pack</div>
-            <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$100</span><span class="gh-bundle-option__price-old">$200</span></div>
-            <div class="gh-bundle-option__savings">Save 50%</div>
-            <div class="gh-bundle-option__per">$20 per cart</div>
+            <div class="gh-bundle-option__img-wrap">
+              <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2025/09/5-Pack-THC-Vape-Cartridges-%E2%80%93-Starter-Bundle.png" alt="5-Pack THCA Vape Bundle" loading="lazy">
+            </div>
+            <div class="gh-bundle-option__body">
+              <div class="gh-bundle-option__size">5-Pack</div>
+              <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$100</span><span class="gh-bundle-option__price-old">$200</span></div>
+              <div class="gh-bundle-option__savings">Save 50%</div>
+              <div class="gh-bundle-option__per">$20 per cart</div>
+              <div class="gh-bundle-option__cta">Select Pack</div>
+            </div>
           </button>
           <button class="gh-bundle-option" data-bundle-id="127106" data-bundle-size="10" data-bundle-price="150">
-            <div class="gh-bundle-option__badge">Most Popular</div>
-            <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2025/02/Copy-of-Grizzly-Herb-Ads-Cartridges.png" alt="10-Pack THCA Vape Bundle" loading="lazy">
-            <div class="gh-bundle-option__size">10-Pack</div>
-            <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$150</span><span class="gh-bundle-option__price-old">$400</span></div>
-            <div class="gh-bundle-option__savings">Save 63%</div>
-            <div class="gh-bundle-option__per">$15 per cart</div>
+            <div class="gh-bundle-option__img-wrap">
+              <div class="gh-bundle-option__badge" style="background:#e85d35;">Most Popular</div>
+              <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2025/02/Copy-of-Grizzly-Herb-Ads-Cartridges.png" alt="10-Pack THCA Vape Bundle" loading="lazy">
+            </div>
+            <div class="gh-bundle-option__body">
+              <div class="gh-bundle-option__size">10-Pack</div>
+              <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$150</span><span class="gh-bundle-option__price-old">$400</span></div>
+              <div class="gh-bundle-option__savings">Save 63%</div>
+              <div class="gh-bundle-option__per">$15 per cart</div>
+              <div class="gh-bundle-option__cta">Select Pack</div>
+            </div>
           </button>
           <button class="gh-bundle-option" data-bundle-id="127104" data-bundle-size="20" data-bundle-price="200">
-            <div class="gh-bundle-option__badge" style="background:#2d5016;">Best Value</div>
-            <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2024/11/2.jpg" alt="20-Pack THCA Vape Bundle" loading="lazy">
-            <div class="gh-bundle-option__size">20-Pack</div>
-            <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$200</span><span class="gh-bundle-option__price-old">$800</span></div>
-            <div class="gh-bundle-option__savings">Save 75%</div>
-            <div class="gh-bundle-option__per">$10 per cart</div>
+            <div class="gh-bundle-option__img-wrap">
+              <div class="gh-bundle-option__badge" style="background:#2d5016;">Best Value</div>
+              <img class="gh-bundle-option__img" src="https://grizzlyherb.co/wp-content/uploads/2024/11/2.jpg" alt="20-Pack THCA Vape Bundle" loading="lazy">
+            </div>
+            <div class="gh-bundle-option__body">
+              <div class="gh-bundle-option__size">20-Pack</div>
+              <div class="gh-bundle-option__price"><span class="gh-bundle-option__price-new">$200</span><span class="gh-bundle-option__price-old">$800</span></div>
+              <div class="gh-bundle-option__savings">Save 75%</div>
+              <div class="gh-bundle-option__per">$10 per cart</div>
+              <div class="gh-bundle-option__cta">Select Pack</div>
+            </div>
           </button>
         </div>
       </div>
@@ -4778,6 +4801,7 @@
   }
 
   // === Bundle data (bundled_item_id per bundle product) ===
+  var INDIV_CART_PRICE = 40; // price per individual cartridge
   var CARTRIDGES = [
     {pid:'125872',name:'Peach Rings',type:'sativa',lr:false,inStock:true,bids:{'209612':597,'127106':599,'127104':601}},
     {pid:'130321',name:'Strawberry Cough',type:'sativa',lr:false,inStock:true,bids:{'209612':623,'127106':617,'127104':612}},
@@ -4920,10 +4944,12 @@
       for (var j = 0; j < selectedItems.length; j++) {
         var it = selectedItems[j];
         var subLabel = it.c.lr ? 'Live Resin' : (it.c.type.charAt(0).toUpperCase() + it.c.type.slice(1));
+        var perCartPrice = Math.round(selectedBundle.price / selectedBundle.size);
         html += '<div class="gh-cart-panel__item" data-cpid="' + it.c.pid + '">'
           + '<div class="gh-cart-panel__item-info" style="flex:1;">'
           + '<div class="gh-cart-panel__item-name">' + it.c.name + '</div>'
           + '<div style="font-size:10px;color:#888;">' + subLabel + ' &middot; 1.1g</div>'
+          + '<div style="font-size:10px;font-weight:600;color:#2d5016;">$' + perCartPrice + '/cart &times; ' + it.qty + '</div>'
           + '</div>'
           + '<div class="gh-cart-panel__item-qty">'
           + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-minus">&minus;</button>'
@@ -5125,6 +5151,10 @@
       if (val) val.textContent = qty;
       if (qty > 0) cards[i].classList.add('gh-cartridge-card--selected');
       else cards[i].classList.remove('gh-cartridge-card--selected');
+      var addBtn = cards[i].querySelector('.gh-indiv-add');
+      var qtyDiv = cards[i].querySelector('.gh-cartridge-card__qty');
+      if (addBtn) { addBtn.style.display = qty > 0 ? 'none' : ''; addBtn.disabled = isFull; }
+      if (qtyDiv) qtyDiv.style.display = qty > 0 ? 'flex' : 'none';
       var plus = cards[i].querySelector('.gh-indiv-plus');
       if (plus) plus.disabled = isFull && qty === 0;
     }
@@ -5148,6 +5178,7 @@
           + '<div class="gh-cart-panel__item-info" style="flex:1;">'
           + '<div class="gh-cart-panel__item-name">' + it.c.name + '</div>'
           + '<div style="font-size:10px;color:#888;">' + sub + ' &middot; 1.1g</div>'
+          + '<div style="font-size:10px;font-weight:600;color:#2d5016;">$' + INDIV_CART_PRICE + ' &times; ' + it.qty + ' = $' + (INDIV_CART_PRICE * it.qty) + '</div>'
           + '</div>'
           + '<div class="gh-cart-panel__item-qty">'
           + '<button class="gh-cart-panel__qty-btn gh-indiv-cart-minus" data-icpid="' + it.c.pid + '">&#8722;</button>'
@@ -5160,7 +5191,7 @@
       cartItemsEl.innerHTML = html;
     }
     var total = getIndivTotal();
-    totalPriceEl.textContent = total + ' cartridge' + (total !== 1 ? 's' : '');
+    totalPriceEl.textContent = '$' + (total * INDIV_CART_PRICE).toFixed(2);
     var totalLbl = panel.querySelector('.gh-cart-panel__total span:first-child');
     if (totalLbl) totalLbl.textContent = 'Cart Items:';
     var wrap = root.querySelector('#gh-cart-upsell-wrap');
@@ -5279,13 +5310,16 @@
         + '</div>'
         + '<div class="gh-cartridge-card__body">'
         + '<div class="gh-cartridge-card__name">' + c.name + '</div>'
-        + '<div class="gh-cartridge-card__price">$30 <span class="gh-cartridge-card__price-note">per cart</span></div>'
+        + '<div class="gh-cartridge-card__price">$' + INDIV_CART_PRICE + ' <span class="gh-cartridge-card__price-note">per cart</span></div>'
         + '<div class="gh-cartridge-card__sub">1.1g &middot; THCA</div>';
       if (c.inStock) {
-        html += '<div class="gh-cartridge-card__qty">'
+        html += '<div class="gh-cartridge-card__qty-wrap">'
+          + '<button class="gh-products__card-btn gh-indiv-add" data-ipid="' + c.pid + '">Add to Cart</button>'
+          + '<div class="gh-cartridge-card__qty" style="display:none;">'
           + '<button class="gh-cartridge-card__qty-btn gh-indiv-minus" data-ipid="' + c.pid + '">&#8722;</button>'
           + '<span class="gh-cartridge-card__qty-val" id="gh-iqv-' + c.pid + '">0</span>'
           + '<button class="gh-cartridge-card__qty-btn gh-indiv-plus" data-ipid="' + c.pid + '">+</button>'
+          + '</div>'
           + '</div>';
       } else {
         html += '<div class="gh-cartridge-card__oos">Out of Stock</div>';
@@ -5433,7 +5467,9 @@
     // "Review & Checkout" nudge link
     var openCartBtn = e.target.closest('#gh-open-cart-btn');
     if (openCartBtn) { e.preventDefault(); openCart(); return; }
-    // Individual section +/-
+    // Individual section Add-to-Cart + +/-
+    var indivAdd = e.target.closest('.gh-indiv-add');
+    if (indivAdd) { changeIndivQty(indivAdd.getAttribute('data-ipid'), 1); return; }
     var indivPlus = e.target.closest('.gh-indiv-plus');
     if (indivPlus) { changeIndivQty(indivPlus.getAttribute('data-ipid'), 1); return; }
     var indivMinus = e.target.closest('.gh-indiv-minus');
