@@ -4876,9 +4876,27 @@
   ];
 
   var UPSELLS = [
-    {id: '584565', vid: '584566', price: 85},
-    {id: '585041', vid: null,     price: 105}
+    {id: '584565', vid: '584566', price: 85,  name: 'White Truffle Smalls', sub: 'Flower · 1oz'},
+    {id: '585041', vid: null,     price: 105, name: 'Golden Teacher',       sub: 'Mushrooms · 14g'}
   ];
+
+  function upsellCartRow(u) {
+    return '<div class="gh-cart-panel__item">'
+      + '<div class="gh-cart-panel__item-info" style="flex:1;">'
+      + '<div class="gh-cart-panel__item-name">' + u.name + '</div>'
+      + '<div style="font-size:10px;color:#888;">' + u.sub + '</div>'
+      + '<div style="font-size:10px;font-weight:600;color:#2d5016;">$' + u.price.toFixed(2) + '</div>'
+      + '</div>'
+      + '<button class="gh-cart-panel__remove-btn" data-remove-upsell-id="' + u.id + '" title="Remove">&#215;</button>'
+      + '</div>';
+  }
+
+  function appendUpsellRows(html) {
+    for (var u = 0; u < UPSELLS.length; u++) {
+      if (upsellCart[UPSELLS[u].id]) html += upsellCartRow(UPSELLS[u]);
+    }
+    return html;
+  }
 
   // === State ===
   var selectedBundle = null; // {id, size, price}
@@ -5002,7 +5020,7 @@
     var size = selectedBundle.size;
     var remaining = size - filled;
     if (selectedItems.length === 0) {
-      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Choose your ' + size + ' cartridges from the picker below.</div>';
+      cartItemsEl.innerHTML = appendUpsellRows('<div class="gh-cart-panel__empty">Choose your ' + size + ' cartridges from the picker below.</div>');
     } else {
       var html = '';
       for (var j = 0; j < selectedItems.length; j++) {
@@ -5027,7 +5045,7 @@
         html += '<div style="text-align:center;padding:10px 0;font-size:11px;color:#aaa;">'
           + remaining + ' more slot' + (remaining === 1 ? '' : 's') + ' to fill</div>';
       }
-      cartItemsEl.innerHTML = html;
+      cartItemsEl.innerHTML = appendUpsellRows(html);
     }
     var upsellSubtotal = 0;
     for (var uid in upsellCart) {
@@ -5302,7 +5320,7 @@
       if (qty > 0) items.push({c: CARTRIDGES[i], qty: qty});
     }
     if (items.length === 0) {
-      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Add cartridges from the picker below.</div>';
+      cartItemsEl.innerHTML = appendUpsellRows('<div class="gh-cart-panel__empty">Add cartridges from the picker below.</div>');
     } else {
       var html = '';
       for (var j = 0; j < items.length; j++) {
@@ -5322,7 +5340,7 @@
           + '<button class="gh-cart-panel__remove-btn" data-remove-icpid="' + it.c.pid + '" title="Remove">&#215;</button>'
           + '</div>';
       }
-      cartItemsEl.innerHTML = html;
+      cartItemsEl.innerHTML = appendUpsellRows(html);
     }
     var total = getIndivTotal();
     var upsellSub = 0;
@@ -5564,8 +5582,15 @@
     if (removeBtn) {
       var rcpid = removeBtn.getAttribute('data-remove-cpid');
       var ricpid = removeBtn.getAttribute('data-remove-icpid');
+      var ruid = removeBtn.getAttribute('data-remove-upsell-id');
       if (rcpid) { cartridgeQtys[rcpid] = 0; renderCart(); }
       if (ricpid) { indivQtys[ricpid] = 0; renderCart(); }
+      if (ruid) {
+        delete upsellCart[ruid];
+        var addBtn = root.querySelector('.gh-cart-product-upsell__btn[data-upsell-id="' + ruid + '"]');
+        if (addBtn) { addBtn.classList.remove('gh-upsell--added'); addBtn.textContent = 'Add'; }
+        renderCart();
+      }
       return;
     }
     // Cart item qty + (in cart panel)
