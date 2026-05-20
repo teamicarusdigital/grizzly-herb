@@ -1,0 +1,42 @@
+name: Stock Sync
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'   # every 4 hours
+  workflow_dispatch:          # allow manual trigger from GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run stock sync
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
+        run: python sync_stock.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name  "stock-sync[bot]"
+          git config user.email "stock-sync@grizzlyherb.co"
+          git add pages/
+          if git diff --staged --quiet; then
+            echo "No stock changes — skipping commit and deploy"
+            echo "CHANGED=false" >> $GITHUB_ENV
+          else
+            git commit -m "chore: auto stock sync $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+            echo "CHANGED=true" >> $GITHUB_ENV
+          fi
+
+      - name: Deploy to Vercel
+        if: env.CHANGED == 'true'
+        run: |
+          curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+          echo "Deploy triggered."
