@@ -19,6 +19,10 @@
     { "source": "/pages/premium-collection-rb", "destination": "/pages/premium-collection-rb/index.html" },
     { "source": "/pages/premium-collection-rb/", "destination": "/pages/premium-collection-rb/index.html" },
     { "source": "/pages/thca-vapes", "destination": "/pages/thca-vapes/index.html" },
-    { "source": "/pages/thca-vapes/", "destination": "/pages/thca-vapes/index.html" }
+    { "source": "/pages/thca-vapes/", "destination": "/pages/thca-vapes/index.html" },
+    { "source": "/review", "destination": "/review/index.html" },
+    { "source": "/review/", "destination": "/review/index.html" },
+    { "source": "/dashboard", "destination": "/dashboard/index.html" },
+    { "source": "/dashboard/", "destination": "/dashboard/index.html" }
   ]
 }

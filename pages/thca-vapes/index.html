@@ -3416,6 +3416,9 @@
   border-bottom: 1px solid #f5f3f0;
 }
 .gh-cart-product-upsell:last-child { border-bottom: none; }
+.gh-cartridge-card__img { cursor: pointer; }
+.gh-cartridge-card__name { cursor: pointer; }
+.gh-cartridge-card__name:hover { text-decoration: underline; }
 .gh-cart-product-upsell__img {
   width: 46px;
   height: 46px;
@@ -4796,20 +4799,20 @@
   <div class="gh-cart-product-upsells">
     <div class="gh-cart-product-upsells__title">You might also like</div>
     <div class="gh-cart-product-upsell">
-      <img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2026/04/strain-25.png" alt="White Truffle Smalls" loading="lazy">
+      <a href="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" target="_blank" rel="noopener"><img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" alt="Purple Kush" loading="lazy"></a>
       <div class="gh-cart-product-upsell__info">
-        <div class="gh-cart-product-upsell__name">White Truffle Smalls 1oz</div>
-        <div class="gh-cart-product-upsell__price">$85.00</div>
+        <a href="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><div class="gh-cart-product-upsell__name">Purple Kush 1oz</div></a>
+        <div class="gh-cart-product-upsell__price">$90.00</div>
       </div>
-      <button class="gh-cart-product-upsell__btn" data-upsell-id="584565" data-upsell-variation="584566">Add</button>
+      <button class="gh-cart-product-upsell__btn" data-upsell-id="357186">Add</button>
     </div>
     <div class="gh-cart-product-upsell">
-      <img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/Dried-Mush.jpg" alt="Golden Teacher Mushrooms" loading="lazy">
+      <a href="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" target="_blank" rel="noopener"><img class="gh-cart-product-upsell__img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" alt="Ghost Breath" loading="lazy"></a>
       <div class="gh-cart-product-upsell__info">
-        <div class="gh-cart-product-upsell__name">Golden Teacher 14g</div>
-        <div class="gh-cart-product-upsell__price">$105.00</div>
+        <a href="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><div class="gh-cart-product-upsell__name">Ghost Breath 1oz</div></a>
+        <div class="gh-cart-product-upsell__price">$90.00</div>
       </div>
-      <button class="gh-cart-product-upsell__btn" data-upsell-id="585041">Add</button>
+      <button class="gh-cart-product-upsell__btn" data-upsell-id="183881">Add</button>
     </div>
   </div>
   <div class="gh-cart-panel__footer">
@@ -4858,26 +4861,26 @@
   // === Bundle data (bundled_item_id per bundle product) ===
   var INDIV_CART_PRICE = 40; // price per individual cartridge
   var CARTRIDGES = [
-    {pid:'125872',name:'Peach Rings',type:'sativa',lr:false,inStock:true,bids:{'209612':597,'127106':599,'127104':601}},
-    {pid:'130321',name:'Strawberry Cough',type:'sativa',lr:false,inStock:true,bids:{'209612':623,'127106':617,'127104':612}},
-    {pid:'3966',name:'Trainwreck',type:'sativa',lr:false,inStock:false,bids:{'209612':625,'127106':619,'127104':614}},
-    {pid:'130319',name:'Golden Pineapple',type:'sativa',lr:false,inStock:true,bids:{'209612':626,'127106':620,'127104':611}},
-    {pid:'125281',name:'Watermelon Mojito',type:'hybrid',lr:false,inStock:true,bids:{'209612':582,'127106':575,'127104':589}},
-    {pid:'130334',name:'Twisted Citrus',type:'hybrid',lr:false,inStock:true,bids:{'209612':627,'127106':621,'127104':615}},
-    {pid:'125284',name:'Pineapple Diesel',type:'sativa',lr:true,inStock:true,bids:{'209612':628,'127106':622,'127104':616}},
-    {pid:'125283',name:'Marionberry Kush',type:'hybrid',lr:true,inStock:true,bids:{'209612':441,'127106':552,'127104':449}},
-    {pid:'124723',name:'Sherbert',type:'indica',lr:true,inStock:true,bids:{'209612':442,'127106':553,'127104':450}},
-    {pid:'128288',name:'Galactic Gas',type:'indica',lr:false,inStock:true,bids:{'209612':462,'127106':465,'127104':467}},
-    {pid:'128295',name:'Blue Z',type:'indica',lr:false,inStock:true,bids:{'209612':425,'127106':405,'127104':391}},
-    {pid:'126824',name:'Groovy Grape',type:'indica',lr:false,inStock:true,bids:{'209612':580,'127106':573,'127104':587}},
-    {pid:'3968',name:'Granddaddy Purple',type:'indica',lr:false,inStock:true,bids:{'209612':584,'127106':577,'127104':591}},
-    {pid:'3971',name:'Pineapple Express',type:'hybrid',lr:false,inStock:true,bids:{'209612':636,'127106':639,'127104':631}},
-    {pid:'128297',name:'Berry Gelato',type:'hybrid',lr:false,inStock:true,bids:{'209612':637,'127106':640,'127104':629}}
+    {pid:'125872',name:'Peach Rings',type:'sativa',lr:false,inStock:true,bids:{'209612':597,'127106':599,'127104':601},url:'https://grizzlyherb.co/product/peach-rings-sativa-vape-cartridge-93-thc-1-1g/'},
+    {pid:'130321',name:'Strawberry Cough',type:'sativa',lr:false,inStock:true,bids:{'209612':623,'127106':617,'127104':612},url:'https://grizzlyherb.co/product/strawberry-cough-sativa-1-1g/'},
+    {pid:'3966',name:'Trainwreck',type:'sativa',lr:false,inStock:false,bids:{'209612':625,'127106':619,'127104':614},url:'https://grizzlyherb.co/product/trainwreck-strain-vape-cartridge/'},
+    {pid:'130319',name:'Golden Pineapple',type:'sativa',lr:false,inStock:true,bids:{'209612':626,'127106':620,'127104':611},url:'https://grizzlyherb.co/product/golden-pineapple-sativa-1-1g/'},
+    {pid:'125281',name:'Watermelon Mojito',type:'hybrid',lr:false,inStock:true,bids:{'209612':582,'127106':575,'127104':589},url:'https://grizzlyherb.co/product/watermelon-mojito-strain-vape-cartridge-93-thc-1000mg/'},
+    {pid:'130334',name:'Twisted Citrus',type:'hybrid',lr:false,inStock:true,bids:{'209612':627,'127106':621,'127104':615},url:'https://grizzlyherb.co/product/twisted-citrus-hybrid-1-1g/'},
+    {pid:'125284',name:'Pineapple Diesel',type:'sativa',lr:true,inStock:true,bids:{'209612':628,'127106':622,'127104':616},url:'https://grizzlyherb.co/product/blueberry-diesel-live-resin-vape-cartridge-93-thc-1000mg/'},
+    {pid:'125283',name:'Marionberry Kush',type:'hybrid',lr:true,inStock:true,bids:{'209612':441,'127106':552,'127104':449},url:'https://grizzlyherb.co/product/marionberry-kush-live-resin-vape-cartridge-93-thc-1000mg/'},
+    {pid:'124723',name:'Sherbert',type:'indica',lr:true,inStock:true,bids:{'209612':442,'127106':553,'127104':450},url:'https://grizzlyherb.co/product/limited-edition-sherbert-live-resin-vape-cartridge-93-thc-1000mg/'},
+    {pid:'128288',name:'Galactic Gas',type:'indica',lr:false,inStock:true,bids:{'209612':462,'127106':465,'127104':467},url:'https://grizzlyherb.co/product/galactic-gas-indica-1-1g/'},
+    {pid:'128295',name:'Blue Z',type:'indica',lr:false,inStock:true,bids:{'209612':425,'127106':405,'127104':391},url:'https://grizzlyherb.co/product/blue-z-indica-1-1g/'},
+    {pid:'126824',name:'Groovy Grape',type:'indica',lr:false,inStock:true,bids:{'209612':580,'127106':573,'127104':587},url:'https://grizzlyherb.co/product/groovy-grape-indica-vape-cartridge-93-thc-1-1g/'},
+    {pid:'3968',name:'Granddaddy Purple',type:'indica',lr:false,inStock:true,bids:{'209612':584,'127106':577,'127104':591},url:'https://grizzlyherb.co/product/granddaddy-purple-strain-vape-cartridge/'},
+    {pid:'3971',name:'Pineapple Express',type:'hybrid',lr:false,inStock:true,bids:{'209612':636,'127106':639,'127104':631},url:'https://grizzlyherb.co/product/pineapple-express-strain-vape-cartridge/'},
+    {pid:'128297',name:'Berry Gelato',type:'hybrid',lr:false,inStock:true,bids:{'209612':637,'127106':640,'127104':629},url:'https://grizzlyherb.co/product/berry-gelato-hybrid-1-1g/'}
   ];
 
   var UPSELLS = [
-    {id: '584565', vid: '584566', price: 85,  name: 'White Truffle Smalls', sub: 'Flower · 1oz'},
-    {id: '585041', vid: null,     price: 105, name: 'Golden Teacher',       sub: 'Mushrooms · 14g'}
+    {id: '357186', vid: '357187', price: 90, name: 'Purple Kush',  sub: 'Flower · 1oz', url: 'https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa-copy/'},
+    {id: '183881', vid: '183886', price: 90, name: 'Ghost Breath', sub: 'Flower · 1oz', url: 'https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa-copy-copy/'}
   ];
 
   function upsellCartRow(u) {
@@ -5118,8 +5121,22 @@
     var sp = getSavedParams();
 
     function doFormSubmit() {
-      var actionUrl = 'https://grizzlyherb.co/cart/';
-      if (sp) actionUrl += (actionUrl.indexOf('?') === -1 ? '?' : '&') + sp;
+      var urlParts = [];
+      if (sp) urlParts.push(sp);
+      var upsellsToAdd = [];
+      for (var uid in upsellCart) {
+        for (var uk = 0; uk < UPSELLS.length; uk++) {
+          if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
+        }
+      }
+      if (upsellsToAdd.length) {
+        urlParts.push('gh_multi=1');
+        for (var ui = 0; ui < upsellsToAdd.length; ui++) {
+          urlParts.push('vid_' + (ui + 1) + '=' + upsellsToAdd[ui].vid);
+          urlParts.push('qty_' + (ui + 1) + '=1');
+        }
+      }
+      var actionUrl = 'https://grizzlyherb.co/cart/' + (urlParts.length ? '?' + urlParts.join('&') : '');
       var form = document.createElement('form');
       form.method = 'POST';
       form.action = actionUrl;
@@ -5141,29 +5158,7 @@
       form.submit();
     }
 
-    var upsellsToAdd = [];
-    for (var uid in upsellCart) {
-      for (var uk = 0; uk < UPSELLS.length; uk++) {
-        if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
-      }
-    }
-
-    if (!upsellsToAdd.length) { doFormSubmit(); return; }
-
-    for (var ui = 0; ui < upsellsToAdd.length; ui++) {
-      var u = upsellsToAdd[ui];
-      var body = 'product_id=' + u.id + '&quantity=1';
-      if (u.vid) body += '&variation_id=' + u.vid;
-      try {
-        fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
-          method: 'POST', mode: 'no-cors', credentials: 'include',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: body
-        });
-      } catch(e) {}
-    }
-
-    setTimeout(doFormSubmit, 1500);
+    doFormSubmit();
   }
 
   function selectBundle(bundleId, size, price) {
@@ -5428,23 +5423,20 @@
         if (UPSELLS[uk].id === uid) { upsellsToAdd.push(UPSELLS[uk]); break; }
       }
     }
-    for (var ui = 0; ui < upsellsToAdd.length; ui++) {
-      var u = upsellsToAdd[ui];
-      var body = 'product_id=' + u.id + '&quantity=1';
-      if (u.vid) body += '&variation_id=' + u.vid;
-      try {
-        fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
-          method: 'POST', mode: 'no-cors', credentials: 'include',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: body
-        });
-      } catch(e) {}
+    var upsellSuffix = '';
+    if (upsellsToAdd.length) {
+      var uparts = ['gh_multi=1'];
+      for (var ui = 0; ui < upsellsToAdd.length; ui++) {
+        uparts.push('vid_' + (ui + 1) + '=' + upsellsToAdd[ui].vid);
+        uparts.push('qty_' + (ui + 1) + '=1');
+      }
+      upsellSuffix = '?' + uparts.join('&');
     }
 
     function doIndivAdd() {
       var done = 0;
       function addNext() {
-        if (done >= cartItems.length) { window.location.href = 'https://grizzlyherb.co/cart/'; return; }
+        if (done >= cartItems.length) { window.location.href = 'https://grizzlyherb.co/cart/' + upsellSuffix; return; }
         var item = cartItems[done++];
         fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item',{
           method:'POST',credentials:'include',
@@ -5457,11 +5449,7 @@
       addNext();
     }
 
-    if (upsellsToAdd.length) {
-      setTimeout(doIndivAdd, 1500);
-    } else {
-      doIndivAdd();
-    }
+    doIndivAdd();
   }
 
   function showUpgradeToast(msg) {
@@ -5670,6 +5658,19 @@
     // "Review & Checkout" nudge link
     var openCartBtn = e.target.closest('#gh-open-cart-btn');
     if (openCartBtn) { e.preventDefault(); openCart(); return; }
+    // Cartridge image or name → open product page
+    if (e.target.classList.contains('gh-cartridge-card__img') || e.target.classList.contains('gh-cartridge-card__name')) {
+      var pcard = e.target.closest('.gh-cartridge-card');
+      if (pcard) {
+        var ppid = pcard.getAttribute('data-pid') || pcard.getAttribute('data-ipid');
+        for (var pci = 0; pci < CARTRIDGES.length; pci++) {
+          if (CARTRIDGES[pci].pid === ppid && CARTRIDGES[pci].url) {
+            window.open(CARTRIDGES[pci].url, '_blank', 'noopener');
+            return;
+          }
+        }
+      }
+    }
     // Product upsell add buttons
     var upsellBtn = e.target.closest('.gh-cart-product-upsell__btn');
     if (upsellBtn && !upsellBtn.classList.contains('gh-upsell--added')) {
