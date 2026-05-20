@@ -3905,7 +3905,7 @@
   <section class="gh-catalog" id="products">
     <div class="gh-catalog__inner">
       <h2 class="gh-catalog__heading">Shop Individual Strains</h2>
-      <p class="gh-catalog__sub">Oz, QP, and full pound options. Add to your bundle or order solo.</p>
+      <p class="gh-catalog__sub">Oz, QP, and full pound options. Order individually or build your bundle above.</p>
       <div class="gh-products__grid">
         <div class="gh-products__card" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160},{"vid":134417,"label":"QP (4 Oz)","price":320},{"vid":148689,"label":"Lb (16 Oz)","price":900}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
@@ -5226,10 +5226,33 @@
     }
     function addBundleToCart(){
       if(totalSelected()<MAX) return;
+      if(ctaEl){ ctaEl.textContent='Adding...'; ctaEl.classList.add('gh-bb__cta--locked'); }
       var sp = getSavedParams();
+      var body = new URLSearchParams();
+      body.append('add-to-cart','131822');
+      body.append('quantity','1');
+      body.append('bundle_quantity_372','1');
+      body.append('bundle_quantity_373','1');
+      body.append('bundle_quantity_374','1');
+      body.append('bundle_quantity_375','1');
+      body.append('bundle_quantity_376','1');
+      fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'},
+        body: body.toString()
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var dest = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+        if(data && !data.error){ window.location.href = dest; }
+        else { fallbackSubmit(sp); }
+      })
+      .catch(function(){ fallbackSubmit(sp); });
+    }
+    function fallbackSubmit(sp){
       var form = document.createElement('form');
       form.method = 'POST';
-      form.action = 'https://grizzlyherb.co/cart/' + (sp ? '?' + sp : '');
+      form.action = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
       function addField(n,v){ var i=document.createElement('input'); i.type='hidden'; i.name=n; i.value=v; form.appendChild(i); }
       addField('add-to-cart','131822');
       addField('quantity','1');
