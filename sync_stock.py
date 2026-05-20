@@ -7,7 +7,7 @@ Auto-runs via GitHub Actions every 4 hours.
 Manual run: python sync_stock.py
 """
 
-import os, re, json, base64, sys
+import os, re, json, sys
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
@@ -25,8 +25,10 @@ VAPES_PAGE = os.path.join('pages', 'thca-vapes', 'index.html')
 
 
 def wc_get(path):
-    token = base64.b64encode(f'{WC_KEY}:{WC_SECRET}'.encode()).decode()
-    req = Request(f'{WC_BASE}{path}', headers={'Authorization': f'Basic {token}'})
+    # Use query string auth — Basic auth is blocked by Cloudflare on this host
+    sep = '&' if '?' in path else '?'
+    url = f'{WC_BASE}{path}{sep}consumer_key={WC_KEY}&consumer_secret={WC_SECRET}'
+    req = Request(url, headers={'User-Agent': 'WooCommerce/1.0'})
     try:
         with urlopen(req, timeout=20) as r:
             return json.loads(r.read())
