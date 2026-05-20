@@ -1,9 +1,8 @@
 """
 inject_bb_bc_bundle.py
 ======================
-Adds the full gh-bb bundle buy box section to bb and bc pages
-with persona-specific headings. Also updates the green promo
-section and catalog headings for each persona.
+Adds the full bundle section (gh-bundle green promo + gh-bb buy box)
+to bb and bc pages with persona-specific headings and copy.
 
 bb = Bulk Buyers
 bc = The Burned Connoisseur
@@ -15,15 +14,16 @@ sys.stdout.reconfigure(encoding='utf-8')
 with open('pages/premium-collection-rb/index.html', encoding='utf-8') as f:
     rb = f.read()
 
-# 1. gh-bb CSS block
+# 1. gh-bb CSS block (everything from the comment to </style>)
 s_css = rb.find('/* ===== Bundle Buy Box v3 (gh-bb) ===== */')
 e_css = rb.find('</style>', s_css)
 GH_BB_CSS = rb[s_css:e_css]
 
-# 2. gh-bb HTML section (comment + section tag through closing section tag)
-s_html = rb.find('<!-- ============================================================\n     SECTION: Bundle Buy Box v3')
-e_html = rb.find('\n<!-- ============================================================\n     SECTION:', s_html + 50)
-GH_BB_HTML_RB = rb[s_html:e_html]
+# 2. Full bundle block: <!-- ======== BUNDLE BUY BOX ======== --> through
+#    the closing </section> of gh-bb (stops right before gh-catalog)
+s_block = rb.find('<!-- ======== BUNDLE BUY BOX ======== -->')
+e_block = rb.find('<section class="gh-catalog"')
+GH_BUNDLE_BLOCK = rb[s_block:e_block]
 
 # 3. Bundle Picker v3 JS
 s_js = rb.find('  // === Bundle Picker v3 ===')
@@ -35,19 +35,29 @@ BUNDLE_PICKER_JS = rb[s_js:e_js]
 PERSONAS = {
     'bb': {
         'path': 'pages/premium-collection-bb/index.html',
-        # gh-bb info section
-        'badge':   'BULK SAVER DEAL',
-        'title':   'Stock Up With a 5-Oz Bundle',
-        'sub':     'Pick any 5 strains. Best per-oz price when you buy in volume.',
+        # gh-bundle (green promo) section
+        'bundle_badge':    'BULK BUYER DEAL',
+        'bundle_heading':  'Stock Up and <strong>Save Big</strong>',
+        'bundle_sub':      'Mix any 5 strains. More volume, better value. The way bulk buyers order.',
+        'bundle_features': [
+            'Best price per oz in Canada',
+            'QP and full pound on every strain',
+            'Free shipping on orders over $90',
+            'Same strains available every reorder',
+        ],
+        'bundle_cta':   'Stock Up Now &darr;',
+        'bundle_note':  'Best per-oz price in Canada. 2,000+ orders and counting.',
+        # gh-bb (bundle buy box) section
+        'badge':  'BULK SAVER DEAL',
+        'title':  'Stock Up With a 5-Oz Bundle',
+        'sub':    'Pick any 5 strains. Best per-oz price when you buy in volume.',
         'trust': [
             'Best price per oz in Canada',
             'QP and full pound on every strain',
             'Free shipping on orders over $90',
             'Same strains available every reorder',
         ],
-        # green promo (gh-bundle) section
-        'bundle_heading': 'Stock Up and <strong>Save Big</strong>',
-        'bundle_sub':     'Mix any 5 strains. More volume, better value. The way bulk buyers order.',
+        'fine': 'Best per-oz price &middot; Free shipping over $90 &middot; Secure checkout',
         # catalog section
         'catalog_label':   'BULK PRICING AVAILABLE',
         'catalog_heading': 'Bulk and Individual Strain Options',
@@ -55,19 +65,29 @@ PERSONAS = {
     },
     'bc': {
         'path': 'pages/premium-collection-bc/index.html',
-        # gh-bb info section
-        'badge':   'TOP SHELF SELECTION',
-        'title':   'Curate Your Connoisseur Bundle',
-        'sub':     "Pick 5 premium strains. You've been burned before. This is the fix.",
+        # gh-bundle (green promo) section
+        'bundle_badge':    'TOP SHELF ONLY',
+        'bundle_heading':  'Premium Flower for <strong>Discerning Buyers</strong>',
+        'bundle_sub':      'Handpick 5 top-shelf strains. No guessing, no disappointment.',
+        'bundle_features': [
+            'Hand-selected AAAA+ flower only',
+            'Lab-tested, batch-consistent quality',
+            'No mystery bags, no nasty surprises',
+            '60-day freshness guarantee',
+        ],
+        'bundle_cta':   'Curate Your Bundle &darr;',
+        'bundle_note':  'Hand-selected AAAA+ only. Batch-tested, freshness guaranteed.',
+        # gh-bb (bundle buy box) section
+        'badge':  'TOP SHELF SELECTION',
+        'title':  'Curate Your Connoisseur Bundle',
+        'sub':    "Pick 5 premium strains. You've been burned before. This is the fix.",
         'trust': [
             'Hand-selected AAAA+ flower only',
             'Lab-tested, batch-consistent quality',
             'No mystery bags, no nasty surprises',
             '60-day freshness guarantee',
         ],
-        # green promo (gh-bundle) section
-        'bundle_heading': 'Premium Flower for <strong>Discerning Buyers</strong>',
-        'bundle_sub':     'Handpick 5 top-shelf strains. No guessing, no disappointment.',
+        'fine': 'AAAA+ premium flower &middot; Free shipping over $90 &middot; Secure checkout',
         # catalog section
         'catalog_label':   'AAAA+ ONLY',
         'catalog_heading': 'The Premium Selection',
@@ -76,32 +96,69 @@ PERSONAS = {
 }
 
 
-def make_bb_html(p):
-    """Build the gh-bb info section with persona-specific content."""
-    trust_html = '\n'.join(
-        f'        <div class="gh-bb__trust-item">{t}</div>' for t in p['trust']
+def make_bundle_block(p):
+    """Build the full bundle block with persona-specific content."""
+    block = GH_BUNDLE_BLOCK
+
+    # ── gh-bundle (green promo) replacements ────────────────────────────────
+    block = block.replace(
+        '<div class="gh-bundle__badge">Most Popular Deal</div>',
+        f'<div class="gh-bundle__badge">{p["bundle_badge"]}</div>'
     )
-    # Replace just the info panel text in the rb HTML
-    html = GH_BB_HTML_RB
-    html = html.replace(
+    block = block.replace(
+        '<h2 class="gh-bundle__heading">Buy 4oz, <strong>Get 1oz Free</strong></h2>',
+        f'<h2 class="gh-bundle__heading">{p["bundle_heading"]}</h2>'
+    )
+    block = block.replace(
+        '<p class="gh-bundle__sub">Mix and match any AAAA strains. The way most of our regulars order.</p>',
+        f'<p class="gh-bundle__sub">{p["bundle_sub"]}</p>'
+    )
+    features_html = '\n'.join(
+        f'      <div class="gh-bundle__feature"><span class="gh-bundle__feature-check">&#10003;</span>'
+        f'<span>{f}</span></div>'
+        for f in p['bundle_features']
+    )
+    block = re.sub(
+        r'<div class="gh-bundle__features">.*?</div>\s*</div>',
+        f'<div class="gh-bundle__features">\n{features_html}\n    </div>',
+        block, count=1, flags=re.DOTALL
+    )
+    block = block.replace(
+        '<a href="#bundle" class="gh-bundle__cta">Build Your Bundle Below &darr;</a>',
+        f'<a href="#bundle" class="gh-bundle__cta">{p["bundle_cta"]}</a>'
+    )
+    block = block.replace(
+        '<p class="gh-bundle__note">Our most popular order. 2,000+ orders and counting.</p>',
+        f'<p class="gh-bundle__note">{p["bundle_note"]}</p>'
+    )
+
+    # ── gh-bb (buy box) replacements ─────────────────────────────────────────
+    block = block.replace(
         '<div class="gh-bb__badge">BEST VALUE DEAL</div>',
         f'<div class="gh-bb__badge">{p["badge"]}</div>'
     )
-    html = html.replace(
+    block = block.replace(
         '<h2 class="gh-bb__title">Build Your Mix and Match Bundle</h2>',
         f'<h2 class="gh-bb__title">{p["title"]}</h2>'
     )
-    html = html.replace(
+    block = block.replace(
         '<p class="gh-bb__sub">Pick any 5 strains below. The cheapest oz is free.</p>',
         f'<p class="gh-bb__sub">{p["sub"]}</p>'
     )
-    # Replace trust items
-    html = re.sub(
+    trust_html = '\n'.join(
+        f'        <div class="gh-bb__trust-item">{t}</div>' for t in p['trust']
+    )
+    block = re.sub(
         r'(<div class="gh-bb__trust">).*?(</div>\s*</div>\s*</div>)',
         lambda m: m.group(1) + '\n' + trust_html + '\n      ' + m.group(2),
-        html, count=1, flags=re.DOTALL
+        block, count=1, flags=re.DOTALL
     )
-    return html
+    block = block.replace(
+        'Cheapest oz is free &middot; Free shipping over $90 &middot; Secure checkout',
+        p['fine']
+    )
+
+    return block
 
 
 def apply_persona(path, persona_key, p):
@@ -110,9 +167,8 @@ def apply_persona(path, persona_key, p):
 
     steps = []
 
-    # ── 1. Inject gh-bb CSS before closing </style> ──────────────────────────
+    # ── 1. Inject gh-bb CSS ──────────────────────────────────────────────────
     if '/* ===== Bundle Buy Box v3 (gh-bb) ===== */' not in html:
-        # Insert before the catalog section CSS comment or </style>
         anchor = '/* ===== Catalog Section Header ===== */'
         if anchor in html:
             html = html.replace(anchor, GH_BB_CSS + '\n\n' + anchor, 1)
@@ -123,22 +179,19 @@ def apply_persona(path, persona_key, p):
     else:
         steps.append('gh-bb CSS already present')
 
-    # ── 2. Inject gh-bb HTML before the gh-bundle green promo section ────────
+    # ── 2. Inject bundle block (gh-bundle + gh-bb) before gh-catalog ────────
     if 'SECTION: Bundle Buy Box v3' not in html:
-        anchor = html.find('<section class="gh-bundle">')
-        if anchor < 0:
-            # bb/bc may not have gh-bundle; fall back to gh-catalog
-            anchor = html.find('<section class="gh-catalog"')
-        if anchor > 0:
-            bb_html = make_bb_html(p)
-            html = html[:anchor] + bb_html + '\n\n' + html[anchor:]
-            steps.append('gh-bb HTML injected')
+        catalog_pos = html.find('<section class="gh-catalog"')
+        if catalog_pos > 0:
+            bundle_block = make_bundle_block(p)
+            html = html[:catalog_pos] + bundle_block + html[catalog_pos:]
+            steps.append('Bundle block (gh-bundle + gh-bb) injected')
         else:
-            steps.append('gh-bb HTML: anchor not found')
+            steps.append('ERROR: gh-catalog anchor not found')
     else:
-        steps.append('gh-bb HTML already present')
+        steps.append('Bundle block already present')
 
-    # ── 3. Inject Bundle Picker v3 JS before click delegation ────────────────
+    # ── 3. Inject Bundle Picker v3 JS ────────────────────────────────────────
     click_anchor = '  // === Click delegation ==='
     if '// === Bundle Picker v3 ===' not in html and click_anchor in html:
         html = html.replace(click_anchor, BUNDLE_PICKER_JS + '\n\n' + click_anchor, 1)
@@ -146,59 +199,33 @@ def apply_persona(path, persona_key, p):
     elif '// === Bundle Picker v3 ===' in html:
         steps.append('Bundle Picker v3 JS already present')
     else:
-        steps.append('Bundle Picker v3 JS: click anchor not found')
+        steps.append('ERROR: click delegation anchor not found')
 
-    # ── 4. Update green promo (gh-bundle) headings ───────────────────────────
-    old_bundle_h2 = re.search(r'<h2 class="gh-bundle__heading">[^<]*(?:<[^<]*>[^<]*</[^>]*>)*[^<]*</h2>', html)
-    if old_bundle_h2:
-        html = html[:old_bundle_h2.start()] + \
-               f'<h2 class="gh-bundle__heading">{p["bundle_heading"]}</h2>' + \
-               html[old_bundle_h2.end():]
-        steps.append('Green promo heading updated')
-
-    old_bundle_sub = re.search(r'<p class="gh-bundle__sub">[^<]+</p>', html)
-    if old_bundle_sub:
-        html = html[:old_bundle_sub.start()] + \
-               f'<p class="gh-bundle__sub">{p["bundle_sub"]}</p>' + \
-               html[old_bundle_sub.end():]
-        steps.append('Green promo sub updated')
-
-    # ── 5. Update catalog section headings ───────────────────────────────────
-    # Label
-    old_label = '<div class="gh-catalog__label">SHOP ALL STRAINS</div>'
-    new_label = f'<div class="gh-catalog__label">{p["catalog_label"]}</div>'
-    if old_label in html:
-        html = html.replace(old_label, new_label, 1)
+    # ── 4. Update catalog label ───────────────────────────────────────────────
+    old_lbl_m = re.search(r'<div class="gh-catalog__label">[^<]+</div>', html)
+    new_label  = f'<div class="gh-catalog__label">{p["catalog_label"]}</div>'
+    if old_lbl_m and old_lbl_m.group() != new_label:
+        html = html[:old_lbl_m.start()] + new_label + html[old_lbl_m.end():]
         steps.append('Catalog label updated')
-    elif p['catalog_label'] in html:
+    elif old_lbl_m:
         steps.append('Catalog label already set')
-    else:
-        # Try any existing label
-        old_lbl_m = re.search(r'<div class="gh-catalog__label">[^<]+</div>', html)
-        if old_lbl_m:
-            html = html[:old_lbl_m.start()] + new_label + html[old_lbl_m.end():]
-            steps.append('Catalog label updated (generic)')
 
-    # Heading
-    old_heading = '<h2 class="gh-catalog__heading">Shop Individual Strains</h2>'
-    new_heading = f'<h2 class="gh-catalog__heading">{p["catalog_heading"]}</h2>'
-    if old_heading in html:
-        html = html.replace(old_heading, new_heading, 1)
+    # ── 5. Update catalog heading ─────────────────────────────────────────────
+    old_h2_m = re.search(r'<h2 class="gh-catalog__heading">[^<]+</h2>', html)
+    new_h2   = f'<h2 class="gh-catalog__heading">{p["catalog_heading"]}</h2>'
+    if old_h2_m and old_h2_m.group() != new_h2:
+        html = html[:old_h2_m.start()] + new_h2 + html[old_h2_m.end():]
         steps.append('Catalog heading updated')
-    elif p['catalog_heading'] in html:
+    elif old_h2_m:
         steps.append('Catalog heading already set')
 
-    # Sub
-    old_sub_bb = '<p class="gh-catalog__sub">Oz, QP, and full pound options. Add to your bundle or order solo.</p>'
-    old_sub_rb = '<p class="gh-catalog__sub">Oz, QP, and full pound options. Order individually or build your bundle above.</p>'
-    new_sub = f'<p class="gh-catalog__sub">{p["catalog_sub"]}</p>'
-    if old_sub_bb in html:
-        html = html.replace(old_sub_bb, new_sub, 1)
+    # ── 6. Update catalog sub ─────────────────────────────────────────────────
+    old_sub_m = re.search(r'<p class="gh-catalog__sub">[^<]+</p>', html)
+    new_sub   = f'<p class="gh-catalog__sub">{p["catalog_sub"]}</p>'
+    if old_sub_m and old_sub_m.group() != new_sub:
+        html = html[:old_sub_m.start()] + new_sub + html[old_sub_m.end():]
         steps.append('Catalog sub updated')
-    elif old_sub_rb in html:
-        html = html.replace(old_sub_rb, new_sub, 1)
-        steps.append('Catalog sub updated')
-    elif p['catalog_sub'] in html:
+    elif old_sub_m:
         steps.append('Catalog sub already set')
 
     with open(path, 'w', encoding='utf-8') as f:
@@ -206,7 +233,8 @@ def apply_persona(path, persona_key, p):
 
     print(f'\n{path} ({persona_key}):')
     for s in steps:
-        print(f'  {"✓" if "not found" not in s and "anchor" not in s else "~"} {s}')
+        ok = 'ERROR' not in s
+        print(f'  {"✓" if ok else "✗"} {s}')
     print(f'  File size: {len(html)//1024}kb')
 
 
