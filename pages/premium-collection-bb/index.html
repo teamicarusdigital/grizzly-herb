@@ -3381,6 +3381,80 @@
   margin: 0;
 }
 
+/* ===== Bundle Buy Box v3 (gh-bb) ===== */
+.gh-bb { background: #fff; padding: 48px 16px 56px; border-top: 1px solid #e8ead6; }
+.gh-bb__inner { max-width: 1100px; margin: 0 auto; }
+.gh-bb__gallery { display: none; }
+.gh-bb__badge { display:inline-block; background:#e8f4e0; color:#2d5016; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; border-radius:20px; padding:5px 14px; margin-bottom:10px; }
+.gh-bb__title { font-size:clamp(1.4rem,5vw,2rem); font-weight:800; color:#1a2e10; line-height:1.2; margin-bottom:8px; }
+.gh-bb__sub { font-size:0.93rem; color:#555; margin-bottom:20px; }
+.gh-bb__progress { background:#f4f7f0; border:1.5px solid #c8deba; border-radius:10px; padding:11px 14px; margin-bottom:14px; }
+.gh-bb__progress-label { font-size:13px; font-weight:600; color:#2d5016; margin-bottom:7px; }
+.gh-bb__count { font-size:17px; font-weight:800; }
+.gh-bb__progress-track { height:6px; background:#dde8d8; border-radius:3px; overflow:hidden; }
+.gh-bb__progress-fill { height:100%; background:linear-gradient(90deg,#4a7c2c,#2d5016); border-radius:3px; transition:width 0.3s ease; }
+.gh-bb__grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; max-height:480px; overflow-y:auto; padding-right:2px; scrollbar-width:thin; scrollbar-color:#4a7c2c #e5e7eb; }
+.gh-bb__grid::-webkit-scrollbar { width:3px; }
+.gh-bb__grid::-webkit-scrollbar-thumb { background:#4a7c2c; border-radius:2px; }
+.gh-bb__strain { border:1.5px solid #e5e7eb; border-radius:12px; padding:10px 8px; text-align:center; background:#fff; transition:border-color 0.15s,background 0.15s; }
+.gh-bb__strain--active { border-color:#4a7c2c; background:#f0f9ec; }
+.gh-bb__strain-img { width:62px; height:62px; object-fit:cover; border-radius:8px; margin:0 auto 5px; display:block; }
+.gh-bb__strain-name { font-size:11px; font-weight:700; color:#1a2e10; line-height:1.3; }
+.gh-bb__strain-meta { font-size:9px; color:#6b7280; margin-top:1px; }
+.gh-bb__strain-pricing { display:flex; align-items:center; justify-content:center; gap:4px; margin-top:3px; flex-wrap:wrap; }
+.gh-bb__price-old { font-size:10px; color:#9ca3af; text-decoration:line-through; }
+.gh-bb__price-cur { font-size:12px; color:#2d5016; font-weight:700; }
+.gh-bb__price-save { display:inline-block; background:#dc2626; color:#fff; font-size:9px; font-weight:700; border-radius:3px; padding:1px 5px; margin-top:2px; }
+.gh-bb__strain-social { display:flex; align-items:center; justify-content:center; gap:2px; font-size:9px; color:#6b7280; margin-top:3px; }
+.gh-bb__strain-social svg { vertical-align:middle; }
+.gh-bb__strain-new { display:inline-block; font-size:9px; font-weight:600; color:#4a7c2c; background:#e8f4e0; border-radius:20px; padding:1px 7px; margin-top:3px; }
+.gh-bb__strain-qty { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:7px; }
+.gh-bb__qty-btn { width:26px!important; height:26px!important; border-radius:50%!important; border:1.5px solid #4a7c2c!important; background:#fff!important; color:#4a7c2c!important; font-size:15px!important; font-weight:700!important; cursor:pointer!important; display:inline-flex!important; align-items:center!important; justify-content:center!important; line-height:1!important; padding:0!important; transition:background 0.15s,color 0.15s; }
+.gh-bb__qty-btn:hover { background:#4a7c2c!important; color:#fff!important; }
+.gh-bb__qty-val { font-size:14px; font-weight:800; color:#1a2e10; min-width:18px; text-align:center; display:inline-block; }
+.gh-bb__summary { background:#f0f9ec; border:1px solid #b3d9a3; border-radius:10px; padding:10px 14px; font-size:13px; font-weight:600; color:#2d5016; text-align:center; margin-bottom:14px; min-height:40px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:4px; }
+.gh-bb__summary--empty { color:#9ca3af; background:#f9fafb; border-color:#e5e7eb; font-weight:500; }
+.gh-bb__summary--ready { background:#dcfce7; border-color:#86efac; color:#15803d; }
+.gh-bb__cta { display:block!important; width:100%!important; background:#2d5016!important; color:#fff!important; font-size:15px!important; font-weight:700!important; font-family:'Poppins',sans-serif!important; text-align:center!important; padding:15px 20px!important; border-radius:10px!important; border:none!important; cursor:pointer!important; margin-bottom:10px!important; transition:background 0.2s,transform 0.15s; text-decoration:none!important; }
+.gh-bb__cta:hover { background:#3a6820!important; transform:translateY(-1px); }
+.gh-bb__cta--locked { opacity:0.45!important; pointer-events:none!important; cursor:default!important; transform:none!important; }
+.gh-bb__fine { font-size:12px; color:#9ca3af; text-align:center; margin:0; }
+.gh-bb__bundle-price { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+.gh-bb__bundle-price-old { font-size:1rem; color:#9ca3af; text-decoration:line-through; font-weight:400; }
+.gh-bb__bundle-price-cur { font-size:1.8rem; font-weight:800; color:#2d5016; line-height:1; }
+.gh-bb__bundle-price-save { background:#dc2626; color:#fff; font-size:12px; font-weight:700; border-radius:4px; padding:3px 8px; white-space:nowrap; }
+.gh-bb__collage { display:grid; grid-template-columns:1fr 1fr; gap:8px; border-radius:14px; overflow:hidden; margin-bottom:16px; }
+.gh-bb__collage-img { aspect-ratio:1; overflow:hidden; background:#e5e7eb; }
+.gh-bb__collage-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s; }
+.gh-bb__collage-img:hover img { transform:scale(1.04); }
+.gh-bb__trust { display:flex; flex-direction:column; gap:8px; }
+.gh-bb__trust-item { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:500; color:#3a3a3a; }
+.gh-bb__trust-item::before { content:'\2713'; color:#4a7c2c; font-weight:800; font-size:14px; flex-shrink:0; }
+@media(min-width:768px){
+  .gh-bb { padding:60px 40px 72px; }
+  .gh-bb__inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  .gh-bb__gallery { display:block; position:sticky; top:100px; }
+  .gh-bb__strain-img { width:68px; height:68px; }
+  .gh-bb__grid { max-height:500px; gap:10px; }
+  .gh-bb__title { font-size:2rem; }
+}
+
+/* ===== Catalog Section Header ===== */
+.gh-catalog { background:#f8f6f3; padding:52px 16px 48px; }
+.gh-catalog__inner { max-width:1440px; margin:0 auto; padding:0 16px; }
+.gh-catalog__header { text-align:center; margin-bottom:32px; }
+.gh-catalog__label { display:inline-block; background:#e8f4e0; color:#2d5016; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border-radius:20px; padding:5px 14px; margin-bottom:12px; }
+.gh-catalog__heading { font-size:clamp(1.5rem,4vw,2.1rem); font-weight:800; color:#1a2e10; line-height:1.2; margin-bottom:10px; display:block; text-align:center; }
+.gh-catalog__sub { font-size:0.97rem; color:#6b7280; max-width:480px; margin:0 auto 20px; text-align:center; }
+.gh-catalog__divider { display:flex; align-items:center; gap:12px; max-width:280px; margin:0 auto; }
+.gh-catalog__divider-line { flex:1; height:1px; background:#d1d5db; }
+.gh-catalog__divider-dot { width:6px; height:6px; border-radius:50%; background:#4a7c2c; }
+@media(min-width:768px){
+  .gh-catalog { padding:60px 0 56px; }
+  .gh-catalog__inner { padding:0 160px; }
+}
+
+
 </style>
 
 <!-- Tracklution Pixel -->
@@ -3608,10 +3682,1789 @@
 <!-- ======== BUNDLE BUY BOX ======== -->
 
   <!-- ======== SECTION 2: SHOP INDIVIDUAL STRAINS ======== -->
+  <!-- ============================================================
+     SECTION: Bundle Buy Box v3
+     ============================================================ -->
+<section class="gh-bb" id="bundle">
+  <div class="gh-bb__inner">
+    <div class="gh-bb__gallery">
+      <div class="gh-bb__collage">
+        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson" loading="lazy"></div>
+        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU" loading="lazy"></div>
+        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry" loading="lazy"></div>
+        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze" loading="lazy"></div>
+      </div>
+      <div class="gh-bb__trust">
+        <div class="gh-bb__trust-item">Best price per oz in Canada</div>
+        <div class="gh-bb__trust-item">QP and full pound on every strain</div>
+        <div class="gh-bb__trust-item">Free shipping on orders over $90</div>
+        <div class="gh-bb__trust-item">Same strains available every reorder</div>
+      </div>
+      </div>
+    </div>
+    <div class="gh-bb__info">
+      <div class="gh-bb__badge">BULK SAVER DEAL</div>
+      <h2 class="gh-bb__title">Stock Up With a 5-Oz Bundle</h2>
+      <p class="gh-bb__sub">Pick any 5 strains. Best per-oz price when you buy in volume.</p>
+      <div class="gh-bb__bundle-price">
+        <span class="gh-bb__bundle-price-old">$525</span>
+        <span class="gh-bb__bundle-price-cur">$340</span>
+        <span class="gh-bb__bundle-price-save">Save $185</span>
+      </div>
+      <div class="gh-bb__progress">
+        <div class="gh-bb__progress-label"><span class="gh-bb__count">0</span> of 5 strains selected</div>
+        <div class="gh-bb__progress-track"><div class="gh-bb__progress-fill" style="width:0%"></div></div>
+      </div>
+      <div class="gh-bb__grid">
+        <div class="gh-bb__strain" data-pid="129248" data-vid="129249" data-price="100" data-regular="160">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson" loading="lazy">
+          <div class="gh-bb__strain-name">Mike Tyson</div>
+          <div class="gh-bb__strain-meta">Indica &middot; AAAA+</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-old">$160</span> <span class="gh-bb__price-cur">$100/oz</span></div><div class="gh-bb__price-save">Save $60</div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;30 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="148701" data-vid="148706" data-price="85">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU" loading="lazy">
+          <div class="gh-bb__strain-name">MKU</div>
+          <div class="gh-bb__strain-meta">Indica &middot; AAA+</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$85/oz</span></div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;20 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="134438" data-vid="134443" data-price="110">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry" loading="lazy">
+          <div class="gh-bb__strain-name">Gouda Berry</div>
+          <div class="gh-bb__strain-meta">Indica &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$110/oz</span></div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;15 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="168138" data-vid="168143" data-price="80" data-regular="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze" loading="lazy">
+          <div class="gh-bb__strain-name">Key Lime Haze</div>
+          <div class="gh-bb__strain-meta">Sativa &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-old">$90</span> <span class="gh-bb__price-cur">$80/oz</span></div><div class="gh-bb__price-save">Save $10</div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;6 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="168131" data-vid="168136" data-price="80" data-regular="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" alt="Grape Diesel" loading="lazy">
+          <div class="gh-bb__strain-name">Grape Diesel</div>
+          <div class="gh-bb__strain-meta">Sativa &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-old">$90</span> <span class="gh-bb__price-cur">$80/oz</span></div><div class="gh-bb__price-save">Save $10</div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;6 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="144038" data-vid="144043" data-price="110">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" alt="Cali Z.Z." loading="lazy">
+          <div class="gh-bb__strain-name">Cali Z.Z.</div>
+          <div class="gh-bb__strain-meta">Indica &middot; AAAA+</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$110/oz</span></div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;4 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="144022" data-vid="144027" data-price="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze" loading="lazy">
+          <div class="gh-bb__strain-name">Super Lemon Haze</div>
+          <div class="gh-bb__strain-meta">Sativa &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$90/oz</span></div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;3 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="183881" data-vid="183886" data-price="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" alt="Ghost Breath" loading="lazy">
+          <div class="gh-bb__strain-name">Ghost Breath</div>
+          <div class="gh-bb__strain-meta">Sativa &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$90/oz</span></div>
+          <div class="gh-bb__strain-social"><svg width="10" height="10" viewBox="0 0 16 16" fill="#d1d5db"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#d1d5db"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#d1d5db"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#d1d5db"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg width="10" height="10" viewBox="0 0 16 16" fill="#d1d5db"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span>&nbsp;1 reviews</span></div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="357186" data-vid="357187" data-price="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" alt="Purple Kush" loading="lazy">
+          <div class="gh-bb__strain-name">Purple Kush</div>
+          <div class="gh-bb__strain-meta">Indica &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$90/oz</span></div>
+          <div class="gh-bb__strain-new">New Strain</div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="357044" data-vid="357045" data-price="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" alt="Peanut Butter Breath" loading="lazy">
+          <div class="gh-bb__strain-name">Peanut Butter Breath</div>
+          <div class="gh-bb__strain-meta">Indica Hybrid &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$90/oz</span></div>
+          <div class="gh-bb__strain-new">New Strain</div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+        <div class="gh-bb__strain" data-pid="356979" data-vid="356981" data-price="90">
+          <img class="gh-bb__strain-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" alt="Vanilla Kush" loading="lazy">
+          <div class="gh-bb__strain-name">Vanilla Kush</div>
+          <div class="gh-bb__strain-meta">Indica Hybrid &middot; AAAA</div>
+          <div class="gh-bb__strain-pricing"><span class="gh-bb__price-cur">$90/oz</span></div>
+          <div class="gh-bb__strain-new">New Strain</div>
+          <div class="gh-bb__strain-qty">
+            <button class="gh-bb__qty-btn gh-bb__qty-minus" aria-label="Remove one">&#8722;</button>
+            <span class="gh-bb__qty-val">0</span>
+            <button class="gh-bb__qty-btn gh-bb__qty-plus" aria-label="Add one">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="gh-bb__summary gh-bb__summary--empty">Select 5 strains to build your bundle</div>
+      <button type="button" class="gh-bb__cta gh-bb__cta--locked">Select 5 Strains to Add to Cart</button>
+      <p class="gh-bb__fine">Cheapest oz is free &middot; Free shipping over $90 &middot; Secure checkout</p>
+    </div>
+  </div>
+</section>
+
+  <!-- ======== SECTION 2: SHOP INDIVIDUAL STRAINS ======== -->
   <section class="gh-catalog" id="products">
     <div class="gh-catalog__inner">
-      <h2 class="gh-catalog__heading">Shop Individual Strains</h2>
-      <p class="gh-catalog__sub">Oz, QP, and full pound options. Add to your bundle or order solo.</p>
+      <h2 class="gh-catalog__heading">Bulk and Individual Strain Options</h2>
+      <p class="gh-catalog__sub">Oz, QP, and full pound options. Stack up and save the more you buy.</p>
+      <div class="gh-products__grid">
+        <div class="gh-products__card" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160,"inStock":true},{"vid":134417,"label":"QP (4 Oz)","price":320,"inStock":true},{"vid":148689,"label":"Lb (16 Oz)","price":900,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(30 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Mike Tyson</div>
+          </a>
+          <div class="gh-products__card-price">$100.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="148701" data-product-name="MKU" data-product-price="85.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" data-product-url="https://grizzlyherb.co/product/snow-white-aaa/" data-thc="22%" data-variants='[{"vid":148706,"label":"Oz (28g)","price":85,"inStock":true},{"vid":148707,"label":"QP (4 Oz)","price":260,"inStock":true},{"vid":148709,"label":"Lb (16 Oz)","price":820,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/snow-white-aaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(20 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">MKU</div>
+          </a>
+          <div class="gh-products__card-price">$85.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="134438" data-product-name="Gouda Berry" data-product-price="110.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" data-product-url="https://grizzlyherb.co/product/gouda-berry-aaaa/" data-thc="25%" data-variants='[{"vid":134443,"label":"Oz (28g)","price":110,"inStock":true},{"vid":134444,"label":"QP (4 Oz)","price":360,"inStock":true},{"vid":418841,"label":"Lb (16 Oz)","price":1050,"regular":1350,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/gouda-berry-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(15 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Gouda Berry</div>
+          </a>
+          <div class="gh-products__card-price">$110.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="168138" data-product-name="Key Lime Haze" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" data-product-url="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" data-variants='[{"vid":168143,"label":"Oz (28g)","price":80,"regular":90,"inStock":true},{"vid":168144,"label":"QP (4 Oz)","price":300,"regular":340,"inStock":true},{"vid":418838,"label":"Lb (16 Oz)","price":900,"regular":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/key-lime-haze-sativa-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(6 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Key Lime Haze</div>
+          </a>
+          <div class="gh-products__card-price">$80.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="168131" data-product-name="Grape Diesel" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" data-product-url="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" data-variants='[{"vid":168136,"label":"Oz (28g)","price":80,"regular":90,"inStock":true},{"vid":168137,"label":"QP (4 Oz)","price":300,"regular":340,"inStock":true},{"vid":418747,"label":"Lb (16 Oz)","price":875,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/grape-diesel-sativa-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" alt="Grape Diesel cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(6 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Grape Diesel</div>
+          </a>
+          <div class="gh-products__card-price">$80.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="144038" data-product-name="Cali Z.Z." data-product-price="110.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" data-product-url="https://grizzlyherb.co/product/cali-zkittlez-aaaa/" data-thc="22%" data-variants='[{"vid":144043,"label":"Oz (28g)","price":110,"inStock":false},{"vid":144044,"label":"QP (4 Oz)","price":440,"inStock":false}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/cali-zkittlez-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" alt="Cali Z.Z. cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(4 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Cali Z.Z.</div>
+          </a>
+          <div class="gh-products__card-price">$110.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="144022" data-product-name="Super Lemon Haze" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" data-product-url="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" data-thc="25%" data-variants='[{"vid":144027,"label":"Oz (28g)","price":90,"inStock":true},{"vid":144028,"label":"QP (4 Oz)","price":340,"inStock":true},{"vid":418840,"label":"Lb (16 Oz)","price":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/super-lemon-haze-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(3 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Super Lemon Haze</div>
+          </a>
+          <div class="gh-products__card-price">$90.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="183881" data-product-name="Ghost Breath" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" data-product-url="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa/" data-variants='[{"vid":183886,"label":"Oz (28g)","price":90,"inStock":true},{"vid":183887,"label":"QP (4 Oz)","price":340,"inStock":true},{"vid":418835,"label":"Lb (16 Oz)","price":950,"regular":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/ghost-breath-mediums-sativa-hybrid-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" alt="Ghost Breath cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(1 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Ghost Breath</div>
+          </a>
+          <div class="gh-products__card-price">$90.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="357186" data-product-name="Purple Kush" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" data-product-url="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa/" data-variants='[{"vid":357187,"label":"Oz (28g)","price":90,"inStock":true},{"vid":357188,"label":"QP (4 Oz)","price":340,"inStock":true},{"vid":418758,"label":"Lb (16 Oz)","price":1100,"regular":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/purple-kush-indica-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" alt="Purple Kush cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Purple Kush</div>
+          </a>
+          <div class="gh-products__card-price">$90.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="357044" data-product-name="Peanut Butter Breath" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" data-product-url="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":357045,"label":"Oz (28g)","price":90,"inStock":true},{"vid":357046,"label":"QP (4 Oz)","price":340,"inStock":true},{"vid":418833,"label":"Lb (16 Oz)","price":950,"regular":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/peanut-butter-breath-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" alt="Peanut Butter Breath cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Peanut Butter Breath</div>
+          </a>
+          <div class="gh-products__card-price">$90.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card" data-product-id="356979" data-product-name="Vanilla Kush" data-product-price="90.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" data-product-url="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" data-variants='[{"vid":356981,"label":"Oz (28g)","price":90,"inStock":true},{"vid":356982,"label":"QP (4 Oz)","price":340,"inStock":true},{"vid":418834,"label":"Lb (16 Oz)","price":950,"regular":1200,"inStock":true}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/vanilla-kush-indica-hybrid-mediums-cannabis-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" alt="Vanilla Kush cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Vanilla Kush</div>
+          </a>
+          <div class="gh-products__card-price">$90.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn">Add to Stash</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+        <div class="gh-products__card gh-products__card--out-of-stock" data-product-id="183859" data-product-name="Golden Oreoz" data-product-price="80.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" data-product-url="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa/" data-variants='[{"vid":183864,"label":"Oz (28g)","price":80,"inStock":false},{"vid":183865,"label":"QP (4 Oz)","price":300,"inStock":false},{"vid":418836,"label":"Lb (16 Oz)","price":900,"regular":1200,"inStock":false}]'>
+          <a class="gh-products__card-link" href="https://grizzlyherb.co/product/oreoz-mediums-indica-hybrid-aaaa/" target="_blank" rel="noopener">
+          <div class="gh-products__card-img-wrap">
+            <span class="gh-products__card-badge gh-products__card-badge--oos">Sold Out</span>
+            <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" alt="Golden Oreoz cannabis flower" loading="lazy">
+          </div>
+          <div class="gh-products__card-stars">
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(4 Reviews)</span>
+          </div>
+          <div class="gh-products__card-name">Golden Oreoz</div>
+          </a>
+          <div class="gh-products__card-price">$80.00</div>
+          <div class="gh-products__card-bottom">
+            <button class="gh-products__card-btn" disabled>Sold Out</button>
+            <span class="gh-products__card-btn-qty">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== SECTION 3: FROM BUYERS WHO KNOW ======== -->
+  <section class="gh-reviews">
+    <div class="gh-reviews__inner">
+
+      <h2 class="gh-reviews__heading">From <strong>Buyers</strong> Who Know</h2>
+
+      <!-- Rating pill -->
+      <div class="gh-reviews__rating">
+        <div class="gh-reviews__rating-stars">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+        </div>
+        <span class="gh-reviews__rating-text">Rated <strong>4.7/5</strong> by <strong>2,000+</strong> reviews</span>
+      </div>
+
+      <!-- Review cards carousel -->
+      <div class="gh-reviews__carousel">
+        <div class="gh-reviews__track">
+
+        <!-- Review 1 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Worth Every Drop</div>
+            <p class="gh-reviews__card-body">Super Lemon Haze Lemony excellence, good to the last drop!</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Ron J.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">My Only Source Now</div>
+            <p class="gh-reviews__card-body">Your items are all quality I will never take my business elsewhere your stuff is quality and quantity all in a package deal</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Lenny L.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Finally, Real AAAA</div>
+            <p class="gh-reviews__card-body">Blue Gelato Rocks The Blue Gelato AAAA is an excellent product. If you want a good buzz, this one doesn&#8217;t disappoint. Enjoy the ride.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Red</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Exceeded All Expectations</div>
+            <p class="gh-reviews__card-body">Ordered the Diamond Edition pre-rolls and they blew me away. Perfect burn, smooth draw, and the potency is exactly what I needed.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Marcus T.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Fast Delivery, Fire Bud</div>
+            <p class="gh-reviews__card-body">Placed my order Sunday night, had it by Wednesday. The Purple Kush was absolutely stunning &mdash; dense, frosty, and the smell alone is worth it.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Jess K.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Best Edibles I&#8217;ve Tried</div>
+            <p class="gh-reviews__card-body">The gummies hit perfectly every time. Consistent dosing, great flavors, and they kick in within 30 minutes. Can&#8217;t go wrong.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Danny W.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 7 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Top-Tier Customer Service</div>
+            <p class="gh-reviews__card-body">Had a question about my order and got a response within an hour. The product quality matches the service &mdash; both exceptional.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Priya S.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        <!-- Review 8 -->
+        <div class="gh-reviews__card-wrapper">
+          <div class="gh-reviews__card">
+            <div class="gh-reviews__card-stars">
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+              <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+            </div>
+            <div class="gh-reviews__card-title">Connoisseur Approved</div>
+            <p class="gh-reviews__card-body">As someone who&#8217;s been in the cannabis scene for 15+ years, I can say Grizzly Herb&#8217;s flower is genuinely top shelf. No cap.</p>
+          </div>
+          <div class="gh-reviews__card-author">
+            <span class="gh-reviews__card-name">Mike R.</span>
+            <span class="gh-reviews__card-verified"><span class="gh-reviews__card-check">&#10003;</span> Verified Buyer</span>
+          </div>
+        </div>
+
+        </div><!-- /.gh-reviews__track -->
+      </div>
+
+      <!-- Carousel controls -->
+      <div class="gh-reviews__controls">
+        <button class="gh-reviews__arrow" aria-label="Previous reviews">&#8592;</button>
+        <div class="gh-reviews__dots">
+          <button class="gh-reviews__dot gh-reviews__dot--active" aria-label="Page 1"></button>
+          <button class="gh-reviews__dot" aria-label="Page 2"></button>
+          <button class="gh-reviews__dot" aria-label="Page 3"></button>
+          <button class="gh-reviews__dot" aria-label="Page 4"></button>
+          <button class="gh-reviews__dot" aria-label="Page 5"></button>
+          <button class="gh-reviews__dot" aria-label="Page 6"></button>
+        </div>
+        <button class="gh-reviews__arrow" aria-label="Next reviews">&#8594;</button>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- SECTION 4: Find Your Perfect Strain for Every Moment -->
+<section class="gh-moments">
+  <h2 class="gh-moments-heading">We Operate Like a Long-Term Supplier</h2>
+
+  <div class="gh-moments-layout">
+    <!-- Image (left on desktop, bottom on mobile) -->
+    <div class="gh-moments-image">
+      <img src="/images/cannabis-buds-arranged-artistically.png" alt="Cannabis buds arranged artistically with Grizzly Herb packaging" loading="lazy">
+    </div>
+
+    <!-- White content card (right on desktop, top on mobile) -->
+    <div class="gh-moments-card">
+      <p class="gh-moments-desc">Whether you're winding down after a busy day or looking to enhance your creativity, <strong>we have the perfect strain for you.</strong> At Grizzly Herb, our collection is carefully chosen to suit every occasion. From relaxing, full-bodied indicas to energizing sativas, <strong>each strain is handpicked to deliver the exact experience you're craving.</strong></p>
+
+      <!-- Feature rows -->
+      <div class="gh-moments-features">
+        <div class="gh-moments-feature">
+          <div class="gh-moments-feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <rect x="2" y="10" width="22" height="16" rx="2.5" fill="#4a7c2c" opacity="0.15"/>
+              <rect x="2" y="10" width="22" height="16" rx="2.5" stroke="#4a7c2c" stroke-width="2"/>
+              <path d="M24 15H33L38 22V26H24V15Z" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="9" cy="28" r="3" fill="#4a7c2c"/>
+              <circle cx="31" cy="28" r="3" fill="#4a7c2c"/>
+              <line x1="24" y1="10" x2="24" y2="26" stroke="#4a7c2c" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="gh-moments-feature-text">
+            <div class="gh-moments-feature-title">Delivery Assurance</div>
+            <div class="gh-moments-feature-desc">If a shipment is delayed or lost, we step in and resolve it.</div>
+          </div>
+        </div>
+
+        <div class="gh-moments-feature">
+          <div class="gh-moments-feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <path d="M20 3L5 9V20C5 28.5 11.5 36 20 38C28.5 36 35 28.5 35 20V9L20 3Z" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="14" y="19" width="12" height="9" rx="2" fill="#4a7c2c"/>
+              <path d="M16 19V16C16 13.8 17.8 12 20 12C22.2 12 24 13.8 24 16V19" stroke="#4a7c2c" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="23.5" r="1.5" fill="white"/>
+            </svg>
+          </div>
+          <div class="gh-moments-feature-text">
+            <div class="gh-moments-feature-title">Payment Protection</div>
+            <div class="gh-moments-feature-desc">If an Interac payment fails or glitches, we handle it promptly.</div>
+          </div>
+        </div>
+
+        <div class="gh-moments-feature">
+          <div class="gh-moments-feature__icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <circle cx="20" cy="20" r="17" fill="#4a7c2c" opacity="0.15" stroke="#4a7c2c" stroke-width="2"/>
+              <path d="M11 21L17 27L29 14" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="gh-moments-feature-text">
+            <div class="gh-moments-feature-title">Satisfaction Guarantee</div>
+            <div class="gh-moments-feature-desc">If something isn't right, we address legitimate concerns quickly.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA + Shipping pill (below both columns) -->
+  <div class="gh-moments-actions">
+    <a href="#products" class="gh-moments-cta">Browse Strains ↑</a>
+    <span class="gh-moments-pill">Not a short-term seller. A long-term supplier.</span>
+  </div>
+</section>
+
+<!-- ======== HOW WE'VE GOT YOU COVERED ======== -->
+<section class="gh-explore">
+  <div class="gh-explore__inner">
+
+    <h2 class="gh-explore__heading">How We've Got You Covered</h2>
+
+    <div class="gh-explore__content">
+
+      <!-- White info card -->
+      <div class="gh-explore__card">
+
+        <!-- Row 1: Delivery Assurance -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <rect x="7" y="22" width="30" height="22" rx="2" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M37 30h8l6 8v6H37V30z" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="17" cy="46" r="4" fill="#2d5016"/>
+            <circle cx="46" cy="46" r="4" fill="#2d5016"/>
+            <line x1="7" y1="38" x2="37" y2="38" stroke="#2d5016" stroke-width="2.5"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Delivery Assurance</h3>
+            <p class="gh-explore__row-text">If a shipment is delayed or lost, we step in immediately to resolve the issue. Our customers are never left without support.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Payment Protection -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <path d="M32 10l18 7v12c0 10-8 18-18 21C22 47 14 39 14 29V17l18-7z" fill="none" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="25" y="30" width="14" height="10" rx="2" fill="none" stroke="#2d5016" stroke-width="2.5"/>
+            <path d="M27 30v-3a5 5 0 0110 0v3" stroke="#2d5016" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Payment Protection</h3>
+            <p class="gh-explore__row-text">If an Interac payment fails or encounters a technical issue, we handle it promptly. We're here to assist with any payment-related concerns.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+        <!-- Row 3: Satisfaction & Quality Guarantee -->
+        <div class="gh-explore__row">
+          <svg class="gh-explore__row-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="12" fill="#edf7e5"/>
+            <circle cx="32" cy="32" r="18" fill="none" stroke="#2d5016" stroke-width="2.5"/>
+            <path d="M22 32l8 8 12-14" stroke="#2d5016" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="gh-explore__row-body">
+            <h3 class="gh-explore__row-title">Satisfaction &amp; Quality Guarantee</h3>
+            <p class="gh-explore__row-text">We address all legitimate concerns quickly and efficiently to ensure a smooth customer experience.</p>
+            <div class="gh-explore__divider"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Image -->
+      <img class="gh-explore__image" src="/images/handpicked-strains-lifestyle-photo.png" alt="Grizzly Herb customer guarantee" loading="lazy">
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: Why We Stand Above the Competition -->
+<section class="gh-compare">
+  <h2 class="gh-compare-heading">Why We Stand Above the Competition</h2>
+
+  <!-- Comparison Table -->
+  <div class="gh-compare-table">
+    <!-- Table header tabs -->
+    <div class="gh-compare-tabs">
+      <div class="gh-compare-tab">Feature</div>
+      <div class="gh-compare-tab gh-compare-tab-brand"><img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb" class="gh-compare-logo"></div>
+      <div class="gh-compare-tab">Other Brands</div>
+    </div>
+
+    <!-- Table body -->
+    <div class="gh-compare-body">
+      <div class="gh-compare-row">
+        <div class="gh-compare-cell gh-compare-feature">Quality Assurance</div>
+        <div class="gh-compare-cell gh-compare-gh">Every strain is handpicked for consistent potency, flavour, and effects.</div>
+        <div class="gh-compare-cell gh-compare-other">Varies from batch to batch. Inconsistent quality can lead to disappointment.</div>
+      </div>
+      <div class="gh-compare-row">
+        <div class="gh-compare-cell gh-compare-feature">Freshness</div>
+        <div class="gh-compare-cell gh-compare-gh">Fresh drops and exclusive genetics</div>
+        <div class="gh-compare-cell gh-compare-other">Often stale or older stock. No guarantee of freshness.</div>
+      </div>
+      <div class="gh-compare-row">
+        <div class="gh-compare-cell gh-compare-feature">Customer Care</div>
+        <div class="gh-compare-cell gh-compare-gh">Real people who care about your experience. Fast and responsive support.</div>
+        <div class="gh-compare-cell gh-compare-other">Poor or nonexistent customer support; long response times.</div>
+      </div>
+      <div class="gh-compare-row">
+        <div class="gh-compare-cell gh-compare-feature">Consistency</div>
+        <div class="gh-compare-cell gh-compare-gh">Trust that every order is as good as the last, with zero surprises.</div>
+        <div class="gh-compare-cell gh-compare-other">Quality can change with every order, leading to buyer's remorse.</div>
+      </div>
+      <div class="gh-compare-row">
+        <div class="gh-compare-cell gh-compare-feature">Pricing</div>
+        <div class="gh-compare-cell gh-compare-gh">Fair, honest pricing for the quality you deserve.</div>
+        <div class="gh-compare-cell gh-compare-other">Inflated prices for &ldquo;premium&rdquo; flower with no guaranteed quality.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION 7: Buy Weed According to Cannabis Type -->
+<section class="gh-types">
+  <h2 class="gh-types-heading">Buy Weed According to Your Favorite Cannabis Type</h2>
+
+  <div class="gh-types-grid">
+    <div class="gh-types-card">
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green indica cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Indica</h3>
+      </div>
+      <p class="gh-types-desc">Indica strains are often sought after for their deeply relaxing effects. Originating from the mountainous regions of Central Asia, these strains have evolved with thick coats of resin, which contribute to their potent therapeutic properties. When you choose Indica from Grizzly Herb, you're selecting a strain that's perfect for winding down after a long day. Many users report feelings of deep body relaxation, calmness, and even sedative effects that can help with sleep.</p>
+    </div>
+    <div class="gh-types-card">
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green hybrid cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Hybrid</h3>
+      </div>
+      <p class="gh-types-desc">Hybrid strains are the harmonious blend of both Indica and Sativa genetics, offering a balanced experience that captures the best of both worlds. At Grizzly Herb, our Hybrid selection is designed to provide users with a versatile cannabis experience. Whether you're looking for a strain to uplift your mood while still relaxing your body or seeking something to enhance creativity without overstimulation, our hybrids have got you covered.</p>
+    </div>
+    <div class="gh-types-card">
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Green sativa cannabis leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Sativa</h3>
+      </div>
+      <p class="gh-types-desc">Sativa strains are known for their energizing and uplifting effects. These plants, which naturally thrive in warm, equatorial regions, have a unique profile that many users love for daytime use. When you select a Sativa from Grizzly Herb, you're opting for a cannabis type that can help elevate your mood, boost your creativity, and provide a burst of energy.</p>
+    </div>
+    <div class="gh-types-card">
+      <div class="gh-types-card-header">
+        <img class="gh-img-placeholder" src="/images/cannabis-type-leaf.png" alt="Full spectrum cannabis extract leaf illustration" loading="lazy">
+        <h3 class="gh-types-name">Full Spectrum</h3>
+      </div>
+      <p class="gh-types-desc">Full Spectrum products are the crown jewels of the cannabis world, containing all the cannabinoids, terpenes, and essential oils extracted from the plant. This ensures an entourage effect, where the combined properties of the cannabis compounds work in harmony, amplifying the therapeutic benefits of each individual compound.</p>
+    </div>
+  </div>
+
+  <div class="gh-types-actions">
+    <a href="#products" class="gh-types-cta">Shop Your Favorite ↑</a>
+    <span class="gh-types-pill">Buy 4oz, Get 1oz Free + Free Shipping over $90</span>
+  </div>
+</section>
+
+<!-- Safer First Order Section -->
+<section class="gh-safer">
+  <div class="gh-safer__inner">
+    <h2 class="gh-safer__heading">A Safer First Order</h2>
+    <p class="gh-safer__sub">This isn't about urgency. It's about giving experienced buyers a smarter way to test us properly.</p>
+    <div class="gh-safer__grid">
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M15 24H33M24 15L33 24L24 33" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 18l-3-3m0 0l3-3m-3 3h4" stroke="#c9a961" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(2, 8) scale(0.9)"/>
+            <text x="24" y="29" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9" font-weight="700" fill="#4a7c2c">4+1</text>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">Buy 4oz, Get 1oz Free</h3>
+        <p class="gh-safer__card-desc">Order 4oz and get a free oz of your choice. Mix and match any strains. Our most popular deal.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <rect x="10" y="17" width="20" height="13" rx="2" fill="none" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M30 21H36L40 27V30H30V21Z" fill="none" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="16" cy="32" r="2.5" fill="#4a7c2c"/>
+            <circle cx="34" cy="32" r="2.5" fill="#4a7c2c"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">Free Shipping Over $90</h3>
+        <p class="gh-safer__card-desc">Orders over $90 ship free Canada wide. No hidden fees at checkout.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M14 25L20 31L34 17" stroke="#4a7c2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">Try Once. Decide After.</h3>
+        <p class="gh-safer__card-desc">If you've been burned before, you shouldn't have to overcommit to test us. One order is enough to know.</p>
+      </div>
+
+      <div class="gh-safer__card">
+        <div class="gh-safer__icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="24" cy="24" r="22" fill="#eaf2e0" stroke="#4a7c2c" stroke-width="2"/>
+            <path d="M24 10L26.8 18.6H36L28.6 23.8L31.4 32.4L24 27.2L16.6 32.4L19.4 23.8L12 18.6H21.2L24 10Z" fill="none" stroke="#4a7c2c" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="gh-safer__card-title">No Inflated Claims</h3>
+        <p class="gh-safer__card-desc">We grade honestly. What you order is what you receive. No "AAAA" exaggerations.</p>
+      </div>
+
+    </div>
+    <div class="gh-safer__cta-wrap">
+      <a href="#products" class="gh-safer__cta">Browse the Collection ↑</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: Why Choose Grizzly Herb -->
+<section class="gh-why">
+  <h2 class="gh-why-heading">Why Experienced Buyers Stay</h2>
+
+  <p class="gh-why-desc">When flower is predictable, everything else becomes easier.</p>
+
+  <!-- Three feature columns -->
+  <div class="gh-why-features">
+
+    <!-- Feature a: Free Express Shipping -->
+    <div class="gh-why-feature">
+      <img class="gh-img-placeholder" src="/images/shipping-truck-icon-for-free-express-delivery.png" alt="Shipping truck icon for free express delivery" loading="lazy">
+      <h3 class="gh-why-feature-title">Fair Pricing</h3>
+      <p class="gh-why-feature-desc">No inflated hype strains. Honest grades across the board.</p>
+      <div class="gh-why-divider"></div>
+    </div>
+
+    <!-- Feature b: Best Price Guarantee -->
+    <div class="gh-why-feature">
+      <img class="gh-img-placeholder" src="/images/price-tag-icon-representing-best-price-guarantee.png" alt="Price tag icon representing best price guarantee" loading="lazy">
+      <h3 class="gh-why-feature-title">Consistent Quality</h3>
+      <p class="gh-why-feature-desc">What you buy today is what you'll get next month.</p>
+      <div class="gh-why-divider"></div>
+    </div>
+
+    <!-- Feature c: Highest Quality -->
+    <div class="gh-why-feature">
+      <img class="gh-img-placeholder" src="/images/quality-badge-icon-representing-highest-quality-standards.png" alt="Quality badge icon representing highest quality standards" loading="lazy">
+      <h3 class="gh-why-feature-title">Responsive Support</h3>
+      <p class="gh-why-feature-desc">Real humans. Fast replies. No runaround.</p>
+      <div class="gh-why-divider"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10: FAQs
+     ============================================================ -->
+<section class="gh-faq">
+  <div class="gh-faq-inner">
+    <div class="gh-faq-heading-col">
+      <h2 class="gh-faq-heading">Straight Answers.<br>No Runaround.</h2>
+    </div>
+    <div class="gh-faq-list-col">
+      <div class="gh-faq-list">
+        <!-- FAQ 1 (expanded by default) -->
+        <div class="gh-faq-item gh-open">
+          <button class="gh-faq-question" aria-expanded="true">
+            <span class="gh-faq-question-text">How long does delivery take?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Orders ship quickly and arrive Canada wide within standard timelines. Most customers receive within 2–4 business days after processing.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">Is shipping discreet?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Yes. Plain packaging. No identifying markings. Nothing that draws attention.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">What if my package doesn't arrive?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Covered by our Delivery Assurance. If a shipment is delayed or lost, we step in and resolve it.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">What if I'm not happy with the quality?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Covered by our Satisfaction Guarantee. If something isn't right, contact us and we address it quickly.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 5 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">Is it lab tested?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Yes. Every batch is tested. We don't sell flower we haven't verified.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 6 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">Who is this for?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Experienced buyers who want a reliable supplier — not a hype-driven drop shop. If consistency matters to you, you're in the right place.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 7 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">What payment methods do you accept?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>We accept Interac E-Transfer and credit cards. Payments are secure and processed quickly.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 8 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">Do you ship outside Canada?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>No. We only ship within Canada.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 9 -->
+        <div class="gh-faq-item">
+          <button class="gh-faq-question" aria-expanded="false">
+            <span class="gh-faq-question-text">How do I start?</span>
+            <span class="gh-faq-icon"></span>
+          </button>
+          <div class="gh-faq-answer">
+            <div class="gh-faq-answer-inner">
+              <p>Browse the collection, choose your strains, create an account, and complete your order. Take advantage of our Buy 4oz, Get 1oz Free bundle deal, and get free shipping on orders over $90.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11: Footer
+     ============================================================ -->
+<footer class="gh-footer">
+  <div class="gh-footer-inner">
+    <!-- Logo + tagline -->
+    <div class="gh-footer-logo-row">
+      <a href="https://grizzlyherb.co" class="gh-footer-logo" aria-label="Grizzly Herb logo">
+        <img src="/images/grizzly-herb-logo.png" alt="Grizzly Herb" loading="lazy">
+      </a>
+      <p class="gh-footer-tagline">Premium Cannabis Delivered to Your Door</p>
+      <p class="gh-footer-tagline gh-footer-tagline--sub">8+ years. 50,000+ orders. Built for repeat buyers.</p>
+    </div>
+
+    <!-- Desktop: two-column layout (accordion + email signup) -->
+    <div class="gh-footer-columns">
+      <!-- Left: Accordion links -->
+      <div class="gh-footer-links-col">
+        <div class="gh-footer-accordion-item">
+          <button class="gh-footer-accordion-btn">
+            <span>Shop</span>
+            <span class="gh-footer-accordion-icon">+</span>
+          </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/shop/">Shop All</a>
+            <a href="https://grizzlyherb.co/strains/">Flower</a>
+            <a href="https://grizzlyherb.co/strains/aaaa/">AAAA Strains</a>
+            <a href="https://grizzlyherb.co/edibles/">Edibles</a>
+            <a href="https://grizzlyherb.co/concentrates/">Concentrates</a>
+            <a href="https://grizzlyherb.co/vape-pens/">Vapes</a>
+            <a href="https://grizzlyherb.co/deals/">Deals</a>
+          </div>
+        </div>
+        <div class="gh-footer-accordion-item">
+          <button class="gh-footer-accordion-btn">
+            <span>FAQ</span>
+            <span class="gh-footer-accordion-icon">+</span>
+          </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/faq/">FAQ</a>
+            <a href="https://grizzlyherb.co/shipping-policy/">Shipping Policy</a>
+            <a href="https://grizzlyherb.co/privacy-policy/">Privacy Policy</a>
+            <a href="https://grizzlyherb.co/terms-of-use/">Terms of Use</a>
+          </div>
+        </div>
+        <div class="gh-footer-accordion-item">
+          <button class="gh-footer-accordion-btn">
+            <span>Contact</span>
+            <span class="gh-footer-accordion-icon">+</span>
+          </button>
+          <div class="gh-footer-accordion-content">
+            <a href="https://grizzlyherb.co/contact-us/">Contact Us</a>
+            <a href="https://grizzlyherb.co/my-account/">My Account</a>
+            <a href="https://grizzlyherb.co/about/">About Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Email signup -->
+      <div class="gh-footer-signup-col">
+        <div class="gh-footer-signup">
+          <input type="email" class="gh-footer-email-input" placeholder="Email address" aria-label="Email address">
+          <button class="gh-footer-signup-btn">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="gh-footer-bottom">
+      <p class="gh-footer-copyright">&copy; 2026 Grizzly Herb</p>
+      <p class="gh-footer-email">Email: support@grizzlyherb.com</p>
+    </div>
+
+    <!-- Payment method icons -->
+    <div class="gh-footer-payments">
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M19.5 21.5h-3l1.9-11.5h3l-1.9 11.5zm12.7-11.2c-.6-.2-1.5-.5-2.7-.5-3 0-5 1.5-5 3.7 0 1.6 1.5 2.5 2.6 3.1 1.2.6 1.6.9 1.6 1.4 0 .8-.9 1.1-1.8 1.1-1.2 0-1.8-.2-2.8-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.2-3.8 0-1.3-.8-2.3-2.5-3.1-1-.5-1.7-.9-1.7-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.3.4l.3.1.3-2.3zm7.8-.3h-2.3c-.7 0-1.3.2-1.6 1l-4.4 10.5h3.2l.6-1.7h3.8l.4 1.7h2.8l-2.5-11.5zm-3.7 7.4l1.2-3.1.5-1.5.3 1.5.7 3.1h-2.7zM17 10l-2.8 7.8-.3-1.5c-.5-1.7-2.1-3.6-3.9-4.5l2.7 9.7h3.2L20.2 10H17z" fill="#1a1f71"/><path d="M11.7 10H7l-.1.3c3.8.9 6.3 3.2 7.3 5.9l-1-5c-.2-.8-.7-1.1-1.5-1.2z" fill="#f7a600"/></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><circle cx="19" cy="16" r="8" fill="#eb001b"/><circle cx="29" cy="16" r="8" fill="#f79e1b"/><path d="M24 10.3a8 8 0 0 1 0 11.4 8 8 0 0 1 0-11.4z" fill="#ff5f00"/></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M12 10h24v12H12z" fill="#f7b731"/><text x="24" y="18.5" text-anchor="middle" fill="#1f1f1f" font-family="Poppins,sans-serif" font-size="7" font-weight="700">INTERAC</text></svg>
+      </div>
+      <div class="gh-payment-icon">
+        <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff"/><path d="M24 6l2.4 5.5H33l-5 4 2 6-5-3.7-5 3.7 2-6-5-4h6.6z" fill="#016fd0"/><text x="24" y="27" text-anchor="middle" fill="#016fd0" font-family="Poppins,sans-serif" font-size="4" font-weight="700">AMEX</text></svg>
+      </div>
+    </div>
+
+    <!-- Verified badges -->
+    <div class="gh-footer-badges">
+      <span class="gh-footer-badge"><span class="gh-badge-check">&#10003;</span> Support Card Transaction</span>
+      <span class="gh-footer-badge"><span class="gh-badge-check">&#10003;</span> Support E-Transfer</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Sticky CTA Bar -->
+<div class="gh-sticky-cta">
+  <div class="gh-sticky-cta__info">
+    <span class="gh-sticky-cta__title">Try It Once. Decide After.</span>
+    <span class="gh-sticky-cta__rating">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg>
+      <strong>4.7</strong> rating from <strong>2,000+</strong> happy Buyers
+    </span>
+    <span class="gh-sticky-cta__offer">Buy 4oz, Get 1oz Free &middot; Free Shipping over $90</span>
+  </div>
+  <a href="#products" class="gh-sticky-cta__btn">Explore Our Options &rarr;</a>
+</div>
+
+<!-- Side Cart Overlay + Panel -->
+<div class="gh-cart-overlay"></div>
+<div class="gh-cart-panel">
+  <div class="gh-cart-panel__header">
+    <h3>Your Stash</h3>
+    <button class="gh-cart-panel__close">&times;</button>
+  </div>
+  <div class="gh-cart-panel__items">
+    <!-- Dynamically populated by JS -->
+  </div>
+  <div class="gh-cart-panel__footer">
+    <div class="gh-cart-panel__total">
+      <span>Total:</span>
+      <span class="gh-cart-panel__total-price">$0.00</span>
+    </div>
+    <button class="gh-cart-panel__checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.gh-root');
+  if(!root) return;
+
+  // === Review carousel infinite auto-scroll (Section 3) ===
+  var track = root.querySelector('.gh-reviews__track');
+  if (track) {
+    var items = track.querySelectorAll('.gh-reviews__card-wrapper');
+    for (var i = 0; i < items.length; i++) {
+      track.appendChild(items[i].cloneNode(true));
+    }
+  }
+
+  // === Product filter tabs ===
+  var filters = root.querySelectorAll('.gh-products__filter');
+  for(var f=0;f<filters.length;f++){
+    filters[f].addEventListener('click', function(){
+      for(var j=0;j<filters.length;j++) filters[j].classList.remove('gh-products__filter--active');
+      this.classList.add('gh-products__filter--active');
+    });
+  }
+
+  // === Side Cart: State & UTM Capture ===
+  var cart = [];
+  // Capture all URL parameters (UTM, coupon, etc.)
+  // Store in sessionStorage so they survive trailing-slash redirects
+  var PARAM_KEY = 'gh_incoming_params';
+  var qs = window.location.search.replace(/^\?/, '');
+  if (qs) {
+    try { sessionStorage.setItem(PARAM_KEY, qs); } catch(e) {}
+  }
+  function getSavedParams() {
+    // Prefer live URL params, fall back to sessionStorage
+    var live = window.location.search.replace(/^\?/, '');
+    if (live) return live;
+    try { return sessionStorage.getItem(PARAM_KEY) || ''; } catch(e) { return ''; }
+  }
+  var overlay = root.querySelector('.gh-cart-overlay');
+  var panel = root.querySelector('.gh-cart-panel');
+  var cartItemsEl = root.querySelector('.gh-cart-panel__items');
+  var totalPriceEl = root.querySelector('.gh-cart-panel__total-price');
+  var navBadge = root.querySelector('.gh-nav__cart-badge');
+
+  // === Generate variant selector pills for each product card ===
+  var variantCards = root.querySelectorAll('.gh-products__card[data-variants]');
+  for (var vc = 0; vc < variantCards.length; vc++) {
+    var vCard = variantCards[vc];
+    var variants = JSON.parse(vCard.getAttribute('data-variants'));
+    var pillRow = document.createElement('div');
+    pillRow.className = 'gh-products__card-variants';
+    // Find first in-stock variant index (falls back to 0 if all are OOS)
+    var firstInStock = 0;
+    var allOos = true;
+    for (var vi = 0; vi < variants.length; vi++) {
+      if (variants[vi].inStock !== false) { allOos = false; if (firstInStock === 0 && vi !== 0) firstInStock = vi; break; }
+      if (vi === 0 && variants[vi].inStock !== false) { allOos = false; }
+    }
+    // Re-scan properly
+    firstInStock = -1;
+    for (var vi = 0; vi < variants.length; vi++) {
+      if (variants[vi].inStock !== false) { if (firstInStock === -1) firstInStock = vi; allOos = false; }
+    }
+    if (firstInStock === -1) firstInStock = 0;
+    if (allOos) vCard.classList.add('gh-products__card--out-of-stock');
+    for (var vi = 0; vi < variants.length; vi++) {
+      var isOos = variants[vi].inStock === false;
+      var pill = document.createElement('button');
+      pill.className = 'gh-products__card-variant' + (vi === firstInStock ? ' gh-products__card-variant--active' : '') + (isOos ? ' gh-products__card-variant--oos' : '');
+      pill.setAttribute('data-vid', variants[vi].vid);
+      pill.setAttribute('data-vprice', variants[vi].price);
+      pill.setAttribute('data-vlabel', variants[vi].label);
+      pill.textContent = variants[vi].label;
+      pillRow.appendChild(pill);
+    }
+    var cardBottom = vCard.querySelector('.gh-products__card-bottom');
+    vCard.insertBefore(pillRow, cardBottom);
+    // Add THC badge if available
+    var thc = vCard.getAttribute('data-thc');
+    if (thc) {
+      var thcEl = document.createElement('div');
+      thcEl.className = 'gh-products__card-thc';
+      thcEl.textContent = 'THC ' + thc;
+      vCard.insertBefore(thcEl, pillRow);
+    }
+    // Set initial price from first in-stock variant
+    var initV = variants[firstInStock];
+    vCard.setAttribute('data-product-price', initV.price);
+    var priceEl = vCard.querySelector('.gh-products__card-price');
+    if (priceEl) {
+      var saleP = parseFloat(initV.price);
+      var regP = initV.regular ? parseFloat(initV.regular) : null;
+      if (regP && regP > saleP) {
+        priceEl.innerHTML = '<span class="gh-products__card-price-old">$' + regP.toFixed(2) + '</span> <span class="gh-products__card-price-new">$' + saleP.toFixed(2) + '</span>';
+      } else {
+        priceEl.innerHTML = '$' + saleP.toFixed(2);
+      }
+    }
+  }
+  // Show More button handler
+  var moreBtn = root.querySelector('.gh-products__more-btn');
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function() {
+      var hidden = root.querySelectorAll('.gh-products__card--hidden');
+      for (var i = 0; i < hidden.length; i++) {
+        hidden[i].classList.remove('gh-products__card--hidden');
+      }
+      root.querySelector('.gh-products__more').style.display = 'none';
+    });
+  }
+
+  // === Append UTM params to ALL outbound links ===
+  var savedParams = getSavedParams();
+  if (savedParams) {
+    var allLinks = root.querySelectorAll('a[href^="http"]');
+    for (var pl = 0; pl < allLinks.length; pl++) {
+      var href = allLinks[pl].getAttribute('href');
+      allLinks[pl].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + savedParams);
+    }
+  }
+
+  function openCart() {
+    overlay.classList.add('gh-cart--open');
+    panel.classList.add('gh-cart--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    overlay.classList.remove('gh-cart--open');
+    panel.classList.remove('gh-cart--open');
+    document.body.style.overflow = '';
+  }
+
+  function getCartTotal() {
+    var total = 0;
+    for (var i = 0; i < cart.length; i++) {
+      total += cart[i].price * cart[i].qty;
+    }
+    return total;
+  }
+
+  function getCartCount() {
+    var count = 0;
+    for (var i = 0; i < cart.length; i++) {
+      count += cart[i].qty;
+    }
+    return count;
+  }
+
+  function updateNavBadge() {
+    var count = getCartCount();
+    navBadge.textContent = count;
+  }
+
+  function updateCardBadges() {
+    var cards = root.querySelectorAll('.gh-products__card');
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var id = card.getAttribute('data-product-id');
+      var badge = card.querySelector('.gh-products__card-btn-qty');
+      if (!badge) continue;
+      var qty = 0;
+      for (var j = 0; j < cart.length; j++) {
+        if (cart[j].id === id) qty += cart[j].qty;
+      }
+      if (qty > 0) {
+        badge.textContent = qty;
+        badge.classList.add('gh-qty--visible');
+      } else {
+        badge.textContent = '0';
+        badge.classList.remove('gh-qty--visible');
+      }
+    }
+  }
+
+  function renderCart() {
+    if (cart.length === 0) {
+      cartItemsEl.innerHTML = '<div class="gh-cart-panel__empty">Your stash is empty.</div>';
+    } else {
+      var html = '';
+      for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        html += '<div class="gh-cart-panel__item" data-product-id="' + item.vid + '">'
+          + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
+          + '<div class="gh-cart-panel__item-info">'
+          + '<div class="gh-cart-panel__item-name">' + item.name + '</div>'
+          + '<div class="gh-cart-panel__item-price">$' + item.price.toFixed(2) + '</div>'
+          + '<div class="gh-cart-panel__item-qty">'
+          + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-minus">&minus;</button>'
+          + '<span class="gh-cart-panel__qty-val">' + item.qty + '</span>'
+          + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-plus">+</button>'
+          + '</div>'
+          + '</div>'
+          + '<button class="gh-cart-panel__item-remove">&times;</button>'
+          + '</div>';
+      }
+      cartItemsEl.innerHTML = html;
+    }
+    var origTotal = getCartTotal();
+    totalPriceEl.innerHTML = '<span style="color:#2d5016;font-weight:700;">$' + origTotal.toFixed(2) + '</span>';
+    updateNavBadge();
+    updateCardBadges();
+  }
+
+  function addToCart(id, vid, name, label, price, image) {
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].vid === vid) {
+        cart[i].qty++;
+        renderCart();
+        openCart();
+        return;
+      }
+    }
+    var displayName = label ? name + ' (' + label + ')' : name;
+    cart.push({ id: id, vid: vid, name: displayName, price: parseFloat(price), image: image, qty: 1 });
+    // Tracklution AddToCart event
+    if (typeof tlq === 'function') {
+      tlq('track', 'AddToCart', {
+        content_name: displayName,
+        content_ids: [vid],
+        value: parseFloat(price),
+        currency: 'CAD'
+      });
+    }
+    if (typeof tlq === 'function') {
+      tlq('track', 'AddToCart', {
+        content_name: displayName,
+        content_ids: [vid],
+        value: parseFloat(price),
+        currency: 'CAD',
+        target: 'LS-74255460-6'
+      });
+    }
+    renderCart();
+    openCart();
+  }
+
+  function removeFromCart(vid) {
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].vid === vid) {
+        cart.splice(i, 1);
+        break;
+      }
+    }
+    renderCart();
+  }
+
+  function changeQty(vid, delta) {
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].vid === vid) {
+        cart[i].qty += delta;
+        if (cart[i].qty < 1) {
+          cart.splice(i, 1);
+        }
+        break;
+      }
+    }
+    renderCart();
+  }
+
+  function buildCheckoutUrl() {
+    if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
+    var params = ['gh_multi=1'];
+    for (var i = 0; i < cart.length; i++) {
+      var idx = i + 1;
+      params.push('vid_' + idx + '=' + encodeURIComponent(cart[i].vid));
+      params.push('qty_' + idx + '=' + encodeURIComponent(cart[i].qty));
+    }
+    // Merge all original URL params (UTM, coupon, any others)
+    var saved = getSavedParams();
+    if (saved) params.push(saved);
+    return 'https://grizzlyherb.co/cart/?' + params.join('&');
+  }
+
+  // Close cart on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeCart();
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.remove('gh-mobile-menu--open');
+    }
+  });
+
+  // Reset checkout button if page is restored from bfcache (user pressed back)
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      var btn = root.querySelector('.gh-cart-panel__checkout-btn');
+      if (btn) btn.classList.remove('gh-checkout--loading');
+    }
+  });
+
+  // Initialize empty cart display
+  renderCart();
+
+  // === Desktop: Show sticky bar only after scrolling past product section ===
+  var stickyBar = root.querySelector('.gh-sticky-cta');
+  var productsSection = root.querySelector('#products');
+  if (stickyBar && productsSection && window.matchMedia('(min-width: 768px)').matches) {
+    var stickyObserver = new IntersectionObserver(function(entries) {
+      var entry = entries[0];
+      // Show only when section has been scrolled past (bottom edge above viewport)
+      if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+        stickyBar.classList.add('gh-sticky--visible');
+      } else {
+        stickyBar.classList.remove('gh-sticky--visible');
+      }
+    }, { threshold: 0 });
+    stickyObserver.observe(productsSection);
+  }
+
+
+    // === Bundle Picker v3 ===
+  (function() {
+    var bbEl = document.querySelector('.gh-bb');
+    if (!bbEl) return;
+    var MAX = 5;
+    var selections = {};
+    var countEl = bbEl.querySelector('.gh-bb__count');
+    var fillEl  = bbEl.querySelector('.gh-bb__progress-fill');
+    var sumEl   = bbEl.querySelector('.gh-bb__summary');
+    var ctaEl   = bbEl.querySelector('.gh-bb__cta');
+
+    function totalSelected() {
+      var t = 0; Object.keys(selections).forEach(function(k){ t += selections[k]; }); return t;
+    }
+    function renderSummary() {
+      var total = totalSelected();
+      if (countEl) countEl.textContent = total;
+      if (fillEl) fillEl.style.width = Math.min((total/MAX)*100,100)+'%';
+      var names = [];
+      Object.keys(selections).forEach(function(pid){
+        if(selections[pid]>0){
+          var c=bbEl.querySelector('.gh-bb__strain[data-pid="'+pid+'"]');
+          var nm=c?c.querySelector('.gh-bb__strain-name').textContent:pid;
+          for(var i=0;i<selections[pid];i++) names.push(nm);
+        }
+      });
+      if(sumEl){
+        if(names.length===0){ sumEl.className='gh-bb__summary gh-bb__summary--empty'; sumEl.textContent='Select 5 strains to build your bundle'; }
+        else if(total<MAX){ sumEl.className='gh-bb__summary'; sumEl.textContent=names.join(', ')+' • '+(MAX-total)+' more to go'; }
+        else{ sumEl.className='gh-bb__summary gh-bb__summary--ready'; sumEl.textContent='✓ '+names.join(', '); }
+      }
+      if(ctaEl){
+        if(total===MAX){ ctaEl.classList.remove('gh-bb__cta--locked'); ctaEl.textContent='Add Bundle to Cart — $340'; }
+        else if(total===0){ ctaEl.classList.add('gh-bb__cta--locked'); ctaEl.textContent='Select 5 Strains to Add to Cart'; }
+        else{ ctaEl.classList.add('gh-bb__cta--locked'); var rem=MAX-total; ctaEl.textContent='Select '+rem+' More Strain'+(rem>1?'s':''); }
+      }
+    }
+    function addBundleToCart(){
+      if(totalSelected()<MAX) return;
+      if(ctaEl){ ctaEl.textContent='Adding...'; ctaEl.classList.add('gh-bb__cta--locked'); }
+      var sp = getSavedParams();
+      var body = new URLSearchParams();
+      body.append('add-to-cart','131822');
+      body.append('quantity','1');
+      body.append('bundle_quantity_372','1');
+      body.append('bundle_quantity_373','1');
+      body.append('bundle_quantity_374','1');
+      body.append('bundle_quantity_375','1');
+      body.append('bundle_quantity_376','1');
+      fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'},
+        body: body.toString()
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var dest = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+        if(data && !data.error){ window.location.href = dest; }
+        else { fallbackSubmit(sp); }
+      })
+      .catch(function(){ fallbackSubmit(sp); });
+    }
+    function fallbackSubmit(sp){
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+      function addField(n,v){ var i=document.createElement('input'); i.type='hidden'; i.name=n; i.value=v; form.appendChild(i); }
+      addField('add-to-cart','131822');
+      addField('quantity','1');
+      addField('bundle_quantity_372','1');
+      addField('bundle_quantity_373','1');
+      addField('bundle_quantity_374','1');
+      addField('bundle_quantity_375','1');
+      addField('bundle_quantity_376','1');
+      document.body.appendChild(form);
+      form.submit();
+    }
+    bbEl.addEventListener('click',function(e){
+      if(e.target.closest('.gh-bb__cta')){
+        if(!e.target.closest('.gh-bb__cta--locked')) addBundleToCart();
+        return;
+      }
+      var plusBtn=e.target.closest('.gh-bb__qty-plus');
+      var minusBtn=e.target.closest('.gh-bb__qty-minus');
+      if(!plusBtn&&!minusBtn) return;
+      var card=e.target.closest('.gh-bb__strain'); if(!card) return;
+      var pid=card.getAttribute('data-pid');
+      var valEl=card.querySelector('.gh-bb__qty-val');
+      var cur=selections[pid]||0;
+      if(plusBtn){ if(totalSelected()>=MAX) return; cur+=1; }
+      else{ if(cur<=0) return; cur-=1; }
+      selections[pid]=cur;
+      if(valEl) valEl.textContent=cur;
+      card.classList.toggle('gh-bb__strain--active',cur>0);
+      renderSummary();
+    });
+    renderSummary();
+  })();
+
+  // === Click delegation ===
+  root.addEventListener('click', function(e){
+    // Hamburger menu toggle
+    var hamburger = e.target.closest('.gh-nav__hamburger');
+    if(hamburger){
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.add('gh-mobile-menu--open');
+      return;
+    }
+
+    // Mobile menu close (overlay or X button)
+    if(e.target.closest('.gh-mobile-menu__close') || e.target.classList.contains('gh-mobile-menu__overlay')){
+      var mobileMenu = root.querySelector('.gh-mobile-menu');
+      if(mobileMenu) mobileMenu.classList.remove('gh-mobile-menu--open');
+      return;
+    }
+
+    // FAQ accordion (one-at-a-time, first open by default)
+    var faqBtn = e.target.closest('.gh-faq-question');
+    if(faqBtn){
+      var item = faqBtn.closest('.gh-faq-item');
+      var wasOpen = item.classList.contains('gh-open');
+      var items = root.querySelectorAll('.gh-faq-item');
+      for(var i=0;i<items.length;i++) items[i].classList.remove('gh-open');
+      if(!wasOpen) item.classList.add('gh-open');
+      return;
+    }
+
+    // Footer accordion toggle
+    var footerBtn = e.target.closest('.gh-footer-accordion-btn');
+    if(footerBtn){
+      var section = footerBtn.closest('.gh-footer-accordion-item');
+      section.classList.toggle('gh-open');
+      return;
+    }
+
+    // Variant pill click
+    var variantBtn = e.target.closest('.gh-products__card-variant');
+    if(variantBtn){
+      if(variantBtn.classList.contains('gh-products__card-variant--oos')) return;
+      var card = variantBtn.closest('.gh-products__card');
+      var siblings = card.querySelectorAll('.gh-products__card-variant');
+      for(var si=0;si<siblings.length;si++) siblings[si].classList.remove('gh-products__card-variant--active');
+      variantBtn.classList.add('gh-products__card-variant--active');
+      var newPrice = variantBtn.getAttribute('data-vprice');
+      card.setAttribute('data-product-price', newPrice);
+      var priceEl = card.querySelector('.gh-products__card-price');
+      if(priceEl) {
+        var origP = parseFloat(newPrice);
+        var activeV = null;
+        var vData = JSON.parse(card.getAttribute('data-variants') || '[]');
+        for (var vi2 = 0; vi2 < vData.length; vi2++) {
+          if (String(vData[vi2].vid) === String(variantBtn.getAttribute('data-vid'))) { activeV = vData[vi2]; break; }
+        }
+        if (activeV && activeV.regular && parseFloat(activeV.regular) > origP) {
+          priceEl.innerHTML = '<span class="gh-products__card-price-new">$' + origP.toFixed(2) + '</span>';
+        } else {
+          priceEl.innerHTML = '$' + origP.toFixed(2);
+        }
+      }
+      return;
+    }
+
+    // "Add to Stash" button click
+    var atcBtn = e.target.closest('.gh-products__card-btn');
+    if(atcBtn){
+      var card = atcBtn.closest('.gh-products__card');
+      if(card && !card.classList.contains('gh-products__card--out-of-stock')){
+        var activeVariant = card.querySelector('.gh-products__card-variant--active');
+        var vid = activeVariant ? activeVariant.getAttribute('data-vid') : card.getAttribute('data-product-id');
+        var label = activeVariant ? activeVariant.getAttribute('data-vlabel') : '';
+        addToCart(
+          card.getAttribute('data-product-id'),
+          vid,
+          card.getAttribute('data-product-name'),
+          label,
+          card.getAttribute('data-product-price'),
+          card.getAttribute('data-product-image')
+        );
+      }
+      return;
+    }
+
+    // Cart icon click — toggle side cart
+    var cartIcon = e.target.closest('.gh-nav__cart');
+    if(cartIcon){
+      if(panel.classList.contains('gh-cart--open')){
+        closeCart();
+      } else {
+        openCart();
+      }
+      return;
+    }
+
+    // Cart overlay click — close
+    if(e.target.classList.contains('gh-cart-overlay')){
+      closeCart();
+      return;
+    }
+
+    // Cart panel close button
+    var closeBtn = e.target.closest('.gh-cart-panel__close');
+    if(closeBtn){
+      closeCart();
+      return;
+    }
+
+    // Cart qty plus
+    var plusBtn = e.target.closest('.gh-cart-panel__qty-plus');
+    if(plusBtn){
+      var cartItem = plusBtn.closest('.gh-cart-panel__item');
+      if(cartItem) changeQty(cartItem.getAttribute('data-product-id'), 1);
+      return;
+    }
+
+    // Cart qty minus
+    var minusBtn = e.target.closest('.gh-cart-panel__qty-minus');
+    if(minusBtn){
+      var cartItem = minusBtn.closest('.gh-cart-panel__item');
+      if(cartItem) changeQty(cartItem.getAttribute('data-product-id'), -1);
+      return;
+    }
+
+    // Cart item remove
+    var removeBtn = e.target.closest('.gh-cart-panel__item-remove');
+    if(removeBtn){
+      var cartItem = removeBtn.closest('.gh-cart-panel__item');
+      if(cartItem) removeFromCart(cartItem.getAttribute('data-product-id'));
+      return;
+    }
+
+    // Checkout button
+    var checkoutBtn = e.target.closest('.gh-cart-panel__checkout-btn');
+    if(checkoutBtn){
+      if(cart.length > 0){
+        checkoutBtn.classList.add('gh-checkout--loading');
+        var url = buildCheckoutUrl();
+        setTimeout(function(){ window.location.href = url; }, 50);
+      }
+      return;
+    }
+  });
+  // === Marquee: Top Banner ===
+  window.addEventListener('load', function() {
+    var bTrack = document.getElementById('gh-banner-track');
+    if (bTrack) {
+      var bItems = Array.from(bTrack.children);
+      while (bTrack.scrollWidth < window.innerWidth * 3) {
+        bItems.forEach(function(el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden','true'); bTrack.appendChild(c); });
+      }
+      var bSet = bItems.reduce(function(a, el) {
+        return a + el.offsetWidth + parseFloat(window.getComputedStyle(el).marginRight);
+      }, 0);
+      var bStyle = document.createElement('style');
+      bStyle.textContent = '@keyframes gh-b-tick{from{transform:translateX(0)}to{transform:translateX(-' + Math.round(bSet) + 'px)}}';
+      document.head.appendChild(bStyle);
+      bTrack.style.animation = 'gh-b-tick 28s linear infinite';
+      var bDrag=false, bStartX=0, bFrozenX=0;
+      function bGetX(){var t=window.getComputedStyle(bTrack).transform;if(!t||t==='none')return 0;return parseFloat(t.match(/matrix.*\((.+)\)/)[1].split(', ')[4])||0;}
+      function bFreeze(x){bTrack.style.animation='none';bTrack.style.transform='translateX('+x+'px)';}
+      function bResume(x){var p=x%bSet;if(p>0)p-=bSet;var e=(-p/bSet)*28;bTrack.style.transform='';bTrack.style.animation='gh-b-tick 28s linear -'+e.toFixed(3)+'s infinite';}
+      bTrack.addEventListener('mouseenter',function(){if(!bDrag){bFrozenX=bGetX();bFreeze(bFrozenX);}});
+      bTrack.addEventListener('mouseleave',function(){if(!bDrag)bResume(bFrozenX);});
+      bTrack.addEventListener('mousedown',function(e){bDrag=true;bStartX=e.clientX;bFrozenX=bGetX();bFreeze(bFrozenX);bTrack.classList.add('gh-banner__track--dragging');e.preventDefault();});
+      document.addEventListener('mousemove',function(e){if(!bDrag)return;bTrack.style.transform='translateX('+(bFrozenX+e.clientX-bStartX)+'px)';});
+      document.addEventListener('mouseup',function(){if(!bDrag)return;bDrag=false;bTrack.classList.remove('gh-banner__track--dragging');bResume(bGetX());});
+      bTrack.addEventListener('touchstart',function(e){bDrag=true;bStartX=e.touches[0].clientX;bFrozenX=bGetX();bFreeze(bFrozenX);},{passive:true});
+      bTrack.addEventListener('touchmove',function(e){if(!bDrag)return;bTrack.style.transform='translateX('+(bFrozenX+e.touches[0].clientX-bStartX)+'px)';},{passive:true});
+      bTrack.addEventListener('touchend',function(){if(!bDrag)return;bDrag=false;bResume(bGetX());});
+    }
+
+    // === Marquee: Hero Stats Ribbon ===
+    var rTrack = document.getElementById('gh-ribbon-track');
+    if (rTrack) {
+      var rItems = Array.from(rTrack.children);
+      while (rTrack.scrollWidth < window.innerWidth * 3) {
+        rItems.forEach(function(el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden','true'); rTrack.appendChild(c); });
+      }
+      var rSet = rItems.reduce(function(a, el) {
+        return a + el.offsetWidth + parseFloat(window.getComputedStyle(el).marginRight);
+      }, 0);
+      var rStyle = document.createElement('style');
+      rStyle.textContent = '@keyframes gh-r-tick{from{transform:translateX(0)}to{transform:translateX(-' + Math.round(rSet) + 'px)}}';
+      document.head.appendChild(rStyle);
+      rTrack.style.animation = 'gh-r-tick 30s linear infinite';
+      var rDrag=false, rStartX=0, rFrozenX=0;
+      function rGetX(){var t=window.getComputedStyle(rTrack).transform;if(!t||t==='none')return 0;return parseFloat(t.match(/matrix.*\((.+)\)/)[1].split(', ')[4])||0;}
+      function rFreeze(x){rTrack.style.animation='none';rTrack.style.transform='translateX('+x+'px)';}
+      function rResume(x){var p=x%rSet;if(p>0)p-=rSet;var e=(-p/rSet)*30;rTrack.style.transform='';rTrack.style.animation='gh-r-tick 30s linear -'+e.toFixed(3)+'s infinite';}
+      rTrack.addEventListener('mouseenter',function(){if(!rDrag){rFrozenX=rGetX();rFreeze(rFrozenX);}});
+      rTrack.addEventListener('mouseleave',function(){if(!rDrag)rResume(rFrozenX);});
+      rTrack.addEventListener('mousedown',function(e){rDrag=true;rStartX=e.clientX;rFrozenX=rGetX();rFreeze(rFrozenX);rTrack.classList.add('gh-stats-ribbon__track--dragging');e.preventDefault();});
+      document.addEventListener('mousemove',function(e){if(!rDrag)return;rTrack.style.transform='translateX('+(rFrozenX+e.clientX-rStartX)+'px)';});
+      document.addEventListener('mouseup',function(){if(!rDrag)return;rDrag=false;rTrack.classList.remove('gh-stats-ribbon__track--dragging');rResume(rGetX());});
+      rTrack.addEventListener('touchstart',function(e){rDrag=true;rStartX=e.touches[0].clientX;rFrozenX=rGetX();rFreeze(rFrozenX);},{passive:true});
+      rTrack.addEventListener('touchmove',function(e){if(!rDrag)return;rTrack.style.transform='translateX('+(rFrozenX+e.touches[0].clientX-rStartX)+'px)';},{passive:true});
+      rTrack.addEventListener('touchend',function(){if(!rDrag)return;rDrag=false;rResume(rGetX());});
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+<section class="gh-catalog" id="products">
+    <div class="gh-catalog__inner">
+      <h2 class="gh-catalog__heading">Bulk and Individual Strain Options</h2>
+      <p class="gh-catalog__sub">Oz, QP, and full pound options. Stack up and save the more you buy.</p>
       <div class="gh-products__grid">
         <div class="gh-products__card" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160,"inStock":true},{"vid":134417,"label":"QP (4 Oz)","price":320,"inStock":true},{"vid":148689,"label":"Lb (16 Oz)","price":900,"inStock":true}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
@@ -4894,6 +6747,107 @@
     }, { threshold: 0 });
     stickyObserver.observe(productsSection);
   }
+
+  // === Bundle Picker v3 ===
+  (function() {
+    var bbEl = document.querySelector('.gh-bb');
+    if (!bbEl) return;
+    var MAX = 5;
+    var selections = {};
+    var countEl = bbEl.querySelector('.gh-bb__count');
+    var fillEl  = bbEl.querySelector('.gh-bb__progress-fill');
+    var sumEl   = bbEl.querySelector('.gh-bb__summary');
+    var ctaEl   = bbEl.querySelector('.gh-bb__cta');
+
+    function totalSelected() {
+      var t = 0; Object.keys(selections).forEach(function(k){ t += selections[k]; }); return t;
+    }
+    function renderSummary() {
+      var total = totalSelected();
+      if (countEl) countEl.textContent = total;
+      if (fillEl) fillEl.style.width = Math.min((total/MAX)*100,100)+'%';
+      var names = [];
+      Object.keys(selections).forEach(function(pid){
+        if(selections[pid]>0){
+          var c=bbEl.querySelector('.gh-bb__strain[data-pid="'+pid+'"]');
+          var nm=c?c.querySelector('.gh-bb__strain-name').textContent:pid;
+          for(var i=0;i<selections[pid];i++) names.push(nm);
+        }
+      });
+      if(sumEl){
+        if(names.length===0){ sumEl.className='gh-bb__summary gh-bb__summary--empty'; sumEl.textContent='Select 5 strains to build your bundle'; }
+        else if(total<MAX){ sumEl.className='gh-bb__summary'; sumEl.textContent=names.join(', ')+' • '+(MAX-total)+' more to go'; }
+        else{ sumEl.className='gh-bb__summary gh-bb__summary--ready'; sumEl.textContent='✓ '+names.join(', '); }
+      }
+      if(ctaEl){
+        if(total===MAX){ ctaEl.classList.remove('gh-bb__cta--locked'); ctaEl.textContent='Add Bundle to Cart — $340'; }
+        else if(total===0){ ctaEl.classList.add('gh-bb__cta--locked'); ctaEl.textContent='Select 5 Strains to Add to Cart'; }
+        else{ ctaEl.classList.add('gh-bb__cta--locked'); var rem=MAX-total; ctaEl.textContent='Select '+rem+' More Strain'+(rem>1?'s':''); }
+      }
+    }
+    function addBundleToCart(){
+      if(totalSelected()<MAX) return;
+      if(ctaEl){ ctaEl.textContent='Adding...'; ctaEl.classList.add('gh-bb__cta--locked'); }
+      var sp = getSavedParams();
+      var body = new URLSearchParams();
+      body.append('add-to-cart','131822');
+      body.append('quantity','1');
+      body.append('bundle_quantity_372','1');
+      body.append('bundle_quantity_373','1');
+      body.append('bundle_quantity_374','1');
+      body.append('bundle_quantity_375','1');
+      body.append('bundle_quantity_376','1');
+      fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'},
+        body: body.toString()
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var dest = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+        if(data && !data.error){ window.location.href = dest; }
+        else { fallbackSubmit(sp); }
+      })
+      .catch(function(){ fallbackSubmit(sp); });
+    }
+    function fallbackSubmit(sp){
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+      function addField(n,v){ var i=document.createElement('input'); i.type='hidden'; i.name=n; i.value=v; form.appendChild(i); }
+      addField('add-to-cart','131822');
+      addField('quantity','1');
+      addField('bundle_quantity_372','1');
+      addField('bundle_quantity_373','1');
+      addField('bundle_quantity_374','1');
+      addField('bundle_quantity_375','1');
+      addField('bundle_quantity_376','1');
+      document.body.appendChild(form);
+      form.submit();
+    }
+    bbEl.addEventListener('click',function(e){
+      if(e.target.closest('.gh-bb__cta')){
+        if(!e.target.closest('.gh-bb__cta--locked')) addBundleToCart();
+        return;
+      }
+      var plusBtn=e.target.closest('.gh-bb__qty-plus');
+      var minusBtn=e.target.closest('.gh-bb__qty-minus');
+      if(!plusBtn&&!minusBtn) return;
+      var card=e.target.closest('.gh-bb__strain'); if(!card) return;
+      var pid=card.getAttribute('data-pid');
+      var valEl=card.querySelector('.gh-bb__qty-val');
+      var cur=selections[pid]||0;
+      if(plusBtn){ if(totalSelected()>=MAX) return; cur+=1; }
+      else{ if(cur<=0) return; cur-=1; }
+      selections[pid]=cur;
+      if(valEl) valEl.textContent=cur;
+      card.classList.toggle('gh-bb__strain--active',cur>0);
+      renderSummary();
+    });
+    renderSummary();
+  })();
+
+
 
   // === Click delegation ===
   root.addEventListener('click', function(e){
