@@ -3426,6 +3426,10 @@
 .gh-bb__cta:hover { background:#3a6820!important; transform:translateY(-1px); }
 .gh-bb__cta--locked { opacity:0.45!important; pointer-events:none!important; cursor:default!important; transform:none!important; }
 .gh-bb__fine { font-size:12px; color:#9ca3af; text-align:center; margin:0; }
+.gh-bb__bundle-price { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+.gh-bb__bundle-price-old { font-size:1rem; color:#9ca3af; text-decoration:line-through; font-weight:400; }
+.gh-bb__bundle-price-cur { font-size:1.8rem; font-weight:800; color:#2d5016; line-height:1; }
+.gh-bb__bundle-price-save { background:#dc2626; color:#fff; font-size:12px; font-weight:700; border-radius:4px; padding:3px 8px; white-space:nowrap; }
 .gh-bb__collage { display:grid; grid-template-columns:1fr 1fr; gap:8px; border-radius:14px; overflow:hidden; margin-bottom:16px; }
 .gh-bb__collage-img { aspect-ratio:1; overflow:hidden; background:#e5e7eb; }
 .gh-bb__collage-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s; }
@@ -3746,7 +3750,12 @@
     <div class="gh-bb__info">
       <div class="gh-bb__badge">BEST VALUE DEAL</div>
       <h2 class="gh-bb__title">Build Your Mix and Match Bundle</h2>
-      <p class="gh-bb__sub">Pick any 5 strains. Pay for 4, <strong>get 1 oz free.</strong> Cheapest oz is automatically free at checkout.</p>
+      <p class="gh-bb__sub">Pick any 5 strains below. The cheapest oz is free.</p>
+      <div class="gh-bb__bundle-price">
+        <span class="gh-bb__bundle-price-old">$525</span>
+        <span class="gh-bb__bundle-price-cur">$340</span>
+        <span class="gh-bb__bundle-price-save">Save $185</span>
+      </div>
       <div class="gh-bb__progress">
         <div class="gh-bb__progress-label"><span class="gh-bb__count">0</span> of 5 strains selected</div>
         <div class="gh-bb__progress-track"><div class="gh-bb__progress-fill" style="width:0%"></div></div>
@@ -5210,40 +5219,27 @@
         else{ sumEl.className='gh-bb__summary gh-bb__summary--ready'; sumEl.textContent='✓ '+names.join(', '); }
       }
       if(ctaEl){
-        if(total===MAX){ ctaEl.classList.remove('gh-bb__cta--locked'); ctaEl.textContent='Add Bundle to Cart'; }
+        if(total===MAX){ ctaEl.classList.remove('gh-bb__cta--locked'); ctaEl.textContent='Add Bundle to Cart — $340'; }
         else if(total===0){ ctaEl.classList.add('gh-bb__cta--locked'); ctaEl.textContent='Select 5 Strains to Add to Cart'; }
         else{ ctaEl.classList.add('gh-bb__cta--locked'); var rem=MAX-total; ctaEl.textContent='Select '+rem+' More Strain'+(rem>1?'s':''); }
       }
     }
     function addBundleToCart(){
       if(totalSelected()<MAX) return;
-      var items=[];
-      Object.keys(selections).forEach(function(pid){
-        if(selections[pid]<=0) return;
-        var c=bbEl.querySelector('.gh-bb__strain[data-pid="'+pid+'"]');
-        if(!c) return;
-        items.push({
-          pid:pid,
-          vid:c.getAttribute('data-vid'),
-          name:c.querySelector('.gh-bb__strain-name').textContent,
-          price:parseFloat(c.getAttribute('data-price')),
-          img:c.querySelector('.gh-bb__strain-img').src,
-          qty:selections[pid]
-        });
-      });
-      var sorted=items.slice().sort(function(a,b){return a.price-b.price;});
-      var freePid=sorted[0].pid; var freeUsed=false;
-      items.forEach(function(item){
-        for(var q=0;q<item.qty;q++){
-          if(!freeUsed&&item.pid===freePid){
-            addToCart(item.pid,'bundle-free-'+item.pid,item.name,'Free oz',0,item.img);
-            freeUsed=true;
-          } else {
-            addToCart(item.pid,item.vid,item.name,'Oz (28g)',item.price,item.img);
-          }
-        }
-      });
-      openCart();
+      var sp = getSavedParams();
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://grizzlyherb.co/cart/' + (sp ? '?' + sp : '');
+      function addField(n,v){ var i=document.createElement('input'); i.type='hidden'; i.name=n; i.value=v; form.appendChild(i); }
+      addField('add-to-cart','131822');
+      addField('quantity','1');
+      addField('bundle_quantity_372','1');
+      addField('bundle_quantity_373','1');
+      addField('bundle_quantity_374','1');
+      addField('bundle_quantity_375','1');
+      addField('bundle_quantity_376','1');
+      document.body.appendChild(form);
+      form.submit();
     }
     bbEl.addEventListener('click',function(e){
       if(e.target.closest('.gh-bb__cta')){
