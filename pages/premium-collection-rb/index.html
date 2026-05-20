@@ -3308,6 +3308,12 @@
   background: #2d5016;
   color: #ffffff;
 }
+.gh-root .gh-products__card-variant--oos {
+  opacity: 0.38;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 /* ===== Bundle Section ===== */
 .gh-bundle {
@@ -4943,9 +4949,24 @@
     var variants = JSON.parse(vCard.getAttribute('data-variants'));
     var pillRow = document.createElement('div');
     pillRow.className = 'gh-products__card-variants';
+    // Find first in-stock variant index (falls back to 0 if all are OOS)
+    var firstInStock = 0;
+    var allOos = true;
     for (var vi = 0; vi < variants.length; vi++) {
+      if (variants[vi].inStock !== false) { allOos = false; if (firstInStock === 0 && vi !== 0) firstInStock = vi; break; }
+      if (vi === 0 && variants[vi].inStock !== false) { allOos = false; }
+    }
+    // Re-scan properly
+    firstInStock = -1;
+    for (var vi = 0; vi < variants.length; vi++) {
+      if (variants[vi].inStock !== false) { if (firstInStock === -1) firstInStock = vi; allOos = false; }
+    }
+    if (firstInStock === -1) firstInStock = 0;
+    if (allOos) vCard.classList.add('gh-products__card--out-of-stock');
+    for (var vi = 0; vi < variants.length; vi++) {
+      var isOos = variants[vi].inStock === false;
       var pill = document.createElement('button');
-      pill.className = 'gh-products__card-variant' + (vi === 0 ? ' gh-products__card-variant--active' : '');
+      pill.className = 'gh-products__card-variant' + (vi === firstInStock ? ' gh-products__card-variant--active' : '') + (isOos ? ' gh-products__card-variant--oos' : '');
       pill.setAttribute('data-vid', variants[vi].vid);
       pill.setAttribute('data-vprice', variants[vi].price);
       pill.setAttribute('data-vlabel', variants[vi].label);
@@ -4962,12 +4983,13 @@
       thcEl.textContent = 'THC ' + thc;
       vCard.insertBefore(thcEl, pillRow);
     }
-    // Set initial price from first variant (show regular price crossed out if on sale)
-    vCard.setAttribute('data-product-price', variants[0].price);
+    // Set initial price from first in-stock variant
+    var initV = variants[firstInStock];
+    vCard.setAttribute('data-product-price', initV.price);
     var priceEl = vCard.querySelector('.gh-products__card-price');
     if (priceEl) {
-      var saleP = parseFloat(variants[0].price);
-      var regP = variants[0].regular ? parseFloat(variants[0].regular) : null;
+      var saleP = parseFloat(initV.price);
+      var regP = initV.regular ? parseFloat(initV.regular) : null;
       if (regP && regP > saleP) {
         priceEl.innerHTML = '<span class="gh-products__card-price-old">$' + regP.toFixed(2) + '</span> <span class="gh-products__card-price-new">$' + saleP.toFixed(2) + '</span>';
       } else {
@@ -5325,6 +5347,7 @@
     // Variant pill click
     var variantBtn = e.target.closest('.gh-products__card-variant');
     if(variantBtn){
+      if(variantBtn.classList.contains('gh-products__card-variant--oos')) return;
       var card = variantBtn.closest('.gh-products__card');
       var siblings = card.querySelectorAll('.gh-products__card-variant');
       for(var si=0;si<siblings.length;si++) siblings[si].classList.remove('gh-products__card-variant--active');
