@@ -150,11 +150,16 @@ def make_bundle_block(p):
                           f'<h2 class="gh-bb__title">{p["title"]}</h2>')
     block = block.replace('<p class="gh-bb__sub">Pick any 5 strains below. The cheapest oz is free.</p>',
                           f'<p class="gh-bb__sub">{p["sub"]}</p>')
-    trust_html = '\n'.join(f'        <div class="gh-bb__trust-item">{t}</div>' for t in p['trust'])
-    block = re.sub(
-        r'(<div class="gh-bb__trust">).*?(</div>\s*</div>\s*</div>)',
-        lambda m: m.group(1) + '\n' + trust_html + '\n      ' + m.group(2),
-        block, count=1, flags=re.DOTALL)
+    rb_trust_inner = (
+        '        <div class="gh-bb__trust-item">2,000+ verified Canadian orders</div>\n'
+        '        <div class="gh-bb__trust-item">Free shipping on orders over $90</div>\n'
+        '        <div class="gh-bb__trust-item">Same quality flower, every order</div>\n'
+        '        <div class="gh-bb__trust-item">60-day freshness guarantee</div>'
+    )
+    new_trust_inner = '\n'.join(
+        f'        <div class="gh-bb__trust-item">{t}</div>' for t in p['trust']
+    )
+    block = block.replace(rb_trust_inner, new_trust_inner, 1)
     block = block.replace(
         'Cheapest oz is free &middot; Free shipping over $90 &middot; Secure checkout',
         p['fine'])
