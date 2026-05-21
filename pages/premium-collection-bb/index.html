@@ -3608,6 +3608,73 @@
       height: 18px;
       flex-shrink: 0;
     }
+
+    /* ===== Gallery v2: single image + zoom + thumbs ===== */
+    .gh-bb__gallery-main {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #e5e7eb;
+      margin-bottom: 10px;
+      cursor: zoom-in;
+      aspect-ratio: 1;
+    }
+    .gh-bb__gallery-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .gh-bb__gallery-main:hover .gh-bb__gallery-main-img { transform: scale(1.07); }
+    .gh-bb__gallery-zoom-hint {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: rgba(0,0,0,0.38);
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .gh-bb__gallery-main:hover .gh-bb__gallery-zoom-hint { opacity: 1; }
+    .gh-bb__gallery-thumbs {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      margin-bottom: 14px;
+      scrollbar-width: none;
+    }
+    .gh-bb__gallery-thumbs::-webkit-scrollbar { display: none; }
+    .gh-bb__gallery-thumb {
+      flex-shrink: 0;
+      width: 54px; height: 54px;
+      border-radius: 9px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .gh-bb__gallery-thumb:hover { transform: scale(1.06); }
+    .gh-bb__gallery-thumb--active { border-color: #4a7c2c; }
+    .gh-bb__gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gh-bb__lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 9999;
+      align-items: center; justify-content: center; cursor: zoom-out;
+    }
+    .gh-bb__lightbox.gh-bb__lightbox--open { display: flex; }
+    .gh-bb__lightbox img {
+      max-width: 92vw; max-height: 90vh;
+      object-fit: contain; border-radius: 10px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .gh-bb__lightbox-close {
+      position: absolute; top: 14px; right: 20px;
+      color: #fff; font-size: 32px; line-height: 1; cursor: pointer; font-weight: 300;
+    }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -3860,26 +3927,15 @@
 <section class="gh-bb" id="bundle">
   <div class="gh-bb__inner">
     <div class="gh-bb__gallery">
-      <div class="gh-bb__collage">
-        <div class="gh-bb__collage-img">
-          <img src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson" loading="lazy">
-          <span class="gh-bb__collage-name">Mike Tyson</span>
+      <div class="gh-bb__gallery-main" id="gh-bb-main-wrap">
+        <img class="gh-bb__gallery-main-img" id="gh-bb-main-img" src="/images/Flower%206.png" alt="Premium AAAA+ Flower" loading="eager">
+        <div class="gh-bb__gallery-zoom-hint">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle cx="8.5" cy="8.5" r="5.5" stroke="#fff" stroke-width="1.8"/><path d="M14.5 14.5l3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M6 8.5h5M8.5 6v5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
-        <div class="gh-bb__collage-img">
-          <img src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU" loading="lazy">
-          <span class="gh-bb__collage-name">MKU</span>
-        </div>
-        <div class="gh-bb__collage-img">
-          <img src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry" loading="lazy">
-          <span class="gh-bb__collage-name">Gouda Berry</span>
-        </div>
-        <div class="gh-bb__collage-img">
-          <img src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze" loading="lazy">
-          <span class="gh-bb__collage-name">Key Lime Haze</span>
-        </div>
-        <div class="gh-bb__collage-img">
+      </div>
+      <div class="gh-bb__gallery-thumbs" id="gh-bb-thumbs">
+        <div class="gh-bb__gallery-thumb gh-bb__gallery-thumb--active" data-src="/images/Flower%206.png" data-alt="Premium AAAA+ Flower">
           <img src="/images/Flower%206.png" alt="" loading="lazy">
-          <span class="gh-bb__collage-name"></span>
         </div>
       </div>
       <div class="gh-bb__value-card">
@@ -5439,11 +5495,7 @@
           grid.innerHTML = data.products.map(renderBundleProduct).join('');
           selections = {};
           renderSummary();
-          var collageImgs = document.querySelectorAll('.gh-bb__collage-img img');
-          data.products.slice(0, collageImgs.length).forEach(function(p, i) {
-            if (collageImgs[i]) { collageImgs[i].src = p.image; collageImgs[i].alt = p.name;
-              var nameEl = collageImgs[i].parentNode.querySelector('.gh-bb__collage-name');
-              if (nameEl) nameEl.textContent = p.name; }
+          ghBuildThumbs(data.products);
           });
         })
         .catch(function() {
@@ -5453,6 +5505,61 @@
           }
         });
     }
+
+    // ─── Gallery v2 ────────────────────────────────────────────────────
+    var ghMainImg  = document.getElementById('gh-bb-main-img');
+    var ghThumbsEl = document.getElementById('gh-bb-thumbs');
+    function ghSetImage(src, alt) {
+      if (!ghMainImg) return;
+      ghMainImg.src = src; ghMainImg.alt = alt || '';
+      if (ghThumbsEl) {
+        var ts = ghThumbsEl.querySelectorAll('.gh-bb__gallery-thumb');
+        for (var ti = 0; ti < ts.length; ti++) {
+          ts[ti].classList.toggle('gh-bb__gallery-thumb--active',
+            ts[ti].getAttribute('data-src') === src);
+        }
+      }
+    }
+    function ghBuildThumbs(products) {
+      if (!ghThumbsEl) return;
+      ghThumbsEl.innerHTML = '';
+      var td = [{ src: '/images/Flower%206.png', alt: 'Premium AAAA+ Flower' }];
+      products.slice(0, 5).forEach(function(p) { td.push({ src: p.image, alt: p.name }); });
+      td.forEach(function(item, idx) {
+        var t = document.createElement('div');
+        t.className = 'gh-bb__gallery-thumb' + (idx === 0 ? ' gh-bb__gallery-thumb--active' : '');
+        t.setAttribute('data-src', item.src);
+        t.setAttribute('data-alt', item.alt);
+        t.innerHTML = '<img src="' + item.src + '" alt="' + item.alt + '" loading="lazy">';
+        t.addEventListener('click', function() { ghSetImage(item.src, item.alt); });
+        ghThumbsEl.appendChild(t);
+      });
+    }
+    var ghLightbox = document.createElement('div');
+    ghLightbox.className = 'gh-bb__lightbox';
+    ghLightbox.innerHTML = '<span class="gh-bb__lightbox-close">&times;</span><img>';
+    document.body.appendChild(ghLightbox);
+    ghLightbox.addEventListener('click', function() {
+      ghLightbox.classList.remove('gh-bb__lightbox--open');
+    });
+    var ghMainWrap = document.getElementById('gh-bb-main-wrap');
+    if (ghMainWrap) {
+      ghMainWrap.addEventListener('click', function() {
+        var lbImg = ghLightbox.querySelector('img');
+        if (lbImg && ghMainImg) { lbImg.src = ghMainImg.src; }
+        ghLightbox.classList.add('gh-bb__lightbox--open');
+      });
+    }
+    bbEl.addEventListener('click', function(e) {
+      if (e.target.classList.contains('gh-bb__qty-plus') ||
+          e.target.classList.contains('gh-bb__qty-minus')) {
+        var card = e.target.closest('.gh-bb__strain');
+        if (card) {
+          var img = card.querySelector('.gh-bb__strain-img');
+          if (img && img.src) { ghSetImage(img.src, img.alt); }
+        }
+      }
+    });
     loadBundleGrid();
   })();
 
