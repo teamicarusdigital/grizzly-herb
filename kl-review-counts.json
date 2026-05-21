@@ -1,0 +1,18 @@
+{
+  "updated": "2026-05-22T00:00:00Z",
+  "note": "Manually maintained. Edit counts here when product page numbers change.",
+  "counts": {
+    "129248": { "avg": 4.6,  "cnt": 53, "name": "Mike Tyson" },
+    "134438": { "avg": 4.71, "cnt": 17, "name": "Gouda Berry" },
+    "144022": { "avg": 4.67, "cnt": 3,  "name": "Super Lemon Haze" },
+    "144038": { "avg": 4.25, "cnt": 4,  "name": "Cali ZZ" },
+    "148701": { "avg": 4.71, "cnt": 21, "name": "MKU" },
+    "168131": { "avg": 4.67, "cnt": 6,  "name": "Grape Diesel" },
+    "168138": { "avg": 4.67, "cnt": 6,  "name": "Key Lime Haze" },
+    "183859": { "avg": 4.30, "cnt": 10, "name": "Golden Oreoz" },
+    "183881": { "avg": 4.50, "cnt": 2,  "name": "Ghost Breath" },
+    "356979": { "avg": 4.50, "cnt": 2,  "name": "Vanilla Kush" },
+    "357044": { "avg": 4.50, "cnt": 2,  "name": "Peanut Butter Breath" },
+    "357186": { "avg": 4.50, "cnt": 2,  "name": "Purple Kush" }
+  }
+}

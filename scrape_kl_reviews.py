@@ -149,14 +149,38 @@ def main():
 
     results = scrape_all(pid_to_url)
 
-    data = {
+    # If ALL scraped counts are 0, the site likely blocked the scraper.
+    # Keep the existing file intact rather than overwriting good data with zeros.
+    total_scraped = sum(v['cnt'] for v in results.values())
+    if total_scraped == 0:
+        print('\nAll counts are 0 — site likely blocked scraper. Keeping existing file.', flush=True)
+        print('To update counts manually: edit kl-review-counts.json directly.', flush=True)
+        print('Done.', flush=True)
+        return
+
+    # Load existing manual data and merge (scraper wins on products it found counts for)
+    existing = {}
+    if os.path.exists(OUTPUT):
+        try:
+            with open(OUTPUT, encoding='utf-8') as f:
+                existing = json.load(f).get('counts', {})
+        except Exception:
+            pass
+
+    merged = dict(existing)
+    for pid, data in results.items():
+        if data['cnt'] > 0:
+            merged[pid] = data  # scraped value replaces manual value
+
+    output = {
         'updated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-        'counts': results,
+        'note': 'Manually maintained. Edit counts here when product page numbers change.',
+        'counts': merged,
     }
     with open(OUTPUT, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2)
+        json.dump(output, f, indent=2)
 
-    print(f'\nWrote {OUTPUT} ({len(results)} products)', flush=True)
+    print(f'\nWrote {OUTPUT} ({len(merged)} products)', flush=True)
     print('Done.', flush=True)
 
 
