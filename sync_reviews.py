@@ -1,9 +1,15 @@
 """
 sync_reviews.py
 ===============
-Gets review data from Judge.me widget meta stored in WooCommerce product meta.
-This is more accurate than WC's native rating_count (which only counts native reviews).
-For fully live counts, set JDGM_TOKEN env var (Judge.me Public Token from WC admin).
+Priority order for review data:
+ 1. Klaviyo Reviews private API (if KLAVIYO_API_KEY env var is set)
+    Get from: klaviyo.com > Account > API Keys > Create Private Key (read Reviews)
+ 2. Judge.me live API (if JDGM_TOKEN env var is set)
+ 3. Judge.me cached data from WooCommerce product meta
+ 4. WooCommerce native rating_count
+
+NOTE: Klaviyo Reviews (kl_reviews widget) loads counts via JavaScript, so
+simple HTTP scraping returns 0. Set KLAVIYO_API_KEY for live counts.
 """
 import os, re, json, sys
 from urllib.request import urlopen, Request
@@ -13,8 +19,9 @@ sys.stdout.reconfigure(encoding='utf-8')
 WC_KEY    = os.environ.get('WC_KEY',    'ck_c566b213178cba2f87412909fd7fb60dc752df80')
 WC_SECRET = os.environ.get('WC_SECRET', 'cs_03523d8e3ff2c454acf1b76fa37483570de32ef4')
 WC_BASE   = 'https://grizzlyherb.co/wp-json/wc/v3'
-JDGM_TOKEN = os.environ.get('JDGM_TOKEN', '')  # Judge.me Public Token (optional)
+JDGM_TOKEN = os.environ.get('JDGM_TOKEN', '')
 JDGM_DOMAIN = 'grizzlyherb.com'
+KLAVIYO_API_KEY = os.environ.get('KLAVIYO_API_KEY', '')  # Klaviyo private key for Reviews API
 
 PAGES = [
     'pages/premium-collection-rb/index.html',
@@ -23,6 +30,7 @@ PAGES = [
 ]
 
 STAR_PATH = 'M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z'
+
 
 
 def wc_get(path):
@@ -35,6 +43,35 @@ def wc_get(path):
     except Exception as e:
         print(f'  WC API error {path}: {e}', flush=True)
         return None
+
+
+def klaviyo_get(wc_product_id):
+    """
+    Fetch live Klaviyo Reviews aggregate for a WooCommerce product.
+    Requires KLAVIYO_API_KEY env var (private key with Reviews read scope).
+    Get it from: klaviyo.com > Account > API Keys > Create Private Key.
+    """
+    if not KLAVIYO_API_KEY:
+        return None, None
+    # Klaviyo stores WooCommerce products as catalog items with id "woocommerce::{pid}"
+    catalog_id = f'woocommerce::{wc_product_id}'
+    url = (f'https://a.klaviyo.com/api/reviews/aggregate/'
+           f'?filter=equals(product_id,"{catalog_id}")')
+    req = Request(url, headers={
+        'Authorization': f'Klaviyo-API-Key {KLAVIYO_API_KEY}',
+        'revision': '2024-02-15',
+        'Accept': 'application/json',
+    })
+    try:
+        with urlopen(req, timeout=15) as r:
+            data = json.loads(r.read())
+        attrs = (data.get('data') or {}).get('attributes') or {}
+        cnt = int(attrs.get('total_count') or 0)
+        avg = float(attrs.get('average_rating') or 0)
+        return (avg or None), (cnt or None)
+    except Exception as e:
+        print(f'  Klaviyo Reviews API error pid={wc_product_id}: {e}', flush=True)
+        return None, None
 
 
 def jdgm_get(pid):
@@ -119,13 +156,14 @@ def apply(path, ratings):
 
 
 def main():
-    source = 'Judge.me live API' if JDGM_TOKEN else 'Judge.me WC meta (cached)'
-    print(f'=== Review Sync [{source}] ===', flush=True)
+    kl_active = 'Klaviyo API' if KLAVIYO_API_KEY else ''
+    jdgm_active = 'JdgM API' if JDGM_TOKEN else ''
+    sources = ' > '.join(filter(None, [kl_active, jdgm_active, 'JdgM meta', 'WC native']))
+    print(f'=== Review Sync [{sources}] ===', flush=True)
 
     pids = collect_pids()
     print(f'Products: {pids}', flush=True)
 
-    # Fetch all products in one API call
     ids_param = ','.join(pids)
     products = wc_get(f'/products?include={ids_param}&per_page=20') or []
     prod_map = {str(p['id']): p for p in products}
@@ -139,23 +177,28 @@ def main():
 
         name = p['name'].split('|')[0].strip()[:22]
 
-        # 1. Try Judge.me live API (if token set)
-        avg, cnt = jdgm_get(pid)
-
-        # 2. Fall back to cached Judge.me meta in WC
-        if avg is None:
-            avg, cnt = extract_jdgm_meta(p.get('meta_data', []))
-
-        # 3. Fall back to WC native counts
-        if avg is None:
-            avg = float(p.get('average_rating') or 0)
-            cnt = int(p.get('rating_count') or 0)
-            src = 'WC native'
+        # 1. Klaviyo Reviews private API (most accurate - matches kl_reviews widget)
+        avg, cnt = klaviyo_get(pid)
+        if cnt is not None:
+            src = 'Klaviyo API'
         else:
-            src = 'JdgM meta' if not JDGM_TOKEN else 'JdgM API'
+            # 2. Judge.me live API
+            avg, cnt = jdgm_get(pid)
+            if cnt is not None:
+                src = 'JdgM API'
+            else:
+                # 3. Judge.me cached WC meta
+                avg, cnt = extract_jdgm_meta(p.get('meta_data', []))
+                if cnt is not None:
+                    src = 'JdgM meta'
+                else:
+                    # 4. WC native
+                    avg = float(p.get('average_rating') or 0)
+                    cnt = int(p.get('rating_count') or 0)
+                    src = 'WC native'
 
         ratings[pid] = (avg or 0, cnt or 0)
-        print(f'  {pid}  {avg:.2f}★  {cnt} reviews  {name}  [{src}]', flush=True)
+        print(f'  {pid}  {float(avg or 0):.2f}*  {cnt} reviews  {name}  [{src}]', flush=True)
 
     print('\nUpdating pages...', flush=True)
     for path in PAGES:

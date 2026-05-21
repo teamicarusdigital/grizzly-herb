@@ -34,6 +34,7 @@ jobs:
         env:
           WC_KEY: ${{ secrets.WC_KEY }}
           WC_SECRET: ${{ secrets.WC_SECRET }}
+          KLAVIYO_API_KEY: ${{ secrets.KLAVIYO_API_KEY }}
         run: python sync_reviews.py
 
       - name: Commit changes if any
