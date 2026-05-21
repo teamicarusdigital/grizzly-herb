@@ -5103,19 +5103,31 @@
       var html = '';
       for (var i = 0; i < cart.length; i++) {
         var item = cart[i];
-        html += '<div class="gh-cart-panel__item" data-product-id="' + item.vid + '">'
-          + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
-          + '<div class="gh-cart-panel__item-info">'
-          + '<div class="gh-cart-panel__item-name">' + item.name + '</div>'
-          + '<div class="gh-cart-panel__item-price">$' + item.price.toFixed(2) + '</div>'
-          + '<div class="gh-cart-panel__item-qty">'
-          + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-minus">&minus;</button>'
-          + '<span class="gh-cart-panel__qty-val">' + item.qty + '</span>'
-          + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-plus">+</button>'
-          + '</div>'
-          + '</div>'
-          + '<button class="gh-cart-panel__item-remove">&times;</button>'
-          + '</div>';
+        if (item.type === 'bundle') {
+          html += '<div class="gh-cart-panel__item gh-cart-panel__item--bundle" data-product-id="bundle">'
+            + '<div class="gh-cart-panel__item-info">'
+            + '<div class="gh-cart-panel__item-name">5-Strain Bundle'
+            + ' <span class="gh-cart-panel__bundle-tag">4+1 Free</span></div>'
+            + '<div class="gh-cart-panel__bundle-strains">' + item.sub + '</div>'
+            + '<div class="gh-cart-panel__item-price">$340.00</div>'
+            + '</div>'
+            + '<button class="gh-cart-panel__item-remove">&times;</button>'
+            + '</div>';
+        } else {
+          html += '<div class="gh-cart-panel__item" data-product-id="' + item.vid + '">'
+            + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
+            + '<div class="gh-cart-panel__item-info">'
+            + '<div class="gh-cart-panel__item-name">' + item.name + '</div>'
+            + '<div class="gh-cart-panel__item-price">$' + item.price.toFixed(2) + '</div>'
+            + '<div class="gh-cart-panel__item-qty">'
+            + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-minus">&minus;</button>'
+            + '<span class="gh-cart-panel__qty-val">' + item.qty + '</span>'
+            + '<button class="gh-cart-panel__qty-btn gh-cart-panel__qty-plus">+</button>'
+            + '</div>'
+            + '</div>'
+            + '<button class="gh-cart-panel__item-remove">&times;</button>'
+            + '</div>';
+        }
       }
       cartItemsEl.innerHTML = html;
     }
@@ -5169,6 +5181,7 @@
   }
 
   function changeQty(vid, delta) {
+    if (vid === 'bundle') return;
     for (var i = 0; i < cart.length; i++) {
       if (cart[i].vid === vid) {
         cart[i].qty += delta;
@@ -5231,6 +5244,82 @@
     stickyObserver.observe(productsSection);
   }
 
+
+  // === Bundle Side Cart ===
+  function addBundleToSideCart(selections) {
+    var strains = [];
+    Object.keys(selections).forEach(function(pid) {
+      var qty = selections[pid];
+      if (qty < 1) return;
+      var card = document.querySelector('.gh-bb__strain[data-pid="' + pid + '"]');
+      if (!card) return;
+      var name = card.querySelector('.gh-bb__strain-name').textContent;
+      var vid  = card.getAttribute('data-vid');
+      for (var i = 0; i < qty; i++) strains.push({ name: name, vid: vid });
+    });
+    if (strains.length < 5) return;
+    cart = cart.filter(function(item) { return item.type !== 'bundle'; });
+    cart.push({
+      type:    'bundle',
+      vid:     'bundle',
+      name:    '5-Strain Bundle',
+      sub:     strains.map(function(s){ return s.name; }).join(' · '),
+      price:   340,
+      qty:     1,
+      strains: strains
+    });
+    if (typeof tlq === 'function') {
+      tlq('track', 'AddToCart', { content_name: '5-Strain Bundle', content_ids: ['131822'], value: 340, currency: 'CAD' });
+      tlq('track', 'AddToCart', { content_name: '5-Strain Bundle', content_ids: ['131822'], value: 340, currency: 'CAD', target: 'LS-74255460-6' });
+    }
+    renderCart();
+    openCart();
+  }
+
+  // === doCheckout ===
+  function doCheckout() {
+    var bundleItem = null;
+    var regularItems = [];
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].type === 'bundle') bundleItem = cart[i];
+      else regularItems.push(cart[i]);
+    }
+    if (!bundleItem) {
+      window.location.href = buildCheckoutUrl();
+      return;
+    }
+    var sp = getSavedParams();
+    var action = 'https://grizzlyherb.co/checkout/';
+    if (regularItems.length) {
+      var gp = ['gh_multi=1'];
+      regularItems.forEach(function(item, idx) {
+        gp.push('vid_' + (idx+1) + '=' + encodeURIComponent(item.vid));
+        gp.push('qty_' + (idx+1) + '=' + encodeURIComponent(item.qty));
+      });
+      if (sp) gp.push(sp);
+      action += '?' + gp.join('&');
+    } else if (sp) {
+      action += '?' + sp;
+    }
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = action;
+    function addField(n, v) {
+      var inp = document.createElement('input');
+      inp.type = 'hidden'; inp.name = n; inp.value = v;
+      form.appendChild(inp);
+    }
+    addField('add-to-cart', '131822');
+    addField('quantity', '1');
+    addField('bundle_quantity_372', '1');
+    addField('bundle_quantity_373', '1');
+    addField('bundle_quantity_374', '1');
+    addField('bundle_quantity_375', '1');
+    addField('bundle_quantity_376', '1');
+    document.body.appendChild(form);
+    form.submit();
+  }
+
   // === Bundle Picker v3 ===
   (function() {
     var bbEl = document.querySelector('.gh-bb');
@@ -5270,28 +5359,7 @@
     }
     function addBundleToCart(){
       if(totalSelected()<MAX) return;
-      if(ctaEl){ ctaEl.textContent='Adding...'; ctaEl.classList.add('gh-bb__cta--locked'); }
-      var sp = getSavedParams();
-      var body = new URLSearchParams();
-      body.append('add-to-cart','131822');
-      body.append('quantity','1');
-      body.append('bundle_quantity_372','1');
-      body.append('bundle_quantity_373','1');
-      body.append('bundle_quantity_374','1');
-      body.append('bundle_quantity_375','1');
-      body.append('bundle_quantity_376','1');
-      fetch('https://grizzlyherb.co/?wc-ajax=add_to_cart', {
-        method:'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'},
-        body: body.toString()
-      })
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        var dest = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
-        if(data && !data.error){ window.location.href = dest; }
-        else { fallbackSubmit(sp); }
-      })
-      .catch(function(){ fallbackSubmit(sp); });
+      addBundleToSideCart(selections);
     }
     function fallbackSubmit(sp){
       var form = document.createElement('form');
@@ -5468,8 +5536,7 @@
     if(checkoutBtn){
       if(cart.length > 0){
         checkoutBtn.classList.add('gh-checkout--loading');
-        var url = buildCheckoutUrl();
-        setTimeout(function(){ window.location.href = url; }, 50);
+        doCheckout();
       }
       return;
     }
