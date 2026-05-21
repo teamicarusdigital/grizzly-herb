@@ -9,10 +9,10 @@
     "148701": { "avg": 4.71, "cnt": 38, "name": "MKU" },
     "168131": { "avg": 4.67, "cnt": 20, "name": "Grape Diesel" },
     "168138": { "avg": 4.67, "cnt": 20, "name": "Key Lime Haze" },
-    "183859": { "avg": 4.30, "cnt": 10, "name": "Golden Oreoz" },
-    "183881": { "avg": 4.50, "cnt": 2,  "name": "Ghost Breath" },
-    "356979": { "avg": 4.50, "cnt": 2,  "name": "Vanilla Kush" },
-    "357044": { "avg": 4.50, "cnt": 2,  "name": "Peanut Butter Breath" },
-    "357186": { "avg": 4.50, "cnt": 2,  "name": "Purple Kush" }
+    "183859": { "avg": 4.30, "cnt": 16, "name": "Golden Oreoz" },
+    "183881": { "avg": 4.50, "cnt": 17, "name": "Ghost Breath" },
+    "356979": { "avg": 4.50, "cnt": 5,  "name": "Vanilla Kush" },
+    "357044": { "avg": 4.50, "cnt": 11, "name": "Peanut Butter Breath" },
+    "357186": { "avg": 4.50, "cnt": 9,  "name": "Purple Kush" }
   }
 }
