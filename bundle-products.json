@@ -1,0 +1,66 @@
+{
+  "updated": "2026-05-21T17:13:07Z",
+  "bundle_id": 131822,
+  "products": [
+    {
+      "pid": 122898,
+      "vid": 144052,
+      "name": "Cherry Og",
+      "meta": "Indica \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Omfg-strain.jpg",
+      "inStock": true,
+      "rating": 4.82,
+      "reviews": 11,
+      "isNew": false
+    },
+    {
+      "pid": 144030,
+      "vid": 144035,
+      "name": "Nebula",
+      "meta": "Hybrid \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/White-Truffle-4.webp",
+      "inStock": true,
+      "rating": 4.6,
+      "reviews": 5,
+      "isNew": false
+    },
+    {
+      "pid": 144057,
+      "vid": 144062,
+      "name": "OG Bubba Kush",
+      "meta": "Indica \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2023/01/Purple-Milk-Bulk-scaled.jpg",
+      "inStock": true,
+      "rating": 5.0,
+      "reviews": 5,
+      "isNew": false
+    },
+    {
+      "pid": 148691,
+      "vid": 148696,
+      "name": "ZED",
+      "meta": "Hybrid \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/BaM-watermelon-z-strain.png",
+      "inStock": true,
+      "rating": 4.78,
+      "reviews": 18,
+      "isNew": false
+    },
+    {
+      "pid": 148701,
+      "vid": 148706,
+      "name": "MKU",
+      "meta": "Indica \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp",
+      "inStock": true,
+      "rating": 4.74,
+      "reviews": 19,
+      "isNew": false
+    }
+  ]
+}

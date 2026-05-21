@@ -24,11 +24,17 @@ jobs:
           WC_SECRET: ${{ secrets.WC_SECRET }}
         run: python sync_stock.py
 
+      - name: Run bundle products sync
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
+        run: python sync_bundle_products.py
+
       - name: Commit changes if any
         run: |
           git config user.name  "stock-sync[bot]"
           git config user.email "stock-sync@grizzlyherb.co"
-          git add pages/
+          git add pages/ bundle-products.json
           if git diff --staged --quiet; then
             echo "No stock changes — skipping commit and deploy"
             echo "CHANGED=false" >> $GITHUB_ENV
