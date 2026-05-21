@@ -3539,6 +3539,74 @@
       font-weight: 700;
       display: inline;
     }
+
+    /* ===== Bundle gallery upgrade ===== */
+    .gh-bb__collage-img { position: relative; }
+    .gh-bb__collage-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(transparent, rgba(0,0,0,0.68));
+      pointer-events: none;
+    }
+    .gh-bb__collage-name {
+      position: absolute;
+      bottom: 7px; left: 0; right: 0;
+      text-align: center;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      z-index: 1;
+      pointer-events: none;
+      letter-spacing: 0.03em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      padding: 0 4px;
+      line-height: 1.2;
+    }
+    .gh-bb__value-card {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+    }
+    .gh-bb__value-meta {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 4px;
+    }
+    .gh-bb__value-pricing {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .gh-bb__value-was {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      text-decoration: line-through;
+    }
+    .gh-bb__value-now {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+    .gh-bb__value-save {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+    }
+    .gh-bb__trust-item::before { display: none; }
+    .gh-bb__trust-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -3792,16 +3860,52 @@
   <div class="gh-bb__inner">
     <div class="gh-bb__gallery">
       <div class="gh-bb__collage">
-        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson" loading="lazy"></div>
-        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU" loading="lazy"></div>
-        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry" loading="lazy"></div>
-        <div class="gh-bb__collage-img"><img src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze" loading="lazy"></div>
+        <div class="gh-bb__collage-img">
+          <img src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson" loading="lazy">
+          <span class="gh-bb__collage-name">Mike Tyson</span>
+        </div>
+        <div class="gh-bb__collage-img">
+          <img src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU" loading="lazy">
+          <span class="gh-bb__collage-name">MKU</span>
+        </div>
+        <div class="gh-bb__collage-img">
+          <img src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry" loading="lazy">
+          <span class="gh-bb__collage-name">Gouda Berry</span>
+        </div>
+        <div class="gh-bb__collage-img">
+          <img src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze" loading="lazy">
+          <span class="gh-bb__collage-name">Key Lime Haze</span>
+        </div>
+        <div class="gh-bb__collage-img">
+          <img src="/images/Flower%206.png" alt="" loading="lazy">
+          <span class="gh-bb__collage-name"></span>
+        </div>
+      </div>
+      <div class="gh-bb__value-card">
+        <div class="gh-bb__value-meta">Bundle Price</div>
+        <div class="gh-bb__value-pricing">
+          <span class="gh-bb__value-was">$525</span>
+          <span class="gh-bb__value-now">$340</span>
+        </div>
+        <div class="gh-bb__value-save">You save $185 &middot; 5th oz ships free</div>
       </div>
       <div class="gh-bb__trust">
-        <div class="gh-bb__trust-item">Best price per oz in Canada</div>
-        <div class="gh-bb__trust-item">QP and full pound on every strain</div>
-        <div class="gh-bb__trust-item">Free shipping on orders over $90</div>
-        <div class="gh-bb__trust-item">Same strains available every reorder</div>
+        <div class="gh-bb__trust-item">
+          <svg class="gh-bb__trust-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L3 5v5.5c0 3.87 2.95 7.47 7 8 4.05-.53 7-4.13 7-8V5l-7-3z" fill="#4a7c2c" fill-opacity="0.15" stroke="#4a7c2c" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10.5l2 2 4-4" stroke="#4a7c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>2,000+ verified Canadian orders</span>
+        </div>
+        <div class="gh-bb__trust-item">
+          <svg class="gh-bb__trust-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="7" width="11" height="8" rx="1.5" stroke="#4a7c2c" stroke-width="1.5"/><path d="M12 10h3.5L18 13v2h-6v-5z" stroke="#4a7c2c" stroke-width="1.5" stroke-linejoin="round"/><circle cx="5" cy="16.5" r="1.5" fill="#4a7c2c"/><circle cx="15" cy="16.5" r="1.5" fill="#4a7c2c"/></svg>
+          <span>Free shipping on orders over $90</span>
+        </div>
+        <div class="gh-bb__trust-item">
+          <svg class="gh-bb__trust-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 2l2.06 4.18L17 7.27l-3.5 3.41.83 4.82L10 13.27l-4.33 2.23.83-4.82L3 7.27l4.94-.09L10 2z" fill="#4a7c2c" fill-opacity="0.15" stroke="#4a7c2c" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span>Same AAAA+ quality, every order</span>
+        </div>
+        <div class="gh-bb__trust-item">
+          <svg class="gh-bb__trust-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="16" height="13" rx="2" stroke="#4a7c2c" stroke-width="1.5"/><path d="M2 8h16" stroke="#4a7c2c" stroke-width="1.5"/><path d="M6 2v3M14 2v3" stroke="#4a7c2c" stroke-width="1.5" stroke-linecap="round"/><path d="M6 12h4" stroke="#4a7c2c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>60-day freshness guarantee</span>
+        </div>
       </div>
     </div>
     <div class="gh-bb__info">
@@ -3836,14 +3940,14 @@
     </div>
       <p class="gh-catalog__sub">Oz, QP, and full pound options. Stack up and save the more you buy.</p>
       <div class="gh-products__grid">
-        <div class="gh-products__card" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160,"inStock":true},{"vid":134417,"label":"QP (4 Oz)","price":320,"inStock":true},{"vid":148689,"label":"Lb (16 Oz)","price":900,"inStock":true}]'>
+        <div class="gh-products__card" data-product-id="129248" data-rating="4.66" data-reviews="29" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160,"inStock":true},{"vid":134417,"label":"QP (4 Oz)","price":320,"inStock":true},{"vid":148689,"label":"Lb (16 Oz)","price":900,"inStock":true}]'>
           <a class="gh-products__card-link" href="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" target="_blank" rel="noopener">
           <div class="gh-products__card-img-wrap">
             <span class="gh-products__card-badge gh-products__card-badge--stock">In Stock</span>
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" alt="Mike Tyson cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(30 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(29 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Mike Tyson</div>
           </a>
@@ -3860,7 +3964,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp" alt="MKU cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(20 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(19 Reviews)</span>
           </div>
           <div class="gh-products__card-name">MKU</div>
           </a>
@@ -3877,7 +3981,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/04/BUDGET-BUD-GOUDABERRY-1.jpg" alt="Gouda Berry cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(15 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(14 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Gouda Berry</div>
           </a>
@@ -3894,7 +3998,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Key-Lime-Haze-%E2%80%93-Sativa.webp" alt="Key Lime Haze cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(6 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(5 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Key Lime Haze</div>
           </a>
@@ -3911,7 +4015,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/07/Grape-Diesel.png" alt="Grape Diesel cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(6 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(5 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Grape Diesel</div>
           </a>
@@ -3928,7 +4032,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Cali-Zkittlez.jpg" alt="Cali Z.Z. cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(4 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(3 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Cali Z.Z.</div>
           </a>
@@ -3945,7 +4049,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/06/Super-Lemon-Haze.jpg" alt="Super Lemon Haze cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(3 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(2 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Super Lemon Haze</div>
           </a>
@@ -3962,7 +4066,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/GB.webp" alt="Ghost Breath cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(1 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(No Reviews)</span>
           </div>
           <div class="gh-products__card-name">Ghost Breath</div>
           </a>
@@ -3979,7 +4083,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/purple-kush-strain.jpg" alt="Purple Kush cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(No Reviews)</span>
           </div>
           <div class="gh-products__card-name">Purple Kush</div>
           </a>
@@ -3996,7 +4100,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/1567632315-180207_StrainReview_PeanutButterBreath-4.jpg" alt="Peanut Butter Breath cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(No Reviews)</span>
           </div>
           <div class="gh-products__card-name">Peanut Butter Breath</div>
           </a>
@@ -4013,7 +4117,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2026/01/Vanilla-Kush-PG-FL-3.webp-P-568BAG_01.webp" alt="Vanilla Kush cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(0 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(No Reviews)</span>
           </div>
           <div class="gh-products__card-name">Vanilla Kush</div>
           </a>
@@ -4030,7 +4134,7 @@
             <img class="gh-products__card-img" src="https://grizzlyherb.co/wp-content/uploads/2025/08/Oreos.jpeg" alt="Golden Oreoz cannabis flower" loading="lazy">
           </div>
           <div class="gh-products__card-stars">
-            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(4 Reviews)</span>
+            <svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#f8b300"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><svg viewBox="0 0 16 16" fill="#e8e6e3"><path d="M8 0.5l2.12 4.3 4.74.69-3.43 3.34.81 4.73L8 11.27l-4.24 2.29.81-4.73L1.14 5.49l4.74-.69z"/></svg><span class="gh-products__card-reviews">(3 Reviews)</span>
           </div>
           <div class="gh-products__card-name">Golden Oreoz</div>
           </a>
@@ -5336,7 +5440,9 @@
           renderSummary();
           var collageImgs = document.querySelectorAll('.gh-bb__collage-img img');
           data.products.slice(0, collageImgs.length).forEach(function(p, i) {
-            if (collageImgs[i]) { collageImgs[i].src = p.image; collageImgs[i].alt = p.name; }
+            if (collageImgs[i]) { collageImgs[i].src = p.image; collageImgs[i].alt = p.name;
+              var nameEl = collageImgs[i].parentNode.querySelector('.gh-bb__collage-name');
+              if (nameEl) nameEl.textContent = p.name; }
           });
         })
         .catch(function() {

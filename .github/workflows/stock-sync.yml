@@ -30,6 +30,12 @@ jobs:
           WC_SECRET: ${{ secrets.WC_SECRET }}
         run: python sync_bundle_products.py
 
+      - name: Run review sync
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
+        run: python sync_reviews.py
+
       - name: Commit changes if any
         run: |
           git config user.name  "stock-sync[bot]"
