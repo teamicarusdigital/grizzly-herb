@@ -3522,6 +3522,23 @@
     }
     @keyframes gh-spin-burst   { to { transform: rotate(360deg);  } }
     @keyframes gh-counter-spin { to { transform: rotate(-360deg); } }
+
+    /* ===== Cart Item Sale Pricing ===== */
+    .gh-cart-panel__item-price-old {
+      font-size: 10px;
+      color: #bbb;
+      text-decoration: line-through;
+      text-decoration-color: #d44;
+      font-weight: 400;
+      display: inline;
+      margin-right: 5px;
+    }
+    .gh-cart-panel__item-price-sale {
+      font-size: 14px;
+      color: #2d7a1a;
+      font-weight: 700;
+      display: inline;
+    }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -4985,7 +5002,7 @@
             + '</div>';
         } else {
           var cartPriceHtml = (item.regular && item.regular > item.price)
-            ? '<span class="gh-cart-panel__item-price-old">$' + item.regular.toFixed(2) + '</span> $' + item.price.toFixed(2)
+            ? '<span class="gh-cart-panel__item-price-old">$' + item.regular.toFixed(2) + '</span><span class="gh-cart-panel__item-price-sale">$' + item.price.toFixed(2) + '</span>'
             : '$' + item.price.toFixed(2);
           html += '<div class="gh-cart-panel__item" data-product-id="' + item.vid + '">'
             + '<img src="' + item.image + '" class="gh-cart-panel__item-img" alt="' + item.name + '">'
