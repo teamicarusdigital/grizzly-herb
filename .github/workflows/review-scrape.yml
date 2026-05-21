@@ -1,0 +1,56 @@
+name: Weekly Review Scrape
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # Every Monday 9am UTC
+  workflow_dispatch:        # Allow manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright + Chromium
+        run: |
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Scrape Klaviyo review counts
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
+        run: python scrape_kl_reviews.py
+
+      - name: Sync review counts to landing pages
+        env:
+          WC_KEY: ${{ secrets.WC_KEY }}
+          WC_SECRET: ${{ secrets.WC_SECRET }}
+        run: python sync_reviews.py
+
+      - name: Commit and push
+        run: |
+          git config user.name  "review-scrape[bot]"
+          git config user.email "review-scrape@grizzlyherb.co"
+          git add pages/ kl-review-counts.json
+          if git diff --staged --quiet; then
+            echo "No review changes — skipping commit"
+            echo "CHANGED=false" >> $GITHUB_ENV
+          else
+            git commit -m "chore: weekly review sync $(date -u +'%Y-%m-%d')"
+            git push
+            echo "CHANGED=true" >> $GITHUB_ENV
+          fi
+
+      - name: Deploy to Vercel
+        if: env.CHANGED == 'true'
+        run: |
+          curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+          echo "Deploy triggered."
