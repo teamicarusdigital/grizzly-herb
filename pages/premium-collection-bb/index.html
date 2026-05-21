@@ -3468,6 +3468,49 @@
 }
 
 
+
+    /* ===== Spinning Discount Badge ===== */
+    .gh-catalog__heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .gh-spin-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e85d35 0%, #c83810 100%);
+      box-shadow: 0 3px 14px rgba(232, 93, 53, 0.4);
+      flex-shrink: 0;
+      position: relative;
+      animation: gh-spin-outer 18s linear infinite;
+    }
+    .gh-spin-badge::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255, 255, 255, 0.55);
+      animation: gh-spin-outer 9s linear infinite reverse;
+    }
+    .gh-spin-badge__text {
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      animation: gh-spin-inner 18s linear infinite;
+    }
+    @keyframes gh-spin-outer { to { transform: rotate(360deg); } }
+    @keyframes gh-spin-inner { to { transform: rotate(-360deg); } }
 </style>
 
 <!-- Tracklution Pixel -->
@@ -3890,8 +3933,10 @@
   <!-- ======== SECTION 2: SHOP INDIVIDUAL STRAINS ======== -->
   <section class="gh-catalog" id="products">
     <div class="gh-catalog__inner">
-      <div class="gh-catalog__label">BUY 4, GET 1 FREE</div>
-      <h2 class="gh-catalog__heading">Buy Solo, in Bulk, or Bundle 4 for a Free Oz</h2>
+      <div class="gh-catalog__heading-row">
+      <h2 class="gh-catalog__heading">Bulk and Individual Strain Options</h2>
+      <div class="gh-spin-badge"><span class="gh-spin-badge__text">Up to<br>38% off</span></div>
+    </div>
       <p class="gh-catalog__sub">Oz, QP, and full pound options. Stack up and save the more you buy.</p>
       <div class="gh-products__grid">
         <div class="gh-products__card" data-product-id="129248" data-product-name="Mike Tyson" data-product-price="100.00" data-product-image="https://grizzlyherb.co/wp-content/uploads/2025/01/IMG_6113-scaled-1.jpeg" data-product-url="https://grizzlyherb.co/product/mike-tyson-smalls-aaaa/" data-thc="26%" data-variants='[{"vid":129249,"label":"Oz (28g)","price":100,"regular":160,"inStock":true},{"vid":134417,"label":"QP (4 Oz)","price":320,"inStock":true},{"vid":148689,"label":"Lb (16 Oz)","price":900,"inStock":true}]'>
@@ -3905,7 +3950,6 @@
           </div>
           <div class="gh-products__card-name">Mike Tyson</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$100.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3923,7 +3967,6 @@
           </div>
           <div class="gh-products__card-name">MKU</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$85.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3941,7 +3984,6 @@
           </div>
           <div class="gh-products__card-name">Gouda Berry</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$110.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3959,7 +4001,6 @@
           </div>
           <div class="gh-products__card-name">Key Lime Haze</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$80.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3977,7 +4018,6 @@
           </div>
           <div class="gh-products__card-name">Grape Diesel</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$80.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -3995,7 +4035,6 @@
           </div>
           <div class="gh-products__card-name">Cali Z.Z.</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$110.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4013,7 +4052,6 @@
           </div>
           <div class="gh-products__card-name">Super Lemon Haze</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$90.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4031,7 +4069,6 @@
           </div>
           <div class="gh-products__card-name">Ghost Breath</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$90.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4049,7 +4086,6 @@
           </div>
           <div class="gh-products__card-name">Purple Kush</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$90.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4067,7 +4103,6 @@
           </div>
           <div class="gh-products__card-name">Peanut Butter Breath</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$90.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4085,7 +4120,6 @@
           </div>
           <div class="gh-products__card-name">Vanilla Kush</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$90.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn">Add to Stash</button>
@@ -4103,7 +4137,6 @@
           </div>
           <div class="gh-products__card-name">Golden Oreoz</div>
           </a>
-          <div class="gh-products__card-discount">Up to 38% off</div>
           <div class="gh-products__card-price">$80.00</div>
           <div class="gh-products__card-bottom">
             <button class="gh-products__card-btn" disabled>Sold Out</button>
