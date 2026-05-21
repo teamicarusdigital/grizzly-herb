@@ -173,6 +173,7 @@ OLD_COLLAGE_JS = (
     "            if (collageImgs[i]) { collageImgs[i].src = p.image; collageImgs[i].alt = p.name;\n"
     "              var nameEl = collageImgs[i].parentNode.querySelector('.gh-bb__collage-name');\n"
     "              if (nameEl) nameEl.textContent = p.name; }"
+    "\n            });"
 )
 NEW_COLLAGE_JS = "ghBuildThumbs(data.products);"
 
