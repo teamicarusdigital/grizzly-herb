@@ -5365,14 +5365,16 @@
       inp.type = 'hidden'; inp.name = n; inp.value = v;
       form.appendChild(inp);
     }
-    var slotIds = [372, 373, 374, 375, 376];
-    var strains = bundleItem.strains || [];
+    var vidToSlot = {'148706':372,'148696':373,'144062':374,'144035':375,'144052':376};
+    var slotQty = {372:0,373:0,374:0,375:0,376:0};
+    (bundleItem.strains || []).forEach(function(s) {
+      var slot = vidToSlot[String(s.vid)];
+      if (slot) slotQty[slot]++;
+    });
     addField('add-to-cart', '131822');
     addField('quantity', '1');
-    slotIds.forEach(function(slot, i) {
-      addField('bundle_quantity_' + slot, '1');
-      var vid = strains[i] ? strains[i].vid : '';
-      if (vid) addField('bundle_variation_id_' + slot, vid);
+    Object.keys(slotQty).forEach(function(slot) {
+      addField('bundle_quantity_' + slot, slotQty[slot]);
     });
     document.body.appendChild(form);
     form.submit();
