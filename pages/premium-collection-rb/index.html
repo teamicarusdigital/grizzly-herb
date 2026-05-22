@@ -5359,18 +5359,15 @@
       return;
     }
     var sp = getSavedParams();
-    var action = 'https://grizzlyherb.co/checkout/';
+    var gp = ['gh_multi=1'];
     if (regularItems.length) {
-      var gp = ['gh_multi=1'];
       regularItems.forEach(function(item, idx) {
         gp.push('vid_' + (idx+1) + '=' + encodeURIComponent(item.vid));
         gp.push('qty_' + (idx+1) + '=' + encodeURIComponent(item.qty));
       });
-      if (sp) gp.push(sp);
-      action += '?' + gp.join('&');
-    } else if (sp) {
-      action += '?' + sp;
     }
+    if (sp) gp.push(sp);
+    var action = 'https://grizzlyherb.co/checkout/?' + gp.join('&');
     var form = document.createElement('form');
     form.method = 'POST';
     form.action = action;
