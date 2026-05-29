@@ -175,9 +175,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   border: 1px solid #2a2a2a; box-shadow: 0 16px 60px rgba(0,0,0,0.5);
 }
 .annotate-overlay {
-  position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  position: absolute; inset: 0; z-index: 10; pointer-events: all; cursor: crosshair;
 }
-.annotating .annotate-overlay { pointer-events: all; cursor: crosshair; }
 .screenshot { display: block; width: 100%; pointer-events: none; user-select: none; }
 
 /* Double-click zoom hint */
@@ -445,13 +444,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 
   <div class="toolbar">
-    <div class="tool-btn" id="tool-comment" onclick="toggleAnnotate()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      Add Comment
-    </div>
-    <div class="tool-divider"></div>
     <div class="tool-btn" onclick="openLightbox(currentScreenshotSrc())">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
@@ -468,7 +460,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
         Live Page
       </a>
     </div>
-    <span class="toolbar-hint" id="toolbar-hint">Click "Add Comment" then click anywhere on the design</span>
+    <span class="toolbar-hint" id="toolbar-hint">Click anywhere on the design to leave a comment</span>
   </div>
 
   <div class="main">
@@ -518,7 +510,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
-          Click <strong style="color:#e8a63c">Add Comment</strong> then click anywhere on the design to leave a note.
+          Click anywhere on the design to leave a comment.
         </div>
       </div>
 
@@ -821,7 +813,7 @@ function toggleAnnotate() {
   document.getElementById('tool-comment').classList.toggle('active', annotating);
   document.getElementById('toolbar-hint').textContent = annotating
     ? 'Click anywhere on the design to place a comment pin'
-    : 'Click "Add Comment" then click anywhere on the design';
+    : 'Click anywhere on the design to leave a comment';
 
   // Apply crosshair to both wraps (active one shows, other is hidden anyway)
   ['desktop', 'mobile'].forEach(function(v) {
@@ -837,8 +829,8 @@ function toggleAnnotate() {
    HANDLE OVERLAY CLICK — place new pin
    ============================================================ */
 function handleOverlayClick(e, view) {
-  if (!annotating) return;
   e.stopPropagation();
+  annotating = true;
 
   var overlay = e.currentTarget;
   var rect = overlay.getBoundingClientRect();
