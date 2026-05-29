@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THCA Vapes — Design Review | Grizzly Herb</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #fff; min-height: 100vh; }
+
+/* ── Config banner ── */
+.config-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 99999;
+  background: #7f1d1d; border-bottom: 1px solid #991b1b;
+  padding: 10px 20px; font-size: 13px; color: #fca5a5;
+  display: flex; align-items: center; gap: 10px;
+}
+.config-banner strong { color: #fecaca; }
+
+/* ── Gate modal ── */
+.gate-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.96);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; padding: 20px;
+}
+.gate-box {
+  background: #141414; border: 1px solid #2a2a2a; border-radius: 16px;
+  padding: 40px; width: 100%; max-width: 420px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+.gate-logo {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #e8a63c; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 7px;
+}
+.gate-logo-dot {
+  width: 18px; height: 18px; background: #e8a63c; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+}
+.gate-logo-dot svg { display: block; }
+.gate-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.gate-box > p { font-size: 14px; color: #555; margin-bottom: 28px; line-height: 1.5; }
+.gate-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.gate-field label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #555; }
+.gate-field input {
+  background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px;
+  padding: 12px 14px; font-size: 14px; color: #fff; font-family: inherit;
+  outline: none; transition: border-color 0.15s;
+}
+.gate-field input:focus { border-color: #e8a63c; }
+.gate-field input::placeholder { color: #444; }
+.gate-field input:disabled { opacity: 0.5; cursor: not-allowed; }
+.gate-btn {
+  width: 100%; background: #e8a63c; color: #000; font-size: 15px;
+  font-weight: 700; padding: 14px; border-radius: 8px; border: none;
+  cursor: pointer; margin-top: 10px; font-family: inherit; transition: background 0.15s;
+}
+.gate-btn:hover:not(:disabled) { background: #d4922e; }
+.gate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.gate-error { color: #f87171; font-size: 12px; margin-top: 10px; display: none; }
+
+/* Return user resume box inside gate */
+.gate-resume {
+  margin-top: 20px; padding: 16px; background: #1a1a1a;
+  border: 1px solid #2a2a2a; border-radius: 10px; display: none;
+}
+.gate-resume p { font-size: 13px; color: #aaa; line-height: 1.5; margin-bottom: 14px; }
+.gate-resume p strong { color: #fff; }
+.gate-resume-actions { display: flex; gap: 8px; }
+.btn-resume {
+  flex: 1; background: #e8a63c; color: #000; font-size: 13px; font-weight: 700;
+  padding: 10px; border-radius: 7px; border: none; cursor: pointer; font-family: inherit;
+  transition: background 0.15s;
+}
+.btn-resume:hover { background: #d4922e; }
+.btn-fresh {
+  flex: 1; background: #252525; color: #888; font-size: 13px; font-weight: 500;
+  padding: 10px; border-radius: 7px; border: 1px solid #2a2a2a; cursor: pointer;
+  font-family: inherit; transition: all 0.15s;
+}
+.btn-fresh:hover { background: #2a2a2a; color: #ccc; }
+
+/* Loading state inside gate */
+.gate-loading {
+  text-align: center; padding: 16px 0; color: #555; font-size: 13px; display: none;
+}
+.spinner {
+  display: inline-block; width: 16px; height: 16px; border: 2px solid #333;
+  border-top-color: #e8a63c; border-radius: 50%; animation: spin 0.7s linear infinite;
+  vertical-align: middle; margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Main page ── */
+.page { display: none; }
+.page.visible { display: block; }
+
+/* ── Header ── */
+.header {
+  background: #141414; border-bottom: 1px solid #222;
+  padding: 0 32px; display: flex; align-items: stretch;
+  justify-content: space-between; position: sticky; top: 0; z-index: 100;
+  height: 54px;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.badge {
+  background: #2a2a2a; border: 1px solid #333; border-radius: 6px;
+  padding: 4px 10px; font-size: 10px; color: #888;
+  letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap;
+}
+.header h1 { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.reviewer-chip {
+  background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 20px;
+  padding: 5px 14px; font-size: 12px; color: #aaa; white-space: nowrap;
+}
+.reviewer-chip span { color: #e8a63c; }
+
+/* ── Tabs ── */
+.tabs {
+  display: flex; gap: 0; background: #111;
+  border-bottom: 1px solid #1e1e1e; padding: 0 32px;
+  position: sticky; top: 54px; z-index: 99;
+}
+.tab {
+  padding: 13px 18px; font-size: 13px; font-weight: 500; color: #555;
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  display: flex; align-items: center; gap: 7px; user-select: none;
+}
+.tab:hover { color: #ccc; }
+.tab.active { color: #fff; border-bottom-color: #e8a63c; }
+
+/* ── Toolbar ── */
+.toolbar {
+  background: #111; border-bottom: 1px solid #1e1e1e;
+  padding: 10px 32px; display: flex; align-items: center; gap: 10px;
+  position: sticky; top: 98px; z-index: 98;
+}
+.tool-btn {
+  background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px;
+  padding: 7px 13px; font-size: 12px; font-weight: 500; color: #aaa;
+  cursor: pointer; display: flex; align-items: center; gap: 6px;
+  transition: all 0.15s; user-select: none; text-decoration: none;
+  white-space: nowrap;
+}
+.tool-btn:hover { background: #252525; color: #fff; border-color: #333; }
+.tool-btn.active { background: rgba(232,166,60,0.12); border-color: #e8a63c; color: #e8a63c; }
+.tool-btn a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+.tool-divider { width: 1px; height: 22px; background: #2a2a2a; flex-shrink: 0; }
+.toolbar-hint { font-size: 12px; color: #3a3a3a; margin-left: auto; white-space: nowrap; }
+
+/* ── Main layout ── */
+.main { display: grid; grid-template-columns: 1fr 320px; }
+.main { min-height: calc(100vh - 54px - 44px - 46px); }
+.canvas-area { overflow-y: auto; padding: 32px; background: #0f0f0f; }
+.sidebar {
+  background: #111; border-left: 1px solid #1e1e1e;
+  display: flex; flex-direction: column;
+  position: sticky; top: calc(54px + 44px + 46px);
+  height: calc(100vh - 54px - 44px - 46px); overflow: hidden;
+}
+
+/* ── View panels ── */
+.view { display: none; }
+.view.active { display: block; }
+.section-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #3a3a3a; margin-bottom: 16px;
+}
+
+/* ── Annotatable screenshot ── */
+.annotate-wrap {
+  position: relative; border-radius: 10px; overflow: hidden;
+  border: 1px solid #2a2a2a; box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+}
+.annotate-overlay {
+  position: absolute; inset: 0; z-index: 10; pointer-events: none;
+}
+.annotating .annotate-overlay { pointer-events: all; cursor: crosshair; }
+.screenshot { display: block; width: 100%; pointer-events: none; user-select: none; }
+
+/* Double-click zoom hint */
+.zoom-hint {
+  position: absolute; bottom: 12px; right: 12px; z-index: 15;
+  background: rgba(0,0,0,0.65); color: #888; font-size: 11px;
+  padding: 4px 9px; border-radius: 4px; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.annotate-wrap:hover .zoom-hint { opacity: 0; }
+
+/* Browser chrome */
+.browser-bar {
+  background: #252527; padding: 8px 14px; display: flex; align-items: center;
+  gap: 10px; border-bottom: 1px solid #333; flex-shrink: 0;
+}
+.dots { display: flex; gap: 5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f56; } .dot-y { background: #ffbd2e; } .dot-g { background: #27c93f; }
+.browser-url {
+  flex: 1; background: #1c1c1e; border-radius: 5px; padding: 4px 10px;
+  font-size: 11px; color: #666; text-align: center; max-width: 400px; margin: 0 auto;
+}
+
+/* Phone chrome */
+.phone-shell {
+  background: #1c1c1e; border-radius: 36px; overflow: hidden;
+  border: 6px solid #2a2a2a; box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+  max-width: 390px; margin: 0 auto;
+}
+.phone-notch {
+  background: #252527; height: 26px; display: flex;
+  align-items: center; justify-content: center;
+}
+.phone-pill { width: 80px; height: 12px; background: #1c1c1e; border-radius: 8px; }
+
+/* ── Annotation pins ── */
+.pin {
+  position: absolute; width: 28px; height: 28px; border-radius: 50%;
+  background: #e8a63c; color: #000; font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  transform: translate(-50%, -50%); cursor: pointer; z-index: 20;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5); transition: transform 0.15s;
+  border: 2px solid rgba(255,255,255,0.25); pointer-events: all;
+}
+.pin:hover { transform: translate(-50%, -50%) scale(1.18); }
+.pin.saving { opacity: 0.6; cursor: default; animation: pulse 0.8s ease-in-out infinite alternate; }
+@keyframes pulse { from { opacity: 0.4; } to { opacity: 0.9; } }
+
+/* ── Annotation comment popup ── */
+.comment-popup {
+  background: #1e1e1e; border: 1px solid #383838;
+  border-radius: 10px; padding: 14px; width: 250px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7); position: fixed; z-index: 300;
+}
+.comment-popup textarea {
+  width: 100%; background: #252525; border: 1px solid #333; border-radius: 6px;
+  padding: 9px 10px; font-size: 13px; color: #fff; font-family: inherit;
+  resize: none; height: 76px; outline: none; margin-bottom: 10px; line-height: 1.4;
+}
+.comment-popup textarea:focus { border-color: #e8a63c; }
+.comment-popup textarea::placeholder { color: #555; }
+.popup-actions { display: flex; gap: 8px; }
+.popup-save {
+  flex: 1; background: #e8a63c; color: #000; font-size: 12px; font-weight: 700;
+  padding: 8px; border-radius: 6px; border: none; cursor: pointer; font-family: inherit;
+  transition: background 0.15s;
+}
+.popup-save:hover { background: #d4922e; }
+.popup-save:disabled { opacity: 0.5; cursor: not-allowed; }
+.popup-cancel {
+  background: #2a2a2a; color: #888; font-size: 12px; padding: 8px 12px;
+  border-radius: 6px; border: 1px solid #333; cursor: pointer; font-family: inherit;
+  transition: all 0.15s;
+}
+.popup-cancel:hover { background: #333; color: #ccc; }
+
+/* ── Sidebar ── */
+.sidebar-header {
+  padding: 14px 16px; border-bottom: 1px solid #1e1e1e;
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+}
+.sidebar-header h3 { font-size: 13px; font-weight: 600; }
+.annotation-count {
+  background: #e8a63c; color: #000; font-size: 11px; font-weight: 700;
+  border-radius: 10px; padding: 2px 8px; min-width: 22px; text-align: center;
+}
+.sidebar-body { flex: 1; overflow-y: auto; padding: 10px; }
+.sidebar-empty {
+  text-align: center; padding: 36px 20px; color: #3a3a3a; font-size: 13px; line-height: 1.7;
+}
+.sidebar-empty svg { margin: 0 auto 14px; opacity: 0.25; display: block; }
+
+/* Annotation items */
+.ann-item {
+  background: #1a1a1a; border: 1px solid #222; border-radius: 8px;
+  padding: 11px 12px; margin-bottom: 7px; transition: border-color 0.15s;
+}
+.ann-item:hover { border-color: rgba(232,166,60,0.35); }
+.ann-item.ann-saving { opacity: 0.5; }
+.ann-item-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.ann-num {
+  width: 20px; height: 20px; border-radius: 50%; background: #e8a63c; color: #000;
+  font-size: 10px; font-weight: 800; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.ann-pos { font-size: 11px; color: #555; flex: 1; }
+.ann-delete {
+  background: none; border: none; color: #3a3a3a; cursor: pointer;
+  font-size: 13px; padding: 0 3px; line-height: 1; transition: color 0.15s;
+}
+.ann-delete:hover { color: #f87171; }
+.ann-text { font-size: 13px; color: #bbb; line-height: 1.45; }
+
+/* Image attachments */
+.attach-section { border-top: 1px solid #1e1e1e; padding: 12px; flex-shrink: 0; }
+.attach-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: #555; margin-bottom: 10px;
+}
+.attach-btn {
+  width: 100%; background: #1a1a1a; border: 1px dashed #2a2a2a; border-radius: 8px;
+  padding: 13px; font-size: 13px; color: #555; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.15s;
+}
+.attach-btn:hover { border-color: rgba(232,166,60,0.5); color: #aaa; background: #1e1e1e; }
+.attach-previews { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.attach-preview {
+  position: relative; width: 72px; height: 72px; border-radius: 6px;
+  overflow: hidden; border: 1px solid #2a2a2a; flex-shrink: 0;
+}
+.attach-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.attach-remove {
+  position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,0.75);
+  color: #fff; border: none; border-radius: 50%; width: 17px; height: 17px;
+  font-size: 9px; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; line-height: 1;
+}
+
+/* Submit section */
+.submit-section { border-top: 1px solid #1e1e1e; padding: 14px; flex-shrink: 0; }
+.submit-btn {
+  width: 100%; background: #e8a63c; color: #000; font-size: 14px; font-weight: 700;
+  padding: 13px; border-radius: 8px; border: none; cursor: pointer;
+  font-family: inherit; transition: background 0.15s;
+}
+.submit-btn:hover:not(:disabled) { background: #d4922e; }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.submit-note { font-size: 11px; color: #3a3a3a; text-align: center; margin-top: 8px; }
+.submit-success {
+  background: #0a2218; border: 1px solid #163d29; border-radius: 8px;
+  padding: 16px; text-align: center; display: none;
+}
+.submit-success.show { display: block; }
+.submit-success h4 { font-size: 14px; font-weight: 600; color: #4ade80; margin-bottom: 5px; }
+.submit-success p { font-size: 12px; color: #555; }
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.94);
+  z-index: 5000; cursor: zoom-out; overflow: auto;
+}
+.lightbox.open { display: flex; align-items: flex-start; justify-content: center; padding: 48px 32px; }
+.lightbox img { max-width: 100%; border-radius: 6px; box-shadow: 0 0 80px rgba(0,0,0,0.8); }
+.lbox-close {
+  position: fixed; top: 14px; right: 18px; background: #2a2a2a; border: 1px solid #333;
+  color: #fff; width: 34px; height: 34px; border-radius: 50%; font-size: 15px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 5001; transition: background 0.15s;
+}
+.lbox-close:hover { background: #3a3a3a; }
+
+/* ── Mobile responsive ── */
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; }
+  .sidebar {
+    position: static; height: auto; max-height: 500px;
+    border-left: none; border-top: 1px solid #1e1e1e;
+  }
+  .canvas-area { padding: 16px; }
+  .header { padding: 0 16px; }
+  .tabs { padding: 0 16px; }
+  .toolbar { padding: 10px 16px; flex-wrap: wrap; gap: 8px; }
+  .toolbar-hint { display: none; }
+  .header h1 { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Supabase config banner (shown if not configured) ── -->
+<div class="config-banner" id="config-banner" style="display:none">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <span><strong>Supabase not configured</strong> — annotations will not be saved. Contact support to set up the database.</span>
+</div>
+
+<!-- ── Email gate ── -->
+<div class="gate-overlay" id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">
+      <div class="gate-logo-dot">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M2 2L5 8L8 2" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      Grizzly Herb
+    </div>
+    <h2>Design Review</h2>
+    <p>Enter your details to access the THCA Vapes landing page review. Your information helps the team know who reviewed the design.</p>
+
+    <div class="gate-field">
+      <label>Your Name</label>
+      <input id="gate-name" type="text" placeholder="e.g. Alex Johnson" autocomplete="name">
+    </div>
+    <div class="gate-field">
+      <label>Your Email</label>
+      <input id="gate-email" type="email" placeholder="you@company.com" autocomplete="email">
+    </div>
+
+    <div class="gate-loading" id="gate-loading">
+      <span class="spinner"></span> Checking for previous session…
+    </div>
+
+    <button class="gate-btn" id="gate-submit-btn" onclick="enterReview()">Access Design Review →</button>
+    <div class="gate-error" id="gate-error"></div>
+
+    <!-- Resume previous session block (shown inline if session found) -->
+    <div class="gate-resume" id="gate-resume">
+      <p id="gate-resume-text">Welcome back! We found a previous session.</p>
+      <div class="gate-resume-actions">
+        <button class="btn-resume" onclick="resumeSession()">Continue previous review</button>
+        <button class="btn-fresh" onclick="startFresh()">Start fresh</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main page ── -->
+<div class="page" id="page">
+
+  <div class="header">
+    <div class="header-left">
+      <span class="badge">Design Review</span>
+      <h1>THCA Vapes — Landing Page</h1>
+    </div>
+    <div class="reviewer-chip">Reviewing as <span id="reviewer-name-chip">—</span></div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" id="tab-desktop" onclick="switchTab('desktop')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8M12 17v4"/>
+      </svg>
+      Desktop
+    </div>
+    <div class="tab" id="tab-mobile" onclick="switchTab('mobile')">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18"/>
+      </svg>
+      Mobile
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="tool-btn" id="tool-comment" onclick="toggleAnnotate()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      Add Comment
+    </div>
+    <div class="tool-divider"></div>
+    <div class="tool-btn" onclick="openLightbox(currentScreenshotSrc())">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+      </svg>
+      Zoom Full
+    </div>
+    <div class="tool-btn">
+      <a href="https://app.grizzlyherb.us/pages/thca-vapes" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        Live Page
+      </a>
+    </div>
+    <span class="toolbar-hint" id="toolbar-hint">Click "Add Comment" then click anywhere on the design</span>
+  </div>
+
+  <div class="main">
+    <div class="canvas-area">
+
+      <!-- Desktop view -->
+      <div class="view active" id="view-desktop">
+        <p class="section-label">Desktop — 1440px</p>
+        <div class="annotate-wrap" id="wrap-desktop" ondblclick="openLightbox('/review/desktop-full.png')">
+          <div class="browser-bar">
+            <div class="dots">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+            <div class="browser-url">app.grizzlyherb.us/pages/thca-vapes</div>
+          </div>
+          <div class="annotate-overlay" id="overlay-desktop" onclick="handleOverlayClick(event, 'desktop')"></div>
+          <img class="screenshot" id="img-desktop" src="/review/desktop-full.png" alt="Desktop design">
+          <div class="zoom-hint">Double-click to zoom</div>
+        </div>
+      </div>
+
+      <!-- Mobile view -->
+      <div class="view" id="view-mobile">
+        <p class="section-label">Mobile — 390px</p>
+        <div class="phone-shell">
+          <div class="phone-notch"><div class="phone-pill"></div></div>
+          <div class="annotate-wrap" id="wrap-mobile" style="border-radius:0;border:none;box-shadow:none;" ondblclick="openLightbox('/review/mobile-full.png')">
+            <div class="annotate-overlay" id="overlay-mobile" onclick="handleOverlayClick(event, 'mobile')"></div>
+            <img class="screenshot" id="img-mobile" src="/review/mobile-full.png" alt="Mobile design">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Annotations</h3>
+        <span class="annotation-count" id="ann-count">0</span>
+      </div>
+
+      <div class="sidebar-body" id="ann-list">
+        <div class="sidebar-empty" id="ann-empty">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Click <strong style="color:#e8a63c">Add Comment</strong> then click anywhere on the design to leave a note.
+        </div>
+      </div>
+
+      <div class="attach-section">
+        <div class="attach-label">Attach Reference Images</div>
+        <div class="attach-btn" onclick="document.getElementById('file-input').click()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Upload images
+        </div>
+        <input type="file" id="file-input" accept="image/*" multiple style="display:none" onchange="handleFiles(this.files)">
+        <div class="attach-previews" id="attach-previews"></div>
+      </div>
+
+      <div class="submit-section">
+        <div class="submit-success" id="submit-success">
+          <h4>Feedback sent!</h4>
+          <p>The Grizzly Herb team has been notified.</p>
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="submitAll()">Submit All Feedback</button>
+        <div class="submit-note">Sent to team@icarusdigitalmarketing.com</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lbox-img" src="" alt="Full-size design">
+</div>
+
+<!-- Comment popup (fixed-positioned, moved by JS) -->
+<div id="comment-popup" class="comment-popup" style="display:none;">
+  <textarea id="popup-text" placeholder="Describe what you'd like changed…" rows="3"></textarea>
+  <div class="popup-actions">
+    <button class="popup-save" id="popup-save-btn" onclick="savePin()">Add Note</button>
+    <button class="popup-cancel" onclick="cancelPin()">Cancel</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   SUPABASE CONFIG
+   ============================================================ */
+var SUPABASE_URL = 'https://hhdxbxmumfnugnprmqsp.supabase.co';
+var SUPABASE_ANON_KEY = 'sb_publishable_rDRTKAOiJxN1iXKqJr21lA_-bhIZkdZ';
+
+var supabaseReady = (
+  SUPABASE_URL !== 'SUPABASE_URL_HERE' &&
+  SUPABASE_ANON_KEY !== 'SUPABASE_ANON_KEY_HERE' &&
+  SUPABASE_URL.length > 10 &&
+  SUPABASE_ANON_KEY.length > 10
+);
+
+var db = null;
+if (supabaseReady && window.supabase) {
+  db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+/* ============================================================
+   DB HELPERS
+   ============================================================ */
+function dbCreateSession(name, email) {
+  if (!db) return Promise.resolve({ id: 'local-' + Date.now(), reviewer_name: name, reviewer_email: email, status: 'open' });
+  return db.from('review_sessions')
+    .insert({ reviewer_name: name, reviewer_email: email })
+    .select()
+    .single()
+    .then(function(r) { if (r.error) throw r.error; return r.data; });
+}
+
+function dbGetLatestSession(email) {
+  if (!db) return Promise.resolve(null);
+  return db.from('review_sessions')
+    .select('*, annotations(*)')
+    .eq('reviewer_email', email)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .then(function(r) { return (r.data && r.data[0]) ? r.data[0] : null; });
+}
+
+function dbAddAnnotation(sessionId, ann) {
+  if (!db) return Promise.resolve({ id: 'local-' + Date.now() });
+  return db.from('annotations')
+    .insert({
+      session_id: sessionId,
+      view: ann.view,
+      x_pct: ann.x,
+      y_pct: ann.y,
+      text: ann.text,
+      num: ann.num
+    })
+    .select()
+    .single()
+    .then(function(r) { if (r.error) throw r.error; return r.data; });
+}
+
+function dbDeleteAnnotation(dbId) {
+  if (!db || !dbId || String(dbId).indexOf('local-') === 0) return Promise.resolve();
+  return db.from('annotations').delete().eq('id', dbId);
+}
+
+function dbSubmitSession(sessionId) {
+  if (!db || !sessionId || String(sessionId).indexOf('local-') === 0) return Promise.resolve();
+  return db.from('review_sessions')
+    .update({ status: 'submitted', submitted_at: new Date().toISOString() })
+    .eq('id', sessionId)
+    .then(function(r) { if (r.error) throw r.error; return r.data; });
+}
+
+/* ============================================================
+   APP STATE
+   ============================================================ */
+var reviewer = { name: '', email: '' };
+var sessionId = null;
+var annotations = [];        // { id (local), dbId, view, x, y, text, num }
+var pendingPin = null;       // temp before popup confirmed
+var annotating = false;
+var attachedFiles = [];
+var currentView = 'desktop';
+var foundSession = null;     // populated when returning user found
+
+/* ============================================================
+   INIT — check Supabase config on load
+   ============================================================ */
+(function init() {
+  if (!supabaseReady) {
+    document.getElementById('config-banner').style.display = 'flex';
+  }
+})();
+
+/* ============================================================
+   GATE — ENTER REVIEW
+   ============================================================ */
+function setGateLoading(loading) {
+  document.getElementById('gate-loading').style.display = loading ? 'block' : 'none';
+  document.getElementById('gate-submit-btn').disabled = loading;
+  document.getElementById('gate-name').disabled = loading;
+  document.getElementById('gate-email').disabled = loading;
+}
+
+function showGateError(msg) {
+  var el = document.getElementById('gate-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function hideGateError() {
+  document.getElementById('gate-error').style.display = 'none';
+}
+
+function enterReview() {
+  var name = document.getElementById('gate-name').value.trim();
+  var email = document.getElementById('gate-email').value.trim();
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  hideGateError();
+  document.getElementById('gate-resume').style.display = 'none';
+
+  if (!name) { showGateError('Please enter your name.'); return; }
+  if (!emailOk) { showGateError('Please enter a valid email address.'); return; }
+
+  reviewer.name = name;
+  reviewer.email = email;
+
+  setGateLoading(true);
+
+  dbGetLatestSession(email).then(function(session) {
+    setGateLoading(false);
+
+    if (session && session.status !== 'submitted') {
+      // Returning user — offer resume
+      foundSession = session;
+      var annCount = session.annotations ? session.annotations.length : 0;
+      document.getElementById('gate-resume-text').innerHTML =
+        'Welcome back, <strong>' + escHtml(name) + '!</strong> We found your previous review with ' +
+        '<strong>' + annCount + '</strong> annotation' + (annCount !== 1 ? 's' : '') + '. Would you like to continue or start fresh?';
+      document.getElementById('gate-resume').style.display = 'block';
+      document.getElementById('gate-submit-btn').style.display = 'none';
+    } else {
+      // New user or submitted session — create new
+      createNewSession();
+    }
+  }).catch(function(err) {
+    setGateLoading(false);
+    console.warn('Supabase lookup error:', err);
+    // Fall through and create a new session anyway
+    createNewSession();
+  });
+}
+
+function createNewSession() {
+  setGateLoading(true);
+  dbCreateSession(reviewer.name, reviewer.email).then(function(sess) {
+    setGateLoading(false);
+    sessionId = sess.id;
+    openPage();
+  }).catch(function(err) {
+    setGateLoading(false);
+    console.warn('Could not create session:', err);
+    // Still let user in — just without persistence
+    sessionId = 'local-' + Date.now();
+    openPage();
+  });
+}
+
+function resumeSession() {
+  if (!foundSession) return;
+  sessionId = foundSession.id;
+
+  // Load annotations from found session
+  if (foundSession.annotations && foundSession.annotations.length > 0) {
+    foundSession.annotations.sort(function(a, b) { return a.num - b.num; });
+    foundSession.annotations.forEach(function(row) {
+      annotations.push({
+        id: row.id,
+        dbId: row.id,
+        view: row.view,
+        x: parseFloat(row.x_pct),
+        y: parseFloat(row.y_pct),
+        text: row.text,
+        num: row.num
+      });
+    });
+  }
+
+  openPage();
+}
+
+function startFresh() {
+  foundSession = null;
+  document.getElementById('gate-resume').style.display = 'none';
+  document.getElementById('gate-submit-btn').style.display = 'block';
+  createNewSession();
+}
+
+function openPage() {
+  // Notify team via FormSubmit
+  var fd = new FormData();
+  fd.append('_subject', 'Design Review Accessed — ' + reviewer.name + ' (' + reviewer.email + ')');
+  fd.append('Reviewer', reviewer.name);
+  fd.append('Email', reviewer.email);
+  fd.append('Time', new Date().toLocaleString());
+  fd.append('Page', 'THCA Vapes Landing Page');
+  fd.append('_captcha', 'false');
+  fd.append('_template', 'table');
+  fetch('https://formsubmit.co/ajax/team@icarusdigitalmarketing.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).catch(function() {});
+
+  // Show main page
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('page').classList.add('visible');
+  document.getElementById('reviewer-name-chip').textContent = reviewer.name;
+
+  renderPins();
+  renderSidebar();
+}
+
+// Gate keyboard navigation
+document.getElementById('gate-name').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('gate-email').focus();
+});
+document.getElementById('gate-email').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') enterReview();
+});
+
+/* ============================================================
+   TABS
+   ============================================================ */
+function switchTab(view) {
+  currentView = view;
+
+  document.getElementById('tab-desktop').classList.toggle('active', view === 'desktop');
+  document.getElementById('tab-mobile').classList.toggle('active', view === 'mobile');
+
+  document.getElementById('view-desktop').classList.toggle('active', view === 'desktop');
+  document.getElementById('view-mobile').classList.toggle('active', view === 'mobile');
+
+  // Re-apply annotating state to newly visible wrap
+  var wrap = document.getElementById('wrap-' + view);
+  if (wrap) wrap.classList.toggle('annotating', annotating);
+
+  renderPins();
+}
+
+/* ============================================================
+   ANNOTATE TOGGLE
+   ============================================================ */
+function toggleAnnotate() {
+  annotating = !annotating;
+
+  document.getElementById('tool-comment').classList.toggle('active', annotating);
+  document.getElementById('toolbar-hint').textContent = annotating
+    ? 'Click anywhere on the design to place a comment pin'
+    : 'Click "Add Comment" then click anywhere on the design';
+
+  // Apply crosshair to both wraps (active one shows, other is hidden anyway)
+  ['desktop', 'mobile'].forEach(function(v) {
+    var w = document.getElementById('wrap-' + v);
+    if (w) w.classList.toggle('annotating', annotating);
+  });
+
+  // Cancel any pending pin when turning off
+  if (!annotating && pendingPin) cancelPin();
+}
+
+/* ============================================================
+   HANDLE OVERLAY CLICK — place new pin
+   ============================================================ */
+function handleOverlayClick(e, view) {
+  if (!annotating) return;
+  e.stopPropagation();
+
+  var overlay = e.currentTarget;
+  var rect = overlay.getBoundingClientRect();
+  var xPct = ((e.clientX - rect.left) / rect.width * 100);
+  var yPct = ((e.clientY - rect.top) / rect.height * 100);
+
+  // Clamp to valid range
+  xPct = Math.max(0, Math.min(100, xPct));
+  yPct = Math.max(0, Math.min(100, yPct));
+
+  pendingPin = {
+    view: view,
+    x: parseFloat(xPct.toFixed(2)),
+    y: parseFloat(yPct.toFixed(2)),
+    localId: Date.now()
+  };
+
+  // Show popup near click, keeping it on screen
+  var popup = document.getElementById('comment-popup');
+  popup.style.display = 'block';
+
+  var px = e.clientX + 18;
+  var py = e.clientY - 18;
+  var popupW = 258;
+  var popupH = 140;
+
+  if (px + popupW > window.innerWidth - 8) px = e.clientX - popupW - 10;
+  if (py + popupH > window.innerHeight - 8) py = e.clientY - popupH - 10;
+  if (px < 8) px = 8;
+  if (py < 8) py = 8;
+
+  popup.style.left = px + 'px';
+  popup.style.top = py + 'px';
+
+  document.getElementById('popup-text').value = '';
+  document.getElementById('popup-save-btn').disabled = false;
+  setTimeout(function() { document.getElementById('popup-text').focus(); }, 10);
+}
+
+/* ============================================================
+   SAVE PIN — persist to Supabase
+   ============================================================ */
+function savePin() {
+  var text = document.getElementById('popup-text').value.trim();
+  if (!text) { document.getElementById('popup-text').focus(); return; }
+
+  var saveBtn = document.getElementById('popup-save-btn');
+  saveBtn.disabled = true;
+  saveBtn.textContent = 'Saving…';
+
+  var ann = {
+    id: pendingPin.localId,
+    dbId: null,
+    view: pendingPin.view,
+    x: pendingPin.x,
+    y: pendingPin.y,
+    text: text,
+    num: annotations.length + 1
+  };
+
+  annotations.push(ann);
+  pendingPin = null;
+
+  // Hide popup immediately for UX
+  document.getElementById('comment-popup').style.display = 'none';
+
+  // Turn off annotating mode after placing one pin
+  annotating = false;
+  document.getElementById('tool-comment').classList.remove('active');
+  document.getElementById('toolbar-hint').textContent = 'Click "Add Comment" then click anywhere on the design';
+  ['desktop', 'mobile'].forEach(function(v) {
+    var w = document.getElementById('wrap-' + v);
+    if (w) w.classList.remove('annotating');
+  });
+
+  renderPins();
+  renderSidebar();
+
+  // Mark as saving in sidebar
+  var itemEl = document.getElementById('ann-' + ann.id);
+  if (itemEl) itemEl.classList.add('ann-saving');
+
+  dbAddAnnotation(sessionId, ann).then(function(row) {
+    ann.dbId = row.id;
+    var el = document.getElementById('ann-' + ann.id);
+    if (el) el.classList.remove('ann-saving');
+    // Update pin saving state
+    var pinEl = document.querySelector('[data-ann-id="' + ann.id + '"]');
+    if (pinEl) pinEl.classList.remove('saving');
+  }).catch(function(err) {
+    console.warn('Could not save annotation to Supabase:', err);
+    var el = document.getElementById('ann-' + ann.id);
+    if (el) el.classList.remove('ann-saving');
+  });
+
+  // Reset save button
+  saveBtn.disabled = false;
+  saveBtn.textContent = 'Add Note';
+}
+
+function cancelPin() {
+  pendingPin = null;
+  document.getElementById('comment-popup').style.display = 'none';
+}
+
+document.getElementById('popup-text').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); savePin(); }
+  if (e.key === 'Escape') { e.preventDefault(); cancelPin(); }
+});
+
+/* ============================================================
+   RENDER PINS on overlays
+   ============================================================ */
+function renderPins() {
+  ['desktop', 'mobile'].forEach(function(v) {
+    var overlay = document.getElementById('overlay-' + v);
+    if (!overlay) return;
+
+    // Remove existing pins only
+    overlay.querySelectorAll('.pin').forEach(function(p) { p.remove(); });
+
+    annotations.forEach(function(ann) {
+      if (ann.view !== v) return;
+
+      var pin = document.createElement('div');
+      pin.className = 'pin' + (ann.dbId === null ? ' saving' : '');
+      pin.setAttribute('data-ann-id', ann.id);
+      pin.textContent = ann.num;
+      pin.style.left = ann.x + '%';
+      pin.style.top = ann.y + '%';
+      pin.title = ann.text;
+
+      (function(capturedAnn) {
+        pin.onclick = function(e) {
+          e.stopPropagation();
+          scrollToAnnotation(capturedAnn.id);
+        };
+      })(ann);
+
+      overlay.appendChild(pin);
+    });
+  });
+}
+
+/* ============================================================
+   RENDER SIDEBAR annotation list
+   ============================================================ */
+function renderSidebar() {
+  var count = annotations.length;
+  document.getElementById('ann-count').textContent = count;
+  document.getElementById('ann-empty').style.display = count === 0 ? 'block' : 'none';
+
+  // Remove old annotation items (not the empty state)
+  var list = document.getElementById('ann-list');
+  list.querySelectorAll('.ann-item').forEach(function(el) { el.remove(); });
+
+  annotations.forEach(function(ann) {
+    var item = document.createElement('div');
+    item.className = 'ann-item' + (ann.dbId === null ? ' ann-saving' : '');
+    item.id = 'ann-' + ann.id;
+
+    var viewLabel = ann.view.charAt(0).toUpperCase() + ann.view.slice(1);
+    var posLabel = viewLabel + ' · ' + Math.round(ann.x) + '%, ' + Math.round(ann.y) + '%';
+
+    item.innerHTML =
+      '<div class="ann-item-header">' +
+        '<div class="ann-num">' + ann.num + '</div>' +
+        '<span class="ann-pos">' + escHtml(posLabel) + '</span>' +
+        '<button class="ann-delete" onclick="deleteAnnotation(' + ann.id + ')" title="Delete annotation">✕</button>' +
+      '</div>' +
+      '<div class="ann-text">' + escHtml(ann.text) + '</div>';
+
+    // Insert before the empty state placeholder
+    list.insertBefore(item, document.getElementById('ann-empty'));
+  });
+}
+
+function deleteAnnotation(localId) {
+  var ann = null;
+  annotations = annotations.filter(function(a) {
+    if (a.id === localId) { ann = a; return false; }
+    return true;
+  });
+
+  // Re-number remaining
+  annotations.forEach(function(a, i) { a.num = i + 1; });
+
+  renderPins();
+  renderSidebar();
+
+  if (ann && ann.dbId) {
+    dbDeleteAnnotation(ann.dbId).catch(function(err) {
+      console.warn('Could not delete annotation from Supabase:', err);
+    });
+  }
+}
+
+function scrollToAnnotation(localId) {
+  var el = document.getElementById('ann-' + localId);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ============================================================
+   FILE ATTACHMENTS
+   ============================================================ */
+function handleFiles(files) {
+  Array.from(files).forEach(function(file) {
+    if (!file.type.startsWith('image/')) return;
+
+    var idx = attachedFiles.length;
+    attachedFiles.push(file);
+
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var wrap = document.createElement('div');
+      wrap.className = 'attach-preview';
+      wrap.setAttribute('data-file-idx', idx);
+
+      var img = document.createElement('img');
+      img.src = ev.target.result;
+      img.alt = file.name;
+
+      var removeBtn = document.createElement('button');
+      removeBtn.className = 'attach-remove';
+      removeBtn.textContent = '✕';
+      removeBtn.title = 'Remove image';
+      removeBtn.onclick = function() { removeFile(idx, wrap); };
+
+      wrap.appendChild(img);
+      wrap.appendChild(removeBtn);
+      document.getElementById('attach-previews').appendChild(wrap);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Reset input so same file can be re-selected
+  document.getElementById('file-input').value = '';
+}
+
+function removeFile(idx, el) {
+  attachedFiles[idx] = null;
+  el.remove();
+}
+
+/* ============================================================
+   SUBMIT ALL FEEDBACK
+   ============================================================ */
+function submitAll() {
+  var activeFiles = attachedFiles.filter(Boolean);
+
+  if (annotations.length === 0 && activeFiles.length === 0) {
+    alert('Please add at least one annotation or attach a reference image before submitting.');
+    return;
+  }
+
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  // Build annotation summary for email notification
+  var annLines = annotations.map(function(a) {
+    return '#' + a.num + ' [' + a.view + ' — ' + Math.round(a.x) + '%, ' + Math.round(a.y) + '%]\n' + a.text;
+  }).join('\n\n');
+
+  // Fire email notification in background — does not gate success
+  var fd = new FormData();
+  fd.append('_subject', 'Design Review Submitted — ' + reviewer.name + ' (' + reviewer.email + ')');
+  fd.append('Reviewer', reviewer.name + ' <' + reviewer.email + '>');
+  fd.append('Page', 'THCA Vapes Landing Page');
+  fd.append('Annotation Count', String(annotations.length));
+  fd.append('Annotations', annLines || '(none)');
+  fd.append('Reference Images', activeFiles.length > 0 ? activeFiles.length + ' image(s) attached' : 'None');
+  fd.append('Submitted At', new Date().toLocaleString());
+  fd.append('_captcha', 'false');
+  fd.append('_template', 'table');
+  activeFiles.forEach(function(file, i) {
+    fd.append(i === 0 ? 'attachment' : 'attachment' + (i + 1), file, file.name);
+  });
+  var emailTimeout = new Promise(function(_, reject) { setTimeout(function() { reject(new Error('timeout')); }, 8000); });
+  Promise.race([
+    fetch('https://formsubmit.co/ajax/team@icarusdigitalmarketing.com', {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body: fd
+    }),
+    emailTimeout
+  ]).catch(function() {}); // fire-and-forget
+
+  // Supabase write is the real submission — gates the success state
+  dbSubmitSession(sessionId).then(function() {
+    document.getElementById('submit-success').classList.add('show');
+    btn.style.display = 'none';
+  }).catch(function(err) {
+    console.warn('Supabase submit error:', err);
+    // Still show success if session was local-only
+    if (!sessionId || String(sessionId).indexOf('local-') === 0) {
+      document.getElementById('submit-success').classList.add('show');
+      btn.style.display = 'none';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Submit All Feedback';
+      alert('Could not save your review. Please try again or email team@icarusdigitalmarketing.com directly.');
+    }
+  });
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+function currentScreenshotSrc() {
+  return currentView === 'mobile' ? '/review/mobile-full.png' : '/review/desktop-full.png';
+}
+
+function openLightbox(src) {
+  document.getElementById('lbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   GLOBAL KEY BINDINGS
+   ============================================================ */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (pendingPin) {
+      cancelPin();
+    } else if (document.getElementById('lightbox').classList.contains('open')) {
+      closeLightbox();
+    } else if (annotating) {
+      toggleAnnotate();
+    }
+  }
+});
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+function escHtml(t) {
+  if (typeof t !== 'string') return '';
+  return t
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+</script>
+</body>
+</html>
