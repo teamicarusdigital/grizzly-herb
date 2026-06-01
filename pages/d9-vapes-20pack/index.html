@@ -155,6 +155,17 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 .ctaWrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .ctaNote{font-size:13px;color:#888;font-weight:600}
 
+/* ── Upgrade card ── */
+.upgradeCard{display:none;background:linear-gradient(135deg,#071108,#0f2e12);border-radius:20px;padding:20px 22px;margin-bottom:20px;border:1px solid rgba(140,255,152,.18)}
+.upgradeCard.visible{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.upgradeCard__icon{font-size:28px;flex-shrink:0}
+.upgradeCard__body{flex:1;min-width:0}
+.upgradeCard__title{font-size:15px;font-weight:800;color:#fff;margin-bottom:3px}
+.upgradeCard__sub{font-size:13px;color:#8cff98;font-weight:600}
+.upgradeCard__savings{display:inline-block;background:rgba(140,255,152,.15);border:1px solid rgba(140,255,152,.25);border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800;color:#8cff98;margin-top:6px}
+.upgradeCard__btn{background:var(--green);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:800;font-size:14px;white-space:nowrap;transition:background .15s;flex-shrink:0}
+.upgradeCard__btn:hover{background:var(--green-dark)}
+
 /* ── Reviews ── */
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .review{background:#fff;border-radius:24px;padding:22px;box-shadow:var(--soft);border:1px solid rgba(7,17,8,.08)}
@@ -348,6 +359,17 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 
       <!-- Flavor grid (populated by JS) -->
       <div class="flavorGrid" id="flavorGrid"></div>
+
+      <!-- Upgrade nudge (shown when current tier is complete and a next tier exists) -->
+      <div class="upgradeCard" id="upgradeCard">
+        <div class="upgradeCard__icon">&#x26A1;</div>
+        <div class="upgradeCard__body">
+          <div class="upgradeCard__title" id="upgradeTitle">Upgrade to 20-Pack</div>
+          <div class="upgradeCard__sub" id="upgradeSub">Add 10 more carts for just $50 more &mdash; drops to $10/cart</div>
+          <div class="upgradeCard__savings" id="upgradeSavings">Save an extra $150</div>
+        </div>
+        <button class="upgradeCard__btn" id="upgradeBtn">Keep my picks + add more &rarr;</button>
+      </div>
 
       <!-- CTA -->
       <div class="ctaWrap">
@@ -574,6 +596,19 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     grid.innerHTML = html;
   }
 
+  /* ── TIERS ── */
+  var TIERS = [
+    {id:'209612', size:5,  price:100},
+    {id:'127106', size:10, price:150},
+    {id:'127104', size:20, price:200}
+  ];
+  function nextTier() {
+    for (var i = 0; i < TIERS.length - 1; i++) {
+      if (TIERS[i].id === bundle.id) return TIERS[i + 1];
+    }
+    return null;
+  }
+
   /* ── RENDER PROGRESS ── */
   function renderProgress() {
     var sel = totalSelected();
@@ -586,6 +621,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     var note = document.getElementById('ctaNote');
     var stickyBtn = document.getElementById('stickyBtn');
     var stickyCount = document.getElementById('stickyCount');
+    var upgradeCard = document.getElementById('upgradeCard');
 
     if (isComplete()) {
       btn.disabled = false;
@@ -593,6 +629,24 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
       note.textContent = '✓ Ready to checkout!';
       note.style.color = 'var(--green-dark)';
       stickyBtn.textContent = 'Checkout — $' + bundle.price;
+
+      // Show upgrade card if a next tier exists
+      var next = nextTier();
+      if (next) {
+        var extraCarts = next.size - bundle.size;
+        var extraCost = next.price - bundle.price;
+        var currentPerCart = Math.round(bundle.price / bundle.size);
+        var nextPerCart = Math.round(next.price / next.size * 10) / 10;
+        var extraSaving = (extraCarts * 40) - extraCost;
+        document.getElementById('upgradeTitle').textContent = 'Upgrade to ' + next.size + '-Pack';
+        document.getElementById('upgradeSub').textContent =
+          'Add ' + extraCarts + ' more cart' + (extraCarts > 1 ? 's' : '') +
+          ' for just $' + extraCost + ' more — drops from $' + currentPerCart + '/cart to $' + nextPerCart + '/cart';
+        document.getElementById('upgradeSavings').textContent = 'Save an extra $' + extraSaving + ' vs buying individually';
+        upgradeCard.classList.add('visible');
+      } else {
+        upgradeCard.classList.remove('visible');
+      }
     } else {
       btn.disabled = true;
       var need = bundle.size - sel;
@@ -600,6 +654,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
       note.textContent = 'Select ' + need + ' more to continue';
       note.style.color = '#888';
       stickyBtn.textContent = 'Build ' + bundle.size + '-Pack';
+      upgradeCard.classList.remove('visible');
     }
 
     if (sel > 0) {
@@ -636,6 +691,23 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     document.getElementById('stickyPackLabel').textContent = size + '-Pack Vape Bundle';
     document.getElementById('stickySubLabel').textContent = '$' + price + ' · normally $' + (size * 40) + ' · save $' + (size * 40 - price);
     // Re-render
+    renderGrid();
+    renderProgress();
+  }
+
+  /* ── UPGRADE PACK — preserves current selections ── */
+  function upgradePack() {
+    var next = nextTier();
+    if (!next) return;
+    bundle = {id: next.id, size: next.size, price: next.price};
+    // qtys intentionally NOT cleared — user keeps all their picks
+    var btns = document.querySelectorAll('.sizeBtn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.toggle('active', btns[i].getAttribute('data-bundle-id') === next.id);
+    }
+    document.getElementById('stickyPackLabel').textContent = next.size + '-Pack Vape Bundle';
+    document.getElementById('stickySubLabel').textContent = '$' + next.price + ' · normally $' + (next.size * 40) + ' · save $' + (next.size * 40 - next.price);
+    document.getElementById('upgradeCard').classList.remove('visible');
     renderGrid();
     renderProgress();
   }
@@ -693,6 +765,14 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     var btn = e.target.closest('.qBtn');
     if (!btn) return;
     changeQty(btn.getAttribute('data-pid'), parseInt(btn.getAttribute('data-delta')));
+  });
+
+  // Upgrade button
+  document.getElementById('upgradeBtn').addEventListener('click', function() {
+    upgradePack();
+    // Scroll to the picker so user sees the unlocked slots
+    var el = document.getElementById('flavorGrid');
+    if (el) setTimeout(function() { el.scrollIntoView({behavior:'smooth', block:'center'}); }, 100);
   });
 
   /* ── INIT ── */
