@@ -276,8 +276,8 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
   <div class="wrap heroGrid">
     <div>
       <div class="eyebrow">Buy 5, get 15 free D9 vape deal</div>
-      <h1>Buy 5 carts, get 15 free &mdash; 20 total for $200.</h1>
-      <p class="sub">At the regular <b>$40/cart</b> price, <b>$200</b> usually gets you 5 carts. Today it gets you <b>20 vape carts</b> &mdash; 15 carts included free.</p>
+      <h1>Buy 5 carts, get 15 free  -  20 total for $200.</h1>
+      <p class="sub">At the regular <b>$40/cart</b> price, <b>$200</b> usually gets you 5 carts. Today it gets you <b>20 vape carts</b>  -  15 carts included free.</p>
       <div class="chips">
         <span class="chip red">5 paid</span>
         <span class="chip red">15 free</span>
@@ -336,7 +336,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
   <div class="wrap receipt">
     <div>
       <h2>How buy 5, get 15 free works.</h2>
-      <p class="lead">At the regular $40/cart price, $200 buys 5 carts. This deal turns that same $200 into 20 carts total &mdash; 15 carts included free &mdash; while still letting you mix and match flavours.</p>
+      <p class="lead">At the regular $40/cart price, $200 buys 5 carts. This deal turns that same $200 into 20 carts total  -  15 carts included free  -  while still letting you mix and match flavours.</p>
       <a class="btn primary" href="#picker">Claim 20-Cart Deal</a>
     </div>
     <div class="ticket">
@@ -393,7 +393,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
         <div class="upgradeCard__icon">&#x26A1;</div>
         <div class="upgradeCard__body">
           <div class="upgradeCard__title" id="upgradeTitle">Upgrade to 20-Pack</div>
-          <div class="upgradeCard__sub" id="upgradeSub">Add 10 more carts for just $50 more &mdash; drops to $10/cart</div>
+          <div class="upgradeCard__sub" id="upgradeSub">Add 10 more carts for just $50 more  -  drops to $10/cart</div>
           <div class="upgradeCard__savings" id="upgradeSavings">Save an extra $150</div>
         </div>
         <button class="upgradeCard__btn" id="upgradeBtn">Keep my picks + add more &rarr;</button>
@@ -402,7 +402,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
       <!-- CTA -->
       <div class="ctaWrap">
         <button class="btn primary" id="addToCartBtn" disabled onclick="submitBundle()">
-          Add 20-Pack to Cart &mdash; $200
+          Add 20-Pack to Cart  -  $200
         </button>
         <span class="ctaNote" id="ctaNote">Select 20 flavours to continue</span>
       </div>
@@ -678,10 +678,10 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 
     if (isComplete()) {
       btn.disabled = false;
-      btn.textContent = 'Add ' + bundle.size + '-Pack to Cart — $' + bundle.price;
+      btn.textContent = 'Add ' + bundle.size + '-Pack to Cart  -  $' + bundle.price;
       note.textContent = '✓ Ready to checkout!';
       note.style.color = 'var(--green-dark)';
-      stickyBtn.textContent = 'Checkout — $' + bundle.price;
+      stickyBtn.textContent = 'Checkout  -  $' + bundle.price;
 
       // Show upgrade card + sticky upgrade button if a next tier exists
       var next = nextTier();
@@ -694,7 +694,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
         document.getElementById('upgradeTitle').textContent = 'Upgrade to ' + next.size + '-Pack';
         document.getElementById('upgradeSub').textContent =
           'Add ' + extraCarts + ' more cart' + (extraCarts > 1 ? 's' : '') +
-          ' for just $' + extraCost + ' more — drops from $' + currentPerCart + '/cart to $' + nextPerCart + '/cart';
+          ' for just $' + extraCost + ' more  -  drops from $' + currentPerCart + '/cart to $' + nextPerCart + '/cart';
         document.getElementById('upgradeSavings').textContent = 'Save an extra $' + extraSaving + ' vs buying individually';
         upgradeCard.classList.add('visible');
         stickyUpgradeBtn.style.display = 'block';
@@ -706,7 +706,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     } else {
       btn.disabled = true;
       var need = bundle.size - sel;
-      btn.textContent = 'Add ' + bundle.size + '-Pack to Cart — $' + bundle.price;
+      btn.textContent = 'Add ' + bundle.size + '-Pack to Cart  -  $' + bundle.price;
       note.textContent = 'Select ' + need + ' more to continue';
       note.style.color = '#888';
       stickyBtn.textContent = 'Build ' + bundle.size + '-Pack';
