@@ -230,13 +230,14 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 .stickyUpgradeBtn{display:none;background:var(--forest);color:#8cff98;border:1px solid rgba(140,255,152,.3);border-radius:14px;padding:12px 16px;font-weight:800;font-size:13px;white-space:nowrap;transition:background .15s}
 .stickyUpgradeBtn:hover{background:#0f2e12}
 .stickyUpgradeBtn small{display:block;color:rgba(140,255,152,.7);font-size:10px;font-weight:600;margin-top:1px}
-@media(max-width:480px){.stickyUpgradeBtn small{display:none}}
+
 
 /* ── Mobile sticky with upgrade active ── */
 @media(max-width:600px){
   .sticky.has-upgrade .stickyin{flex-direction:column;gap:6px;align-items:stretch}
   .sticky.has-upgrade .stickyInfo{display:none}
-  .sticky.has-upgrade .stickyUpgradeBtn{width:100%;text-align:center;font-size:13px;padding:11px 12px;border-radius:12px}
+  .sticky.has-upgrade .stickyUpgradeBtn{width:100%;text-align:center;font-size:13px;padding:11px 12px;border-radius:12px;white-space:normal}
+  .sticky.has-upgrade .stickyUpgradeBtn small{display:block;font-size:11px}
   .sticky.has-upgrade #stickyBtn{width:100%;border-radius:12px}
 }
 </style>
@@ -707,7 +708,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
         document.getElementById('upgradeSavings').textContent = 'Save an extra $' + extraSaving + ' vs buying individually';
         upgradeCard.classList.add('visible');
         document.querySelector('.sticky').classList.add('has-upgrade');
-        document.getElementById('stickyUpgradeSub').textContent = 'to ' + next.size + '-Pack for $' + extraCost + ' more';
+        document.getElementById('stickyUpgradeSub').textContent = 'Add ' + extraCarts + ' more carts for $' + extraCost + ' - save $' + extraSaving + ' extra';
       } else {
         upgradeCard.classList.remove('visible');
         document.querySelector('.sticky').classList.remove('has-upgrade');
