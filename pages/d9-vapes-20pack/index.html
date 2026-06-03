@@ -243,6 +243,19 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
   .sticky.has-upgrade .stickyUpgradeBtn small{display:block;font-size:11px}
   .sticky.has-upgrade #stickyBtn{width:100%;border-radius:12px}
 }
+
+/* ── D9 Explainer ── */
+.d9-explainer{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:linear-gradient(135deg,#071108,#0f2e12);border-radius:28px;padding:36px 40px}
+.d9-explainer__eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:#8cff98;margin-bottom:10px}
+.d9-explainer__h2{font-family:Outfit,Poppins,sans-serif;font-size:clamp(28px,3.5vw,44px);letter-spacing:-.04em;line-height:1.05;margin:0 0 16px;color:#fff}
+.d9-explainer__lead{font-size:15px;line-height:1.6;color:#b8d4b8;max-width:560px}
+.d9-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}
+.d9-card__row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px;font-weight:700}
+.d9-card__row:last-child{border-bottom:none}
+.d9-card__row--good .d9-card__val{color:#8cff98}
+.d9-card__row--bad .d9-card__val{color:#f87171}
+.d9-card__label{color:#888;font-weight:600}
+@media(max-width:768px){.d9-explainer{grid-template-columns:1fr;padding:24px;gap:24px}}
 </style>
 
 <!-- Tracklution Pixel -->
@@ -345,6 +358,40 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 </section>
 
 <!-- ── SAVINGS ── -->
+
+<!-- ── WHAT IS D9? ── -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="d9-explainer">
+      <div class="d9-explainer__left">
+        <div class="d9-explainer__eyebrow">Why it matters</div>
+        <h2 class="d9-explainer__h2">Not all distillate is created equal.</h2>
+        <p class="d9-explainer__lead">D9 (Delta-9 THC) is the naturally occurring cannabinoid found in flower - the compound that produces the real, full-strength effect. Lower-grade products are often cut with Delta-8, synthetic cannabinoids, or mystery distillate that looks identical but hits completely differently.</p>
+        <p class="d9-explainer__lead" style="margin-top:12px">Our carts use pharmaceutical-grade D9 distillate only. No fillers, no substitutes, no cutting agents. Just clean, consistent potency - the same level of quality in every cart, every order.</p>
+      </div>
+      <div class="d9-explainer__right">
+        <div class="d9-card">
+          <div class="d9-card__row d9-card__row--good">
+            <span class="d9-card__label">Our carts</span>
+            <span class="d9-card__val">D9 THC distillate</span>
+          </div>
+          <div class="d9-card__row d9-card__row--bad">
+            <span class="d9-card__label">Common alternatives</span>
+            <span class="d9-card__val">Delta-8 / synthetic blends</span>
+          </div>
+          <div class="d9-card__row d9-card__row--good">
+            <span class="d9-card__label">Effect profile</span>
+            <span class="d9-card__val">Same as premium flower</span>
+          </div>
+          <div class="d9-card__row d9-card__row--good">
+            <span class="d9-card__label">Tested</span>
+            <span class="d9-card__val">Lab-verified every batch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="savings" class="section">
   <div class="wrap receipt">
     <div>
@@ -605,15 +652,6 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     {pid:'3968',name:'Granddaddy Purple',type:'indica',lr:false,inStock:true,bids:{'209612':584,'127106':577,'127104':591},img:'https://grizzlyherb.co/wp-content/uploads/2020/06/Granddaddy-Purple.png',url:'https://grizzlyherb.co/product/granddaddy-purple-strain-vape-cartridge/'},
     {pid:'3971',name:'Pineapple Express',type:'hybrid',lr:false,inStock:true,bids:{'209612':636,'127106':639,'127104':631},img:'https://grizzlyherb.co/wp-content/uploads/2020/06/Pineapple-Express.png',url:'https://grizzlyherb.co/product/pineapple-express-strain-vape-cartridge/'},
     {pid:'128297',name:'Berry Gelato',type:'hybrid',lr:false,inStock:true,bids:{'209612':637,'127106':640,'127104':629},img:'https://grizzlyherb.co/wp-content/uploads/2024/11/Berry-Gelato-1.png',url:'https://grizzlyherb.co/product/berry-gelato-hybrid-1-1g/'},
-    {pid:'130320',name:'Skywalker OG',type:'indica',lr:false,inStock:false,bids:{'209612':427,'127106':407,'127104':292},img:'https://grizzlyherb.co/wp-content/uploads/2025/02/Skywalker-OG-1.png',url:'https://grizzlyherb.co/product/skywalker-og-indica-1-1g/'},
-    {pid:'130322',name:'Sundae Driver',type:'hybrid',lr:false,inStock:false,bids:{'209612':422,'127106':402,'127104':287},img:'https://grizzlyherb.co/wp-content/uploads/2025/02/Sundae-Driver-1.png',url:'https://grizzlyherb.co/product/sundae-driver-hybrid-1-1g/'},
-    {pid:'126378',name:'Mango Sunrise',type:'sativa',lr:false,inStock:false,bids:{'209612':581,'127106':574,'127104':588},img:'https://grizzlyherb.co/wp-content/uploads/2024/04/Mango-Sunrise.png',url:'https://grizzlyherb.co/product/mango-sunrise-sativa-1-1g/'},
-    {pid:'98871',name:'Acapulco Gold',type:'sativa',lr:false,inStock:false,bids:{'209612':624,'127106':618,'127104':613},img:'https://grizzlyherb.co/wp-content/uploads/2022/03/Acapulco-Gold.png',url:'https://grizzlyherb.co/product/acapulco-gold-sativa-vape-cartridge-93-thc-1-1g/'},
-    {pid:'3972',name:'Blue Dream',type:'hybrid',lr:false,inStock:false,bids:{'209612':585,'127106':578,'127104':592},img:'https://grizzlyherb.co/wp-content/uploads/2020/06/Blue-Dream.png',url:'https://grizzlyherb.co/product/blue-dream-strain-vape-cartridge/'},
-    {pid:'124719',name:'Strawberry Kiwi',type:'hybrid',lr:false,inStock:false,bids:{'209612':598,'127106':600,'127104':602},img:'https://grizzlyherb.co/wp-content/uploads/2023/10/Strawberry-Kiwi-1.png',url:'https://grizzlyherb.co/product/strawberry-kiwi-strain-vape-cartridge-93-thc-1000mg/'},
-    {pid:'128294',name:'Grape Ape',type:'indica',lr:false,inStock:false,bids:{'209612':579,'127106':586,'127104':289},img:'https://grizzlyherb.co/wp-content/uploads/2024/11/Grape-Ape-2.png',url:'https://grizzlyherb.co/product/grape-ape-indica-1-1g/'},
-    {pid:'3967',name:'Z.Z.',type:'indica',lr:false,inStock:false,bids:{'209612':583,'127106':576,'127104':590},img:'https://grizzlyherb.co/wp-content/uploads/2020/06/ZZ.svg',url:'https://grizzlyherb.co/product/zz-indica-1-1g/'},
-    {pid:'128296',name:'White Gushers',type:'hybrid',lr:false,inStock:false,bids:{'209612':635,'127106':638,'127104':630},img:'https://grizzlyherb.co/wp-content/uploads/2024/11/White-Gushers-2.png',url:'https://grizzlyherb.co/product/white-gushers-hybrid-1-1g/'}
   ];
 
   /* ── STATE ── */
