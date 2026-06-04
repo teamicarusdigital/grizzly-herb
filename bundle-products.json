@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T04:21:28Z",
+  "updated": "2026-06-04T11:18:14Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -24,42 +24,6 @@
       "inStock": true,
       "rating": 4.6,
       "reviews": 5,
-      "isNew": false
-    },
-    {
-      "pid": 144057,
-      "vid": 144062,
-      "name": "Mac 1",
-      "meta": "Hybrid \u00b7 AAA+",
-      "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/1745968202-1742236024-screenshot_2025-03-17_at_2-26-28_pm.avif",
-      "inStock": true,
-      "rating": 5.0,
-      "reviews": 5,
-      "isNew": false
-    },
-    {
-      "pid": 148691,
-      "vid": 148696,
-      "name": "ZED",
-      "meta": "Hybrid \u00b7 AAA+",
-      "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/BaM-watermelon-z-strain.png",
-      "inStock": true,
-      "rating": 4.78,
-      "reviews": 18,
-      "isNew": false
-    },
-    {
-      "pid": 148701,
-      "vid": 148706,
-      "name": "MKU",
-      "meta": "Indica \u00b7 AAA+",
-      "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp",
-      "inStock": true,
-      "rating": 4.74,
-      "reviews": 19,
       "isNew": false
     }
   ]
