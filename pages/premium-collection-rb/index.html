@@ -5355,7 +5355,22 @@
       else regularItems.push(cart[i]);
     }
     if (!bundleItem) {
-      window.location.href = buildCheckoutUrl();
+      var sp = getSavedParams();
+      var checkoutUrl = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+      var pending = regularItems.slice();
+      if (!pending.length) { window.location.href = checkoutUrl; return; }
+      var chkBtnEl = root.querySelector('.gh-cart-panel__checkout-btn');
+      if (chkBtnEl) { chkBtnEl.disabled = true; chkBtnEl.innerHTML = 'Going to checkout&#8230;'; }
+      function addNextIndiv() {
+        if (!pending.length) { window.location.href = checkoutUrl; return; }
+        var itm = pending.shift();
+        fetch('https://grizzlyherb.co/wp-json/wc/store/v1/cart/add-item', {
+          method: 'POST', credentials: 'include',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: parseInt(itm.vid), quantity: parseInt(itm.qty) || 1})
+        }).then(function() { addNextIndiv(); }).catch(function() { addNextIndiv(); });
+      }
+      addNextIndiv();
       return;
     }
     var sp = getSavedParams();

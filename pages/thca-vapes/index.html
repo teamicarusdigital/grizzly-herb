@@ -5230,7 +5230,7 @@
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify(item)
         }).then(addNext).catch(function(){
-          window.location.href='https://grizzlyherb.co/checkout/?add-to-cart='+item.id+'&quantity='+item.quantity;
+          addNext();
         });
       }
       addNext();
