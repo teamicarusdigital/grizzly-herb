@@ -5264,7 +5264,7 @@
   }
 
   function buildCheckoutUrl() {
-    if (cart.length === 0) return 'https://grizzlyherb.co/checkout/';
+    if (cart.length === 0) return 'https://grizzlyherb.co/cart/';
     var params = ['gh_multi=1'];
     for (var i = 0; i < cart.length; i++) {
       var idx = i + 1;
@@ -5274,7 +5274,7 @@
     // Merge all original URL params (UTM, coupon, any others)
     var saved = getSavedParams();
     if (saved) params.push(saved);
-    return 'https://grizzlyherb.co/checkout/?' + params.join('&');
+    return 'https://grizzlyherb.co/cart/?' + params.join('&');
   }
 
   // Close cart on Escape key

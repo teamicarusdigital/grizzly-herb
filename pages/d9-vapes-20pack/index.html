@@ -845,7 +845,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     var sp = getSavedParams();
     var form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'https://grizzlyherb.co/checkout/' + (sp ? '?' + sp : '');
+    form.action = 'https://grizzlyherb.co/cart/' + (sp ? '?' + sp : '');
     function f(name, val) {
       var inp = document.createElement('input');
       inp.type = 'hidden'; inp.name = name; inp.value = val;
