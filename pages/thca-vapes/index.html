@@ -4908,7 +4908,7 @@
     var sp = getSavedParams();
 
     function doFormSubmit() {
-      var urlParts = [];
+      var urlParts = ['gh_multi=1'];
       if (sp) urlParts.push(sp);
       var upsellsToAdd = [];
       for (var uid in upsellCart) {
@@ -4917,13 +4917,12 @@
         }
       }
       if (upsellsToAdd.length) {
-        urlParts.push('gh_multi=1');
         for (var ui = 0; ui < upsellsToAdd.length; ui++) {
           urlParts.push('vid_' + (ui + 1) + '=' + upsellsToAdd[ui].vid);
           urlParts.push('qty_' + (ui + 1) + '=1');
         }
       }
-      var actionUrl = 'https://grizzlyherb.co/checkout/' + (urlParts.length ? '?' + urlParts.join('&') : '');
+      var actionUrl = 'https://grizzlyherb.co/checkout/?' + urlParts.join('&');
       var form = document.createElement('form');
       form.method = 'POST';
       form.action = actionUrl;
