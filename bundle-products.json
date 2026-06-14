@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-13T21:20:22Z",
+  "updated": "2026-06-14T04:23:32Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -55,12 +55,13 @@
       "vid": 148706,
       "name": "MKU",
       "meta": "Indica \u00b7 AAA+",
-      "price": 85.0,
+      "price": 80.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/SmokerFarms-MKUG.webp",
       "inStock": true,
       "rating": 4.74,
       "reviews": 19,
-      "isNew": false
+      "isNew": false,
+      "regular": 85.0
     }
   ]
 }
