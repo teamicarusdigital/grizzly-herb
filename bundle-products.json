@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T21:22:32Z",
+  "updated": "2026-06-27T03:43:22Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -9,7 +9,7 @@
       "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Cap-Junky-Strain.webp",
-      "inStock": true,
+      "inStock": false,
       "rating": 4.82,
       "reviews": 11,
       "isNew": false
