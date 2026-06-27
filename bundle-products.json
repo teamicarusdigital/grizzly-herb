@@ -1,15 +1,15 @@
 {
-  "updated": "2026-06-27T17:14:45Z",
+  "updated": "2026-06-27T21:08:18Z",
   "bundle_id": 131822,
   "products": [
     {
       "pid": 122898,
       "vid": 144052,
-      "name": "Oreo",
-      "meta": "Indica \u00b7 AAA+",
+      "name": "Black Cherry",
+      "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Cap-Junky-Strain.webp",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.82,
       "reviews": 11,
       "isNew": false
