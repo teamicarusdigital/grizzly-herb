@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-14T17:17:28Z",
+  "updated": "2026-07-14T21:02:57Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -55,13 +55,12 @@
       "vid": 148706,
       "name": "Frosted Grape",
       "meta": "Indica \u00b7 AAA+",
-      "price": 80.0,
+      "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/grape-frosty-scaled.webp",
       "inStock": true,
       "rating": 4.74,
       "reviews": 19,
-      "isNew": false,
-      "regular": 85.0
+      "isNew": false
     }
   ]
 }
