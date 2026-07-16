@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16T17:20:47Z",
+  "updated": "2026-07-16T21:03:32Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -31,12 +31,13 @@
       "vid": 144062,
       "name": "Mac 1",
       "meta": "Hybrid \u00b7 AAA+",
-      "price": 85.0,
+      "price": 80.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/1745968202-1742236024-screenshot_2025-03-17_at_2-26-28_pm.avif",
       "inStock": true,
       "rating": 5.0,
       "reviews": 5,
-      "isNew": false
+      "isNew": false,
+      "regular": 85.0
     },
     {
       "pid": 148691,
