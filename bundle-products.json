@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03T17:55:17Z",
+  "updated": "2026-08-03T21:07:56Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -15,12 +15,24 @@
       "isNew": false
     },
     {
+      "pid": 144030,
+      "vid": 144035,
+      "name": "Push Pop",
+      "meta": "Hybrid \u00b7 AAA+",
+      "price": 85.0,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Pure-Leaf-Orange-Push-Pop-THCA-Flower-Cropped.png",
+      "inStock": true,
+      "rating": 4.52,
+      "reviews": 21,
+      "isNew": false
+    },
+    {
       "pid": 144057,
       "vid": 144062,
-      "name": "Mac 1",
+      "name": "Khalifa Kush",
       "meta": "Hybrid \u00b7 AAA+",
       "price": 80.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/1745968202-1742236024-screenshot_2025-03-17_at_2-26-28_pm.avif",
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/images-2.jpg",
       "inStock": true,
       "rating": 4.7,
       "reviews": 33,
