@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03T11:30:15Z",
+  "updated": "2026-08-03T14:47:33Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "pid": 144057,
-      "vid": 144057,
+      "vid": 144062,
       "name": "Mac 1",
       "meta": "Hybrid \u00b7 AAA+",
       "price": 80.0,
@@ -36,7 +36,8 @@
       "inStock": true,
       "rating": 4.7,
       "reviews": 33,
-      "isNew": false
+      "isNew": false,
+      "regular": 85.0
     },
     {
       "pid": 148691,
@@ -52,7 +53,7 @@
     },
     {
       "pid": 148701,
-      "vid": 148706,
+      "vid": 148701,
       "name": "Frosted Grape",
       "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
