@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03T07:33:20Z",
+  "updated": "2026-08-03T11:30:15Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "pid": 144057,
-      "vid": 144062,
+      "vid": 144057,
       "name": "Mac 1",
       "meta": "Hybrid \u00b7 AAA+",
       "price": 80.0,
@@ -36,8 +36,7 @@
       "inStock": true,
       "rating": 4.7,
       "reviews": 33,
-      "isNew": false,
-      "regular": 85.0
+      "isNew": false
     },
     {
       "pid": 148691,
