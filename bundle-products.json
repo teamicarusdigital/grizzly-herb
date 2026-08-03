@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-02T21:00:28Z",
+  "updated": "2026-08-03T03:18:29Z",
   "bundle_id": 131822,
   "products": [
     {
       "pid": 122898,
       "vid": 144052,
-      "name": "Black Cherry",
-      "meta": "Hybrid \u00b7 AAA+",
+      "name": "Rockstar",
+      "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Cap-Junky-Strain.webp",
-      "inStock": false,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Bonguru-Rockstar-6.jpg",
+      "inStock": true,
       "rating": 4.83,
       "reviews": 36,
       "isNew": false
