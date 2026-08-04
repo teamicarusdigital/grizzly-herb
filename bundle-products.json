@@ -1,17 +1,17 @@
 {
-  "updated": "2026-08-04T18:00:08Z",
+  "updated": "2026-08-04T21:23:03Z",
   "bundle_id": 131822,
   "products": [
     {
-      "pid": 122898,
-      "vid": 144052,
-      "name": "Rockstar",
-      "meta": "Indica \u00b7 AAA+",
+      "pid": 144030,
+      "vid": 144035,
+      "name": "Push Pop",
+      "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Bonguru-Rockstar-6.jpg",
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Pure-Leaf-Orange-Push-Pop-THCA-Flower-Cropped.png",
       "inStock": true,
-      "rating": 4.83,
-      "reviews": 36,
+      "rating": 4.52,
+      "reviews": 21,
       "isNew": false
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "pid": 148701,
-      "vid": 148706,
+      "vid": 148701,
       "name": "Frosted Grape",
       "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
