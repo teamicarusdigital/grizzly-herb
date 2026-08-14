@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-14T16:56:43Z",
+  "updated": "2026-08-14T20:34:08Z",
   "bundle_id": 131822,
   "products": [
     {
       "pid": 122898,
       "vid": 144052,
-      "name": "Rockstar",
-      "meta": "Indica \u00b7 AAA+",
+      "name": "Jet Fuel",
+      "meta": "Hybrid Indica \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Bonguru-Rockstar-6.jpg",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.83,
       "reviews": 36,
       "isNew": false
