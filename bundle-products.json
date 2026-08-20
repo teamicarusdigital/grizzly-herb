@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T16:37:55Z",
+  "updated": "2026-08-20T20:31:35Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -46,7 +46,7 @@
       "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/buy-tuna-kush-strain.jpg",
-      "inStock": true,
+      "inStock": false,
       "rating": 4.75,
       "reviews": 32,
       "isNew": false
