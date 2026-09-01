@@ -276,6 +276,19 @@ def main():
         sys.exit(0)
 
     # ── Step 4: write JSON ────────────────────────────────────────────────────
+    # Only rewrite when the product data actually moved. The timestamp alone
+    # used to change every run, so the Action committed a no-op diff every
+    # 4 hours and buried real stock changes in the history.
+    try:
+        with open(OUT_FILE, encoding='utf-8') as f:
+            prev = json.load(f)
+    except Exception:
+        prev = None
+
+    if prev and prev.get('bundle_id') == BUNDLE_ID and prev.get('products') == products:
+        print(f'{OUT_FILE} unchanged - keeping timestamp {prev.get("updated")}.', flush=True)
+        sys.exit(0)
+
     out = {
         'updated':   datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'bundle_id': BUNDLE_ID,

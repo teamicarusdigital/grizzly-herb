@@ -21,7 +21,11 @@ FLOWER_PAGES = [
     os.path.join('pages', 'premium-collection-bc', 'index.html'),
     os.path.join('pages', 'premium-collection-hsh', 'index.html'),
 ]
-VAPES_PAGE = os.path.join('pages', 'thca-vapes', 'index.html')
+VAPES_PAGES = [
+    os.path.join('pages', 'thca-vapes', 'index.html'),
+    os.path.join('pages', 'd9-vapes-20pack', 'index.html'),
+    os.path.join('pages', 'd9-vapes-bogo', 'index.html'),
+]
 
 
 def wc_get(path):
@@ -56,12 +60,19 @@ def get_variation_stock(product_id):
     return result
 
 
+_product_stock_cache = {}
+
+
 def get_product_stock(product_id):
-    """Returns True if the simple product is in stock."""
+    """Returns True if the simple product is in stock. Cached across pages."""
+    if product_id in _product_stock_cache:
+        return _product_stock_cache[product_id]
     data = wc_get(f'/products/{product_id}')
     if not data:
-        return True
-    return data.get('stock_status', 'instock') == 'instock'
+        return True          # not cached, so a transient error can retry
+    in_stock = data.get('stock_status', 'instock') == 'instock'
+    _product_stock_cache[product_id] = in_stock
+    return in_stock
 
 
 def update_flower_pages():
@@ -123,20 +134,23 @@ def update_flower_pages():
     return changed_pages
 
 
-def update_vapes_page():
-    if not os.path.exists(VAPES_PAGE):
-        print(f'  SKIP (not found): {VAPES_PAGE}', flush=True)
+def update_vapes_page(path):
+    if not os.path.exists(path):
+        print(f'  SKIP (not found): {path}', flush=True)
         return 0
 
-    with open(VAPES_PAGE, encoding='utf-8') as f:
+    with open(path, encoding='utf-8') as f:
         html = f.read()
 
     cart_start = html.find('var CARTRIDGES')
+    if cart_start == -1:
+        print(f'  SKIP (no CARTRIDGES block): {path}', flush=True)
+        return 0
     cart_end   = html.find('];', cart_start) + 2
     cart_block = html[cart_start:cart_end]
     pids = re.findall(r"pid:'(\d+)'", cart_block)
 
-    print(f'Fetching stock for {len(pids)} vape products...', flush=True)
+    print(f'\n{path}: fetching stock for {len(pids)} vape products...', flush=True)
     changes = 0
     new_block = cart_block
     for pid in pids:
@@ -151,18 +165,18 @@ def update_vapes_page():
 
     if changes:
         html = html[:cart_start] + new_block + html[cart_end:]
-        with open(VAPES_PAGE, 'w', encoding='utf-8') as f:
+        with open(path, 'w', encoding='utf-8') as f:
             f.write(html)
-        print(f'  vapes: {changes} products updated', flush=True)
+        print(f'  {path}: {changes} products updated', flush=True)
     else:
-        print(f'  vapes: no changes', flush=True)
+        print(f'  {path}: no changes', flush=True)
     return changes
 
 
 if __name__ == '__main__':
     print('=== Grizzly Herb Stock Sync ===', flush=True)
     flower_changes = update_flower_pages()
-    vape_changes   = update_vapes_page()
+    vape_changes   = sum(update_vapes_page(p) for p in VAPES_PAGES)
     total = flower_changes + vape_changes
     print(f'\nDone. {total} pages had stock changes.', flush=True)
     sys.exit(0)
