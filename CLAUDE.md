@@ -178,8 +178,22 @@ Each agent must output a **complete code block** containing:
 - `moment-icon1.png`, `moment-icon2.png`, `moment-icon3.png`
 
 ## Deployment
-- Repo: `github.com/teamicarusdigital/grizzly-herb`
-- Deploy: `vercel --prod --yes` from `C:\Users\Srrok\Documents\grizzly-herb-deploy`
+
+**Pushing to GitHub does NOT deploy this site.** The Vercel project's GitHub
+connection is broken: deploy hooks return a PENDING job that never becomes a
+deployment, and every deployment in the project's history is `source: cli`.
+Until someone reconnects the repo in the Vercel dashboard (Settings > Git,
+disconnect then reconnect), a push alone changes nothing on the live site.
+After any commit that touches page content, deploy by hand.
+
+**Never hardcode API credentials in this repo.** It is public, and Vercel
+serves the repo root verbatim, so a committed key is readable both from
+GitHub and from the live domain. Read credentials from environment variables
+only; CI supplies them from GitHub secrets (`WC_KEY`, `WC_SECRET`). Keep
+`.vercelignore` excluding `*.py` so tooling is never served.
+
+- Repo: `github.com/teamicarusdigital/grizzly-herb` (PUBLIC)
+- Deploy: `vercel --prod --yes --scope team-1772s-projects` from `C:\Users\Srrok\Documents\grizzly-herb-deploy`
 - URL: `https://app.grizzlyherb.us`
 - Custom routes: `/pages/perfect` and `/pages/premium-collection-hsh` (via vercel.json rewrites)
 

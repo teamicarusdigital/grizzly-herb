@@ -12,8 +12,11 @@ from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
-WC_KEY    = os.environ.get('WC_KEY',    'ck_c566b213178cba2f87412909fd7fb60dc752df80')
-WC_SECRET = os.environ.get('WC_SECRET', 'cs_03523d8e3ff2c454acf1b76fa37483570de32ef4')
+WC_KEY    = os.environ.get('WC_KEY')
+WC_SECRET = os.environ.get('WC_SECRET')
+if not WC_KEY or not WC_SECRET:
+    sys.exit('ERROR: WC_KEY and WC_SECRET must be set in the environment. '
+             'CI reads them from GitHub secrets; export them locally to run by hand.')
 WC_BASE   = 'https://grizzlyherb.co/wp-json/wc/v3'
 BUNDLE_ID = 131822
 OUT_FILE  = 'bundle-products.json'

@@ -1,0 +1,28 @@
+# Nothing here is part of the site. Vercel serves the repo root verbatim
+# (outputDirectory "."), so anything not excluded becomes publicly
+# downloadable at https://app.grizzlyherb.us/<path>.
+
+# Sync + build tooling. These hold API access patterns and must never ship.
+*.py
+*.php
+*.js.map
+screenshot-*.js
+
+# Internal docs
+*.md
+
+# Local working artefacts
+.firecrawl/
+figma-exports/
+figma-screenshots/
+reference-screenshots/
+source-images/
+screenshot-*.png
+debug-*.png
+node_modules/
+package.json
+package-lock.json
+nul
+
+# NOTE: bundle-products.json and kl-review-counts.json are fetched at runtime
+# by the premium-collection pages. Do NOT exclude them.
