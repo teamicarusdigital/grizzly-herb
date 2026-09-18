@@ -3707,6 +3707,8 @@
 <script>!function(t,e,i){if(!t.thoughtmetric){t.thoughtmetricQueue=t.thoughtmetricQueue||[],t.thoughtmetric=t.thoughtmetric||function(){t.thoughtmetricQueue.push(arguments)};var u=e.createElement("script");u.async=!0,u.src="https://pixel.thoughtmetric.io/tools.js";var h=e.getElementsByTagName("script")[0];h.parentNode.insertBefore(u,h)}}(window,document); thoughtmetric("init","ID-a7990a776af97d3e"); thoughtmetric("pageview");</script>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "tmqlh47ztp");</script>
+<!-- Klaviyo onsite: email popup, form Sn3i8w (3 free cartridges over $200) -->
+<script async src="https://static.klaviyo.com/onsite/js/WJFscE/klaviyo.js"></script>
 </head>
 <body>
 <div class="gh-root">
@@ -5015,15 +5017,47 @@
   // Capture all URL parameters (UTM, coupon, etc.)
   // Store in sessionStorage so they survive trailing-slash redirects
   var PARAM_KEY = 'gh_incoming_params';
-  var qs = window.location.search.replace(/^\?/, '');
+
+  /* ── Klaviyo free-cartridge offer (form Sn3i8w) ──
+     gh_offer=carts3 tells grizzly-coupon-autoapply v1.3.0 to switch the gift
+     on. It is EARNED by submitting the popup, so it is stripped from anything
+     inbound: a shared, pasted or ad-tagged URL must never grant it. */
+  var OFFER_KEY       = 'gh_offer';
+  var OFFER_PARAM     = 'gh_offer=carts3';
+  var OFFER_FLAG      = 'gh_offer_unlocked';
+  var KLAVIYO_FORM_ID = 'Sn3i8w';
+
+  function stripOffer(q) {
+    if (!q) return '';
+    return q.split('&').filter(function(p) {
+      return p && p.split('=')[0] !== OFFER_KEY;
+    }).join('&');
+  }
+  /* localStorage, not sessionStorage: Klaviyo never re-shows the popup once
+     someone submits, so a session-scoped flag would strand anyone who signs
+     up today and orders on a later visit. */
+  function offerUnlocked() {
+    try { if (localStorage.getItem(OFFER_FLAG) === '1') return true; } catch(e) {}
+    try { return sessionStorage.getItem(OFFER_FLAG) === '1'; } catch(e) {}
+    return false;
+  }
+  function unlockOffer() {
+    try { localStorage.setItem(OFFER_FLAG, '1'); } catch(e) {}
+    try { sessionStorage.setItem(OFFER_FLAG, '1'); } catch(e) {}
+  }
+
+  var qs = stripOffer(window.location.search.replace(/^\?/, ''));
   if (qs) {
     try { sessionStorage.setItem(PARAM_KEY, qs); } catch(e) {}
   }
   function getSavedParams() {
     // Prefer live URL params, fall back to sessionStorage
-    var live = window.location.search.replace(/^\?/, '');
-    if (live) return live;
-    try { return sessionStorage.getItem(PARAM_KEY) || ''; } catch(e) { return ''; }
+    var base = stripOffer(window.location.search.replace(/^\?/, ''));
+    if (!base) {
+      try { base = stripOffer(sessionStorage.getItem(PARAM_KEY) || ''); } catch(e) { base = ''; }
+    }
+    if (offerUnlocked()) base = base ? base + '&' + OFFER_PARAM : OFFER_PARAM;
+    return base;
   }
   var overlay = root.querySelector('.gh-cart-overlay');
   var panel = root.querySelector('.gh-cart-panel');
@@ -5107,6 +5141,23 @@
       allLinks[pl].setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + savedParams);
     }
   }
+
+  /* Popup submitted: unlock the gift, then back-fill the outbound links that
+     were decorated at page load, before the flag existed. Checkout URLs call
+     getSavedParams() at click time so they need no back-fill. */
+  window.addEventListener('klaviyoForms', function(ev) {
+    if (!ev || !ev.detail) return;
+    if (ev.detail.formId !== KLAVIYO_FORM_ID || ev.detail.type !== 'submit') return;
+    if (offerUnlocked()) return;
+    unlockOffer();
+    var offerLinks = root.querySelectorAll('a[href^="http"]');
+    for (var ol = 0; ol < offerLinks.length; ol++) {
+      var oh = offerLinks[ol].getAttribute('href');
+      if (!oh || oh.indexOf('grizzlyherb.co') === -1) continue;
+      if (oh.indexOf(OFFER_KEY + '=') !== -1) continue;
+      offerLinks[ol].setAttribute('href', oh + (oh.indexOf('?') === -1 ? '?' : '&') + OFFER_PARAM);
+    }
+  });
 
   function openCart() {
     overlay.classList.add('gh-cart--open');

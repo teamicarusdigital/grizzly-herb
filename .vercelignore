@@ -5,6 +5,7 @@
 # Sync + build tooling. These hold API access patterns and must never ship.
 *.py
 *.php
+_*.js
 *.js.map
 screenshot-*.js
 
