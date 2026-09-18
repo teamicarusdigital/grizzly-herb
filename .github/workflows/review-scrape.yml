@@ -49,8 +49,30 @@ jobs:
             echo "CHANGED=true" >> $GITHUB_ENV
           fi
 
+      # This project's Vercel git integration does not work: deploy hooks return
+      # a PENDING job that never becomes a deployment, and every deployment in
+      # the project's history is source: cli. The old step here posted to that
+      # hook and always exited 0, so stock changes were committed and silently
+      # never went live. Deploy with the CLI instead, the one method proven to
+      # work on this project.
+      #
+      # .vercel/ is gitignored, so CI has no project link. VERCEL_ORG_ID and
+      # VERCEL_PROJECT_ID supply it; without them `vercel deploy --yes` would
+      # create a NEW project rather than deploying this one. They are
+      # identifiers, not credentials, and do nothing without VERCEL_TOKEN.
+      # Team: team-1772s-projects.
       - name: Deploy to Vercel
         if: env.CHANGED == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_Tq4rwZCJKe4gK00awvIt8arp
+          VERCEL_PROJECT_ID: prj_0xuouwvx9khO4He4TNb2Uk2dOM2r
         run: |
-          curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
-          echo "Deploy triggered."
+          set -euo pipefail
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN is not set. Changes were committed but the live site was NOT updated."
+            exit 1
+          fi
+          npm install --global vercel@latest
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+          echo "Deployed to production."
