@@ -5101,6 +5101,11 @@
     // customer cannot buy from. It returns when stock sync flips a
     // variant back to inStock.
     if (allOos) { vCard.classList.add('gh-products__card--hidden-oos'); continue; }
+    // Clear sold-out styling baked into the markup. sync_stock.py only
+    // rewrites data-variants, not classes, so without this a product that
+    // comes back in stock would keep its 'Out of Stock' overlay.
+    vCard.classList.remove('gh-products__card--out-of-stock');
+    vCard.classList.remove('gh-products__card--hidden-oos');
     for (var vi = 0; vi < variants.length; vi++) {
       if (variants[vi].inStock === false) continue;
       var pill = document.createElement('button');
