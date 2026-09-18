@@ -3331,6 +3331,7 @@
 .gh-cartridge-card--selected { border-color: #4a7c2c !important; box-shadow: 0 0 0 2px rgba(74,124,44,0.2) !important; }
 .gh-cartridge-card--oos { opacity: 0.4; pointer-events: none; }
 .gh-cartridge-card--hidden { display: none !important; }
+.gh-grid-empty { grid-column: 1/-1; padding: 32px 16px; text-align: center; font-size: 15px; color: #3a3a3a; }
 .gh-cartridge-card__img-wrap { position: relative; aspect-ratio: 1; background: #f5f3f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .gh-cartridge-card__type { position: absolute; top: 5px; left: 5px; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 2px 5px; border-radius: 4px; z-index: 1; }
 .gh-cartridge-card__type--sativa { background: #fff7ed; color: #b45309; }
@@ -3534,6 +3535,17 @@
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "tmqlh47ztp");</script>
 <!-- Klaviyo onsite: email popup, form Sn3i8w (3 free cartridges over $200) -->
 <script async src="https://static.klaviyo.com/onsite/js/WJFscE/klaviyo.js"></script>
+<style>
+/* The Klaviyo popup renders its heading as <h1>. Keep page-level element
+   styling out of it: a line-height below 1 collapses the heading onto
+   itself and overlaps the two lines. */
+[class*="kl-private-reset-css"] h1,
+[class*="kl-private-reset-css"] h2,
+[class*="kl-private-reset-css"] h3 {
+  line-height: normal;
+  letter-spacing: normal;
+}
+</style>
 </head>
 <body>
 <div class="gh-root">
@@ -5317,6 +5329,9 @@
     var html = '';
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var c = CARTRIDGES[i];
+      // Sold out: leave it out of the grid entirely. sync_stock.py
+      // refreshes inStock every 4h, so it returns on its own.
+      if (!c.inStock) continue;
       var img = CART_IMGS[c.pid] || '';
       var sub = c.lr ? 'Live Resin' : (c.type.charAt(0).toUpperCase() + c.type.slice(1));
       html += '<div class="gh-cartridge-card' + (!c.inStock ? ' gh-cartridge-card--oos' : '') + '" data-pid="' + c.pid + '" data-type="' + c.type + '" data-live-resin="' + (c.lr?'1':'0') + '">'
@@ -5338,7 +5353,7 @@
       }
       html += '</div></div>';
     }
-    grid.innerHTML = html;
+    grid.innerHTML = html || '<div class="gh-grid-empty">Every flavour is sold out right now. Please check back shortly.</div>';
   }
 
   function buildIndivGrid() {
@@ -5347,6 +5362,9 @@
     var html = '';
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var c = CARTRIDGES[i];
+      // Sold out: leave it out of the grid entirely. sync_stock.py
+      // refreshes inStock every 4h, so it returns on its own.
+      if (!c.inStock) continue;
       var img = CART_IMGS[c.pid] || '';
       var sub = c.lr ? 'Live Resin' : (c.type.charAt(0).toUpperCase() + c.type.slice(1));
       html += '<div class="gh-cartridge-card' + (!c.inStock ? ' gh-cartridge-card--oos' : '') + '" data-ipid="' + c.pid + '" data-type="' + c.type + '" data-live-resin="' + (c.lr?'1':'0') + '">'
@@ -5372,7 +5390,7 @@
       }
       html += '</div></div>';
     }
-    grid.innerHTML = html;
+    grid.innerHTML = html || '<div class="gh-grid-empty">Every flavour is sold out right now. Please check back shortly.</div>';
   }
 
   renderCart();

@@ -137,6 +137,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 .flavorCard.selected{border-color:var(--green);background:#f5fbf4}
 .flavorCard.oos{opacity:.45;pointer-events:none}
 .flavorCard.hidden{display:none}
+.gridEmpty{grid-column:1/-1;padding:32px 16px;text-align:center;font-size:15px;color:#3a3a3a}
 .fImg{width:100%;aspect-ratio:1;object-fit:contain;background:#f5f3f0;padding:8px}
 .fBody{padding:10px 12px 12px;text-align:center}
 .fType{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:5px}
@@ -281,6 +282,17 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
 </script>
 <!-- Klaviyo onsite: email popup, form Sn3i8w (3 free cartridges over $200) -->
 <script async src="https://static.klaviyo.com/onsite/js/WJFscE/klaviyo.js"></script>
+<style>
+/* The Klaviyo popup renders its heading as <h1>. Keep page-level element
+   styling out of it: a line-height below 1 collapses the heading onto
+   itself and overlaps the two lines. */
+[class*="kl-private-reset-css"] h1,
+[class*="kl-private-reset-css"] h2,
+[class*="kl-private-reset-css"] h3 {
+  line-height: normal;
+  letter-spacing: normal;
+}
+</style>
 </head>
 <body>
 
@@ -728,6 +740,9 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
     var html = '';
     for (var i = 0; i < CARTRIDGES.length; i++) {
       var c = CARTRIDGES[i];
+      // Sold out: leave it out of the grid entirely. sync_stock.py
+      // refreshes inStock every 4h, so it returns on its own.
+      if (!c.inStock) continue;
       var qty = qtys[c.pid] || 0;
       var typeLabel = c.lr ? 'Live Resin' : (c.type.charAt(0).toUpperCase() + c.type.slice(1));
       var typeClass = c.lr ? 'live-resin' : c.type;
@@ -754,7 +769,7 @@ h1{font-family:Outfit,Poppins,sans-serif;font-size:clamp(42px,5.8vw,80px);line-h
       }
       html += '</div></div>';
     }
-    grid.innerHTML = html;
+    grid.innerHTML = html || '<div class="gridEmpty">Every flavour is sold out right now. Please check back shortly.</div>';
   }
 
   /* ── TIERS ── */

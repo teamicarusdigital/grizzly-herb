@@ -3709,6 +3709,18 @@
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "tmqlh47ztp");</script>
 <!-- Klaviyo onsite: email popup, form Sn3i8w (3 free cartridges over $200) -->
 <script async src="https://static.klaviyo.com/onsite/js/WJFscE/klaviyo.js"></script>
+<style>
+/* The Klaviyo popup renders its heading as <h1>. Keep page-level element
+   styling out of it: a line-height below 1 collapses the heading onto
+   itself and overlaps the two lines. */
+[class*="kl-private-reset-css"] h1,
+[class*="kl-private-reset-css"] h2,
+[class*="kl-private-reset-css"] h3 {
+  line-height: normal;
+  letter-spacing: normal;
+}
+</style>
+<style>.gh-products__card--hidden-oos{display:none!important}</style>
 </head>
 <body>
 <div class="gh-root">
@@ -5085,11 +5097,14 @@
       if (variants[vi].inStock !== false) { if (firstInStock === -1) firstInStock = vi; allOos = false; }
     }
     if (firstInStock === -1) firstInStock = 0;
-    if (allOos) vCard.classList.add('gh-products__card--out-of-stock');
+    // Every variant sold out: hide the card rather than show one the
+    // customer cannot buy from. It returns when stock sync flips a
+    // variant back to inStock.
+    if (allOos) { vCard.classList.add('gh-products__card--hidden-oos'); continue; }
     for (var vi = 0; vi < variants.length; vi++) {
-      var isOos = variants[vi].inStock === false;
+      if (variants[vi].inStock === false) continue;
       var pill = document.createElement('button');
-      pill.className = 'gh-products__card-variant' + (vi === firstInStock ? ' gh-products__card-variant--active' : '') + (isOos ? ' gh-products__card-variant--oos' : '');
+      pill.className = 'gh-products__card-variant' + (vi === firstInStock ? ' gh-products__card-variant--active' : '');
       pill.setAttribute('data-vid', variants[vi].vid);
       pill.setAttribute('data-vprice', variants[vi].price);
       pill.setAttribute('data-vlabel', variants[vi].label);
