@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14T20:12:18Z",
+  "updated": "2026-09-22T22:48:28Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -22,8 +22,8 @@
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Pure-Leaf-Orange-Push-Pop-THCA-Flower-Cropped.png",
       "inStock": true,
-      "rating": 4.52,
-      "reviews": 21,
+      "rating": 4.5,
+      "reviews": 22,
       "isNew": false
     },
     {
@@ -34,8 +34,8 @@
       "price": 80.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/images-2.jpg",
       "inStock": true,
-      "rating": 4.7,
-      "reviews": 33,
+      "rating": 4.68,
+      "reviews": 34,
       "isNew": false,
       "regular": 85.0
     },
@@ -54,13 +54,13 @@
     {
       "pid": 148701,
       "vid": 148706,
-      "name": "Frosted Grape",
+      "name": "Black Tuna",
       "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/grape-frosty-scaled.webp",
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/a-cluster-of-black-tuna-weed-buds.jpg",
       "inStock": true,
-      "rating": 4.82,
-      "reviews": 45,
+      "rating": 4.8,
+      "reviews": 46,
       "isNew": false
     }
   ]
