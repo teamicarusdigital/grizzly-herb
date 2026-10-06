@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-06T18:05:43Z",
+  "updated": "2026-10-06T23:39:39Z",
   "bundle_id": 131822,
   "products": [
     {
       "pid": 122898,
       "vid": 144052,
-      "name": "Zed",
+      "name": "Kush Mintz",
       "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/Bonguru-Rockstar-6.jpg",
-      "inStock": false,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/500.webp",
+      "inStock": true,
       "rating": 4.83,
       "reviews": 36,
       "isNew": false
