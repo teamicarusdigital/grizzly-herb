@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-15T22:57:18Z",
+  "updated": "2026-10-22T23:03:05Z",
   "bundle_id": 131822,
   "products": [
     {
       "pid": 122898,
       "vid": 144052,
       "name": "Kush Mintz",
-      "meta": "Indica \u00b7 AAA+",
+      "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/500.webp",
       "inStock": true,
@@ -46,7 +46,7 @@
       "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/WHTC-Gelato-Strain.webp",
-      "inStock": true,
+      "inStock": false,
       "rating": 4.75,
       "reviews": 32,
       "isNew": false
