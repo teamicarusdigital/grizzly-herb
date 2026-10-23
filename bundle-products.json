@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T23:03:05Z",
+  "updated": "2026-10-23T16:42:34Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -42,11 +42,11 @@
     {
       "pid": 148691,
       "vid": 148696,
-      "name": "Gelato",
-      "meta": "Hybrid \u00b7 AAA+",
+      "name": "Strawberry",
+      "meta": "Sativa \u00b7 AAA+",
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/WHTC-Gelato-Strain.webp",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.75,
       "reviews": 32,
       "isNew": false
