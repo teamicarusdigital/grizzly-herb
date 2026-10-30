@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T16:42:34Z",
+  "updated": "2026-10-30T20:32:01Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -34,8 +34,8 @@
       "price": 75.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/island-pink-smalls.jpg",
       "inStock": true,
-      "rating": 4.68,
-      "reviews": 34,
+      "rating": 4.66,
+      "reviews": 35,
       "isNew": false,
       "regular": 85.0
     },
