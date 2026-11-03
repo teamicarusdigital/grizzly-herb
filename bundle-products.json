@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02T17:59:03Z",
+  "updated": "2026-11-03T02:04:35Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -42,10 +42,10 @@
     {
       "pid": 148691,
       "vid": 148696,
-      "name": "Strawberry",
-      "meta": "Sativa \u00b7 AAA+",
+      "name": "Master Kush",
+      "meta": "Indica \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/WHTC-Gelato-Strain.webp",
+      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/media.jpg",
       "inStock": true,
       "rating": 4.75,
       "reviews": 32,
