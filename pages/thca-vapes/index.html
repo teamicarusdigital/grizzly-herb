@@ -3508,27 +3508,6 @@
 .gh-upgrade-toast.gh-toast--visible { transform: translateX(-50%) translateY(0); }
 </style>
 
-<!-- Tracklution Pixel -->
-<script>
-    !function(t,l,r,o,c,k,s)
-    {if(t.tlq)return;c=t.tlq=function(){c.callMethod?
-        c.callMethod(arguments):c.queue.push(arguments)};
-        if(!t._tlq)t._tlq=c;c.push=c;c.loaded=!0;c.version='1.0';c.src=o;
-        c.queue=[];k=l.createElement(r);k.async=!0;c.pd = false;c.tools = null;
-        k.src=o;s=l.getElementsByTagName(r)[0];
-        s.parentNode.insertBefore(k,s);k.onerror=function(){
-        o='https://main-47660.trlution.com/js/script-dynamic.js?version=1771121839100';
-        t._tlq.src=o;k=l.createElement(r);k.async=!0;k.src=o;
-        s.parentNode.insertBefore(k, s)
-        }}(window,document,'script',
-        'https://tralut.grizzlyherb.com/js/script-dynamic.js?version=1771121839100')
-
-    tlq('init', 'LS-25654158-0');
-    tlq('track', 'PageView');
-    tlq('track', 'ViewContent', {content_name: 'THCA Vapes'});
-    tlq('track', 'PageView', {target: 'LS-74255460-6'});
-    tlq('track', 'ViewContent', {content_name: 'THCA Vapes', target: 'LS-74255460-6'});
-</script>
 <!-- ThoughtMetric Pixel -->
 <script>!function(t,e,i){if(!t.thoughtmetric){t.thoughtmetricQueue=t.thoughtmetricQueue||[],t.thoughtmetric=t.thoughtmetric||function(){t.thoughtmetricQueue.push(arguments)};var u=e.createElement("script");u.async=!0,u.src="https://pixel.thoughtmetric.io/tools.js";var h=e.getElementsByTagName("script")[0];h.parentNode.insertBefore(u,h)}}(window,document); thoughtmetric("init","ID-a7990a776af97d3e"); thoughtmetric("pageview");</script>
 <!-- Microsoft Clarity -->
@@ -5052,15 +5031,6 @@ window.icATC=function(n,ids,v){
     if (newQty < 0) newQty = 0;
     if (delta > 0 && getFilledSlots() >= selectedBundle.size) return;
     cartridgeQtys[pid] = newQty;
-    if (delta > 0 && typeof tlq === 'function') {
-      for (var i = 0; i < CARTRIDGES.length; i++) {
-        if (CARTRIDGES[i].pid === pid) {
-          tlq('track','AddToCart',{content_name:CARTRIDGES[i].name,content_ids:[pid],value:0,currency:'CAD'});
-          tlq('track','AddToCart',{content_name:CARTRIDGES[i].name,content_ids:[pid],value:0,currency:'CAD',target:'LS-74255460-6'});
-          break;
-        }
-      }
-    }
     if (delta > 0) {
       for (var ic_i = 0; ic_i < CARTRIDGES.length; ic_i++) {
         if (CARTRIDGES[ic_i].pid === pid) {
@@ -5525,10 +5495,6 @@ window.icATC=function(n,ids,v){
     var chkBtn = e.target.closest('.gh-cart-panel__checkout-btn');
     if (chkBtn) {
       if (selectedBundle && isBundleComplete()) {
-        if (typeof tlq === 'function') {
-          tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD'});
-          tlq('track','InitiateCheckout',{content_name:selectedBundle.size+'-Pack THCA Vape Bundle',value:selectedBundle.price,currency:'CAD',target:'LS-74255460-6'});
-        }
         var hasUpsells = Object.keys(upsellCart).length > 0;
         chkBtn.classList.add('gh-checkout--loading');
         if (hasUpsells) { chkBtn.innerHTML = 'Preparing cart&#8230;'; chkBtn.disabled = true; }

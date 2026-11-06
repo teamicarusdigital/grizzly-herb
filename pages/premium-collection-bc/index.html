@@ -3682,27 +3682,6 @@
     }
 </style>
 
-<!-- Tracklution Pixel -->
-<script>
-    !function(t,l,r,o,c,k,s)
-    {if(t.tlq)return;c=t.tlq=function(){c.callMethod?
-        c.callMethod(arguments):c.queue.push(arguments)};
-        if(!t._tlq)t._tlq=c;c.push=c;c.loaded=!0;c.version='1.0';c.src=o;
-        c.queue=[];k=l.createElement(r);k.async=!0;c.pd = false;c.tools = null;
-        k.src=o;s=l.getElementsByTagName(r)[0];
-        s.parentNode.insertBefore(k,s);k.onerror=function(){
-        o='https://main-47660.trlution.com/js/script-dynamic.js?version=1771121839100';
-        t._tlq.src=o;k=l.createElement(r);k.async=!0;k.src=o;
-        s.parentNode.insertBefore(k, s)
-        }}(window,document,'script',
-        'https://tralut.grizzlyherb.com/js/script-dynamic.js?version=1771121839100')
-
-    tlq('init', 'LS-25654158-0');
-    tlq('track', 'PageView');
-    tlq('track', 'ViewContent', {content_name: 'Premium Collection HSH'});
-    tlq('track', 'PageView', {target: 'LS-74255460-6'});
-    tlq('track', 'ViewContent', {content_name: 'Premium Collection HSH', target: 'LS-74255460-6'});
-</script>
 <!-- ThoughtMetric Pixel -->
 <script>!function(t,e,i){if(!t.thoughtmetric){t.thoughtmetricQueue=t.thoughtmetricQueue||[],t.thoughtmetric=t.thoughtmetric||function(){t.thoughtmetricQueue.push(arguments)};var u=e.createElement("script");u.async=!0,u.src="https://pixel.thoughtmetric.io/tools.js";var h=e.getElementsByTagName("script")[0];h.parentNode.insertBefore(u,h)}}(window,document); thoughtmetric("init","ID-a7990a776af97d3e"); thoughtmetric("pageview");</script>
 <!-- Microsoft Clarity -->
@@ -5287,24 +5266,6 @@ window.icATC=function(n,ids,v){
     }
     var displayName = label ? name + ' (' + label + ')' : name;
     cart.push({ id: id, vid: vid, name: displayName, price: parseFloat(price), image: image, qty: 1, regular: regular ? parseFloat(regular) : null });
-    // Tracklution AddToCart event
-    if (typeof tlq === 'function') {
-      tlq('track', 'AddToCart', {
-        content_name: displayName,
-        content_ids: [vid],
-        value: parseFloat(price),
-        currency: 'CAD'
-      });
-    }
-    if (typeof tlq === 'function') {
-      tlq('track', 'AddToCart', {
-        content_name: displayName,
-        content_ids: [vid],
-        value: parseFloat(price),
-        currency: 'CAD',
-        target: 'LS-74255460-6'
-      });
-    }
     icATC(displayName, [vid], parseFloat(price));
     renderCart();
     openCart();
@@ -5408,10 +5369,6 @@ window.icATC=function(n,ids,v){
       qty:     1,
       strains: strains
     });
-    if (typeof tlq === 'function') {
-      tlq('track', 'AddToCart', { content_name: '5-Strain Bundle', content_ids: ['131822'], value: 340, currency: 'CAD' });
-      tlq('track', 'AddToCart', { content_name: '5-Strain Bundle', content_ids: ['131822'], value: 340, currency: 'CAD', target: 'LS-74255460-6' });
-    }
     icATC('5-Strain Bundle', ['131822'], 340);
     renderCart();
     openCart();
