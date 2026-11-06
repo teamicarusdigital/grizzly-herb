@@ -5034,7 +5034,7 @@ window.icATC=function(n,ids,v){
     if (delta > 0) {
       for (var ic_i = 0; ic_i < CARTRIDGES.length; ic_i++) {
         if (CARTRIDGES[ic_i].pid === pid) {
-          icATC(CARTRIDGES[ic_i].name, [pid], 0);
+          icATC(CARTRIDGES[ic_i].name, [pid], selectedBundle.price);
           break;
         }
       }

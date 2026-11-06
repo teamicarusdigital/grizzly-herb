@@ -84,7 +84,8 @@ const events = page => page.evaluate(() => window.__ic.map(a => [a[0], a[1]]));
         `content_ids present (${JSON.stringify(p.content_ids)})`);
       say(typeof p.content_name === 'string' && p.content_name.length > 0,
         `content_name "${p.content_name}"`);
-      say(p.value !== undefined, `value ${p.value}`);
+      say(typeof p.value === 'number' && p.value > 0,
+        `value is a positive number (${p.value})`);
     }
     say(!after.some(e => e[0] === 'InitiateCheckout'), 'no InitiateCheckout fired');
     say(errs.length === 0, errs.length ? `JS errors: ${errs[0]}` : 'no JS errors');
