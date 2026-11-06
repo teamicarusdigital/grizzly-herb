@@ -3546,6 +3546,18 @@
   letter-spacing: normal;
 }
 </style>
+<!-- Icarus first-party tracking -->
+<script>
+!function(w,d){w.icq=w.icq||[];w.icTrack=w.icTrack||function(){w.icq.push(arguments)};var s=d.createElement("script");s.async=!0;s.src="https://tracking.icarusdigitalmarketing.com/s.js?c=7875287254&p=other";d.head.appendChild(s)}(window,document);
+/* AddToCart once per session. Flag is written before the event so a double
+   click cannot slip a second one through between the read and the write. */
+window.icATC=function(n,ids,v){
+  try{ if(sessionStorage.getItem("ic_atc_fired")) return;
+       sessionStorage.setItem("ic_atc_fired","1"); }catch(e){}
+  try{ icTrack("AddToCart",{content_name:n,content_ids:ids,
+       content_type:"product",value:v,currency:"CAD"}); }catch(e){}
+};
+</script>
 </head>
 <body>
 <div class="gh-root">
@@ -5045,6 +5057,14 @@
         if (CARTRIDGES[i].pid === pid) {
           tlq('track','AddToCart',{content_name:CARTRIDGES[i].name,content_ids:[pid],value:0,currency:'CAD'});
           tlq('track','AddToCart',{content_name:CARTRIDGES[i].name,content_ids:[pid],value:0,currency:'CAD',target:'LS-74255460-6'});
+          break;
+        }
+      }
+    }
+    if (delta > 0) {
+      for (var ic_i = 0; ic_i < CARTRIDGES.length; ic_i++) {
+        if (CARTRIDGES[ic_i].pid === pid) {
+          icATC(CARTRIDGES[ic_i].name, [pid], 0);
           break;
         }
       }
