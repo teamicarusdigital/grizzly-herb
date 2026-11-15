@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T19:31:10Z",
+  "updated": "2026-11-15T05:30:13Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -33,7 +33,7 @@
       "meta": "Indica \u00b7 AAA+",
       "price": 75.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/island-pink-smalls.jpg",
-      "inStock": true,
+      "inStock": false,
       "rating": 4.66,
       "reviews": 38,
       "isNew": false,
