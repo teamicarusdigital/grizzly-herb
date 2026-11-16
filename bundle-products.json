@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T05:30:13Z",
+  "updated": "2026-11-16T18:06:12Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -29,11 +29,11 @@
     {
       "pid": 144057,
       "vid": 144062,
-      "name": "Island Kush",
+      "name": "Permanent Marker",
       "meta": "Indica \u00b7 AAA+",
       "price": 75.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/island-pink-smalls.jpg",
-      "inStock": false,
+      "image": "https://grizzlyherb.co/wp-content/uploads/2026/07/images-1.jpg",
+      "inStock": true,
       "rating": 4.66,
       "reviews": 38,
       "isNew": false,
@@ -42,10 +42,10 @@
     {
       "pid": 148691,
       "vid": 148696,
-      "name": "AMG",
+      "name": "Mac1",
       "meta": "Hybrid \u00b7 AAA+",
       "price": 85.0,
-      "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/media.jpg",
+      "image": "https://grizzlyherb.co/wp-content/uploads/2026/04/strain-25.png",
       "inStock": true,
       "rating": 4.75,
       "reviews": 32,
