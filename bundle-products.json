@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T18:06:12Z",
+  "updated": "2026-11-21T21:30:16Z",
   "bundle_id": 131822,
   "products": [
     {
@@ -10,8 +10,8 @@
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/500.webp",
       "inStock": true,
-      "rating": 4.83,
-      "reviews": 36,
+      "rating": 4.84,
+      "reviews": 37,
       "isNew": false
     },
     {
@@ -22,8 +22,8 @@
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/FrostedGrapesD8Flower1.webp",
       "inStock": true,
-      "rating": 4.5,
-      "reviews": 22,
+      "rating": 4.52,
+      "reviews": 23,
       "isNew": false
     },
     {
@@ -34,8 +34,8 @@
       "price": 75.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2026/07/images-1.jpg",
       "inStock": true,
-      "rating": 4.66,
-      "reviews": 38,
+      "rating": 4.67,
+      "reviews": 39,
       "isNew": false,
       "regular": 85.0
     },
@@ -47,8 +47,8 @@
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2026/04/strain-25.png",
       "inStock": true,
-      "rating": 4.75,
-      "reviews": 32,
+      "rating": 4.76,
+      "reviews": 33,
       "isNew": false
     },
     {
@@ -59,8 +59,8 @@
       "price": 85.0,
       "image": "https://grizzlyherb.co/wp-content/uploads/2025/06/a-cluster-of-black-tuna-weed-buds.jpg",
       "inStock": true,
-      "rating": 4.8,
-      "reviews": 46,
+      "rating": 4.81,
+      "reviews": 47,
       "isNew": false
     }
   ]
